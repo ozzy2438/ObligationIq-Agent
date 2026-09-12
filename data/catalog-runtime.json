@@ -1,0 +1,14 @@
+{
+  "implementation": "Unity Catalog OSS",
+  "version": "0.5.0",
+  "image": "unitycatalog/unitycatalog@sha256:c664f371629059f17d778c0da6d1623a4496bd7e6a72f3e17d972c13832315de",
+  "source_commit": "6c7d035ba2050b78285726276cebab22d8bcfa76",
+  "source_url": "https://github.com/unitycatalog/unitycatalog/tree/v0.5.0",
+  "retrieved_on": "2026-09-12",
+  "licence": "Apache-2.0",
+  "container": "obligationiq-uc",
+  "volume": "obligationiq-uc-state",
+  "catalog": "obligationiq",
+  "schema": "register",
+  "table": "obligations"
+}

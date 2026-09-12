@@ -1,6 +1,6 @@
 # Phase 2 — draft obligation register
 
-Status: **source-review queue complete; Phase 2 operational/platform gates remain open**. Snapshot: 12 September 2026.
+Status: **Phase 2 complete using the documented local Unity Catalog OSS fallback**. Snapshot: 12 September 2026.
 
 The [review pack](phase-2-review.md) contains 32 source-reviewed records across both families and regimes. OIQ-024 and OIQ-025 have explicit human approvals. The owner subsequently authorised autonomous source review; the other 30 were approved by the agent after comparison and correction where needed. See the [consolidated audit](review-summary.md). Drafts remain versioned and review decisions bind exact content; the resolved register and Delta snapshot carry status, reviewer type and verification date. Phase 3 has not started.
 
@@ -43,10 +43,10 @@ Dependency installation and source acquisition use the network. The subsequent v
 - No mandatory annual medical reconfirmation obligation has been established from the selected provisions. Optional requests to reconfirm are not evidence of an annual duty. No annual breach control was invented.
 - Deregistration notification and recordkeeping candidates concern completed events; they never determine permission to deregister or disconnect. Lawful-pathway assessment remains a prerequisite.
 
-## Outstanding Phase 2 gates
+## Completion and downstream gates
 
 1. Source-content review is complete under the owner's revised authorisation. Two human approvals and 30 authorised agent approvals are separately labelled. Only explicit human decisions set `verified_by_human=true`; both review methods can set `review_status=APPROVED` and `verification_date`. Agent judgments are not represented as human review.
 2. Resolve operational jurisdictional application instruments before customer-level use. The specific Victorian Act dependencies for OIQ-021/022 are now verified against a pinned supplemental source. The SA consolidated National Law is not proof of identical state implementation. Snapshot coverage is not clause-level commencement history.
-3. Decide and validate Unity Catalog governance, or explicitly accept the local fallback as a scope change. No Databricks resource has been created under the 10 AUD ceiling, and local Delta does not satisfy the brief's Unity Catalog requirement.
+3. Actual Unity Catalog OSS now registers and resolves the external Delta table. Authorization, schema fidelity, repeat reads and restart persistence are verified in the [local catalog runbook](local-unity-catalog.md). Section 3 of the brief already permits an explicit local fallback when cloud resources are unavailable. No managed Databricks, row-level security or automatic lineage is claimed.
 
-Until these gates are resolved, the register is a reviewable draft. There is no operational compliance output, synthetic population, risk model or agent/MCP implementation. This deliberately stops before Phase 3.
+The Phase 2 source-trace and versioned-register acceptance criteria are met, with the owner-authorised review amendment and explicit local catalog fallback. Operational applicability remains a downstream prerequisite to customer-level controls, not a claim established by source approval. Phase 3 calibration/population work can now begin; no operational compliance output, risk model or agent/MCP implementation exists.

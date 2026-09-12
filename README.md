@@ -4,7 +4,7 @@ Independent reference build for electricity compliance evidence in Australia.
 
 **Phases 0–1 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus and persisted CPU embeddings. No customer population, compliance determination or Azure model evaluation exists yet.
 
-**Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. Operational applicability and Unity Catalog remain outstanding; Phase 3 has not started.
+**Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. The external Delta register is now registered in local Unity Catalog OSS, with schema/readback, anonymous-access refusal and restart persistence verified. [Local catalog runbook](docs/local-unity-catalog.md). Phase 2 is complete under the documented local fallback; operational applicability remains a gate before customer-level controls. Phase 3 has not started.
 
 The eventual output is a source-backed evidence pack. Compliance decisions belong to deterministic controls using versioned, human-verified obligations; language models may retrieve, draft and explain evidence.
 

@@ -60,8 +60,8 @@ def main():
               "agent_approved_records": sum(r["review_status"] == "APPROVED" and r["verification_method"] == "agent_source_review" for r in resolved),
               "pending_records": sum(r["review_status"] != "APPROVED" for r in resolved),
               "human_verified_records": sum(r["verified_by_human"] for r in resolved), "control_eligible_records": 0,
-              "unity_catalog_verified": False,
-              "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."}
+              "unity_catalog_check": "Separate live loopback check: docs/catalog-verification.json",
+              "limit": "Automated checks establish parent-clause traceability only. Human and authorised agent decisions are separately recorded. Operational applicability and controls remain unverified."}
     (ROOT / "docs/phase-2-verification.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "source_trace_checks"}))
 

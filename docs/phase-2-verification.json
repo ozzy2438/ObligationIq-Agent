@@ -242,6 +242,6 @@
   "pending_records": 0,
   "human_verified_records": 2,
   "control_eligible_records": 0,
-  "unity_catalog_verified": false,
-  "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."
+  "unity_catalog_check": "Separate live loopback check: docs/catalog-verification.json",
+  "limit": "Automated checks establish parent-clause traceability only. Human and authorised agent decisions are separately recorded. Operational applicability and controls remain unverified."
 }
