@@ -1,4 +1,4 @@
-"""Candidate obligations only. Source traceability does not confer human approval."""
+"""Version-bound source review; human and authorised agent decisions stay distinct."""
 
 import argparse
 import hashlib
@@ -12,6 +12,7 @@ from src.dataplane.corpus import load_manifest
 
 CANDIDATES = ROOT / "data/obligation-candidates.json"
 REVIEWS = ROOT / "data/human-reviews.json"
+SOURCE_REVIEWS = ROOT / "data/source-reviews.json"
 LIST_FIELDS = {"jurisdiction", "evidence_required", "pending_checks"}
 INTEGER_FIELDS = {"deadline_value", "source_page_start", "source_page_end"}
 FIELDS = set("""obligation_id instrument jurisdiction regime clause_reference parent_clause
@@ -19,6 +20,8 @@ obligation_family trigger_event required_action deadline_value deadline_unit tim
 timing_anchor evidence_required applies_to_customer_segment source_id source_url source_version
 source_sha256 source_clause_sha256 source_page_start source_page_end effective_from effective_to
 coverage_as_of extraction_method verified_by_human verification_date pending_checks record_sha256""".split())
+REGISTER_FIELDS = FIELDS | {"review_status", "verification_method", "reviewer",
+                            "review_reasoning", "review_correction"}
 NULLABLE = {"deadline_value", "deadline_unit", "timing_anchor", "effective_from",
             "effective_to", "verification_date"}
 
@@ -101,43 +104,63 @@ def load_candidates(path=CANDIDATES):
 
 
 def reviewed_records(records, reviews=None):
-    """Apply recorded human decisions to exact draft versions; never infer consent.
+    """Apply explicit decisions to exact drafts without mislabelling agent review.
 
     The Git-reviewed decision file is an audit record of conversation approvals,
     not a cryptographic identity system or permission to run compliance controls.
     """
     validate_candidates(records)
-    reviews = json.loads(REVIEWS.read_text()) if reviews is None else reviews
+    reviews = (json.loads(REVIEWS.read_text()) + json.loads(SOURCE_REVIEWS.read_text())
+               if reviews is None else reviews)
     if not isinstance(reviews, list):
-        raise RegisterError("Human reviews must be a list")
+        raise RegisterError("Reviews must be a list")
     by_id = {r["obligation_id"]: dict(r) for r in records}
     seen = set()
     for review in reviews:
         required = {"obligation_id", "decision", "reviewer", "verification_date",
                     "reviewed_record_sha256", "source_sha256", "basis", "scope", "recorded_by"}
+        required |= {"source_url", "clause_reference", "source_version", "correction",
+                     "before_record_sha256"}
         if (not isinstance(review, dict) or set(review) != required or
                 any(type(v) is not str or not v.strip() for v in review.values())):
-            raise RegisterError("Incomplete human decision")
+            raise RegisterError("Incomplete review decision")
         oid = review["obligation_id"]
         r = by_id.get(oid)
         if r is None or oid in seen:
-            raise RegisterError("Unknown or duplicate human decision")
+            raise RegisterError("Unknown or duplicate review decision")
         seen.add(oid)
-        if review["decision"] != "APPROVED" or review["scope"] != "human_content_review":
-            raise RegisterError("Unsupported human decision or scope")
+        if (review["decision"] not in {"APPROVED", "PENDING HUMAN REVIEW"} or
+                review["scope"] not in {"human_content_review", "agent_source_review"}):
+            raise RegisterError("Unsupported review decision or scope")
+        if any(review[k] != r[k] for k in ("source_url", "clause_reference", "source_version")):
+            raise RegisterError("Review citation does not match current draft")
+        if not re.fullmatch(r"[0-9a-f]{64}", review["before_record_sha256"]):
+            raise RegisterError("Invalid pre-review digest")
         if (review["reviewed_record_sha256"] != r["record_sha256"] or
                 review["source_sha256"] != r["source_sha256"]):
-            raise RegisterError("Human approval does not match current draft/source; re-review required")
+            raise RegisterError("Review does not match current draft/source; re-review required")
         date.fromisoformat(review["verification_date"])
-        r["verified_by_human"] = True
-        r["verification_date"] = review["verification_date"]
+        approved = review["decision"] == "APPROVED"
+        r["verified_by_human"] = approved and review["scope"] == "human_content_review"
+        r["verification_date"] = review["verification_date"] if approved else None
+        r["review_status"] = review["decision"]
+        r["verification_method"] = review["scope"]
+        r["reviewer"] = review["reviewer"]
+        r["review_reasoning"] = review["basis"]
+        r["review_correction"] = review.get("correction", "None; explicit human approval of the bound draft.")
+    for r in by_id.values():
+        if r["obligation_id"] not in seen:
+            r.update(review_status="PENDING HUMAN REVIEW", verification_method="unreviewed",
+                     reviewer="Unassigned", review_reasoning="No recorded decision", review_correction="None")
         r["record_sha256"] = record_hash(r)
     return list(by_id.values())
 
 
 def for_controls(records):
-    validate_candidates(records)
-    raise RegisterError("Human verification is incomplete and jurisdiction review is pending; controls remain blocked")
+    reviewed = reviewed_records(records)
+    if any(r["review_status"] != "APPROVED" for r in reviewed):
+        raise RegisterError("Source review pending; controls remain blocked")
+    raise RegisterError("Control Engine and operational applicability gates are not implemented")
 
 
 def materialize(records, path=settings.register_dir, reviews=None):
@@ -160,10 +183,11 @@ def materialize(records, path=settings.register_dir, reviews=None):
     schema = pa.schema([
         pa.field(key, pa.list_(pa.string()) if key in LIST_FIELDS else pa.int64()
                  if key in INTEGER_FIELDS else pa.bool_() if key == "verified_by_human"
-                 else pa.string(), nullable=key in NULLABLE) for key in sorted(FIELDS)])
+                 else pa.string(), nullable=key in NULLABLE) for key in sorted(REGISTER_FIELDS)])
     data = pa.Table.from_pylist(ordered, schema=schema)
     write_deltalake(table if table is not None else str(path), data,
-                   mode="overwrite" if table is not None else "error")
+                   mode="overwrite" if table is not None else "error",
+                   schema_mode="overwrite" if table is not None else None)
     return {"version": DeltaTable(str(path)).version(), "written": True, "records": len(records)}
 
 
@@ -173,7 +197,8 @@ def main():
     args = parser.parse_args()
     records = load_candidates()
     result = (materialize(records) if args.command == "materialize" else
-              {"records": len(records), "human_verified": sum(
+              {"records": len(records), "approved": sum(r["review_status"] == "APPROVED"
+                  for r in reviewed_records(records)), "human_verified": sum(
                   r["verified_by_human"] for r in reviewed_records(records)), "control_eligible": 0})
     print(json.dumps(result))
 

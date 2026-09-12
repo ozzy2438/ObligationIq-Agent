@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import ROOT
 from src.dataplane.corpus import clause_blocks, extract_pages, load_manifest, verified_pdf
-from src.register.obligations import REVIEWS, load_candidates, materialize, reviewed_records
+from src.register.obligations import REVIEWS, SOURCE_REVIEWS, load_candidates, materialize, reviewed_records
 
 
 def verify_sources(records):
@@ -41,6 +41,10 @@ def main():
     socket.create_connection = socket.getaddrinfo = denied
     records = load_candidates()
     checks = verify_sources(records)
+    supplemental = json.loads((ROOT / "data/review-sources.json").read_text())["sources"]
+    for source in supplemental:
+        verified_pdf(source)
+    resolved = reviewed_records(records)
     first = materialize(records)
     repeat = materialize(records)
     if repeat["written"] or first["version"] != repeat["version"]:
@@ -48,9 +52,14 @@ def main():
     report = {"snapshot_date": "2026-09-12", "records": len(records),
               "candidate_file_sha256": hashlib.sha256((ROOT / "data/obligation-candidates.json").read_bytes()).hexdigest(),
               "human_reviews_sha256": hashlib.sha256(REVIEWS.read_bytes()).hexdigest(),
+              "source_reviews_sha256": hashlib.sha256(SOURCE_REVIEWS.read_bytes()).hexdigest(),
+              "supplemental_sources_verified": [s["id"] for s in supplemental],
               "source_trace_checks": checks, "delta_version": repeat["version"],
               "repeat_delta_writes": 0, "network_connections": 0, "model_calls": 0,
-              "human_verified_records": sum(r["verified_by_human"] for r in reviewed_records(records)), "control_eligible_records": 0,
+              "approved_records": sum(r["review_status"] == "APPROVED" for r in resolved),
+              "agent_approved_records": sum(r["review_status"] == "APPROVED" and r["verification_method"] == "agent_source_review" for r in resolved),
+              "pending_records": sum(r["review_status"] != "APPROVED" for r in resolved),
+              "human_verified_records": sum(r["verified_by_human"] for r in resolved), "control_eligible_records": 0,
               "unity_catalog_verified": False,
               "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."}
     (ROOT / "docs/phase-2-verification.json").write_text(json.dumps(report, indent=2) + "\n")

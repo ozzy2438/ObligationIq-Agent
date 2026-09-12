@@ -8,6 +8,27 @@
     "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
     "basis": "Explicit human approval in the project conversation: OIQ-024 review completed, APPROVED. Reviewer confirmed clause 166(2)(b) requires the register update within one business day after retailer deregistration, with clause 166(2)(a) and clause 167 as context. The same message expressly withholds approval of OIQ-025.",
     "scope": "human_content_review",
-    "recorded_by": "Assistant transcribing the user decision; not an independent human reviewer"
+    "recorded_by": "Assistant transcribing the user decision; not an independent human reviewer",
+    "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+    "clause_reference": "166(2)(b)",
+    "source_version": "6",
+    "correction": "None; explicit human approval of the bound draft.",
+    "before_record_sha256": "ccf82de193881a7effef33d4b9d5b9d62cd20da60082d4bed214172e8e77742d"
+  },
+  {
+    "obligation_id": "OIQ-025",
+    "decision": "APPROVED",
+    "reviewer": "Osman Orka (project owner)",
+    "verification_date": "2026-09-12",
+    "reviewed_record_sha256": "8ea932c965187ae267d48b9259c26cbe6f57e634ca8815d5619fe4f4f7660645",
+    "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+    "basis": "Explicit user decision in the project conversation: OIQ-025 APPROVED; record the decision and update the verification flag/date. Approval applies to the clarified clause 167(1)(b) candidate, including communications under clauses 164 and 166.",
+    "scope": "human_content_review",
+    "recorded_by": "Assistant transcribing the user decision; not an independent human reviewer",
+    "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+    "clause_reference": "167(1)(b)",
+    "source_version": "6",
+    "correction": "None; explicit human approval of the bound draft.",
+    "before_record_sha256": "8ea932c965187ae267d48b9259c26cbe6f57e634ca8815d5619fe4f4f7660645"
   }
 ]

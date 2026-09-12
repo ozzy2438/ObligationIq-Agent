@@ -21,7 +21,7 @@ def test_real_register_scope_and_gate():
     assert {(r["regime"], r["obligation_family"]) for r in records} == {
         (regime, family) for regime in ("VIC", "NERL_NERR")
         for family in ("life_support", "hardship")}
-    with pytest.raises(RegisterError, match="Human verification"):
+    with pytest.raises(RegisterError, match="operational applicability"):
         for_controls(records)
     with pytest.raises(RegisterError, match="cannot assert human"):
         for_controls(changed("verified_by_human", True))
@@ -62,15 +62,17 @@ def test_delta_repeat_is_free_of_writes_and_history_retains_old_draft(tmp_path):
     assert materialize(revised, tmp_path / "register", reviews=[])["version"] == 1
     old = DeltaTable(str(tmp_path / "register"), version=0).to_pyarrow_table().to_pylist()
     new = DeltaTable(str(tmp_path / "register")).to_pyarrow_table().to_pylist()
-    assert {r["record_sha256"] for r in old} == {r["record_sha256"] for r in records}
-    assert {r["record_sha256"] for r in new} == {r["record_sha256"] for r in revised}
+    assert {r["record_sha256"] for r in old} == {r["record_sha256"] for r in reviewed_records(records, reviews=[])}
+    assert {r["record_sha256"] for r in new} == {r["record_sha256"] for r in reviewed_records(revised, reviews=[])}
 
 
-def test_explicit_human_approval_is_scoped_to_024_only():
+def test_human_and_agent_approval_provenance_stays_distinct():
     records = reviewed_records(load_candidates())
-    assert [r["obligation_id"] for r in records if r["verified_by_human"]] == ["OIQ-024"]
+    assert [r["obligation_id"] for r in records if r["verified_by_human"]] == ["OIQ-024", "OIQ-025"]
     assert next(r for r in records if r["obligation_id"] == "OIQ-024")["verification_date"] == "2026-09-12"
-    assert next(r for r in records if r["obligation_id"] == "OIQ-025")["verification_date"] is None
+    assert next(r for r in records if r["obligation_id"] == "OIQ-025")["verification_date"] == "2026-09-12"
+    assert all(r["review_status"] == "APPROVED" and r["verification_date"] for r in records)
+    assert sum(r["verification_method"] == "agent_source_review" for r in records) == 30
 
 
 def test_edited_approved_content_requires_fresh_review():
@@ -93,4 +95,30 @@ def test_delta_human_decision_preserves_unapproved_history(tmp_path):
     old = DeltaTable(str(path), version=0).to_pyarrow_table().to_pylist()
     new = DeltaTable(str(path)).to_pyarrow_table().to_pylist()
     assert not any(r["verified_by_human"] for r in old)
-    assert [r["obligation_id"] for r in new if r["verified_by_human"]] == ["OIQ-024"]
+    assert [r["obligation_id"] for r in new if r["verified_by_human"]] == ["OIQ-024", "OIQ-025"]
+    assert sum(r["review_status"] == "APPROVED" for r in new) == 32
+
+
+def test_agent_decision_cannot_silently_cover_changed_content_or_citation():
+    import json
+    from src.register.obligations import SOURCE_REVIEWS
+    records = deepcopy(load_candidates())
+    records[0]["required_action"] = "Changed after review"
+    records[0]["record_sha256"] = record_hash(records[0])
+    with pytest.raises(RegisterError, match="re-review required"):
+        reviewed_records(records)
+    decisions = json.loads(SOURCE_REVIEWS.read_text())
+    decisions[0]["clause_reference"] = "999"
+    with pytest.raises(RegisterError, match="citation does not match"):
+        reviewed_records(load_candidates(), decisions)
+
+
+def test_pending_agent_review_never_sets_a_verification_date():
+    import json
+    from src.register.obligations import SOURCE_REVIEWS
+    decisions = json.loads(SOURCE_REVIEWS.read_text())[:1]
+    decisions[0]["decision"] = "PENDING HUMAN REVIEW"
+    decisions[0]["basis"] = "Unit mutation: source evidence missing"
+    records = reviewed_records(load_candidates(), decisions)
+    assert all(not r["verified_by_human"] and r["verification_date"] is None for r in records)
+    assert all(r["review_status"] == "PENDING HUMAN REVIEW" for r in records)

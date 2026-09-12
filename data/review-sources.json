@@ -1,0 +1,30 @@
+{
+  "snapshot_date": "2026-09-12",
+  "sources": [
+    {
+      "id": "vic-eia",
+      "title": "Electricity Industry Act 2000",
+      "issuer": "Victorian Chief Parliamentary Counsel",
+      "version": "107",
+      "effective_from": "2026-09-09",
+      "retrieved_on": "2026-09-12",
+      "url": "https://content.legislation.vic.gov.au/sites/default/files/2026-09/00-68aa107-authorised.pdf",
+      "landing_url": "https://www.legislation.vic.gov.au/in-force/acts/electricity-industry-act-2000/107",
+      "sha256": "944db4b0e778a76ec13a3f53705eb102c736c2a55868a54bb80e4b5aff1330ec",
+      "bytes": 1754329,
+      "pdf_pages": 329,
+      "reviewed_sections": [
+        "40SG(1)",
+        "40SH(1)"
+      ],
+      "physical_pages": [
+        170,
+        171,
+        173
+      ],
+      "scope": "Supplemental source for OIQ-021 and OIQ-022 registration pathways; not embedded and not an additional candidate obligation.",
+      "terms": "State Government of Victoria copyright; authoritative PDF retained locally, no full redistribution.",
+      "terms_url": "https://www.legislation.vic.gov.au/copyright"
+    }
+  ]
+}

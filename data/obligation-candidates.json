@@ -13,8 +13,8 @@
     "clause_reference": "124(1)(a)",
     "parent_clause": "124",
     "obligation_family": "life_support",
-    "trigger_event": "Customer advises that a person at the premises needs life support equipment.",
-    "required_action": "Register the premises and the date energy supply is required for the equipment.",
+    "trigger_event": "Customer advises that a person residing or intending to reside at the premises requires life support equipment.",
+    "required_action": "Register that a residing or intending resident requires life support equipment and record the date from which it is required.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -43,7 +43,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "3a908c9df942a944cd516e2da06c77e2e5a007aac00a2e3bdd1f18846f0e7512"
+    "record_sha256": "fbdd2c7b66d3abc0989f7047f2e49ff6224d1e86c96efef7f13e1ef4ee1842ab"
   },
   {
     "obligation_id": "OIQ-002",
@@ -60,7 +60,7 @@
     "parent_clause": "124",
     "obligation_family": "life_support",
     "trigger_event": "Retailer receives the customer advice described in rule 124(1).",
-    "required_action": "Provide the prescribed written information and medical-confirmation package.",
+    "required_action": "Within five business days provide the written information and medical-confirmation items in 124(1)(b)(i)-(ix). If all three conditions of 124(2) hold, only items (iii) and (vi) remain required under this paragraph.",
     "deadline_value": 5,
     "deadline_unit": "business_days",
     "timing_operator": "at_most",
@@ -86,12 +86,10 @@
     "verified_by_human": false,
     "verification_date": null,
     "pending_checks": [
-      "Apply rule 124(2) only when all its conditions are met; specified information remains required. Review every item in 124(1)(b).",
-      "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm applicable business-day calendar and counting rule before any timing control.",
-      "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
+      "Rule 124(2) requires prior advice to the distributor, customer advice of prior medical confirmation, and retailer confirmation with that distributor. Items (iii) and (vi) remain required.",
+      "This is a source-content approval; determine concrete customer/contract applicability and the applicable business-day calendar before control execution."
     ],
-    "record_sha256": "5176e275db0f7a7dd07492a83977d0e40cfe9f70ba86bc9bd145ffe5ec9ea5bb"
+    "record_sha256": "cb5720d66831658fc3963456c6148f1229e3c23f8501c25a3b4049d6370043f6"
   },
   {
     "obligation_id": "OIQ-003",
@@ -107,7 +105,7 @@
     "clause_reference": "124A(1)(a)",
     "parent_clause": "124A",
     "obligation_family": "life_support",
-    "trigger_event": "Medical confirmation form is provided.",
+    "trigger_event": "Retailer provides a medical confirmation form under rule 124(1)(b)(i).",
     "required_action": "Allow the customer the minimum confirmation period.",
     "deadline_value": 50,
     "deadline_unit": "business_days",
@@ -136,7 +134,7 @@
       "Confirm applicable business-day calendar and counting rule before any timing control.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "73f394c3b4290e432862955b86582869438dfd006fa0277a23f9f742ea642b84"
+    "record_sha256": "82485f95f0a5290d192c0c38a2da83fea9c5a6cfa5c8a54b763fbefb6086e121"
   },
   {
     "obligation_id": "OIQ-004",
@@ -152,7 +150,7 @@
     "clause_reference": "124A(1)(b)",
     "parent_clause": "124A",
     "obligation_family": "life_support",
-    "trigger_event": "Medical confirmation is sought under rule 124A.",
+    "trigger_event": "Retailer provides a medical confirmation form under rule 124(1)(b)(i).",
     "required_action": "Provide at least two written reminders.",
     "deadline_value": null,
     "deadline_unit": null,
@@ -182,7 +180,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "5217c0cd7caf576d58257318181abf68c73fafb39f5b15948246a5b690ac951d"
+    "record_sha256": "a65e5eb2257efdd1103888cb7ce95b018a08a9d1c2425da80426ed438879212e"
   },
   {
     "obligation_id": "OIQ-005",
@@ -198,15 +196,16 @@
     "clause_reference": "124A(1)(c)",
     "parent_clause": "124A",
     "obligation_family": "life_support",
-    "trigger_event": "First medical-confirmation reminder is issued.",
-    "required_action": "Do not issue the first reminder before the minimum waiting period has elapsed.",
+    "trigger_event": "The first medical-confirmation reminder is provided to the customer under rule 124A.",
+    "required_action": "Ensure the first reminder is provided no earlier than 15 business days from the medical form issue date.",
     "deadline_value": 15,
     "deadline_unit": "business_days",
     "timing_operator": "at_least",
     "timing_anchor": "medical form issue date",
     "evidence_required": [
-      "form_issue_date",
-      "first_reminder_issue_date"
+      "medical_form_issue_date",
+      "first_reminder_provided_at",
+      "delivery_record"
     ],
     "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
     "source_id": "nerr",
@@ -227,7 +226,7 @@
       "Confirm applicable business-day calendar and counting rule before any timing control.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "2cadb99a76c1438144ff89708b4f8315299328916d23588401053880a4f11c02"
+    "record_sha256": "fcd48c497b5e205f268dec20f414df312d6bde291f356757dccc7896d5561262"
   },
   {
     "obligation_id": "OIQ-006",
@@ -243,15 +242,16 @@
     "clause_reference": "124A(1)(d)",
     "parent_clause": "124A",
     "obligation_family": "life_support",
-    "trigger_event": "Second medical-confirmation reminder is issued.",
-    "required_action": "Do not issue the second reminder before the minimum interval has elapsed.",
+    "trigger_event": "The second medical-confirmation reminder is provided to the customer under rule 124A.",
+    "required_action": "Ensure the second reminder is provided no earlier than 15 business days from the first reminder issue date.",
     "deadline_value": 15,
     "deadline_unit": "business_days",
     "timing_operator": "at_least",
     "timing_anchor": "first reminder issue date",
     "evidence_required": [
       "first_reminder_issue_date",
-      "second_reminder_issue_date"
+      "second_reminder_provided_at",
+      "delivery_record"
     ],
     "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
     "source_id": "nerr",
@@ -272,7 +272,7 @@
       "Confirm applicable business-day calendar and counting rule before any timing control.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "2952d447219d0344ce76e2d2626ef70a135a13955a7ebe4a6fa2518671cfc20f"
+    "record_sha256": "d92af6bf67a0c18e2e13ac4d887a45e99093929f6041458958e8005475ee6ddd"
   },
   {
     "obligation_id": "OIQ-007",
@@ -383,7 +383,7 @@
     "parent_clause": "126",
     "obligation_family": "life_support",
     "trigger_event": "Life support registration details or required communications change.",
-    "required_action": "Maintain the required supply date, medical confirmation receipt, deregistration date/reason and communication records.",
+    "required_action": "Keep the required supply date, medical confirmation receipt, deregistration date/reason and communications required by rules 124A and 125 up to date.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -412,7 +412,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "03f26a1ca3cf939ced10c88eed4cb767c1f273cbaa0bded4f3b25cf00dc8348e"
+    "record_sha256": "62e58c4d5c94b8074f13bd67841caf63fc284ad12a7f6912be631395a189d437"
   },
   {
     "obligation_id": "OIQ-010",
@@ -487,7 +487,7 @@
       "consumption_forecast",
       "plan_calculation"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Electricity retailer; residential hardship/payment-difficulty customers within the cited provision and applicable Rules.",
     "source_id": "nerr",
     "source_url": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf",
     "source_version": "51",
@@ -505,7 +505,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "fd818290a410d616f18aeaa22d70585c7f214a5b47e35cd5538df1efa7072c76"
+    "record_sha256": "ec43710da008f55cb5982ba5082b56f37c7c11d14ee5a1cff99cc48b9a01c01b"
   },
   {
     "obligation_id": "OIQ-012",
@@ -532,7 +532,7 @@
       "customer_selection",
       "payment_plan"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Electricity retailer; residential hardship/payment-difficulty customers within the cited provision and applicable Rules.",
     "source_id": "nerr",
     "source_url": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf",
     "source_version": "51",
@@ -550,7 +550,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "b99477cbed7ef2b21cbb885020fdca8ba451ca96e3e952f018f111e85a5c5356"
+    "record_sha256": "778cd36fe79c14d1ed57d30398573a3663d89b5d15ced851fdbbcf0f3b5c30b0"
   },
   {
     "obligation_id": "OIQ-013",
@@ -566,8 +566,8 @@
     "clause_reference": "72(2)",
     "parent_clause": "72",
     "obligation_family": "hardship",
-    "trigger_event": "Payment plan information is given to the customer.",
-    "required_action": "Explain duration, instalment amounts and frequency, due dates and the applicable arrears or advance-payment calculation details.",
+    "trigger_event": "Retailer offers a payment plan under rule 72, including its application through rule 33(4).",
+    "required_action": "Inform the customer of plan duration, each instalment amount/frequency/due date, the number of instalments to clear arrears if in arrears, and the calculation basis if paying in advance.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -577,7 +577,7 @@
       "customer_information",
       "calculation_basis"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Electricity retailer; residential hardship/payment-difficulty customers within the cited provision and applicable Rules.",
     "source_id": "nerr",
     "source_url": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf",
     "source_version": "51",
@@ -596,7 +596,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "d9315f62cc3b1328c151c54d134140f7043f91fbb269b224ffe0b1866199afc7"
+    "record_sha256": "518c626fcb7e2eeb65c6deee71a00773903225961078f154160cbfd15bf9b8e8"
   },
   {
     "obligation_id": "OIQ-014",
@@ -623,7 +623,7 @@
       "policy_version",
       "communication_record"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Electricity retailer; residential hardship/payment-difficulty customers within the cited provision and applicable Rules.",
     "source_id": "nerl",
     "source_url": "https://legislation.sa.gov.au/_legislation-documents/lz/c/a/national-energy-retail-law-south-australia-act-2011/current/2011.6.auth.pdf",
     "source_version": "18 December 2025 consolidation",
@@ -641,7 +641,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
     ],
-    "record_sha256": "a99821a1467326c4bc64ee05802ecd54a6e289bfd0d50327ad8c9d7b3cc05f1b"
+    "record_sha256": "b9b4cb4811be6b639fa08d6fca601217e7b354395665138018dbe14d9a9b1b6a"
   },
   {
     "obligation_id": "OIQ-015",
@@ -657,8 +657,8 @@
     "clause_reference": "50(1)-(2)",
     "parent_clause": "50",
     "obligation_family": "hardship",
-    "trigger_event": "Hardship status or a qualifying residential payment-difficulty notification/belief exists.",
-    "required_action": "Offer and apply a payment plan subject to applicable Rules and their exceptions.",
+    "trigger_event": "Customer is a hardship customer, reports payment difficulties in writing or by telephone, or the retailer believes they repeatedly struggle to pay or require payment assistance.",
+    "required_action": "Offer and apply a payment plan in accordance with section 50 and applicable Rules. Assess the rule 33(2) exceptions and affected-customer proviso before treating the offer as excused.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -669,7 +669,7 @@
       "plan_application",
       "exception_assessment"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Electricity retailer; residential hardship/payment-difficulty customers within the cited provision and applicable Rules.",
     "source_id": "nerl",
     "source_url": "https://legislation.sa.gov.au/_legislation-documents/lz/c/a/national-energy-retail-law-south-australia-act-2011/current/2011.6.auth.pdf",
     "source_version": "18 December 2025 consolidation",
@@ -684,11 +684,11 @@
     "verified_by_human": false,
     "verification_date": null,
     "pending_checks": [
-      "Check Rules governing permitted exceptions; this is not an unconditional offer rule for every unpaid bill.",
-      "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability."
+      "For customers within rule 33(1), rule 33(2) concerns two plans cancelled for non-payment in the previous 12 months or an illegal-energy-use conviction in the previous two years; its affected-customer/joint-or-several-responsibility proviso must also be applied.",
+      "The rule 33(2) exception is not a blanket exception for every customer identified in section 50(1)(b). Its own scope must be established.",
+      "A recorded belief, conviction or affected-customer status needs actual evidence; this review does not establish those customer facts."
     ],
-    "record_sha256": "e2195b19bee224b7c6102e0ea3353054ab0be1724f5284a5eeb91e5dadd8af13"
+    "record_sha256": "f581aeefa6bc4b1ca1a5e6bf218c57ef02f03fcf04c2a2417f906e19f02c4ea5"
   },
   {
     "obligation_id": "OIQ-016",
@@ -741,15 +741,16 @@
     "clause_reference": "164(1)(c)",
     "parent_clause": "164",
     "obligation_family": "life_support",
-    "trigger_event": "First medical-confirmation reminder is issued.",
-    "required_action": "Respect the minimum delay before the first reminder.",
+    "trigger_event": "The first medical-confirmation reminder is provided to the customer under clause 164.",
+    "required_action": "Ensure the first reminder is provided no earlier than 15 business days from the medical form issue date.",
     "deadline_value": 15,
     "deadline_unit": "business_days",
     "timing_operator": "at_least",
     "timing_anchor": "medical form issue date",
     "evidence_required": [
-      "form_issue_date",
-      "first_reminder_issue_date"
+      "medical_form_issue_date",
+      "first_reminder_provided_at",
+      "delivery_record"
     ],
     "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
     "source_id": "esc",
@@ -770,7 +771,7 @@
       "Confirm applicable business-day calendar and counting rule before any timing control.",
       "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
     ],
-    "record_sha256": "4e772b53618113aded3ee15b3e1d1844d86387c3adb5eb00a7191bc25c2bb19f"
+    "record_sha256": "fc7cc4f9bb2f22a71e87018193af1cbad218341842314e5e6e164217d4e8a3eb"
   },
   {
     "obligation_id": "OIQ-018",
@@ -782,15 +783,16 @@
     "clause_reference": "164(1)(d)",
     "parent_clause": "164",
     "obligation_family": "life_support",
-    "trigger_event": "Second medical-confirmation reminder is issued.",
-    "required_action": "Respect the minimum interval before the second reminder.",
+    "trigger_event": "The second medical-confirmation reminder is provided to the customer under clause 164.",
+    "required_action": "Ensure the second reminder is provided no earlier than 15 business days from the first reminder issue date.",
     "deadline_value": 15,
     "deadline_unit": "business_days",
     "timing_operator": "at_least",
     "timing_anchor": "first reminder issue date",
     "evidence_required": [
       "first_reminder_issue_date",
-      "second_reminder_issue_date"
+      "second_reminder_provided_at",
+      "delivery_record"
     ],
     "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
     "source_id": "esc",
@@ -811,7 +813,7 @@
       "Confirm applicable business-day calendar and counting rule before any timing control.",
       "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
     ],
-    "record_sha256": "7514906ab62789c9fa71a6b322c43b34b2fc3acd8d3b546319c162dc09aea0fa"
+    "record_sha256": "1979a1a0a9a62a27808a0030d283b13938a228d9dbde32a3b8e0123968850122"
   },
   {
     "obligation_id": "OIQ-019",
@@ -907,7 +909,7 @@
     "parent_clause": "165",
     "obligation_family": "life_support",
     "trigger_event": "Relevant life support or contact information is received for an electricity registration under section 40SG(1) or 40SH(1).",
-    "required_action": "Send relevant updated information to the distributor unless it came from that distributor.",
+    "required_action": "Within one business day send relevant life support information, including medical confirmation, or contact-detail updates to the distributor unless that information was received from the distributor.",
     "deadline_value": 1,
     "deadline_unit": "business_days",
     "timing_operator": "at_most",
@@ -933,12 +935,10 @@
     "verified_by_human": false,
     "verification_date": null,
     "pending_checks": [
-      "Verify Electricity Industry Act registration pathway; distributor-origin exception applies.",
-      "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm applicable business-day calendar and counting rule before any timing control.",
-      "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      "Electricity Industry Act 2000 version 107, sections 40SG(1) and 40SH(1), establish the customer/advised-by-distributor registration pathways. Supplemental source metadata is in data/review-sources.json.",
+      "This candidate covers the retailer duty in 165(1), not the exempt-seller pathway in 165(2) or the distributor own-register duties."
     ],
-    "record_sha256": "bb400da2daa788e5d92e02f43757197805af8faf4532c54adb70048784eb91e4"
+    "record_sha256": "31807cf4abb4d99a137ca790a5fa05062f66525d6795101b02e6793f3004cea6"
   },
   {
     "obligation_id": "OIQ-022",
@@ -950,7 +950,7 @@
     "clause_reference": "165(1)(b)",
     "parent_clause": "165",
     "obligation_family": "life_support",
-    "trigger_event": "Customer or distributor advises an update for a registration in clause 165(1).",
+    "trigger_event": "A relevant customer or distributor advises updated life support requirements or contact details for a registration under Electricity Industry Act section 40SG(1) or 40SH(1).",
     "required_action": "Update the retailer life support register.",
     "deadline_value": 1,
     "deadline_unit": "business_days",
@@ -976,11 +976,10 @@
     "verified_by_human": false,
     "verification_date": null,
     "pending_checks": [
-      "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm applicable business-day calendar and counting rule before any timing control.",
-      "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      "Act sections 40SG(1) and 40SH(1) checked against authorised version 107; retain evidence of the actual registration pathway.",
+      "The separate exempt-seller pathway in clause 165(2) is outside this candidate."
     ],
-    "record_sha256": "5f1755ea19155655eeb0a543edf8b881dc22abd728b57f5b582c907ad2e60c3b"
+    "record_sha256": "93ebc4c3ba728eef80c2509bfb63bd456989236a1b5d4042b17d3282095f6c31"
   },
   {
     "obligation_id": "OIQ-023",
@@ -1121,7 +1120,7 @@
     "parent_clause": "125",
     "obligation_family": "hardship",
     "trigger_event": "Retailer offers standard assistance under clause 125.",
-    "required_action": "Include at least three of the four specified standard-assistance options.",
+    "required_action": "Make available at least three of: equal payments over a specified period; different payment intervals; a specified pay-by-date extension for at least one billing cycle in any 12 months; advance payment for energy use.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -1130,7 +1129,7 @@
       "assistance_offer_catalogue",
       "option_mapping"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Licensed electricity retailer; residential standard/market retail customers receiving standard assistance to avoid arrears.",
     "source_id": "esc",
     "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
     "source_version": "6",
@@ -1145,11 +1144,10 @@
     "verified_by_human": false,
     "verification_date": null,
     "pending_checks": [
-      "Check all four options and the clause 125(1) customer election requirement. The current minimum is three, not two.",
-      "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      "The retailer elects the standard-assistance forms under 125(1), subject to the three-of-four minimum in 125(2).",
+      "The source does not say the pay-by-date extension must itself last an entire billing cycle. No numerical extension length is asserted."
     ],
-    "record_sha256": "edca185617e084c3bf712ccd90336a69b0339315d64be2026f7685fc4f76cc38"
+    "record_sha256": "e868795d7f921c7f5f4e8f3e0af745518d09a8c0c26ff267c90cfd20aed5ee3c"
   },
   {
     "obligation_id": "OIQ-027",
@@ -1290,7 +1288,7 @@
     "clause_reference": "130(5)",
     "parent_clause": "130",
     "obligation_family": "hardship",
-    "trigger_event": "A payment proposal or revised proposal is accepted under clause 130.",
+    "trigger_event": "Retailer accepts a payment proposal or revision under clause 130 for a residential customer whose arrears repayment is not on hold under 128(1)(g)(i).",
     "required_action": "Give a written schedule stating total payment count, period, due dates and amounts.",
     "deadline_value": null,
     "deadline_unit": null,
@@ -1320,7 +1318,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
     ],
-    "record_sha256": "19f8ea2e26dde4a9705db3cea9677ffaab36719ea30c0a2d6df7284de2ae3849"
+    "record_sha256": "0009f2ac8d47a1c3a38f49462a1f29d522d46519eab295bb71fac787beee470c"
   },
   {
     "obligation_id": "OIQ-031",
@@ -1332,7 +1330,7 @@
     "clause_reference": "130(6)",
     "parent_clause": "130",
     "obligation_family": "hardship",
-    "trigger_event": "A customer receiving assistance under this Division misses an agreed payment.",
+    "trigger_event": "A residential customer receiving assistance under this Division, whose arrears repayment is not on hold under 128(1)(g)(i), misses a payment by its due date.",
     "required_action": "Contact the customer to discuss a revised payment proposal.",
     "deadline_value": null,
     "deadline_unit": null,
@@ -1362,7 +1360,7 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
     ],
-    "record_sha256": "46c3640cae96ac3ed57a41341d545da28683063507ef250d64f992ac477c11f1"
+    "record_sha256": "6507ba242727700c83830d4a6777a19c686fbba878bf184a83bd434a6fe68af5"
   },
   {
     "obligation_id": "OIQ-032",
@@ -1374,7 +1372,7 @@
     "clause_reference": "138(2)",
     "parent_clause": "138",
     "obligation_family": "hardship",
-    "trigger_event": "A customer requests the retailer hardship policy.",
+    "trigger_event": "Any residential customer asks to be sent a copy of the retailer financial hardship policy.",
     "required_action": "Send a copy of the policy.",
     "deadline_value": null,
     "deadline_unit": null,
@@ -1385,7 +1383,7 @@
       "policy_version",
       "copy_sent"
     ],
-    "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+    "applies_to_customer_segment": "Licensed electricity retailer; any residential customer who requests a policy copy.",
     "source_id": "esc",
     "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
     "source_version": "6",
@@ -1403,6 +1401,6 @@
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
       "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
     ],
-    "record_sha256": "83a85aa55b408cddbc197a45d2b06124dcdb79a428d52f63868e449c097f549a"
+    "record_sha256": "969861404150d890294325eff0d113c1588983468ad8bb55b63529e1d04cdbe3"
   }
 ]

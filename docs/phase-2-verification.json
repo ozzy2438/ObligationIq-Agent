@@ -1,8 +1,12 @@
 {
   "snapshot_date": "2026-09-12",
   "records": 32,
-  "candidate_file_sha256": "b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c957955a46906650",
-  "human_reviews_sha256": "e435b5db414030f2007b7a72fed1a6f2ee6b8f4023c1a6eee63d2b93f9b8d447",
+  "candidate_file_sha256": "effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af",
+  "human_reviews_sha256": "0c881331604b34aa3a57a010ff8a9da91f56bb5c090d723cbd63b892c686cce5",
+  "source_reviews_sha256": "f26513f9fb4c36cc449295c92464100d1a1a3a4256a9509e9eb709b5d1ab4312",
+  "supplemental_sources_verified": [
+    "vic-eia"
+  ],
   "source_trace_checks": [
     {
       "obligation_id": "OIQ-001",
@@ -229,11 +233,14 @@
       "parent_text_hash_matches": true
     }
   ],
-  "delta_version": 1,
+  "delta_version": 2,
   "repeat_delta_writes": 0,
   "network_connections": 0,
   "model_calls": 0,
-  "human_verified_records": 1,
+  "approved_records": 32,
+  "agent_approved_records": 30,
+  "pending_records": 0,
+  "human_verified_records": 2,
   "control_eligible_records": 0,
   "unity_catalog_verified": false,
   "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."

@@ -51,10 +51,14 @@ def acquire(url, destination, expected, *, max_bytes=110_000_000):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--model", action="store_true", help="Also download pinned CPU embedding weights")
+    parser.add_argument("--review-sources", action="store_true", help="Also acquire supplemental review sources")
     args = parser.parse_args()
     for source in load_manifest()["sources"]:
         status = acquire(source["url"], ROOT / "data/raw" / (source["id"] + ".pdf"), source["sha256"])
         print(source["id"], status)
+    if args.review_sources:
+        for source in json.loads((ROOT / "data/review-sources.json").read_text())["sources"]:
+            print(source["id"], acquire(source["url"], ROOT / "data/raw" / (source["id"] + ".pdf"), source["sha256"]))
     if args.model:
         pin = json.loads((ROOT / "src/gateway/local-model.json").read_text())
         for asset in pin["files"]:

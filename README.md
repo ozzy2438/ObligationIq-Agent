@@ -2,9 +2,9 @@
 
 Independent reference build for electricity compliance evidence in Australia.
 
-**Phases 0–1 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus and persisted CPU embeddings. No customer population, human-approved obligation register, compliance determination or Azure model evaluation exists yet.
+**Phases 0–1 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus and persisted CPU embeddings. No customer population, compliance determination or Azure model evaluation exists yet.
 
-**Phase 2 prepared for review:** 32 source-linked candidate obligations are versioned in local Delta Lake. OIQ-024 has explicit human content approval; the other 31 remain pending. All remain blocked from control use while operational gates are unresolved. [Review the candidates](docs/phase-2-review.md); [implementation and remaining gates](docs/phase-2-register.md). Human verification, jurisdiction dependencies and Unity Catalog remain outstanding. Phase 3 has not started.
+**Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. Operational applicability and Unity Catalog remain outstanding; Phase 3 has not started.
 
 The eventual output is a source-backed evidence pack. Compliance decisions belong to deterministic controls using versioned, human-verified obligations; language models may retrieve, draft and explain evidence.
 

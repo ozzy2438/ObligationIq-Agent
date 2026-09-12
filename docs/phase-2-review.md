@@ -1,20 +1,22 @@
-# Phase 2 — human review required
+# Phase 2 — source review decisions
 
-**32 candidates; 1 human approvals; 0 records eligible for controls.**
+**32 records; 32 APPROVED (2 human, 30 authorised agent); 0 pending; 0 operational controls enabled.**
 
-These are paraphrases for review, not legal conclusions. The linked PDF opens at the physical page containing the parent clause; read the full subclause and its exceptions. Jurisdictional applicability is still pending. This pack does not authorise disconnection or deregistration.
+Approval means the requirement, trigger, action and timing match the cited authoritative text in the 12 September 2026 snapshot. It is not a customer-level legal determination, proof of every jurisdictional modification, or permission to disconnect/deregister. State lists identify source coverage; concrete applicability and calendar logic remain separate implementation gates.
 
-For each record, confirm or correct its trigger, action, timing direction, exceptions, jurisdiction and proposed evidence. Report the obligation ID and corrections; approval must identify the reviewer and date and bind the reviewed content. A source-trace check alone is not approval. No blanket approval is inferred from continuing the build.
+The owner explicitly authorised autonomous source review after personally approving OIQ-024 and OIQ-025. Authorised agent approvals do not set verified_by_human=true. Every decision is bound to the reviewed candidate and source digests; changes require review again.
 
-Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c957955a46906650`.
+Candidate snapshot SHA-256: `effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af`.
 
-[Immutable candidate drafts](../data/obligation-candidates.json) · [Human decisions](../data/human-reviews.json) · [Implementation and outstanding gates](phase-2-register.md)
+[Versioned candidates](../data/obligation-candidates.json) · [Human decisions](../data/human-reviews.json) · [Agent decision audit](../data/source-reviews.json) · [Consolidated review](review-summary.md)
+
+<a id="oiq-001"></a>
 
 ## OIQ-001 — NERL_NERR / life support
 
-**Trigger:** Customer advises that a person at the premises needs life support equipment.
+**Trigger:** Customer advises that a person residing or intending to reside at the premises requires life support equipment.
 
-**Action:** Register the premises and the date energy supply is required for the equipment.
+**Action:** Register that a residing or intending resident requires life support equipment and record the date from which it is required.
 
 **Timing:** No numerical deadline asserted.
 
@@ -22,15 +24,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** customer_advice, registration_event, required_supply_date.
 
-**Review checks:** No numerical registration deadline is asserted by this subclause. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** No numerical registration deadline is asserted by this subclause. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** The 124(1) chapeau includes existing and intending residents; paragraph (a) requires registration and the equipment-required date without its own numerical deadline.
+
+**Correction:** Restored the explicit resident/intending-resident scope and the equipment-required date from 124(1)(a).
+
+<a id="oiq-002"></a>
 
 ## OIQ-002 — NERL_NERR / life support
 
 **Trigger:** Retailer receives the customer advice described in rule 124(1).
 
-**Action:** Provide the prescribed written information and medical-confirmation package.
+**Action:** Within five business days provide the written information and medical-confirmation items in 124(1)(b)(i)-(ix). If all three conditions of 124(2) hold, only items (iii) and (vi) remain required under this paragraph.
 
 **Timing:** at most 5 business days; anchor: customer advice received.
 
@@ -38,13 +46,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** advice_received_at, package_version, package_sent_at, delivery_record.
 
-**Review checks:** Apply rule 124(2) only when all its conditions are met; specified information remains required. Review every item in 124(1)(b). Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Rule 124(2) requires prior advice to the distributor, customer advice of prior medical confirmation, and retailer confirmation with that distributor. Items (iii) and (vi) remain required. This is a source-content approval; determine concrete customer/contract applicability and the applicable business-day calendar before control execution.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Paragraph 124(1)(b) sets an upper limit of five business days after customer advice. Its package and the all-conditions exception in 124(2) are explicit; items (iii) and (vi) survive that exception.
+
+**Correction:** Made the 124(2) exception and its two retained information duties explicit instead of leaving the exception solely in a review note.
+
+<a id="oiq-003"></a>
 
 ## OIQ-003 — NERL_NERR / life support
 
-**Trigger:** Medical confirmation form is provided.
+**Trigger:** Retailer provides a medical confirmation form under rule 124(1)(b)(i).
 
 **Action:** Allow the customer the minimum confirmation period.
 
@@ -54,13 +68,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** dated_medical_form, confirmation_due_date.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 124A(1)(a) gives at least 50 business days from the dated medical form, not a 50-day maximum.
+
+**Correction:** Specified the retailer medical-form pathway from the chapeau of 124A(1); no timing value changed.
+
+<a id="oiq-004"></a>
 
 ## OIQ-004 — NERL_NERR / life support
 
-**Trigger:** Medical confirmation is sought under rule 124A.
+**Trigger:** Retailer provides a medical confirmation form under rule 124(1)(b)(i).
 
 **Action:** Provide at least two written reminders.
 
@@ -70,41 +90,59 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** first_reminder, second_reminder, delivery_records.
 
-**Review checks:** Read with timing, extension and confirmation-receipt provisions; reminder count alone does not authorise deregistration. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Read with timing, extension and confirmation-receipt provisions; reminder count alone does not authorise deregistration. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 124A(1)(b) expressly requires at least two written confirmation reminders. No separate numerical deadline is present in this paragraph.
+
+**Correction:** Specified the 124A(1) form trigger; the two-notice minimum does not set a response deadline.
+
+<a id="oiq-005"></a>
 
 ## OIQ-005 — NERL_NERR / life support
 
-**Trigger:** First medical-confirmation reminder is issued.
+**Trigger:** The first medical-confirmation reminder is provided to the customer under rule 124A.
 
-**Action:** Do not issue the first reminder before the minimum waiting period has elapsed.
+**Action:** Ensure the first reminder is provided no earlier than 15 business days from the medical form issue date.
 
 **Timing:** at least 15 business days; anchor: medical form issue date.
 
 **Source:** [National Energy Retail Rules, version 51, clause 124A(1)(c)](https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf#page=121); physical PDF pages 121–121.
 
-**Proposed evidence:** form_issue_date, first_reminder_issue_date.
+**Proposed evidence:** medical_form_issue_date, first_reminder_provided_at, delivery_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 124A(1)(c) measures first-reminder provision no earlier than 15 business days from form issue; provision and issue are distinct events.
+
+**Correction:** Corrected the measured event from notice issue to notice provision: the source measures when the reminder is provided, while the interval begins on the earlier document issue date.
+
+<a id="oiq-006"></a>
 
 ## OIQ-006 — NERL_NERR / life support
 
-**Trigger:** Second medical-confirmation reminder is issued.
+**Trigger:** The second medical-confirmation reminder is provided to the customer under rule 124A.
 
-**Action:** Do not issue the second reminder before the minimum interval has elapsed.
+**Action:** Ensure the second reminder is provided no earlier than 15 business days from the first reminder issue date.
 
 **Timing:** at least 15 business days; anchor: first reminder issue date.
 
 **Source:** [National Energy Retail Rules, version 51, clause 124A(1)(d)](https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf#page=121); physical PDF pages 121–121.
 
-**Proposed evidence:** first_reminder_issue_date, second_reminder_issue_date.
+**Proposed evidence:** first_reminder_issue_date, second_reminder_provided_at, delivery_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 124A(1)(d) measures second-reminder provision no earlier than 15 business days from first-reminder issue.
+
+**Correction:** Corrected the measured event from notice issue to notice provision: the source measures when the reminder is provided, while the interval begins on the earlier document issue date.
+
+<a id="oiq-007"></a>
 
 ## OIQ-007 — NERL_NERR / life support
 
@@ -118,9 +156,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** extension_request, extension_decision, original_and_revised_due_dates.
 
-**Review checks:** This is an extension length, not a 25-day response deadline. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** This is an extension length, not a 25-day response deadline. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 124A(1)(e) requires at least one requested extension of at least 25 business days; the number is extension duration, not a response deadline.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-008"></a>
 
 ## OIQ-008 — NERL_NERR / life support
 
@@ -134,15 +178,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** lawful_deregistration_review, deregistration_event, distributor_notification.
 
-**Review checks:** This downstream notification requirement grants no permission to deregister or disconnect. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** This downstream notification requirement grants no permission to deregister or disconnect. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 125(2)(a) explicitly sets five business days after retailer deregistration for a distributor notice containing date and reason; it grants no permission to deregister.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-009"></a>
 
 ## OIQ-009 — NERL_NERR / life support
 
 **Trigger:** Life support registration details or required communications change.
 
-**Action:** Maintain the required supply date, medical confirmation receipt, deregistration date/reason and communication records.
+**Action:** Keep the required supply date, medical confirmation receipt, deregistration date/reason and communications required by rules 124A and 125 up to date.
 
 **Timing:** No numerical deadline asserted.
 
@@ -150,9 +200,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** registration_history, confirmation_receipt, deregistration_history, communication_log.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 126(b)(i)-(iv) enumerates the four categories of current registration records; communication records are those under 124A and 125. It supplies no standalone numerical deadline.
+
+**Correction:** Limited the communication component to the communications identified by 126(b)(iv), under rules 124A and 125.
+
+<a id="oiq-010"></a>
 
 ## OIQ-010 — NERL_NERR / life support
 
@@ -166,9 +222,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** confirmation_copy_reference, customer_tenure, retention_metadata.
 
-**Review checks:** Retention applies during tenure as well; this is not a command to delete on day 110. Do not store medical content in this public register. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Retention applies during tenure as well; this is not a command to delete on day 110. Do not store medical content in this public register. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 126A(a)-(d) requires the medical confirmation copy during the customer relationship for those premises and for 110 business days after it ends. The record states a retention obligation, not automatic deletion.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-011"></a>
 
 ## OIQ-011 — NERL_NERR / hardship
 
@@ -182,9 +244,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** capacity_assessment, arrears_snapshot, consumption_forecast, plan_calculation.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 72(1)(a)(i)-(iii) lists capacity, arrears and expected 12-month energy needs. The candidate covers the hardship-customer limb; rule 33(4) also applies rule 72 to specified other residential customers.
+
+**Correction:** Replaced the generic licensed-retailer label with the instrument-neutral electricity-retailer description; this record does not establish a licence or authorisation.
+
+<a id="oiq-012"></a>
 
 ## OIQ-012 — NERL_NERR / hardship
 
@@ -198,15 +266,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** options_presented, customer_selection, payment_plan.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 72(1)(b) expressly includes an offer of consumption instalments in advance or arrears. The candidate covers the hardship limb and does not assert this is the only customer group protected by rule 72.
+
+**Correction:** Replaced the generic licensed-retailer label with the instrument-neutral electricity-retailer description; this record does not establish a licence or authorisation.
+
+<a id="oiq-013"></a>
 
 ## OIQ-013 — NERL_NERR / hardship
 
-**Trigger:** Payment plan information is given to the customer.
+**Trigger:** Retailer offers a payment plan under rule 72, including its application through rule 33(4).
 
-**Action:** Explain duration, instalment amounts and frequency, due dates and the applicable arrears or advance-payment calculation details.
+**Action:** Inform the customer of plan duration, each instalment amount/frequency/due date, the number of instalments to clear arrears if in arrears, and the calculation basis if paying in advance.
 
 **Timing:** No numerical deadline asserted.
 
@@ -214,9 +288,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** plan_schedule, customer_information, calculation_basis.
 
-**Review checks:** Subclauses 72(2)(c) and (d) depend on whether payments are in arrears or in advance. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Subclauses 72(2)(c) and (d) depend on whether payments are in arrears or in advance. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Rule 72(2) attaches the information duty to the retailer offering a plan; its arrears and advance-payment items are conditional, not universally cumulative.
+
+**Correction:** Replaced a circular information-giving trigger with the actual rule 72(2) trigger: the retailer offers a payment plan. Replaced the generic licensed-retailer label with the instrument-neutral electricity-retailer description; this record does not establish a licence or authorisation.
+
+<a id="oiq-014"></a>
 
 ## OIQ-014 — NERL_NERR / hardship
 
@@ -230,15 +310,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** hardship_indicator, policy_version, communication_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Section 46 ties the policy-information duty to the retailer apparent hardship-related reason for non-payment and expressly requires compliance with the Rules. No numerical deadline is specified.
+
+**Correction:** Replaced the generic licensed-retailer label with the instrument-neutral electricity-retailer description; this record does not establish a licence or authorisation.
+
+<a id="oiq-015"></a>
 
 ## OIQ-015 — NERL_NERR / hardship
 
-**Trigger:** Hardship status or a qualifying residential payment-difficulty notification/belief exists.
+**Trigger:** Customer is a hardship customer, reports payment difficulties in writing or by telephone, or the retailer believes they repeatedly struggle to pay or require payment assistance.
 
-**Action:** Offer and apply a payment plan subject to applicable Rules and their exceptions.
+**Action:** Offer and apply a payment plan in accordance with section 50 and applicable Rules. Assess the rule 33(2) exceptions and affected-customer proviso before treating the offer as excused.
 
 **Timing:** No numerical deadline asserted.
 
@@ -246,9 +332,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** trigger_evidence, plan_offer, plan_application, exception_assessment.
 
-**Review checks:** Check Rules governing permitted exceptions; this is not an unconditional offer rule for every unpaid bill. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm local adoption and modifications for the selected state/territory; the core instrument alone does not establish jurisdictional applicability.
+**Context and implementation notes:** For customers within rule 33(1), rule 33(2) concerns two plans cancelled for non-payment in the previous 12 months or an illegal-energy-use conviction in the previous two years; its affected-customer/joint-or-several-responsibility proviso must also be applied. The rule 33(2) exception is not a blanket exception for every customer identified in section 50(1)(b). Its own scope must be established. A recorded belief, conviction or affected-customer status needs actual evidence; this review does not establish those customer facts.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Section 50(1)-(2) provides the offer/apply duty, eligible trigger alternatives and Rules qualification. Rule 33(1)-(2) supplies scoped exceptions, including a proviso for affected customers; the correction retains those conditions rather than creating an automatic refusal rule.
+
+**Correction:** Expanded the statutory trigger and documented the rule 33(2) exceptions, including its affected-customer proviso; no deadline invented. Replaced the generic licensed-retailer label with the instrument-neutral electricity-retailer description; this record does not establish a licence or authorisation.
+
+<a id="oiq-016"></a>
 
 ## OIQ-016 — VIC / life support
 
@@ -262,41 +354,59 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** dated_medical_form, confirmation_due_date.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 164(1)(a) gives a relevant customer at least 50 business days from the medical-form date. Its minimum direction and trigger match.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-017"></a>
 
 ## OIQ-017 — VIC / life support
 
-**Trigger:** First medical-confirmation reminder is issued.
+**Trigger:** The first medical-confirmation reminder is provided to the customer under clause 164.
 
-**Action:** Respect the minimum delay before the first reminder.
+**Action:** Ensure the first reminder is provided no earlier than 15 business days from the medical form issue date.
 
 **Timing:** at least 15 business days; anchor: medical form issue date.
 
 **Source:** [Energy Retail Code of Practice, version 6, clause 164(1)(c)](https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=116); physical PDF pages 116–117.
 
-**Proposed evidence:** form_issue_date, first_reminder_issue_date.
+**Proposed evidence:** medical_form_issue_date, first_reminder_provided_at, delivery_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 164(1)(c) concerns provision of the first reminder no earlier than 15 business days after form issue, not the first reminder issue date alone.
+
+**Correction:** Corrected the measured event from notice issue to notice provision: the source measures when the reminder is provided, while the interval begins on the earlier document issue date.
+
+<a id="oiq-018"></a>
 
 ## OIQ-018 — VIC / life support
 
-**Trigger:** Second medical-confirmation reminder is issued.
+**Trigger:** The second medical-confirmation reminder is provided to the customer under clause 164.
 
-**Action:** Respect the minimum interval before the second reminder.
+**Action:** Ensure the second reminder is provided no earlier than 15 business days from the first reminder issue date.
 
 **Timing:** at least 15 business days; anchor: first reminder issue date.
 
 **Source:** [Energy Retail Code of Practice, version 6, clause 164(1)(d)](https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=116); physical PDF pages 116–117.
 
-**Proposed evidence:** first_reminder_issue_date, second_reminder_issue_date.
+**Proposed evidence:** first_reminder_issue_date, second_reminder_provided_at, delivery_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 164(1)(d) concerns provision of the second reminder no earlier than 15 business days after first-reminder issue.
+
+**Correction:** Corrected the measured event from notice issue to notice provision: the source measures when the reminder is provided, while the interval begins on the earlier document issue date.
+
+<a id="oiq-019"></a>
 
 ## OIQ-019 — VIC / life support
 
@@ -310,9 +420,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** extension_request, original_and_revised_due_dates.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 164(1)(e) mandates at least one requested extension lasting at least 25 business days; no response deadline is inferred.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-020"></a>
 
 ## OIQ-020 — VIC / life support
 
@@ -326,15 +442,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** first_reminder, second_reminder, delivery_records.
 
-**Review checks:** Apply the remaining timing and content rules; two reminders are not permission to deregister. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Apply the remaining timing and content rules; two reminders are not permission to deregister. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 164(1)(b) requires at least two written confirmation reminders. Timing and required content are separate subclauses, not an authority to deregister.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-021"></a>
 
 ## OIQ-021 — VIC / life support
 
 **Trigger:** Relevant life support or contact information is received for an electricity registration under section 40SG(1) or 40SH(1).
 
-**Action:** Send relevant updated information to the distributor unless it came from that distributor.
+**Action:** Within one business day send relevant life support information, including medical confirmation, or contact-detail updates to the distributor unless that information was received from the distributor.
 
 **Timing:** at most 1 business day; anchor: relevant information received.
 
@@ -342,13 +464,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** registration_pathway, information_received_at, information_origin, distributor_notification.
 
-**Review checks:** Verify Electricity Industry Act registration pathway; distributor-origin exception applies. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Electricity Industry Act 2000 version 107, sections 40SG(1) and 40SH(1), establish the customer/advised-by-distributor registration pathways. Supplemental source metadata is in data/review-sources.json. This candidate covers the retailer duty in 165(1), not the exempt-seller pathway in 165(2) or the distributor own-register duties.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 165(1)(a) imposes one business day after receipt, includes medical confirmation and excludes distributor-origin information. The cited Act version 107 confirms the 40SG(1)/40SH(1) registration pathways.
+
+**Correction:** Made inclusion of medical confirmation explicit and resolved the Act registration-pathway dependency using authorised Act version 107, sections 40SG(1) and 40SH(1).
+
+<a id="oiq-022"></a>
 
 ## OIQ-022 — VIC / life support
 
-**Trigger:** Customer or distributor advises an update for a registration in clause 165(1).
+**Trigger:** A relevant customer or distributor advises updated life support requirements or contact details for a registration under Electricity Industry Act section 40SG(1) or 40SH(1).
 
 **Action:** Update the retailer life support register.
 
@@ -358,9 +486,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** registration_pathway, update_advice_received_at, register_update.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Act sections 40SG(1) and 40SH(1) checked against authorised version 107; retain evidence of the actual registration pathway. The separate exempt-seller pathway in clause 165(2) is outside this candidate.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 165(1)(b) sets one business day after update advice from the relevant customer or distributor to update the register. Act registration pathways were checked; no distributor-origin exemption is imported from paragraph (a).
+
+**Correction:** Made the customer/distributor update trigger and Act registration pathways explicit after checking the cited Act.
+
+<a id="oiq-023"></a>
 
 ## OIQ-023 — VIC / life support
 
@@ -374,9 +508,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** lawful_deregistration_review, deregistration_event, distributor_notification.
 
-**Review checks:** Notification timing does not establish that the deregistration was lawful. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Notification timing does not establish that the deregistration was lawful. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 166(2)(a) requires a retailer that deregisters a customer to send the distributor the deregistration date and reason within five business days. This is separate from the one-day register update in paragraph (b).
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-024"></a>
 
 ## OIQ-024 — VIC / life support
 
@@ -390,9 +530,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** deregistration_event, register_update.
 
-**Review checks:** This is recording a completed event, not permission to deregister or disconnect. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** This is recording a completed event, not permission to deregister or disconnect. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** APPROVED — 2026-09-12; exact-version content review. Operational gates remain open.
+**Decision:** APPROVED — 2026-09-12; human_content_review; reviewer: Osman Orka (project owner).
+
+**Reasoning:** Explicit human approval in the project conversation: OIQ-024 review completed, APPROVED. Reviewer confirmed clause 166(2)(b) requires the register update within one business day after retailer deregistration, with clause 166(2)(a) and clause 167 as context. The same message expressly withholds approval of OIQ-025.
+
+**Correction:** None; explicit human approval of the bound draft.
+
+<a id="oiq-025"></a>
 
 ## OIQ-025 — VIC / life support
 
@@ -406,15 +552,21 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** registration_history, confirmation_receipt, deregistration_history, communication_log.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot. Clause 167 sets no standalone numerical deadline; do not apply the separate 166(2)(b) deregistration-update deadline to every record change.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot. Clause 167 sets no standalone numerical deadline; do not apply the separate 166(2)(b) deregistration-update deadline to every record change.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; human_content_review; reviewer: Osman Orka (project owner).
+
+**Reasoning:** Explicit user decision in the project conversation: OIQ-025 APPROVED; record the decision and update the verification flag/date. Approval applies to the clarified clause 167(1)(b) candidate, including communications under clauses 164 and 166.
+
+**Correction:** None; explicit human approval of the bound draft.
+
+<a id="oiq-026"></a>
 
 ## OIQ-026 — VIC / hardship
 
 **Trigger:** Retailer offers standard assistance under clause 125.
 
-**Action:** Include at least three of the four specified standard-assistance options.
+**Action:** Make available at least three of: equal payments over a specified period; different payment intervals; a specified pay-by-date extension for at least one billing cycle in any 12 months; advance payment for energy use.
 
 **Timing:** No numerical deadline asserted.
 
@@ -422,9 +574,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** assistance_offer_catalogue, option_mapping.
 
-**Review checks:** Check all four options and the clause 125(1) customer election requirement. The current minimum is three, not two. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** The retailer elects the standard-assistance forms under 125(1), subject to the three-of-four minimum in 125(2). The source does not say the pay-by-date extension must itself last an entire billing cycle. No numerical extension length is asserted.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 125(2) requires three of four listed forms. Clause 125(1) places election with the retailer. Paragraph (2)(c) specifies a pay-by extension for at least one billing cycle in 12 months, not an extension lasting a full billing cycle.
+
+**Correction:** Corrected the review note: under clause 125(1) the retailer elects which forms to make available, not the customer. Enumerated the four options without inventing an extension length.
+
+<a id="oiq-027"></a>
 
 ## OIQ-027 — VIC / hardship
 
@@ -438,9 +596,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** ongoing_affordability_assessment, arrears_hold, assistance_start_and_end, cost_reduction_support.
 
-**Review checks:** Six months is a minimum initial assistance period, not a maximum repayment-plan term. Apply eligibility and interaction with clauses 130 and 131. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Six months is a minimum initial assistance period, not a maximum repayment-plan term. Apply eligibility and interaction with clauses 130 and 131. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 128(3) entitles customers unable to pay full ongoing use to measures (1)(c)-(g). Paragraph (g) gives an initial period of at least six months combining an arrears hold with payment below ongoing costs while lowering them. Paragraphs (4)-(5) describe extension and transition; this is not a maximum plan duration.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-028"></a>
 
 ## OIQ-028 — VIC / hardship
 
@@ -454,9 +618,15 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** bill_pay_by_date, arrears_including_gst, contact_attempt_and_delivery, assistance_information.
 
-**Review checks:** Threshold is strictly greater than 55 AUD, not greater than or equal to 55. Check evidence of contact. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Threshold is strictly greater than 55 AUD, not greater than or equal to 55. Check evidence of contact. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 129(2) uses arrears strictly greater than AUD 55 including GST and contact/information within 21 business days after the pay-by date. Equality at 55 is not the stated trigger.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-029"></a>
 
 ## OIQ-029 — VIC / hardship
 
@@ -470,13 +640,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** information_provided_at, consideration_window, proposal_record.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 129(3) allows at least six business days after information under (1) or (2) for consideration, further information and a clause 130 proposal. It is a protected minimum window.
+
+**Correction:** None; requirement, trigger, action and timing match the cited source.
+
+<a id="oiq-030"></a>
 
 ## OIQ-030 — VIC / hardship
 
-**Trigger:** A payment proposal or revised proposal is accepted under clause 130.
+**Trigger:** Retailer accepts a payment proposal or revision under clause 130 for a residential customer whose arrears repayment is not on hold under 128(1)(g)(i).
 
 **Action:** Give a written schedule stating total payment count, period, due dates and amounts.
 
@@ -486,13 +662,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** accepted_proposal, written_schedule, delivery_record.
 
-**Review checks:** Clause 130(1) excludes customers whose arrears are on hold under 128(1)(g)(i). Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Clause 130(1) excludes customers whose arrears are on hold under 128(1)(g)(i). Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 130(5) requires the written count, period, due dates and amounts on accepting a proposal. Clause 130(1) excludes arrears-on-hold customers; the corrected trigger preserves it.
+
+**Correction:** Moved the clause 130(1) exclusion into the trigger so an arrears-on-hold customer cannot be treated as eligible solely from an accepted proposal.
+
+<a id="oiq-031"></a>
 
 ## OIQ-031 — VIC / hardship
 
-**Trigger:** A customer receiving assistance under this Division misses an agreed payment.
+**Trigger:** A residential customer receiving assistance under this Division, whose arrears repayment is not on hold under 128(1)(g)(i), misses a payment by its due date.
 
 **Action:** Contact the customer to discuss a revised payment proposal.
 
@@ -502,13 +684,19 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** applicable_plan, missed_payment, contact_record.
 
-**Review checks:** Read scope in 130(1); clause 131 addresses the different arrears-on-hold pathway. No numerical contact deadline is asserted here. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Read scope in 130(1); clause 131 addresses the different arrears-on-hold pathway. No numerical contact deadline is asserted here. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 130(6) requires contact to discuss a revised proposal after a missed payment. The clause 130(1) scope applies, while clause 131 supplies the distinct on-hold pathway; no contact deadline is invented.
+
+**Correction:** Moved the clause 130(1) arrears-hold exclusion into the trigger and retained the different clause 131 pathway.
+
+<a id="oiq-032"></a>
 
 ## OIQ-032 — VIC / hardship
 
-**Trigger:** A customer requests the retailer hardship policy.
+**Trigger:** Any residential customer asks to be sent a copy of the retailer financial hardship policy.
 
 **Action:** Send a copy of the policy.
 
@@ -518,6 +706,10 @@ Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c95
 
 **Proposed evidence:** policy_request, policy_version, copy_sent.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Context and implementation notes:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Decision:** APPROVED — 2026-09-12; agent_source_review; reviewer: Codex (user-authorised source reviewer).
+
+**Reasoning:** Clause 138(2) requires sending the policy to any residential customer asking for a copy. It does not limit the right to enrolled hardship customers or give a numerical deadline.
+
+**Correction:** Restored the clause 138(2) scope: any residential customer requesting a copy, not only customers already experiencing hardship.

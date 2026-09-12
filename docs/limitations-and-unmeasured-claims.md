@@ -2,10 +2,10 @@
 
 Phases 0–1 and Phase 2 drafts, 12 September 2026.
 
-- Ten regulatory PDFs are acquired and source-pinned; core pilot clauses and contextual guidance are indexed locally. OIQ-024 has explicit human content approval; 31 others remain pending. Source reuse terms differ, and no blanket open licence or commercial redistribution permission is claimed.
+- Ten regulatory PDFs are acquired and source-pinned; core pilot clauses and contextual guidance are indexed locally. OIQ-024/025 have explicit human content approvals; the other 30 have authorised agent source approvals. Source reuse terms differ, and no blanket open licence or commercial redistribution permission is claimed.
 - No real or synthetic customer population, ground truth, risk model or compliance control exists. Tests are software-boundary checks, not a business evaluation.
 - The PII hook is a stub, invoked for each request and blocking live dispatch by default. No working PII detection or rehydration is claimed.
-- The register contains 32 candidates, one recorded human approval and local Delta versioning. Controls, risk, agents, MCP and evaluation packages remain empty. The data plane contains only the corpus module. ADR-001 records the candidate method and pending human approval; ADR-002/003 retain pending choices. Unity Catalog and jurisdiction-specific application checks remain unverified.
+- The register contains 32 reviewed records, two human and 30 authorised agent approvals, and local Delta versioning. Controls, risk, agents, MCP and evaluation packages remain empty. The data plane contains only the corpus module. ADR-001 records the candidate and authorised review methods; ADR-002/003 retain pending choices. Unity Catalog and jurisdiction-specific application checks remain unverified.
 - Azure catalog availability and public rates were checked. No model was deployed and no inference purchased. The Azure transport remains unvalidated against a deployed model.
 - Costs are estimates using pinned retail rates and returned usage, not reconciled invoices. Taxes, contract pricing, currency changes and unrelated resources are outside the ledger.
 - Paid-call accounting resides in a durable local SQLite database. Deleting/replacing it or calling models through external software defeats local accounting. Protect and retain `.local/llm/`; no auto-reset or hold-expiry command is supplied. Corpus and register state are separate local artifacts.
