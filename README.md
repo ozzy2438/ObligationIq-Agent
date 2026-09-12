@@ -2,7 +2,7 @@
 
 Independent reference build for electricity compliance evidence in Australia.
 
-**Phase 0 implemented: configuration, guarded model gateway, cost ledger, cache and offline checks. Phase 1 has not started.** No regulatory corpus, customer population, compliance determination or Azure model evaluation exists yet.
+**Phases 0–1 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus and persisted CPU embeddings. No customer population, human-approved obligation register, compliance determination or Azure model evaluation exists yet.
 
 The eventual output is a source-backed evidence pack. Compliance decisions belong to deterministic controls using versioned, human-verified obligations; language models may retrieve, draft and explain evidence.
 
@@ -44,13 +44,21 @@ Empty template values use safe defaults. `src/config.py` loads strict `KEY=value
 - Retries default to zero, apply only to confirmed pre-dispatch failures, and reserve separately. SDK retries are disabled.
 - SQLite stores structured usage logs. Raw prompts, credentials and provider exception messages are not logged. Workload and escalation reasons use fixed codes; cache contents remain private.
 
-Default bounds: 4,096 input tokens and 1,024 total output tokens. Oversized requests are rejected. The interface accepts one text message, without tools, images or arbitrary provider parameters. Embedding prices are pinned; embedding execution is deferred.
+Default Azure bounds: 4,096 input tokens and 1,024 total output tokens. Oversized requests are rejected. The text interface accepts one message, without tools, images or arbitrary provider parameters. Azure embedding execution is deferred.
+
+## Run Phase 1
+
+See the [corpus runbook](docs/phase-1-corpus.md), [source inventory](data/SOURCES.md), and [generated verification](docs/phase-1-verification.json). Python 3.12 plus the optional `corpus` dependencies are required for PDF extraction and local semantic embeddings. The ordinary Phase 0 dry run still requires no model or corpus download.
+
+Phase 1 explicitly uses a pinned Apache-2.0 MiniLM model locally, enabled only by `LOCAL_EMBEDDING_ENABLED=true`. All inference remains inside `src/gateway/llm_client.py`. Source/model acquisition is a separate download command. Repeated builds reuse the persisted index; changed inputs reuse unchanged embedding cache entries. Local execution creates no Azure charge or paid reservation.
+
+Search defaults to a deterministic lexical baseline; semantic search is explicit and its quality is unmeasured. Every query selects a regime and snapshot date. Core clauses and contextual material remain distinguishable. Full source PDFs, extracted text and model weights stay outside Git; their terms are recorded rather than assumed to be open licences.
 
 Before future inference, the Azure adapter checks account region, endpoint, deployment model/version and SKU against the price pin. Pins older than 31 days refuse live dispatch. Local auth uses Entra via Azure CLI, never API keys. The adapter has **not** been exercised against a deployed model.
 
 ## Models and documentation
 
-Default: GPT-5 nano. Explicit escalation: GPT-5 mini. Future embeddings: text-embedding-3-small. All are catalog-listed in `australiaeast` with Global Standard. Catalog presence does not prove quota, capacity or successful inference. Global Standard can process outside Australia.
+Azure plan: GPT-5 nano by default, GPT-5 mini on explicit escalation, and future text-embedding-3-small evaluation. All are catalog-listed in `australiaeast` with Global Standard. Catalog presence does not prove quota, capacity or successful inference. Global Standard can process outside Australia. The Phase 1 local embedding choice is documented in ADR-004 and does not claim Foundry execution.
 
 - [Public build brief](docs/build-brief.md), with Section 11 omitted.
 - [Updated preflight](docs/preflight-and-delivery-plan.md).

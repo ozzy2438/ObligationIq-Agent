@@ -1,0 +1,966 @@
+{
+  "schema_version": 1,
+  "snapshot_date": "2026-09-12",
+  "scope": "Electricity pilot: core life support/hardship clauses plus labelled contextual guidance. Full PDFs and full extracted pages are retained locally; gas-only and unrelated core instrument parts are not indexed.",
+  "sources": [
+    {
+      "id": "nerr",
+      "title": "National Energy Retail Rules",
+      "issuer": "AEMC",
+      "version": "51",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf",
+      "landing_url": "https://energy-rules.aemc.gov.au/nerr",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2026-07-01",
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "bytes": 1004456,
+      "pdf_pages": 233,
+      "terms": {
+        "licence": "AEMC copyright; personal non-commercial unaltered reproduction terms; no open licence asserted",
+        "url": "https://www.aemc.gov.au/disclaimer-and-copyright",
+        "attribution": "Australian Energy Market Commission, National Energy Retail Rules version 51.",
+        "restriction": "Local research only. Raw PDF, extracted clauses and vectors are not redistributed. Commercial/public reuse requires separate rights assessment."
+      },
+      "regions": [
+        {
+          "pages": [
+            43,
+            44
+          ],
+          "references": [
+            "33"
+          ],
+          "family": "hardship",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^34[ \\t]+Shortened"
+        },
+        {
+          "pages": [
+            82,
+            86
+          ],
+          "references": [
+            "72",
+            "73",
+            "74",
+            "75",
+            "75A",
+            "75B",
+            "76"
+          ],
+          "family": "hardship",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^Part 3A "
+        },
+        {
+          "pages": [
+            117,
+            129
+          ],
+          "references": [
+            "123",
+            "123A",
+            "124",
+            "124A",
+            "124B",
+            "125",
+            "126",
+            "126A"
+          ],
+          "family": "life_support",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^Part 8 "
+        }
+      ],
+      "notes": "Current approved, non-archived API record 817; other records with version 51 are archived. Index covers r33, Part 3 and Part 7; whole document retained locally."
+    },
+    {
+      "id": "nerl",
+      "title": "National Energy Retail Law (South Australia) Act 2011, Schedule: National Energy Retail Law",
+      "issuer": "State of South Australia",
+      "version": "18 December 2025 consolidation",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://legislation.sa.gov.au/_legislation-documents/lz/c/a/national-energy-retail-law-south-australia-act-2011/current/2011.6.auth.pdf",
+      "landing_url": "https://www.legislation.sa.gov.au/lz?path=%2Fc%2Fa%2Fnational+energy+retail+law+%28south+australia%29+act+2011",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2025-12-18",
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "0ea70a4d01091ea89a850178cf0d2370fb37e1b8bb2f6dc603901b99e6bac1bd",
+      "bytes": 1284721,
+      "pdf_pages": 207,
+      "terms": {
+        "licence": "CC BY 4.0; SA additional attribution and publication disclaimer",
+        "url": "https://www.legislation.sa.gov.au/copyright",
+        "attribution": "State of South Australia. Based on content from the South Australian Legislation website at 12 September 2026. For the latest information on South Australian Government legislation, please go to www.legislation.sa.gov.au/.",
+        "restriction": "Despite any headers, footers or other markings, this legislation is NOT published under the Legislation Revision and Publication Act 2002. To access legislation that is published under the Legislation Revision and Publication Act 2002, please go to www.legislation.sa.gov.au/."
+      },
+      "regions": [
+        {
+          "pages": [
+            59,
+            63
+          ],
+          "references": [
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52"
+          ],
+          "family": "hardship",
+          "separator": "—",
+          "kind": "clause",
+          "end_pattern": "^Division 8—"
+        },
+        {
+          "pages": [
+            65,
+            65
+          ],
+          "references": [
+            "59"
+          ],
+          "family": "life_support",
+          "separator": "—",
+          "kind": "clause",
+          "end_pattern": "^60—"
+        }
+      ],
+      "notes": "Statutory foundation from the SA Schedule; application laws and jurisdiction-specific modifications still require Phase 2 verification. www host returned 403; same official non-www host served the pinned PDF."
+    },
+    {
+      "id": "esc",
+      "title": "Energy Retail Code of Practice",
+      "issuer": "Essential Services Commission Victoria",
+      "version": "6",
+      "regime": "VIC",
+      "jurisdictions": [
+        "VIC"
+      ],
+      "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "landing_url": "https://www.esc.vic.gov.au/electricity-and-gas/codes-guidelines-and-policies/energy-retail-code-practice",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2026-07-01",
+      "valid_from": "2026-09-12",
+      "valid_to": "2026-09-30",
+      "sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "bytes": 1562017,
+      "pdf_pages": 166,
+      "terms": {
+        "licence": "Copyright Essential Services Commission 2026; no open licence stated in code",
+        "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=2",
+        "attribution": "Essential Services Commission, Energy Retail Code of Practice, 2026.",
+        "restriction": "Local legal research only. No redistribution of full text, PDFs or vectors; no commercial reuse permission claimed."
+      },
+      "regions": [
+        {
+          "pages": [
+            98,
+            110
+          ],
+          "references": [
+            "121",
+            "122",
+            "123",
+            "124",
+            "125",
+            "126",
+            "127",
+            "128",
+            "129",
+            "130",
+            "131",
+            "132",
+            "133",
+            "134",
+            "135",
+            "136",
+            "137",
+            "138",
+            "139",
+            "140",
+            "141",
+            "142",
+            "143",
+            "144",
+            "145",
+            "146"
+          ],
+          "family": "hardship",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^Part 7 "
+        },
+        {
+          "pages": [
+            113,
+            128
+          ],
+          "references": [
+            "161",
+            "162",
+            "163",
+            "164",
+            "165",
+            "166",
+            "167",
+            "168",
+            "169",
+            "170",
+            "171",
+            "172",
+            "173",
+            "174"
+          ],
+          "family": "life_support",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^Part 9 "
+        }
+      ],
+      "notes": "Index covers Parts 6 and 8. Version 7 changes commence 1 October 2026; draft life support reforms are not used."
+    },
+    {
+      "id": "hardship",
+      "title": "Customer Hardship Policy Guideline",
+      "issuer": "AER",
+      "version": "1, March 2019",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://www.aer.gov.au/system/files/2025-02/AER%20-%20Customer%20Hardship%20Policy%20Guideline%20March%202019.pdf",
+      "landing_url": "https://www.aer.gov.au/documents/customer-hardship-policy-guideline-2019",
+      "retrieved_on": "2026-09-12",
+      "effective_from": null,
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "6dbd4c0625ae20143b725d121ec59a39eda42e714af08f950498dd24e668f55f",
+      "bytes": 932001,
+      "pdf_pages": 25,
+      "terms": {
+        "licence": "CC BY 3.0 AU",
+        "url": "https://www.aer.gov.au/system/files/2025-02/AER%20-%20Customer%20Hardship%20Policy%20Guideline%20March%202019.pdf#page=2",
+        "attribution": "Source: AER © Commonwealth of Australia. Text extracted and segmented for local research.",
+        "restriction": "Coat of Arms, logos and third-party graphics excluded; full source material is not redistributed."
+      },
+      "regions": [
+        {
+          "pages": [
+            4,
+            25
+          ],
+          "references": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89"
+          ],
+          "family": "hardship",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "start_pattern": "^1 Under the National"
+        }
+      ],
+      "notes": "Publication date is March 2019; a blanket instrument commencement date was not inferred. Transitional policy submission requirements remain clause-specific. Printed pages 14–15 (PDF pages 13–14) skip clause 55; visually verified, no missing text invented."
+    },
+    {
+      "id": "bills",
+      "title": "Better Bills Guideline",
+      "issuer": "AER",
+      "version": "2, 30 January 2023",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://www.aer.gov.au/system/files/AER%20-%20Better%20Bills%20Guideline%20(Version%202)%20-%20January%202023_0.pdf",
+      "landing_url": "https://www.aer.gov.au/industry/registers/resources/guidelines/better-bills-guideline-version-2/final-decision",
+      "retrieved_on": "2026-09-12",
+      "effective_from": null,
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "35fd18d4041cb4a40779238ea1995d1318446f48ee237c01983b297dfc1f4888",
+      "bytes": 426040,
+      "pdf_pages": 22,
+      "terms": {
+        "licence": "CC BY 4.0",
+        "url": "https://www.aer.gov.au/system/files/AER%20-%20Better%20Bills%20Guideline%20(Version%202)%20-%20January%202023_0.pdf#page=2",
+        "attribution": "Source: AER © Commonwealth of Australia. Text extracted and segmented for local research.",
+        "restriction": "Coat of Arms, logos and third-party graphics excluded; full source material is not redistributed."
+      },
+      "regions": [
+        {
+          "pages": [
+            7,
+            22
+          ],
+          "references": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63"
+          ],
+          "family": "context",
+          "separator": "\\.[ \\t]+(?=[A-Z])",
+          "kind": "clause"
+        }
+      ],
+      "notes": "Context only. Transitional provisions and exceptions exist; do not treat every historical clause as operative today. Billing engine remains out of scope."
+    },
+    {
+      "id": "compliance",
+      "title": "Compliance Procedures and Guidelines: National Energy Retail Law, Retail Rules and Regulations",
+      "issuer": "AER",
+      "version": "7, July 2024",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://www.aer.gov.au/system/files/2024-07/Final%20%28Retail%20Law%29%20Compliance%20procedures%20and%20guidelines.pdf",
+      "landing_url": "https://www.aer.gov.au/documents/final-retail-law-compliance-procedures-and-guidelines",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2025-04-01",
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "b8a0e0f912836aa41c3fff75c6b6c6e57a43cb9e06cb45a64f116bb19e630085",
+      "bytes": 395022,
+      "pdf_pages": 25,
+      "terms": {
+        "licence": "CC BY 4.0",
+        "url": "https://www.aer.gov.au/system/files/2024-07/Final%20%28Retail%20Law%29%20Compliance%20procedures%20and%20guidelines.pdf#page=2",
+        "attribution": "Source: AER © Commonwealth of Australia. Text extracted and segmented for local research.",
+        "restriction": "Coat of Arms, logos and third-party graphics excluded; full source material is not redistributed."
+      },
+      "regions": [
+        {
+          "pages": [
+            5,
+            19
+          ],
+          "references": [
+            "1.1",
+            "1.2",
+            "1.3",
+            "1.4",
+            "1.5",
+            "1.6",
+            "1.7",
+            "1.8",
+            "1.9",
+            "1.10",
+            "1.11",
+            "1.12",
+            "1.13",
+            "1.14",
+            "1.15",
+            "1.16",
+            "2.1",
+            "2.2",
+            "2.3",
+            "3.1",
+            "3.2",
+            "3.3",
+            "3.4",
+            "3.5",
+            "3.6",
+            "3.7",
+            "3.8",
+            "3.9",
+            "3.10",
+            "3.11",
+            "3.12",
+            "3.13",
+            "3.14",
+            "3.15",
+            "3.16",
+            "3.17",
+            "3.18",
+            "3.19",
+            "3.20",
+            "3.21",
+            "3.22",
+            "3.23",
+            "3.24",
+            "3.25",
+            "3.26",
+            "3.27",
+            "3.28",
+            "3.29",
+            "3.30",
+            "3.31",
+            "3.32",
+            "3.33",
+            "3.34",
+            "3.35",
+            "3.36",
+            "3.37",
+            "3.38",
+            "3.39",
+            "3.40",
+            "4.1",
+            "4.2",
+            "4.3",
+            "4.4",
+            "4.5",
+            "4.6",
+            "4.7",
+            "4.8",
+            "4.9",
+            "4.10",
+            "4.11",
+            "4.12",
+            "4.13",
+            "4.14",
+            "4.15",
+            "4.16",
+            "4.17",
+            "4.18",
+            "4.19",
+            "4.20",
+            "4.21",
+            "4.22",
+            "4.23",
+            "4.24",
+            "4.25",
+            "4.26",
+            "4.27",
+            "4.28",
+            "4.29",
+            "4.30",
+            "4.31",
+            "4.32",
+            "4.33",
+            "4.34",
+            "4.35",
+            "4.36"
+          ],
+          "family": "context",
+          "separator": "\\.?[ \\t]+(?=[A-Z])",
+          "kind": "clause",
+          "end_pattern": "^Appendix A "
+        },
+        {
+          "pages": [
+            19,
+            25
+          ],
+          "kind": "page_context",
+          "family": "context"
+        }
+      ],
+      "notes": "Cover says published July 2024, effective 1 April 2025. PDF licence wording says 4.0 Australia; hyperlink resolves to CC BY 4.0."
+    },
+    {
+      "id": "exempt",
+      "title": "Retail Exempt Selling Guideline",
+      "issuer": "AER",
+      "version": "7, August 2025",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://www.aer.gov.au/system/files/2025-10/Retail%20Exempt%20Selling%20Guideline%20%28version%207%29.pdf",
+      "landing_url": "https://www.aer.gov.au/industry/registers/resources/guidelines/retail-exempt-selling-guideline",
+      "retrieved_on": "2026-09-12",
+      "effective_from": null,
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "299389c95560680acd6a8a52f3ad55709d167e58bbcf308185018971eb5c58bd",
+      "bytes": 919624,
+      "pdf_pages": 70,
+      "terms": {
+        "licence": "CC BY 3.0 AU",
+        "url": "https://www.aer.gov.au/system/files/2025-10/Retail%20Exempt%20Selling%20Guideline%20%28version%207%29.pdf#page=2",
+        "attribution": "Source: AER © Commonwealth of Australia. Text extracted and segmented for local research.",
+        "restriction": "Coat of Arms, logos and third-party graphics excluded; full source material is not redistributed."
+      },
+      "regions": [
+        {
+          "pages": [
+            5,
+            8
+          ],
+          "kind": "page_context",
+          "family": "context"
+        },
+        {
+          "pages": [
+            9,
+            30
+          ],
+          "references": [
+            "3.1",
+            "3.2",
+            "3.3",
+            "4.1",
+            "4.2",
+            "4.3",
+            "4.4",
+            "5.1",
+            "5.2",
+            "6.1",
+            "6.2",
+            "6.3",
+            "7.1",
+            "7.2",
+            "7.2.1",
+            "7.3",
+            "7.3.1",
+            "7.3.2",
+            "7.4",
+            "8.1",
+            "8.2",
+            "9.1",
+            "9.2",
+            "10.1",
+            "10.2"
+          ],
+          "family": "context",
+          "separator": "[ \\t]+(?=[A-Z\\[])",
+          "kind": "clause",
+          "end_pattern": "^Appendix A-1:"
+        },
+        {
+          "pages": [
+            30,
+            34
+          ],
+          "kind": "page_context",
+          "family": "context"
+        },
+        {
+          "pages": [
+            35,
+            50
+          ],
+          "references": [
+            "Condition 1",
+            "Condition 2",
+            "Condition 3",
+            "Condition 4",
+            "Condition 5",
+            "Condition 6",
+            "Condition 7",
+            "Condition 8",
+            "Condition 9",
+            "Condition 10",
+            "Condition 11",
+            "Condition 12",
+            "Condition 13",
+            "Condition 14",
+            "Condition 15",
+            "Condition 16",
+            "Condition 17",
+            "Condition 18",
+            "Condition 19",
+            "Condition 20",
+            "Condition 21",
+            "Condition 22",
+            "Condition 23",
+            "Condition 24",
+            "Condition 25",
+            "Condition 26",
+            "Condition 27",
+            "Condition 28"
+          ],
+          "family": "context",
+          "separator": "[ \\t]+[–-]",
+          "kind": "clause",
+          "end_pattern": "^Appendix A-3:"
+        },
+        {
+          "pages": [
+            50,
+            70
+          ],
+          "kind": "page_context",
+          "family": "context"
+        }
+      ],
+      "notes": "Context only; staged 2025/2026 commencement and exemption-class applicability must be checked per condition."
+    },
+    {
+      "id": "payment",
+      "title": "Payment Difficulty Framework Guideline",
+      "issuer": "Essential Services Commission Victoria",
+      "version": "24 July 2024",
+      "regime": "VIC",
+      "jurisdictions": [
+        "VIC"
+      ],
+      "url": "https://www.esc.vic.gov.au/sites/default/files/documents/GL%20-%20PDF%20Guideline%20-%20FINAL%20-%2020240724.pdf",
+      "landing_url": "https://www.esc.vic.gov.au/electricity-and-gas/electricity-and-gas-codes-guidelines-and-policies/energy-guidelines/payment-difficulty-framework",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2024-07-24",
+      "valid_from": "2026-09-12",
+      "valid_to": "2026-09-30",
+      "sha256": "d21b82bd54aaaec6c7f317a3d56f71033efb7a627e4419a1388bb0783f81cec9",
+      "bytes": 521561,
+      "pdf_pages": 63,
+      "terms": {
+        "licence": "CC BY 4.0",
+        "url": "https://www.esc.vic.gov.au/sites/default/files/documents/GL%20-%20PDF%20Guideline%20-%20FINAL%20-%2020240724.pdf#page=2",
+        "attribution": "Essential Services Commission 2024, Payment Difficulty Framework Guideline, 24 July 2024.",
+        "restriction": "Extracted and segmented for research. Logos, images and photographs excluded from licence."
+      },
+      "regions": [
+        {
+          "pages": [
+            5,
+            8
+          ],
+          "kind": "page_context",
+          "family": "hardship"
+        },
+        {
+          "pages": [
+            9,
+            44
+          ],
+          "references": [
+            "1.1.1",
+            "1.1.2",
+            "1.1.3",
+            "1.1.4",
+            "1.1.5",
+            "1.1.6",
+            "3.1.1",
+            "3.1.2",
+            "3.1.3",
+            "3.1.4",
+            "3.1.5",
+            "3.1.6",
+            "3.1.7",
+            "3.1.8",
+            "3.1.9",
+            "3.1.10",
+            "3.1.11",
+            "3.1.12",
+            "3.1.13",
+            "3.1.14",
+            "3.1.15",
+            "3.1.16",
+            "3.1.17",
+            "3.1.18",
+            "3.1.19",
+            "3.1.20",
+            "3.1.21",
+            "3.1.22",
+            "3.1.23",
+            "3.1.24",
+            "3.1.25",
+            "3.1.26",
+            "3.1.27",
+            "4.1.1",
+            "4.1.2"
+          ],
+          "family": "hardship",
+          "separator": "\\.[ \\t]+(?=[A-Z])",
+          "kind": "clause"
+        },
+        {
+          "pages": [
+            45,
+            63
+          ],
+          "kind": "page_context",
+          "family": "hardship"
+        }
+      ],
+      "notes": "2024 guideline is current as of snapshot. Published replacement starts 1 October 2026 and is excluded. Guidance is not interchangeable with the Code."
+    },
+    {
+      "id": "b2b",
+      "title": "B2B Procedure: Customer and Site Details Notification Process",
+      "issuer": "AEMO",
+      "version": "4.01; final 5 May 2026",
+      "regime": "NEM_CONTEXT",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS",
+        "VIC"
+      ],
+      "url": "https://aemo.com.au/-/media/files/electricity/nem/retail_and_metering/b2b/2026/b2b-procedure-customer-and-site-details-notification-process-v401.pdf?rev=0593fd16fba2484e879ef873cdc600c5&sc_lang=en",
+      "landing_url": "https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/retail-and-metering",
+      "retrieved_on": "2026-09-12",
+      "effective_from": "2026-07-01",
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "34d0bdeb523ed49fa8e79a9f5cee3968c9a0acef99516a0185fb43fbe04b682d",
+      "bytes": 522919,
+      "pdf_pages": 28,
+      "terms": {
+        "licence": "AEMO public material: reuse with accurate attribution",
+        "url": "https://www.aemo.com.au/privacy-and-legal-notices/copyright-permissions",
+        "attribution": "Australian Energy Market Operator, B2B Procedure: Customer and Site Details Notification Process, v4.01.",
+        "restriction": "Publicly published final procedure bears a For Official use only marking. Preserve provenance; no confidential or third-party commissioned documents included."
+      },
+      "regions": [
+        {
+          "pages": [
+            5,
+            28
+          ],
+          "references": [
+            "1.1",
+            "1.2",
+            "1.3",
+            "1.4",
+            "2.1",
+            "2.2",
+            "3.1",
+            "3.2",
+            "4.1",
+            "4.2",
+            "4.3",
+            "4.4",
+            "4.5",
+            "4.6",
+            "4.7",
+            "4.8",
+            "4.9",
+            "5.1",
+            "5.2",
+            "5.3",
+            "5.4",
+            "5.5",
+            "5.6",
+            "5.7"
+          ],
+          "family": "life_support",
+          "separator": "\\.[ \\t]+(?=[A-Z])",
+          "kind": "clause"
+        }
+      ],
+      "notes": "Current operational listing and PDF agree on v4.01 effective 1 July 2026. Replaces the initially researched v3.91. The v4.0 consultation copy has mixed revision text and is not used. NSW B2B procedures and referenced instruments remain additional applicability checks before operational use."
+    },
+    {
+      "id": "priorities",
+      "title": "Compliance and Enforcement Priorities 2026–2027",
+      "issuer": "AER",
+      "version": "June 2026; 2026–27 annual priorities",
+      "regime": "NERL_NERR",
+      "jurisdictions": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "url": "https://www.aer.gov.au/system/files/2026-06/AER%20compliance%20and%20enforcement%20priorities%20-%202026-2027.pdf",
+      "landing_url": "https://www.aer.gov.au/compliance-enforcement-priorities",
+      "retrieved_on": "2026-09-12",
+      "effective_from": null,
+      "valid_from": "2026-09-12",
+      "valid_to": null,
+      "sha256": "3042d4b0296ebcfee80e964aeff2e338cfdebed267f98afed0b3319be46a03c7",
+      "bytes": 1017280,
+      "pdf_pages": 5,
+      "terms": {
+        "licence": "CC BY 4.0",
+        "url": "https://www.aer.gov.au/about/policies/disclaimer-copyright",
+        "attribution": "Source: AER © Commonwealth of Australia. Text extracted and segmented for local research.",
+        "restriction": "Coat of Arms, logos and third-party graphics excluded; full source material is not redistributed."
+      },
+      "regions": [
+        {
+          "pages": [
+            1,
+            5
+          ],
+          "kind": "page_context",
+          "family": "context"
+        }
+      ],
+      "notes": "Hardship access is an annual priority; life support is described as continuing vulnerability enforcement outside the five priorities. No claim that both are separate annual priorities."
+    }
+  ]
+}

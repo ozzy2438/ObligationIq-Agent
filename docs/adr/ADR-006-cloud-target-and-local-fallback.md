@@ -2,11 +2,11 @@
 
 ## Context
 
-The brief targets Azure/Databricks, while the current task authorises Phase 0 only, no model deployment, and a 10 AUD total ceiling. Local development must work without fabricating cloud identifiers.
+The brief targets Azure/Databricks. Phase 0 authorised setup without model deployment under a 10 AUD total ceiling; the owner subsequently authorised Phase 1 continuation. Local development must work without fabricating cloud identifiers.
 
 ## Decision
 
-Accepted for Phase 0. Use ordinary Python and local SQLite for the gateway ledger, response cache and call logs. Leave register, data plane, controls, risk, agents, MCP and evaluation as empty packages. Do not deploy Databricks, managed search, storage or API Management now.
+Accepted for Phases 0–1. Use ordinary Python and local SQLite for the gateway ledger, response cache, call logs and Phase 1 corpus. Register, controls, risk, agents, MCP and evaluation remain empty packages. Do not deploy Databricks, managed search, storage or API Management now.
 
 Configuration loads from .env and environment overrides. All Section 3 keys remain in the empty template. Requiredness is mode-specific: dry_run/cached need no cloud credentials; live requires an independent enable flag and validated Azure identity/resource identifiers. Unused Databricks keys remain optional until the data plane exists. No silent provider fallback is allowed.
 
@@ -18,4 +18,4 @@ Use the existing Entra Azure CLI identity for a future local live evaluation; no
 
 Phase 0 can be reproduced without Azure SDKs or an Azure account. The optional Azure adapter is not evidence of a deployed Foundry system. Local SQLite is not Delta Lake or Unity Catalog; their operational and access-control guarantees are not claimed.
 
-Before Phase 6 re-check model prices, retirement dates, capacity and subscription quota; implement and validate PII handling; then perform a small, budgeted real evaluation. No Phase 1 corpus acquisition or Phase 6 deployment/evaluation is part of this delivery.
+Phase 1 uses the explicit local embedding decision in ADR-004 and public regulatory documents. No cloud resource identifiers are invented. Before Phase 6 re-check model prices, retirement dates, capacity and subscription quota; implement and validate PII handling; then perform a small, budgeted real evaluation. Cloud deployment/evaluation remains deferred.

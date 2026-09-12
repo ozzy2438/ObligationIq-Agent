@@ -1,4 +1,4 @@
-name: Phase 0
+name: Offline checks
 on:
   push:
   pull_request:
@@ -10,6 +10,7 @@ jobs:
     env:
       LLM_MODE: dry_run
       LLM_ALLOW_LIVE: 'false'
+      LOCAL_EMBEDDING_ENABLED: 'false'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -41,6 +41,141 @@ class Phase0Redactor:
         return RedactedPrompt(prompt, live_ready=False)
 
 
+class LocalEmbedder:
+    """Explicit, public-corpus-only CPU embeddings; no provider or download fallback.
+
+    LLM_MODE continues to govern Azure text calls. This separate opt-in never
+    enables Azure and the default dry-run entry point never constructs it.
+    """
+
+    def __init__(self, config=settings, *, redactor=None):
+        import sqlite3
+        from src.config import ROOT
+        if not config.local_embedding_enabled:
+            raise GatewayError("Local embeddings require LOCAL_EMBEDDING_ENABLED=true")
+        self.pin = json.loads((ROOT / "src/gateway/local-model.json").read_text())
+        self.identity = hashlib.sha256(json.dumps(self.pin, sort_keys=True).encode()).hexdigest()
+        self.config = config
+        self.redactor = redactor or Phase0Redactor()
+        self.computed = self.hits = 0
+        self._session = self._tokenizer = None
+        self._verified = False
+        config.state_dir.mkdir(parents=True, exist_ok=True)
+        self.cache_path = config.state_dir / "local-embeddings.sqlite3"
+        with sqlite3.connect(self.cache_path) as db:
+            db.execute("CREATE TABLE IF NOT EXISTS embeddings(key TEXT PRIMARY KEY, vector TEXT)")
+        self.ledger = Ledger(config.state_dir / "gateway.sqlite3", config.daily_limit, config.project_limit)
+
+    def _assets(self):
+        if self._verified:
+            return
+        for file in self.pin["files"]:
+            path = self.config.local_model_dir / file["name"]
+            if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != file["sha256"]:
+                raise GatewayError("Missing or changed pinned local model asset; run acquisition")
+        self._verified = True
+
+    def _safe(self, text):
+        try:
+            result = self.redactor.redact(text)
+            if not isinstance(result, RedactedPrompt) or not result.text.strip():
+                raise ValueError
+            return result.text
+        except Exception:
+            raise GatewayError("Local embedding redaction hook rejected input") from None
+
+    def _tokens(self):
+        from tokenizers import Tokenizer
+        self._assets()
+        if self._tokenizer is None:
+            self._tokenizer = Tokenizer.from_file(str(self.config.local_model_dir / "tokenizer.json"))
+            self._tokenizer.no_truncation()
+            self._tokenizer.no_padding()
+        return self._tokenizer
+
+    def windows(self, text):
+        text = self._safe(text)
+        encoded = self._tokens().encode(text, add_special_tokens=False)
+        # Preserve exact substrings and overlapping context. Never silently truncate.
+        windows = []
+        for start in range(0, len(encoded.ids), 192):
+            stop = min(start + 224, len(encoded.ids))
+            lo = 0 if start == 0 else encoded.offsets[start][0]
+            hi = len(text) if stop == len(encoded.ids) else encoded.offsets[stop - 1][1]
+            windows.append(text[lo:hi])
+            if stop == len(encoded.ids):
+                break
+        return windows
+
+    def embed(self, texts):
+        import sqlite3
+        safe = [self._safe(t) for t in texts]
+        keys = [hashlib.sha256((self.identity + t).encode()).hexdigest() for t in safe]
+        started = time.monotonic()
+        computed = hits = tokens = 0
+        found, missing = {}, {}
+        with sqlite3.connect(self.cache_path) as db:
+            for key, text in zip(keys, safe, strict=True):
+                cached = db.execute("SELECT vector FROM embeddings WHERE key=?", (key,)).fetchone()
+                if cached:
+                    vector = json.loads(cached[0])
+                    self._validate_vector(vector)
+                    found[key] = vector
+                    hits += 1
+                else:
+                    missing[key] = text
+            pending = list(missing.items())
+            for offset in range(0, len(pending), 16):
+                batch = pending[offset:offset + 16]
+                vectors, count = self._run([text for _, text in batch])
+                tokens += count
+                for (key, _), vector in zip(batch, vectors, strict=True):
+                    self._validate_vector(vector)
+                    found[key] = vector
+                    db.execute("INSERT OR IGNORE INTO embeddings VALUES(?,?)", (key, json.dumps(vector)))
+                    computed += 1
+                db.commit()  # Interrupted later batches reuse all completed vectors.
+        self.computed += computed
+        self.hits += hits
+        self.ledger.log({"timestamp": utc_now().isoformat(), "workload": "corpus_embedding",
+                         "model": self.pin["model"], "model_version": self.pin["revision"],
+                         "prompt_tokens": tokens, "completion_tokens": 0,
+                         "latency_ms": round((time.monotonic() - started) * 1000, 3),
+                         "estimated_aud": "0", "mode": "local", "cache_hit": not computed,
+                         "cache_hits": hits, "embedded": computed, "escalation_reason": None})
+        return [found[key] for key in keys]
+
+    @staticmethod
+    def _validate_vector(vector):
+        import math
+        if (len(vector) != 384 or any(not isinstance(x, (float, int)) or not math.isfinite(x) for x in vector)
+                or not 0.99 < sum(x * x for x in vector) < 1.01):
+            raise GatewayError("Invalid local embedding or cache corruption")
+
+    def _run(self, texts):
+        import numpy as np
+        import onnxruntime as ort
+        tokenizer = self._tokens()
+        encoded = [tokenizer.encode(t) for t in texts]
+        if any(len(e.ids) > 256 for e in encoded):
+            raise GatewayError("Local embedding input exceeds the pinned token bound")
+        if self._session is None:
+            options = ort.SessionOptions()
+            options.intra_op_num_threads = 2
+            options.inter_op_num_threads = 1
+            self._session = ort.InferenceSession(str(self.config.local_model_dir / "model.onnx"),
+                                                 sess_options=options, providers=["CPUExecutionProvider"])
+        width = max(len(e.ids) for e in encoded)
+        ids = np.array([e.ids + [0] * (width - len(e.ids)) for e in encoded], dtype=np.int64)
+        mask = np.array([[1] * len(e.ids) + [0] * (width - len(e.ids)) for e in encoded], dtype=np.int64)
+        outputs = self._session.run(None, {"input_ids": ids, "attention_mask": mask,
+                                           "token_type_ids": np.zeros_like(ids)})[0]
+        # Model card: attention-masked mean pooling, then L2 normalisation.
+        mean = (outputs * mask[:, :, None]).sum(axis=1) / mask.sum(axis=1)[:, None]
+        vectors = mean / np.linalg.norm(mean, axis=1, keepdims=True)
+        return vectors.tolist(), sum(len(e.ids) for e in encoded)
+
+
 @dataclass(frozen=True, repr=False)
 class Completion:
     text: str
