@@ -6,7 +6,7 @@ The brief targets Azure/Databricks. Phase 0 authorised setup without model deplo
 
 ## Decision
 
-Accepted for Phases 0–1. Use ordinary Python and local SQLite for the gateway ledger, response cache, call logs and Phase 1 corpus. Register, controls, risk, agents, MCP and evaluation remain empty packages. Do not deploy Databricks, managed search, storage or API Management now.
+Accepted for Phases 0–1, extended for reviewable Phase 2 drafts. Use ordinary Python and local SQLite for the gateway ledger, response cache, call logs and Phase 1 corpus. Use delta-rs and PyArrow for the local candidate register. Controls, risk, agents, MCP and evaluation remain empty packages. Do not deploy Databricks, managed search, storage or API Management now.
 
 Configuration loads from .env and environment overrides. All Section 3 keys remain in the empty template. Requiredness is mode-specific: dry_run/cached need no cloud credentials; live requires an independent enable flag and validated Azure identity/resource identifiers. Unused Databricks keys remain optional until the data plane exists. No silent provider fallback is allowed.
 
@@ -19,3 +19,5 @@ Use the existing Entra Azure CLI identity for a future local live evaluation; no
 Phase 0 can be reproduced without Azure SDKs or an Azure account. The optional Azure adapter is not evidence of a deployed Foundry system. Local SQLite is not Delta Lake or Unity Catalog; their operational and access-control guarantees are not claimed.
 
 Phase 1 uses the explicit local embedding decision in ADR-004 and public regulatory documents. No cloud resource identifiers are invented. Before Phase 6 re-check model prices, retirement dates, capacity and subscription quota; implement and validate PII handling; then perform a small, budgeted real evaluation. Cloud deployment/evaluation remains deferred.
+
+Phase 2 demonstrates actual local Delta snapshot versioning, with unchanged replay and historical reads. It does not demonstrate Unity Catalog, row-level security or governed cloud lineage. The brief's Unity Catalog requirement remains unmet; either a separately validated implementation or explicit scope acceptance is needed before calling Phase 2 complete.

@@ -65,6 +65,7 @@ class Settings:
     local_embedding_enabled: bool = False
     local_model_dir: Path = ROOT / ".local/models/minilm"
     corpus_dir: Path = ROOT / "data/cache/corpus"
+    register_dir: Path = ROOT / ".local/register/obligations"
 
 
 def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:

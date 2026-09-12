@@ -1,0 +1,239 @@
+{
+  "snapshot_date": "2026-09-12",
+  "records": 32,
+  "candidate_file_sha256": "a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea5776908979d17",
+  "source_trace_checks": [
+    {
+      "obligation_id": "OIQ-001",
+      "source": "nerr",
+      "parent_clause": "124",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-002",
+      "source": "nerr",
+      "parent_clause": "124",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-003",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-004",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-005",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-006",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-007",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-008",
+      "source": "nerr",
+      "parent_clause": "125",
+      "physical_pdf_page": 124,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-009",
+      "source": "nerr",
+      "parent_clause": "126",
+      "physical_pdf_page": 127,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-010",
+      "source": "nerr",
+      "parent_clause": "126A",
+      "physical_pdf_page": 128,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-011",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-012",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-013",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-014",
+      "source": "nerl",
+      "parent_clause": "46",
+      "physical_pdf_page": 61,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-015",
+      "source": "nerl",
+      "parent_clause": "50",
+      "physical_pdf_page": 62,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-016",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-017",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-018",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-019",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-020",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-021",
+      "source": "esc",
+      "parent_clause": "165",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-022",
+      "source": "esc",
+      "parent_clause": "165",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-023",
+      "source": "esc",
+      "parent_clause": "166",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-024",
+      "source": "esc",
+      "parent_clause": "166",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-025",
+      "source": "esc",
+      "parent_clause": "167",
+      "physical_pdf_page": 120,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-026",
+      "source": "esc",
+      "parent_clause": "125",
+      "physical_pdf_page": 99,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-027",
+      "source": "esc",
+      "parent_clause": "128",
+      "physical_pdf_page": 99,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-028",
+      "source": "esc",
+      "parent_clause": "129",
+      "physical_pdf_page": 101,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-029",
+      "source": "esc",
+      "parent_clause": "129",
+      "physical_pdf_page": 101,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-030",
+      "source": "esc",
+      "parent_clause": "130",
+      "physical_pdf_page": 102,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-031",
+      "source": "esc",
+      "parent_clause": "130",
+      "physical_pdf_page": 102,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-032",
+      "source": "esc",
+      "parent_clause": "138",
+      "physical_pdf_page": 105,
+      "parent_text_hash_matches": true
+    }
+  ],
+  "delta_version": 0,
+  "repeat_delta_writes": 0,
+  "network_connections": 0,
+  "model_calls": 0,
+  "human_verified_records": 0,
+  "control_eligible_records": 0,
+  "unity_catalog_verified": false,
+  "limit": "Parent-clause traceability only; semantic accuracy, subclause interpretation, jurisdiction and human approval remain pending."
+}
