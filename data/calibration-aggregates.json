@@ -1,0 +1,731 @@
+{
+  "period": "Q3 2025-26",
+  "extraction": "Published literal cells; source bytes checksum-verified",
+  "records": [
+    {
+      "metric": "residential_customers",
+      "region": "National",
+      "value": "7060625",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F91",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "residential_customers",
+      "region": "ACT",
+      "value": "203477",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F137",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "residential_customers",
+      "region": "NSW",
+      "value": "3529621",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F214",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "residential_customers",
+      "region": "QLD",
+      "value": "2230273",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F291",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "residential_customers",
+      "region": "SA",
+      "value": "836458",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F356",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "residential_customers",
+      "region": "TAS",
+      "value": "260796",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F384",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "National",
+      "value": "150486",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F91",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "ACT",
+      "value": "2851",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F138",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "NSW",
+      "value": "78313",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F216",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "QLD",
+      "value": "40863",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F294",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "SA",
+      "value": "21470",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F360",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_customers",
+      "region": "TAS",
+      "value": "6989",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F388",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "National",
+      "value": "0.0213134106399929",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K91",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "ACT",
+      "value": "0.0140114116091745",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K138",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "NSW",
+      "value": "0.022187367992200901",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K216",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "QLD",
+      "value": "0.018321972242859998",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K294",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "SA",
+      "value": "0.025667756181422099",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K360",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_rate",
+      "region": "TAS",
+      "value": "0.026798723906808399",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K388",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "National",
+      "value": "2246.7522557580101",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F91",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "ACT",
+      "value": "2051.57618379516",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F138",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "NSW",
+      "value": "2288.2494334274002",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F216",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "QLD",
+      "value": "1910.82622103125",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F294",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "SA",
+      "value": "2817.9995011644201",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F360",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_entry_debt_aud",
+      "region": "TAS",
+      "value": "2070.6105623121998",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F388",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "National",
+      "value": "2438.1801289821001",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L91",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "ACT",
+      "value": "2027.8697614872001",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L138",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "NSW",
+      "value": "2536.6648460664301",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L216",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "QLD",
+      "value": "2085.5123745197402",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L294",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "SA",
+      "value": "2970.2550358640001",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L360",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "hardship_current_debt_aud",
+      "region": "TAS",
+      "value": "1929.46291744169",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L388",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "National",
+      "value": "8724",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F77",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "ACT",
+      "value": "63",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F117",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "NSW",
+      "value": "4834",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F181",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "QLD",
+      "value": "2526",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F244",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "SA",
+      "value": "1136",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F298",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnections",
+      "region": "TAS",
+      "value": "165",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F322",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "National",
+      "value": "0.00123558466849606",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L77",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "ACT",
+      "value": "0.00030961730318414401",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L117",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "NSW",
+      "value": "0.0013695521417172001",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L181",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "QLD",
+      "value": "0.0011325967717853401",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L244",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "SA",
+      "value": "0.0013581076395945801",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L298",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "quarter_disconnection_rate",
+      "region": "TAS",
+      "value": "0.00063267841531311801",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L322",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "National",
+      "value": "160132",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F72",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "ACT",
+      "value": "5419",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F111",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "NSW",
+      "value": "96621",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F172",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "QLD",
+      "value": "33309",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F231",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "SA",
+      "value": "16411",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F282",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_confirmed",
+      "region": "TAS",
+      "value": "8372",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F307",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "National",
+      "value": "77670",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K72",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "ACT",
+      "value": "1982",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K111",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "NSW",
+      "value": "43738",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K172",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "QLD",
+      "value": "21117",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K231",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "SA",
+      "value": "9652",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K282",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "life_support_unconfirmed",
+      "region": "TAS",
+      "value": "1181",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K307",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "National",
+      "value": "35569",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P72",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "ACT",
+      "value": "506",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P111",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "NSW",
+      "value": "21128",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P172",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "QLD",
+      "value": "9194",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P231",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "SA",
+      "value": "4101",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P282",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_registrations",
+      "region": "TAS",
+      "value": "640",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P307",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "National",
+      "value": "20180",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U72",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "ACT",
+      "value": "265",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U111",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "NSW",
+      "value": "11624",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U172",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "QLD",
+      "value": "5255",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U231",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "SA",
+      "value": "2777",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U282",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    },
+    {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "TAS",
+      "value": "259",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U307",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    }
+  ],
+  "rate_checks": [
+    {
+      "region": "National",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "National",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "ACT",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "ACT",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "NSW",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "NSW",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "QLD",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "QLD",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "SA",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "SA",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "TAS",
+      "rate": "hardship_rate",
+      "matches_counts": true
+    },
+    {
+      "region": "TAS",
+      "rate": "quarter_disconnection_rate",
+      "matches_counts": true
+    }
+  ],
+  "national_count_reconciliation": true,
+  "population_generated": false,
+  "limitation": "Not a calibration-versus-generated-population result. Victoria and other Section 6 sources remain outstanding."
+}
