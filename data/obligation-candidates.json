@@ -1078,7 +1078,7 @@
     "parent_clause": "167",
     "obligation_family": "life_support",
     "trigger_event": "Life support registration details or required communications change.",
-    "required_action": "Keep required supply dates, confirmation receipt, deregistration dates/reasons and required communications current.",
+    "required_action": "Keep required supply dates, medical confirmation receipt, deregistration dates/reasons and communications required by clauses 164 and 166 current in the life support customer/resident register.",
     "deadline_value": null,
     "deadline_unit": null,
     "timing_operator": "not_specified",
@@ -1105,9 +1105,10 @@
     "verification_date": null,
     "pending_checks": [
       "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
-      "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.",
+      "Clause 167 sets no standalone numerical deadline; do not apply the separate 166(2)(b) deregistration-update deadline to every record change."
     ],
-    "record_sha256": "3ffb056f55b47750d039baa94d72398b3d9df1dbd29d8b468358ffd61a4bd4a2"
+    "record_sha256": "8ea932c965187ae267d48b9259c26cbe6f57e634ca8815d5619fe4f4f7660645"
   },
   {
     "obligation_id": "OIQ-026",

@@ -1,7 +1,8 @@
 {
   "snapshot_date": "2026-09-12",
   "records": 32,
-  "candidate_file_sha256": "a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea5776908979d17",
+  "candidate_file_sha256": "b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c957955a46906650",
+  "human_reviews_sha256": "e435b5db414030f2007b7a72fed1a6f2ee6b8f4023c1a6eee63d2b93f9b8d447",
   "source_trace_checks": [
     {
       "obligation_id": "OIQ-001",
@@ -228,12 +229,12 @@
       "parent_text_hash_matches": true
     }
   ],
-  "delta_version": 0,
+  "delta_version": 1,
   "repeat_delta_writes": 0,
   "network_connections": 0,
   "model_calls": 0,
-  "human_verified_records": 0,
+  "human_verified_records": 1,
   "control_eligible_records": 0,
   "unity_catalog_verified": false,
-  "limit": "Parent-clause traceability only; semantic accuracy, subclause interpretation, jurisdiction and human approval remain pending."
+  "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."
 }

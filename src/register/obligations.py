@@ -11,6 +11,7 @@ from src.config import ROOT, settings
 from src.dataplane.corpus import load_manifest
 
 CANDIDATES = ROOT / "data/obligation-candidates.json"
+REVIEWS = ROOT / "data/human-reviews.json"
 LIST_FIELDS = {"jurisdiction", "evidence_required", "pending_checks"}
 INTEGER_FIELDS = {"deadline_value", "source_page_start", "source_page_end"}
 FIELDS = set("""obligation_id instrument jurisdiction regime clause_reference parent_clause
@@ -35,8 +36,8 @@ def record_hash(record):
 def validate_candidates(records, manifest=None):
     """Validate draft contracts without PDFs, model calls or network access.
 
-    Approval cannot be manufactured by toggling a JSON flag. A human attestation
-    workflow and jurisdiction review are deliberately not implemented yet.
+    Draft flags cannot confer approval. Explicit human decisions are maintained
+    separately, bound to the reviewed draft digest. Jurisdiction review is pending.
     """
     if not isinstance(records, list) or not records:
         raise RegisterError("Candidate snapshot must be a nonempty list")
@@ -99,18 +100,53 @@ def load_candidates(path=CANDIDATES):
     return validate_candidates(json.loads(Path(path).read_text()))
 
 
+def reviewed_records(records, reviews=None):
+    """Apply recorded human decisions to exact draft versions; never infer consent.
+
+    The Git-reviewed decision file is an audit record of conversation approvals,
+    not a cryptographic identity system or permission to run compliance controls.
+    """
+    validate_candidates(records)
+    reviews = json.loads(REVIEWS.read_text()) if reviews is None else reviews
+    if not isinstance(reviews, list):
+        raise RegisterError("Human reviews must be a list")
+    by_id = {r["obligation_id"]: dict(r) for r in records}
+    seen = set()
+    for review in reviews:
+        required = {"obligation_id", "decision", "reviewer", "verification_date",
+                    "reviewed_record_sha256", "source_sha256", "basis", "scope", "recorded_by"}
+        if (not isinstance(review, dict) or set(review) != required or
+                any(type(v) is not str or not v.strip() for v in review.values())):
+            raise RegisterError("Incomplete human decision")
+        oid = review["obligation_id"]
+        r = by_id.get(oid)
+        if r is None or oid in seen:
+            raise RegisterError("Unknown or duplicate human decision")
+        seen.add(oid)
+        if review["decision"] != "APPROVED" or review["scope"] != "human_content_review":
+            raise RegisterError("Unsupported human decision or scope")
+        if (review["reviewed_record_sha256"] != r["record_sha256"] or
+                review["source_sha256"] != r["source_sha256"]):
+            raise RegisterError("Human approval does not match current draft/source; re-review required")
+        date.fromisoformat(review["verification_date"])
+        r["verified_by_human"] = True
+        r["verification_date"] = review["verification_date"]
+        r["record_sha256"] = record_hash(r)
+    return list(by_id.values())
+
+
 def for_controls(records):
     validate_candidates(records)
-    raise RegisterError("Human verification and jurisdiction review pending; no candidate is usable by controls")
+    raise RegisterError("Human verification is incomplete and jurisdiction review is pending; controls remain blocked")
 
 
-def materialize(records, path=settings.register_dir):
+def materialize(records, path=settings.register_dir, reviews=None):
     """Local Delta snapshot; identical input is a no-op, changes create a version.
 
     One local writer is supported. Delta's transaction log preserves snapshots;
     this is not Unity Catalog, access control, or an approval mechanism.
     """
-    validate_candidates(records)
+    records = reviewed_records(records, reviews)
     import pyarrow as pa
     from deltalake import DeltaTable, write_deltalake
 
@@ -137,7 +173,8 @@ def main():
     args = parser.parse_args()
     records = load_candidates()
     result = (materialize(records) if args.command == "materialize" else
-              {"records": len(records), "human_verified": 0, "control_eligible": 0})
+              {"records": len(records), "human_verified": sum(
+                  r["verified_by_human"] for r in reviewed_records(records)), "control_eligible": 0})
     print(json.dumps(result))
 
 

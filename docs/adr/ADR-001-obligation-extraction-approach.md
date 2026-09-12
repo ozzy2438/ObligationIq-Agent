@@ -8,7 +8,7 @@ Extraction must preserve jurisdiction, instrument version and clause provenance.
 
 Accepted for candidate preparation: read pinned source clauses, paraphrase requirements into the brief schema, and bind source PDF, extracted parent clause and complete record with separate SHA-256 digests. Label the method `agent_assisted_source_reading`; no Azure or application extraction call is claimed. Store minimum/maximum timing direction and its event anchor explicitly.
 
-Human approval and clause-level jurisdiction applicability remain PENDING. Draft import requires false/null verification fields. The control access function refuses all drafts, including a file edited to claim approval. A later controlled attestation workflow must bind reviewer, date and exact content before any record becomes eligible.
+Human approval is recorded per exact candidate version; unreviewed candidates and clause-level jurisdiction applicability remain PENDING. Draft import requires false/null verification fields. The Git-tracked human-review log binds explicit user decisions to reviewer, date, draft digest and source digest. The resolved register applies only matching decisions and rejects changed content. The control access function still refuses use pending the remaining phase and jurisdiction gates. Changing a draft flag is not an approval path.
 
 ## Consequences
 

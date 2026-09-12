@@ -9,7 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import ROOT
 from src.dataplane.corpus import clause_blocks, extract_pages, load_manifest, verified_pdf
-from src.register.obligations import load_candidates, materialize
+from src.register.obligations import REVIEWS, load_candidates, materialize, reviewed_records
 
 
 def verify_sources(records):
@@ -47,11 +47,12 @@ def main():
         raise AssertionError("Repeated Delta materialization must be a no-op")
     report = {"snapshot_date": "2026-09-12", "records": len(records),
               "candidate_file_sha256": hashlib.sha256((ROOT / "data/obligation-candidates.json").read_bytes()).hexdigest(),
+              "human_reviews_sha256": hashlib.sha256(REVIEWS.read_bytes()).hexdigest(),
               "source_trace_checks": checks, "delta_version": repeat["version"],
               "repeat_delta_writes": 0, "network_connections": 0, "model_calls": 0,
-              "human_verified_records": 0, "control_eligible_records": 0,
+              "human_verified_records": sum(r["verified_by_human"] for r in reviewed_records(records)), "control_eligible_records": 0,
               "unity_catalog_verified": False,
-              "limit": "Parent-clause traceability only; semantic accuracy, subclause interpretation, jurisdiction and human approval remain pending."}
+              "limit": "Automated checks establish parent-clause traceability only. Human decisions are separately recorded; unapproved records and operational gates remain pending."}
     (ROOT / "docs/phase-2-verification.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "source_trace_checks"}))
 

@@ -2,13 +2,13 @@
 
 Status: **prepared for human review, not complete**. Snapshot: 12 September 2026.
 
-The [review pack](phase-2-review.md) contains 32 candidates across life support and hardship/payment difficulty, covering NERL/NERR and Victoria. All have `verified_by_human=false` and a null verification date. Phase 3 has not started.
+The [review pack](phase-2-review.md) contains 32 candidates across life support and hardship/payment difficulty, covering NERL/NERR and Victoria. OIQ-024 has explicit human approval recorded in `data/human-reviews.json`; the other 31 remain pending. Immutable draft flags stay false/null; the resolved register and Delta snapshot apply the approval to the exact reviewed content. Phase 3 has not started.
 
 ## Implemented
 
 `data/obligation-candidates.json` contains every brief schema field, plus timing direction and anchor, physical PDF page range, source and clause SHA-256 digests, a complete-record digest, and explicit outstanding checks. Candidate text is an agent-assisted paraphrase of acquired sources. No application model extraction call, Azure inference or human legal verification is claimed.
 
-`src/register/obligations.py` validates the draft contract against the pinned source manifest. A changed source, stale record digest, missing clause anchor or ambiguous timing fails. Draft imports cannot assert human approval by changing a flag. `for_controls()` refuses every candidate until a separate human-attestation workflow and jurisdiction review are implemented. Direct Python access to a file is not a security boundary; future control consumers must use the register contract.
+`src/register/obligations.py` validates the draft contract against the pinned source manifest. A changed source, stale record digest, missing clause anchor or ambiguous timing fails. Draft imports cannot assert human approval by changing a flag. `reviewed_records()` applies explicit, version-bound decisions from the Git-tracked human-review log. Unknown or duplicate decisions and changed approved content fail closed. This log records user decisions; it is not cryptographic identity verification. `for_controls()` still refuses use while phase and jurisdiction gates remain unresolved. Direct Python access to a file is not a security boundary; future control consumers must use the register contract.
 
 Optional delta-rs and PyArrow dependencies persist full structured records in local Delta Lake at `.local/register/obligations`. Identical input produces no write; changed content produces a new snapshot version. A real Delta test verifies version 0 is still readable after a revision. This is a single-writer local build. Keep the transaction log and data files; no vacuum or cleanup policy has been applied. Delta history is not tamper-proof storage, human approval or Unity Catalog governance.
 
@@ -31,7 +31,7 @@ For a trace check against actual PDFs, acquire the pinned sources using the Phas
 python scripts/verify_register.py
 ```
 
-Dependency installation and source acquisition use the network. The subsequent verification denies socket connections, runs no model and checks all 32 records against re-extracted parent clauses and source hashes. The [generated report](phase-2-verification.json) records local Delta version 0 and an unchanged repeat. Automated parent-clause matching does **not** prove semantic correctness of a subclause or legal applicability. It does not fulfil human verification.
+Dependency installation and source acquisition use the network. The subsequent verification denies socket connections, runs no model and checks all 32 records against re-extracted parent clauses and source hashes. The [generated report](phase-2-verification.json) records the latest local Delta version and an unchanged repeat. Version 0 retains the original unapproved snapshot. Automated parent-clause matching does **not** prove semantic correctness of a subclause or legal applicability. It does not fulfil human verification.
 
 ## Material findings for review
 
@@ -44,7 +44,7 @@ Dependency installation and source acquisition use the network. The subsequent v
 
 ## Outstanding Phase 2 gates
 
-1. Human review of **each** candidate: content, definitions, exceptions, evidence sufficiency and applicable jurisdiction. Record reviewer identity, date and the exact approved record digest in a controlled attestation workflow. No approvals are supplied by the agent.
+1. Human review of **each** candidate: content, definitions, exceptions, evidence sufficiency and applicable jurisdiction. Record reviewer identity, date and the exact approved record digest in the human-review log. The agent transcribes explicit human decisions only. See [OIQ-024 approval and OIQ-025 review](review-024-025.md).
 2. Resolve jurisdictional application instruments and Victorian Act dependencies; add sources before claiming those dependencies were verified. The SA consolidated National Law is not proof of identical state implementation. Snapshot coverage is not clause-level commencement history.
 3. Decide and validate Unity Catalog governance, or explicitly accept the local fallback as a scope change. No Databricks resource has been created under the 10 AUD ceiling, and local Delta does not satisfy the brief's Unity Catalog requirement.
 

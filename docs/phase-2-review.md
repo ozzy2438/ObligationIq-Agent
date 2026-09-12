@@ -1,14 +1,14 @@
 # Phase 2 — human review required
 
-**32 candidates; 0 human approvals; 0 records eligible for controls.**
+**32 candidates; 1 human approvals; 0 records eligible for controls.**
 
 These are paraphrases for review, not legal conclusions. The linked PDF opens at the physical page containing the parent clause; read the full subclause and its exceptions. Jurisdictional applicability is still pending. This pack does not authorise disconnection or deregistration.
 
 For each record, confirm or correct its trigger, action, timing direction, exceptions, jurisdiction and proposed evidence. Report the obligation ID and corrections; approval must identify the reviewer and date and bind the reviewed content. A source-trace check alone is not approval. No blanket approval is inferred from continuing the build.
 
-Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea5776908979d17`.
+Candidate snapshot SHA-256: `b6cf6c9e05f28dad7effdc10e3c59a2e5791652706a96de4c957955a46906650`.
 
-[Machine-readable records](../data/obligation-candidates.json) · [Implementation and outstanding gates](phase-2-register.md)
+[Immutable candidate drafts](../data/obligation-candidates.json) · [Human decisions](../data/human-reviews.json) · [Implementation and outstanding gates](phase-2-register.md)
 
 ## OIQ-001 — NERL_NERR / life support
 
@@ -336,7 +336,7 @@ Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea
 
 **Action:** Send relevant updated information to the distributor unless it came from that distributor.
 
-**Timing:** at most 1 business days; anchor: relevant information received.
+**Timing:** at most 1 business day; anchor: relevant information received.
 
 **Source:** [Energy Retail Code of Practice, version 6, clause 165(1)(a)](https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=117); physical PDF pages 117–117.
 
@@ -352,7 +352,7 @@ Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea
 
 **Action:** Update the retailer life support register.
 
-**Timing:** at most 1 business days; anchor: update advice received.
+**Timing:** at most 1 business day; anchor: update advice received.
 
 **Source:** [Energy Retail Code of Practice, version 6, clause 165(1)(b)](https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=117); physical PDF pages 117–117.
 
@@ -384,7 +384,7 @@ Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea
 
 **Action:** Update its life support register.
 
-**Timing:** at most 1 business days; anchor: retailer deregistration.
+**Timing:** at most 1 business day; anchor: retailer deregistration.
 
 **Source:** [Energy Retail Code of Practice, version 6, clause 166(2)(b)](https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf#page=117); physical PDF pages 117–120.
 
@@ -392,13 +392,13 @@ Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea
 
 **Review checks:** This is recording a completed event, not permission to deregister or disconnect. Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm applicable business-day calendar and counting rule before any timing control. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
 
-**Human decision:** PENDING.
+**Human decision:** APPROVED — 2026-09-12; exact-version content review. Operational gates remain open.
 
 ## OIQ-025 — VIC / life support
 
 **Trigger:** Life support registration details or required communications change.
 
-**Action:** Keep required supply dates, confirmation receipt, deregistration dates/reasons and required communications current.
+**Action:** Keep required supply dates, medical confirmation receipt, deregistration dates/reasons and communications required by clauses 164 and 166 current in the life support customer/resident register.
 
 **Timing:** No numerical deadline asserted.
 
@@ -406,7 +406,7 @@ Candidate snapshot SHA-256: `a25758efaec3d40df8af2368f2475589ff62aad0ee67dc49bea
 
 **Proposed evidence:** registration_history, confirmation_receipt, deregistration_history, communication_log.
 
-**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot.
+**Review checks:** Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase. Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot. Clause 167 sets no standalone numerical deadline; do not apply the separate 166(2)(b) deregistration-update deadline to every record change.
 
 **Human decision:** PENDING.
 

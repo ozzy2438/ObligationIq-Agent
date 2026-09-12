@@ -5,7 +5,7 @@ from copy import deepcopy
 import pytest
 
 from src.register.obligations import (RegisterError, for_controls, load_candidates,
-                                      materialize, record_hash, validate_candidates)
+                                      materialize, record_hash, reviewed_records, validate_candidates)
 
 
 def changed(key, value):
@@ -53,14 +53,44 @@ def test_delta_repeat_is_free_of_writes_and_history_retains_old_draft(tmp_path):
     pytest.importorskip("deltalake")
     from deltalake import DeltaTable
     records = load_candidates()
-    first = materialize(records, tmp_path / "register")
+    first = materialize(records, tmp_path / "register", reviews=[])
     assert first == {"version": 0, "written": True, "records": len(records)}
-    assert materialize(records, tmp_path / "register")["written"] is False
+    assert materialize(records, tmp_path / "register", reviews=[])["written"] is False
     revised = deepcopy(records)
     revised[0]["pending_checks"].append("Additional human review note")
     revised[0]["record_sha256"] = record_hash(revised[0])
-    assert materialize(revised, tmp_path / "register")["version"] == 1
+    assert materialize(revised, tmp_path / "register", reviews=[])["version"] == 1
     old = DeltaTable(str(tmp_path / "register"), version=0).to_pyarrow_table().to_pylist()
     new = DeltaTable(str(tmp_path / "register")).to_pyarrow_table().to_pylist()
     assert {r["record_sha256"] for r in old} == {r["record_sha256"] for r in records}
     assert {r["record_sha256"] for r in new} == {r["record_sha256"] for r in revised}
+
+
+def test_explicit_human_approval_is_scoped_to_024_only():
+    records = reviewed_records(load_candidates())
+    assert [r["obligation_id"] for r in records if r["verified_by_human"]] == ["OIQ-024"]
+    assert next(r for r in records if r["obligation_id"] == "OIQ-024")["verification_date"] == "2026-09-12"
+    assert next(r for r in records if r["obligation_id"] == "OIQ-025")["verification_date"] is None
+
+
+def test_edited_approved_content_requires_fresh_review():
+    records = deepcopy(load_candidates())
+    row = next(r for r in records if r["obligation_id"] == "OIQ-024")
+    row["deadline_value"] = 5
+    row["record_sha256"] = record_hash(row)
+    with pytest.raises(RegisterError, match="re-review required"):
+        reviewed_records(records)
+
+
+def test_delta_human_decision_preserves_unapproved_history(tmp_path):
+    pytest.importorskip("deltalake")
+    from deltalake import DeltaTable
+    records = load_candidates()
+    path = tmp_path / "register"
+    materialize(records, path, reviews=[])
+    assert materialize(records, path)["version"] == 1
+    assert materialize(records, path)["written"] is False
+    old = DeltaTable(str(path), version=0).to_pyarrow_table().to_pylist()
+    new = DeltaTable(str(path)).to_pyarrow_table().to_pylist()
+    assert not any(r["verified_by_human"] for r in old)
+    assert [r["obligation_id"] for r in new if r["verified_by_human"]] == ["OIQ-024"]

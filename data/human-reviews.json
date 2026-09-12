@@ -1,0 +1,13 @@
+[
+  {
+    "obligation_id": "OIQ-024",
+    "decision": "APPROVED",
+    "reviewer": "Osman Orka (project owner)",
+    "verification_date": "2026-09-12",
+    "reviewed_record_sha256": "ccf82de193881a7effef33d4b9d5b9d62cd20da60082d4bed214172e8e77742d",
+    "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+    "basis": "Explicit human approval in the project conversation: OIQ-024 review completed, APPROVED. Reviewer confirmed clause 166(2)(b) requires the register update within one business day after retailer deregistration, with clause 166(2)(a) and clause 167 as context. The same message expressly withholds approval of OIQ-025.",
+    "scope": "human_content_review",
+    "recorded_by": "Assistant transcribing the user decision; not an independent human reviewer"
+  }
+]
