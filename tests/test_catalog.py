@@ -9,7 +9,7 @@ from scripts import local_catalog as catalog
 
 
 def test_delta_array_type_round_trip():
-    from deltalake import Schema
+    Schema = pytest.importorskip("deltalake").Schema
     raw = {"type": "struct", "fields": [{"name": "evidence", "nullable": False,
            "metadata": {}, "type": {"type": "array", "elementType": "string", "containsNull": True}}]}
     schema = Schema.from_json(json.dumps(raw))
