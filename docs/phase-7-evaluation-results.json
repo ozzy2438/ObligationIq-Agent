@@ -4,6 +4,7 @@
       "ambiguous_microaud": 0,
       "capacity_rejections": 3,
       "completed_case_calls": 72,
+      "completion_tokens": 7046,
       "confirmed_cost_per_case_aud": "0.00007570833333333333333333333333",
       "confirmed_microaud": 5451,
       "conservative_cost_per_case_aud": "0.0001153194444444444444444444444",
@@ -17,13 +18,16 @@
       "misclassification_overstatement_microaud": 2852,
       "model": "gpt-5-nano",
       "model_version": "2025-08-07",
+      "prompt_tokens": 21504,
       "raw_outputs_committed": false,
+      "reasoning_tokens": 0,
       "tier": "cheap"
     },
     "strong": {
       "ambiguous_microaud": 0,
       "capacity_rejections": 29,
       "completed_case_calls": 72,
+      "completion_tokens": 8094,
       "confirmed_cost_per_case_aud": "0.0004169444444444444444444444444",
       "confirmed_microaud": 30020,
       "conservative_cost_per_case_aud": "0.0004169444444444444444444444444",
@@ -37,7 +41,9 @@
       "misclassification_overstatement_microaud": 0,
       "model": "gpt-5-mini",
       "model_version": "2025-08-07",
+      "prompt_tokens": 21504,
       "raw_outputs_committed": false,
+      "reasoning_tokens": 0,
       "tier": "strong"
     }
   },
@@ -60,7 +66,7 @@
       "evidence_rubric_possible": 576,
       "groundedness": 0.9305555555555556,
       "latency_ms_max": 0.034,
-      "latency_ms_mean": 0.008513888888888889,
+      "latency_ms_mean": 0.008180555555555555,
       "latency_ms_min": 0.004,
       "under_evidenced_refusal_correctness": 0.25
     },
@@ -82,7 +88,7 @@
       "evidence_rubric_possible": 576,
       "groundedness": 1.0,
       "latency_ms_max": 0.031,
-      "latency_ms_mean": 0.0044444444444444444,
+      "latency_ms_mean": 0.004541666666666667,
       "latency_ms_min": 0.001,
       "under_evidenced_refusal_correctness": 1.0
     },
@@ -140,13 +146,11 @@
     "rules_plus_agent_cheap": [
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-9ec9e3c9eb37a7aa",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 9.444,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -167,13 +171,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-b1d37034ee472baa",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.191,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -194,13 +196,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-d8ddb3d784102470",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.343,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -221,13 +221,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-cce15c34db5e737b",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.933,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -248,13 +246,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-ecb2c9aa5412a825",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.078,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -275,13 +271,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-a84fa6ec5ac2b3d7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.861,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -302,13 +296,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c84bcc2a54799e2e",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.821,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -329,13 +321,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e28807feb480161c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.872,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -356,13 +346,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-46b99549c5b58ddd",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.904,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -383,13 +371,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-6f8dfc4e3297b8ca",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.914,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -410,13 +396,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c0ba76cd124ef0fc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.856,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -437,13 +421,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-29539ab116cdde79",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.899,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -464,13 +446,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-a2d935e73369e12b",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.919,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -491,13 +471,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-74fbb1aa4864f6f8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.665,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -518,13 +496,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-8e793c98d14a64ba",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.199,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -545,13 +521,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-aa6897500049ec9d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.128,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -572,13 +546,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-beafa243b688437a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.197,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -599,13 +571,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f14c1fbef4583e04",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.942,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -626,13 +596,11 @@
       },
       {
         "actual_status": "at_risk",
-        "cache_reused": true,
         "case_id": "CASE-0b7c6dbbc9619bcc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.948,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -653,13 +621,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ef468e53894c90b3",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.801,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -680,13 +646,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-483da3cad3f10e73",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.95,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -707,13 +671,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-d6bbb637f262747a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.92,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -734,13 +696,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-071859a5256e2fab",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.971,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -761,13 +721,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-563bc5241653df9c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.393,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -788,13 +746,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-6fb57fddc2b9f5e9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.947,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -815,13 +771,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-0351f2d639675d3d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.44,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -842,13 +796,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7536aad94f44abd7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 7.407,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -869,13 +821,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e20deda2f39c0042",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.709,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -896,13 +846,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7e3d004a5eec34d7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.73,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -923,13 +871,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f8b4cf3a7d53e815",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.973,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -950,13 +896,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-653fb1e4b5984be9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 7.124,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -977,13 +921,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-93c5cacd6fd42057",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.019,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1004,13 +946,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-16232e10e8513b4c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.081,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1031,13 +971,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-05098c2e7e396f49",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.937,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1058,13 +996,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-839bd291e45502c1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.814,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1085,13 +1021,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-5bf119055d2fca99",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.937,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1112,13 +1046,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-8d98c8053c7aa79d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.827,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1139,13 +1071,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-cb19be2cba390648",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.019,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1166,13 +1096,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b1ba2c92b4f11cdb",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.187,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1193,7 +1121,6 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-9bc231917fbbb2f9",
         "critic": {
           "accepted": false,
@@ -1201,7 +1128,6 @@
             "model_narrative_schema_mismatch"
           ]
         },
-        "current_pipeline_latency_ms": 4.942,
         "expected_status": "breach",
         "grounded": false,
         "groundedness_reason": "Model output changes or omits a fixed structured fact.",
@@ -1222,13 +1148,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-9955b59155591891",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.003,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1249,13 +1173,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e2efcb5712a997e8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.014,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1276,13 +1198,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b6d565574a37c265",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.084,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1303,13 +1223,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f862389bb87f6fd2",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.947,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1330,13 +1248,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-e62155e2afb607a1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.919,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1357,13 +1273,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-5a72c73c7e3d01a9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.531,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1384,13 +1298,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-ae02a026fc70fb6e",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.91,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1411,13 +1323,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-0f1febae3d4ab7f8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.958,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1438,13 +1348,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-038d4a9b6c712657",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.976,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1465,7 +1373,6 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ba3979b6894858ff",
         "critic": {
           "accepted": false,
@@ -1473,7 +1380,6 @@
             "model_narrative_schema_mismatch"
           ]
         },
-        "current_pipeline_latency_ms": 4.926,
         "expected_status": "breach",
         "grounded": false,
         "groundedness_reason": "Model output changes or omits a fixed structured fact.",
@@ -1494,13 +1400,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-d30fbcc3dd2f5e23",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.842,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1521,13 +1425,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ee84ddc52b0d38de",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.864,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1548,13 +1450,11 @@
       },
       {
         "actual_status": "at_risk",
-        "cache_reused": true,
         "case_id": "CASE-5fa1b5a3208c4ea2",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.127,
         "expected_status": "at_risk",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1575,13 +1475,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-33c0d506df7814ae",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.874,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1602,13 +1500,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-6f3999a8af6f9980",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.001,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1629,13 +1525,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-994ca8385c79a304",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.944,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1656,13 +1550,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7a8df645cccdf3cb",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.93,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1683,13 +1575,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-8c935dbe81992a14",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.899,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1710,13 +1600,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-0f54a54781ecf37d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.033,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1737,13 +1625,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-bc57520f0c59e00c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.922,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1764,13 +1650,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b2ebfbe4ace80159",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.991,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1791,13 +1675,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-4a1d0f23d2ad0548",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.026,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1818,13 +1700,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7d6d2632c50ce0dc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.94,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1845,13 +1725,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-dc2b27cc119bc8dd",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.92,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1872,13 +1750,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-cca171e94ffeef42",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.916,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1899,13 +1775,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-dd4d54f791f5fa46",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.943,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1926,13 +1800,11 @@
       },
       {
         "actual_status": "insufficient_evidence",
-        "cache_reused": true,
         "case_id": "CASE-c295f5284cc8486a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.933,
         "expected_status": "insufficient_evidence",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1953,13 +1825,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-3b94036ce53df0e1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.945,
         "expected_status": "not_applicable",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -1980,13 +1850,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-dc04c2a0b0991449",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.088,
         "expected_status": "not_applicable",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2007,13 +1875,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c9379ded59cd1ea9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.071,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2034,13 +1900,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-790c721d42a1f9a7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.001,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2061,13 +1925,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-62a49dcb75815596",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.788,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2090,13 +1952,11 @@
     "rules_plus_agent_strong": [
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-9ec9e3c9eb37a7aa",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.209,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2117,13 +1977,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-b1d37034ee472baa",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.82,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2144,13 +2002,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-d8ddb3d784102470",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.877,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2171,13 +2027,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-cce15c34db5e737b",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.855,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2198,13 +2052,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-ecb2c9aa5412a825",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.851,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2225,13 +2077,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-a84fa6ec5ac2b3d7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.97,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2252,13 +2102,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c84bcc2a54799e2e",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.955,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2279,13 +2127,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e28807feb480161c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.906,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2306,13 +2152,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-46b99549c5b58ddd",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.795,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2333,13 +2177,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-6f8dfc4e3297b8ca",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.722,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2360,13 +2202,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c0ba76cd124ef0fc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.923,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2387,13 +2227,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-29539ab116cdde79",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.907,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2414,13 +2252,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-a2d935e73369e12b",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.112,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2441,13 +2277,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-74fbb1aa4864f6f8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.876,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2468,13 +2302,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-8e793c98d14a64ba",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.965,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2495,13 +2327,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-aa6897500049ec9d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.858,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2522,13 +2352,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-beafa243b688437a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.849,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2549,13 +2377,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f14c1fbef4583e04",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.847,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2576,13 +2402,11 @@
       },
       {
         "actual_status": "at_risk",
-        "cache_reused": true,
         "case_id": "CASE-0b7c6dbbc9619bcc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.951,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2603,13 +2427,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ef468e53894c90b3",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.975,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2630,13 +2452,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-483da3cad3f10e73",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.78,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2657,13 +2477,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-d6bbb637f262747a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.78,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2684,13 +2502,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-071859a5256e2fab",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.796,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2711,13 +2527,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-563bc5241653df9c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.265,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2738,13 +2552,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-6fb57fddc2b9f5e9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.133,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2765,13 +2577,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-0351f2d639675d3d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.775,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2792,13 +2602,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7536aad94f44abd7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.744,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2819,13 +2627,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e20deda2f39c0042",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.605,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2846,13 +2652,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7e3d004a5eec34d7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.673,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2873,13 +2677,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f8b4cf3a7d53e815",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.839,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2900,13 +2702,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-653fb1e4b5984be9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.029,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2927,13 +2727,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-93c5cacd6fd42057",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.097,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2954,13 +2752,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-16232e10e8513b4c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.922,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -2981,13 +2777,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-05098c2e7e396f49",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.162,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3008,13 +2802,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-839bd291e45502c1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.048,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3035,13 +2827,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-5bf119055d2fca99",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.856,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3062,13 +2852,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-8d98c8053c7aa79d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.125,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3089,13 +2877,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-cb19be2cba390648",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.129,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3116,13 +2902,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b1ba2c92b4f11cdb",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.069,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3143,13 +2927,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-9bc231917fbbb2f9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.9,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3170,13 +2952,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-9955b59155591891",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.968,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3197,13 +2977,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-e2efcb5712a997e8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.935,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3224,13 +3002,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b6d565574a37c265",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.867,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3251,13 +3027,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-f862389bb87f6fd2",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.959,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3278,13 +3052,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-e62155e2afb607a1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.974,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3305,13 +3077,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-5a72c73c7e3d01a9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.018,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3332,13 +3102,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-ae02a026fc70fb6e",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.207,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3359,13 +3127,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-0f1febae3d4ab7f8",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.96,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3386,13 +3152,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-038d4a9b6c712657",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.925,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3413,13 +3177,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ba3979b6894858ff",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.966,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3440,13 +3202,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-d30fbcc3dd2f5e23",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.959,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3467,13 +3227,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-ee84ddc52b0d38de",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.885,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3494,13 +3252,11 @@
       },
       {
         "actual_status": "at_risk",
-        "cache_reused": true,
         "case_id": "CASE-5fa1b5a3208c4ea2",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.036,
         "expected_status": "at_risk",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3521,13 +3277,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-33c0d506df7814ae",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.9,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3548,13 +3302,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-6f3999a8af6f9980",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.024,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3575,13 +3327,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-994ca8385c79a304",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.817,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3602,13 +3352,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7a8df645cccdf3cb",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.878,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3629,13 +3377,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-8c935dbe81992a14",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.889,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3656,13 +3402,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-0f54a54781ecf37d",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.875,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3683,13 +3427,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-bc57520f0c59e00c",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.049,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3710,13 +3452,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-b2ebfbe4ace80159",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.899,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3737,13 +3477,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-4a1d0f23d2ad0548",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.863,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3764,13 +3502,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-7d6d2632c50ce0dc",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.785,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3791,13 +3527,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-dc2b27cc119bc8dd",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.91,
         "expected_status": "breach",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3818,13 +3552,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-cca171e94ffeef42",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.969,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3845,13 +3577,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-dd4d54f791f5fa46",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.875,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3872,13 +3602,11 @@
       },
       {
         "actual_status": "insufficient_evidence",
-        "cache_reused": true,
         "case_id": "CASE-c295f5284cc8486a",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.114,
         "expected_status": "insufficient_evidence",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3899,13 +3627,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-3b94036ce53df0e1",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.82,
         "expected_status": "not_applicable",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3926,13 +3652,11 @@
       },
       {
         "actual_status": "breach",
-        "cache_reused": true,
         "case_id": "CASE-dc04c2a0b0991449",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.936,
         "expected_status": "not_applicable",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3953,13 +3677,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-c9379ded59cd1ea9",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 5.192,
         "expected_status": "insufficient_evidence",
         "grounded": false,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -3980,13 +3702,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-790c721d42a1f9a7",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.888,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -4007,13 +3727,11 @@
       },
       {
         "actual_status": "compliant",
-        "cache_reused": true,
         "case_id": "CASE-62a49dcb75815596",
         "critic": {
           "accepted": true,
           "issues": []
         },
-        "current_pipeline_latency_ms": 4.922,
         "expected_status": "compliant",
         "grounded": true,
         "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
@@ -4035,7 +3753,7 @@
     ]
   },
   "evaluated_on": "2026-09-13",
-  "frozen_manifest_sha256": "5a3ca3c9761c924f69522837f4334d056e2cb7416e04949127c3ac864e7c7aa5",
+  "frozen_manifest_sha256": "523d86905e0292b6947c76d0e0d831a45481ff64807aa294f921079bed830d0b",
   "ledger_costs_aud": {
     "ambiguous_settled_aud": "0",
     "confirmed_usage_aud": "0.035471",

@@ -495,12 +495,16 @@ def _aggregate_arm(arm, rows, obligations):
 
 def _model_costs(ledger, model):
     records = [row for row in ledger.call_records() if row.get("model") == model]
+    successes = [row for row in records if row.get("status") == "success"]
     costs = ledger.model_cost_summary(model)
-    latencies = [row["latency_ms"] for row in records if row.get("status") == "success"]
+    latencies = [row["latency_ms"] for row in successes]
     return {**costs,
             # Exact duplicate case prompts legitimately reuse one paid response.
             # This is the number of metered responses, not the number of cases.
             "metered_provider_responses": len(latencies),
+            "prompt_tokens": sum(row["prompt_tokens"] for row in successes),
+            "completion_tokens": sum(row["completion_tokens"] for row in successes),
+            "reasoning_tokens": sum(row.get("reasoning_tokens", 0) for row in successes),
             "capacity_rejections": sum(row.get("status") == "capacity_rejected" for row in records),
             "metered_response_latency_ms": latencies}
 
@@ -610,6 +614,13 @@ def live_evaluate(config: Settings = settings):
         if not meaningful else
         "Use strong routing only for the measured quality criteria where it materially exceeded the cheap drafter; deterministic rules retain status authority."
     )
+    # Per-case wall-clock values from the final cache-backed render are neither
+    # live-provider latency nor reproducible evidence. Publish the metered
+    # response aggregates above and keep these transient measurements private.
+    for model_cases in public_cases.values():
+        for row in model_cases:
+            row.pop("current_pipeline_latency_ms", None)
+            row.pop("cache_reused", None)
     costs = ledger.cost_summary()
     report = {
         "status": "Phase 7 complete: frozen four-arm all-obligation synthetic evaluation",

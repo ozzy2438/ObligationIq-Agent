@@ -23,5 +23,6 @@ jobs:
       - run: python scripts/evaluate_risk.py --check
       - run: python scripts/evaluate_agents.py --check
       - run: python scripts/evaluate.py --check
+      - run: python scripts/generate_cost_model.py --check --from-results
       - run: pytest
       - run: python -m src

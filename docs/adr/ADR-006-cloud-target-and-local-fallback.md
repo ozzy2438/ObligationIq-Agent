@@ -2,22 +2,16 @@
 
 ## Context
 
-The brief targets Azure/Databricks. Phase 0 authorised setup without model deployment under a 10 AUD total ceiling; the owner subsequently authorised Phase 1 continuation. Local development must work without fabricating cloud identifiers.
+The brief targets an Azure/Databricks-shaped solution, but the independent pilot must remain reproducible, cheap and truthful about what is actually deployed. Local components cannot be described as managed cloud services.
 
 ## Decision
 
-Accepted for Phases 0–2, using the explicit local fallback in brief Section 3. Use ordinary Python and local SQLite for the gateway ledger, response cache, call logs and Phase 1 corpus. Use delta-rs and PyArrow for the local register and the digest-pinned Unity Catalog OSS 0.5.0 Docker service for its external table registration. Controls, risk, agents, MCP and evaluation remain empty packages. Do not deploy Databricks, managed search, storage or API Management now.
+Accepted and completed for the pilot. Use local SQLite for corpus, vectors, gateway cache/ledger/logs; local Delta for the register; digest-pinned Unity Catalog OSS for catalog registration; and local MLflow for the deterministic risk-policy registry. These components implement the bounded reference behavior without claiming Databricks, managed search or Azure hosting.
 
-Configuration loads from .env and environment overrides. All Section 3 keys remain in the empty template. Requiredness is mode-specific: dry_run/cached need no cloud credentials; live requires an independent enable flag and validated Azure identity/resource identifiers. Unused Databricks keys remain optional until the data plane exists. No silent provider fallback is allowed.
+Azure is limited to an S0 OpenAI account in Australia East, GPT-5 nano and GPT-5 mini Global Standard deployments, and a 10 AUD resource-group budget alert. Live local evaluation authenticates with the existing tenant-bound Azure CLI identity and verifies ARM account/deployment metadata before dispatch. No API key is stored. Global Standard can process outside Australia.
 
-The intended tiers are GPT-5 nano, GPT-5 mini and text-embedding-3-small in an australiaeast account with Global Standard. Catalog listing and public pricing were checked; quota, capacity and live inference are unverified. No alternative region is needed from current catalog evidence. Global Standard can process outside Australia and must not be described as regional-only inference.
-
-Use the existing Entra Azure CLI identity for a future local live evaluation; no API keys. A managed identity on a future Azure host remains a later deployment decision. Model account, endpoint, version and SKU must match the pinned price before dispatch.
+No Foundry project, Databricks workspace, managed storage, AI Search, API Management or production application was deployed. Azure embeddings remain blocked because the current AUD retail meter cannot be pinned above zero at its published precision. There is no silent model, region or infrastructure fallback.
 
 ## Consequences
 
-Phase 0 can be reproduced without Azure SDKs or an Azure account. The optional Azure adapter is not evidence of a deployed Foundry system. Local SQLite is not Delta Lake or Unity Catalog; their operational and access-control guarantees are not claimed.
-
-Phase 1 uses the explicit local embedding decision in ADR-004 and public regulatory documents. No cloud resource identifiers are invented. Before Phase 6 re-check model prices, retirement dates, capacity and subscription quota; implement and validate PII handling; then perform a small, budgeted real evaluation. Cloud deployment/evaluation remains deferred.
-
-Phase 2 demonstrates actual local Delta snapshot versioning and Unity Catalog OSS registration/resolution, with unchanged replay, historical reads, authentication refusal for anonymous requests and persistence across restart. See the [verification and limits](../local-unity-catalog.md). This does not establish managed Databricks, multi-user policy enforcement, row-level security or automatic lineage. Local file access remains outside the catalog security boundary. Cloud Databricks authentication was unavailable; no paid resource was created. The existing Section 3 fallback authorisation permits this local implementation without inventing cloud identifiers.
+The repository can replay its tests and committed evidence without Azure credentials or paid calls. The completed 144 agent-case cache replay costs zero. Local Unity Catalog, Delta and MLflow evidence does not establish managed multi-user governance, lineage, row security, availability or support. A future production build needs managed identity, authenticated service boundaries, Australian-processing review, operational source adapters and invoice reconciliation before cloud claims can expand.

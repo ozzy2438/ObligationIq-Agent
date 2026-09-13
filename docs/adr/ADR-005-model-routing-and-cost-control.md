@@ -2,24 +2,16 @@
 
 ## Context
 
-The project ceiling is 10 AUD. Azure budgets are delayed alerts rather than admission controls. Model reasoning, duplicate requests, retries and ambiguous responses must be bounded before spending.
+Azure budgets are delayed alerts, while model reasoning, retries, duplicate requests and uncertain responses can consume money before an alert arrives. The project has a 10 AUD ceiling, 6 AUD application limit and 1 AUD UTC-day limit. Routing must follow measured quality and cost rather than model-size assumptions.
 
 ## Decision
 
-Accepted for Phase 0. Use GPT-5 nano by default; GPT-5 mini requires a fixed escalation reason code. Pin AUD model/version/region/SKU prices and source metadata. Development defaults to dry_run, with no network or real-cache writes. Cached mode never falls through to live.
+Accepted and validated on 13 September 2026. GPT-5 nano is the default. GPT-5 mini requires a fixed escalation reason; the measured route uses `quality_review`. Model/version/region/SKU prices, currency, source and retrieval date are pinned. Prices are rounded upward at stored precision and older than 31 days cannot be used. A missing model price hard-stops. Development defaults to `dry_run`; `cached` never falls through to live; `live` needs a separate enable flag.
 
-Use one SQLite database for reservations, cache and logs. Defaults: 6 AUD lifetime, 1 AUD per UTC day. BEGIN IMMEDIATE serialises reservation checks and insertion. Only one paid reservation can be active across clients using the same database. Another request refuses until it is resolved. Lifetime totals never reset at midnight.
+One private SQLite database stores reservations, response cache, call logs and reconciliation records. `BEGIN IMMEDIATE` serialises admission. Reserve the full configured input/output bounds, including reasoning within completion tokens, at uncached price plus 25% headroom. A success commits actual returned usage and cache atomically; an exact cache hit reserves and costs zero. Unknown or ambiguous prior state fails closed under ADR-008. Structured capacity rejection follows ADR-009.
 
-Reserve full configured input/output token bounds at uncached rates plus 25% headroom. Use integer micro-AUD rounded upward. Output bounds and returned completion usage include reasoning tokens; never add them twice. Returned cached-input counts can lower settled cost. Successful settlement, cache insertion and audit logging share a transaction.
-
-Release only when the adapter confirms no inference request was dispatched. A timeout, crash, invalid usage or unknown response holds the reservation and halts further requests. Retry only confirmed non-dispatch, with a new reservation; default zero retries. Disable SDK retries. No automated hold expiry or ledger reset is provided.
-
-Cache keys cover pinned model identity, prompt after redaction and bounded parameters including endpoint and deployment scope. The cache persists on disk in the same private database. Cache hits create no reservation and log zero incremental usage cost.
-
-Before inference the Azure adapter verifies deployment identity against the pin. Prices older than 31 days refuse live dispatch. The adapter is implemented but unvalidated against a deployed model. The default redactor blocks live use.
+The Phase 7 comparison used the same 72 synthetic cases and 512-token cap. Nano and mini had equal detection, evidence completeness, citation accuracy and refusal correctness. Mini improved groundedness and critic acceptance by 2.78 percentage points, cost 5.51 times more and added 1.429 seconds to mean metered response latency. Keep nano as default; allow mini only for explicit quality review where that bounded quality difference matters. Neither model decides status.
 
 ## Consequences
 
-Concurrent paid throughput is deliberately sacrificed for simple, auditable crash behaviour. Tests cover competing reservations, restart ambiguity and retry isolation. A held reservation can require manual investigation; independent billing evidence is needed before controlled repair. Deleting the database invalidates the cost history.
-
-Ledger amounts estimate actual token usage using pinned public rates. They do not reconcile an invoice, include taxes, or constrain unrelated resources. The 4 AUD headroom is a margin, not a billing guarantee. No real Azure inference was performed in Phase 0.
+Confirmed spend was 0.035471 AUD; the conservative total was 0.039036 AUD, including 0.003565 AUD retained overstatement from the pre-ADR-009 429 defect. The limits had ample headroom. The ledger does not control other Azure resources, other clients, tax or invoice pricing. Deleting its database breaks lifetime continuity. Serial admission and low TPM limit throughput, which is accepted for this pilot.
