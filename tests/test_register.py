@@ -7,6 +7,7 @@ import pytest
 from src.register.obligations import (OPERATIONAL_REVIEWS, RegisterError, for_controls, load_candidates,
                                       materialize, operational_records, record_hash,
                                       review_composition, reviewed_records, validate_candidates)
+from src.controls.engine import CONTROL_FUNCTIONS, evaluate_control
 
 
 def changed(key, value):
@@ -29,6 +30,20 @@ def test_real_register_scope_and_gate():
         "agent_reviewed": 30, "agent_reviewed_proportion": 0.9375}
     with pytest.raises(RegisterError, match="cannot assert human"):
         for_controls(changed("verified_by_human", True))
+
+
+def test_every_eligible_obligation_has_a_pure_version_bound_control():
+    records = for_controls(load_candidates())
+    assert set(CONTROL_FUNCTIONS) == {record["obligation_id"] for record in records}
+    for obligation in records:
+        state = {"case_id": "unit", "obligation_id": obligation["obligation_id"],
+                 "trigger_occurred": None}
+        first = evaluate_control(obligation, state, "2026-09-13")
+        second = evaluate_control(obligation, state, "2026-09-13")
+        assert first == second
+        assert first.status == "insufficient_evidence"
+        assert first.applied_record_sha256 == obligation["record_sha256"]
+        assert first.applied_source_version == obligation["source_version"]
 
 
 def test_changed_content_source_or_reference_refused():

@@ -1,0 +1,291 @@
+{
+  "status": "Phase 4 complete: deterministic controls evaluated on isolated synthetic challenge cases",
+  "synthetic_evaluation": true,
+  "evaluated_on": "2026-09-13",
+  "eligible_obligations": 32,
+  "implemented_control_functions": 32,
+  "challenge_cases": 18,
+  "challenge_obligations": 6,
+  "case_mix": {
+    "breach": 6,
+    "compliant": 6,
+    "insufficient_evidence": 6
+  },
+  "metrics": {
+    "true_positives": 6,
+    "false_positives": 0,
+    "false_negatives": 0,
+    "true_negatives": 12,
+    "breach_detection_recall": 1.0,
+    "breach_detection_precision": 1.0,
+    "false_positive_rate": 0.0,
+    "exact_status_accuracy": 1.0,
+    "insufficient_evidence_recall": 1.0,
+    "version_and_citation_match_rate": 1.0
+  },
+  "confusion_matrix": [
+    {
+      "expected": "breach",
+      "actual": "breach",
+      "count": 6
+    },
+    {
+      "expected": "compliant",
+      "actual": "compliant",
+      "count": 6
+    },
+    {
+      "expected": "insufficient_evidence",
+      "actual": "insufficient_evidence",
+      "count": 6
+    }
+  ],
+  "results": [
+    {
+      "case_id": "CASE-09b31d6f27634362",
+      "obligation_id": "OIQ-002",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+      "applied_source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "applied_source_version": "51",
+      "applied_clause_reference": "124(1)(b)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-a1eb350f28b83f9f",
+      "obligation_id": "OIQ-002",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+      "applied_source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "applied_source_version": "51",
+      "applied_clause_reference": "124(1)(b)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-4aa5d4642772d0d5",
+      "obligation_id": "OIQ-002",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "advice_received_at"
+      ],
+      "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+      "applied_source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "applied_source_version": "51",
+      "applied_clause_reference": "124(1)(b)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-5f889abbe5eb22ca",
+      "obligation_id": "OIQ-023",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(a)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-e9b8808d89327b41",
+      "obligation_id": "OIQ-023",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(a)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-70ceeffd316e655f",
+      "obligation_id": "OIQ-023",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "lawful_deregistration_review"
+      ],
+      "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(a)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-9ed25c103d157e5f",
+      "obligation_id": "OIQ-024",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(b)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-94934ce7f41d3aaf",
+      "obligation_id": "OIQ-024",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(b)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-b4e1f63411a203ad",
+      "obligation_id": "OIQ-024",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "deregistration_event"
+      ],
+      "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "166(2)(b)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-7bfc7dc6d5dc01e8",
+      "obligation_id": "OIQ-028",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "129(2)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-ae907cc8eea229be",
+      "obligation_id": "OIQ-028",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "129(2)",
+      "business_calendar_id": "SYNTHETIC-WEEKDAYS-2026-08-09"
+    },
+    {
+      "case_id": "CASE-d6baf3aba7db2902",
+      "obligation_id": "OIQ-028",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "bill_pay_by_date"
+      ],
+      "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "129(2)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-3e8346686f870365",
+      "obligation_id": "OIQ-030",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "130(5)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-e2641997d2bd1339",
+      "obligation_id": "OIQ-030",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "130(5)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-4f897822e7977514",
+      "obligation_id": "OIQ-030",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "accepted_proposal"
+      ],
+      "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "130(5)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-0b2a7c75c5af601d",
+      "obligation_id": "OIQ-032",
+      "expected_status": "compliant",
+      "actual_status": "compliant",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "138(2)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-97bd092393b22390",
+      "obligation_id": "OIQ-032",
+      "expected_status": "breach",
+      "actual_status": "breach",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "138(2)",
+      "business_calendar_id": null
+    },
+    {
+      "case_id": "CASE-1bf7d4f08248c347",
+      "obligation_id": "OIQ-032",
+      "expected_status": "insufficient_evidence",
+      "actual_status": "insufficient_evidence",
+      "evidence_gaps": [
+        "policy_request"
+      ],
+      "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+      "applied_source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "applied_source_version": "6",
+      "applied_clause_reference": "138(2)",
+      "business_calendar_id": null
+    }
+  ],
+  "review_composition": {
+    "total": 32,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375
+  },
+  "population_artifact_sha256": {
+    "accounts": "865bafb3160db1a018f0cd3c6a2a5ed4e40c4ada61147da5d5b737d9bf33357c",
+    "debt_entries": "940a1c337641fed3ed38b34a6590916a391559d9c0f134975538e23c8c824ff3",
+    "control_cases": "318b801ab8c3bb51eeb2dda96546896c16e7e2224fd944feca0b6841d940da17",
+    "ground_truth": "04abb8cebd248cd64d26b4bd94902c3006a07dcf54c124d48aee86b26153c8fd"
+  },
+  "control_boundary": "Pure functions receive an obligation, customer state and explicit date. They perform no I/O and make no model call.",
+  "business_day_limit": "Business-day controls require a bounded supplied calendar. The synthetic window contains no NSW or Victorian public holiday; production calendars are not implemented.",
+  "scope_limit": "Measured cases cover six of 32 eligible obligations. Callable coverage is 32/32; unmeasured obligation semantics are not claimed as benchmarked.",
+  "model_calls": 0,
+  "model_spend_aud": 0
+}
