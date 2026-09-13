@@ -1,20 +1,21 @@
 {
   "catalog": "obligationiq.register.obligations",
-  "catalog_table_id": "be96ed74-fe67-4a4c-b60c-35cbd15a48f8",
+  "catalog_table_id": "4092fe75-a07b-4976-b4f8-9845afecf646",
   "created_objects": 0,
-  "delta_version": 2,
+  "delta_version": 3,
   "rows": 32,
-  "columns": 35,
+  "columns": 42,
   "anonymous_access_denied": true,
   "catalog_resolved_read_matches": true,
   "storage_location_matches": true,
-  "verified_at_utc": "2026-09-12T14:04:33.267944+00:00",
+  "verified_at_utc": "2026-09-13T01:42:18.262465+00:00",
   "initial_created_objects": 0,
   "persisted_across_restart": true,
   "historical_delta_rows": {
     "0": 32,
     "1": 32,
-    "2": 32
+    "2": 32,
+    "3": 32
   },
   "implementation": "Unity Catalog OSS",
   "version": "0.5.0",

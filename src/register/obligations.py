@@ -13,6 +13,7 @@ from src.dataplane.corpus import load_manifest
 CANDIDATES = ROOT / "data/obligation-candidates.json"
 REVIEWS = ROOT / "data/human-reviews.json"
 SOURCE_REVIEWS = ROOT / "data/source-reviews.json"
+OPERATIONAL_REVIEWS = ROOT / "data/operational-reviews.json"
 LIST_FIELDS = {"jurisdiction", "evidence_required", "pending_checks"}
 INTEGER_FIELDS = {"deadline_value", "source_page_start", "source_page_end"}
 FIELDS = set("""obligation_id instrument jurisdiction regime clause_reference parent_clause
@@ -20,10 +21,15 @@ obligation_family trigger_event required_action deadline_value deadline_unit tim
 timing_anchor evidence_required applies_to_customer_segment source_id source_url source_version
 source_sha256 source_clause_sha256 source_page_start source_page_end effective_from effective_to
 coverage_as_of extraction_method verified_by_human verification_date pending_checks record_sha256""".split())
+OPERATIONAL_FIELDS = {"operational_review_status", "operational_verification_method",
+                      "operational_reviewer", "operational_review_date",
+                      "operational_review_basis", "operational_review_scope",
+                      "operational_reviewed_record_sha256"}
 REGISTER_FIELDS = FIELDS | {"review_status", "verification_method", "reviewer",
-                            "review_reasoning", "review_correction"}
+                            "review_reasoning", "review_correction"} | OPERATIONAL_FIELDS
 NULLABLE = {"deadline_value", "deadline_unit", "timing_anchor", "effective_from",
-            "effective_to", "verification_date"}
+            "effective_to", "verification_date", "operational_review_date",
+            "operational_reviewed_record_sha256"}
 
 
 class RegisterError(ValueError):
@@ -156,20 +162,86 @@ def reviewed_records(records, reviews=None):
     return list(by_id.values())
 
 
+def operational_records(records, reviews=None, operational_review=None):
+    """Add a separate, digest-bound applicability decision to source-reviewed rows."""
+    resolved = reviewed_records(records, reviews)
+    for record in resolved:
+        record.update(operational_review_status="NOT_ASSESSED",
+                      operational_verification_method="unreviewed",
+                      operational_reviewer="Unassigned", operational_review_date=None,
+                      operational_review_basis="No operational applicability decision",
+                      operational_review_scope="No evaluation scope assigned",
+                      operational_reviewed_record_sha256=None)
+        record["record_sha256"] = record_hash(record)
+    if operational_review is None and reviews is not None:
+        return resolved
+    decision = (json.loads(OPERATIONAL_REVIEWS.read_text())
+                if operational_review is None else operational_review)
+    required = {"decision", "verification_method", "reviewer", "review_date",
+                "scope", "basis", "bindings"}
+    if not isinstance(decision, dict) or set(decision) != required:
+        raise RegisterError("Operational review contract mismatch")
+    if (decision["decision"] != "ELIGIBLE_FOR_EVALUATION" or
+            decision["verification_method"] != "agent_operational_review" or
+            any(type(decision[k]) is not str or not decision[k].strip()
+                for k in required - {"bindings"})):
+        raise RegisterError("Unsupported or incomplete operational review")
+    date.fromisoformat(decision["review_date"])
+    bindings = decision["bindings"]
+    if not isinstance(bindings, dict) or set(bindings) != {r["obligation_id"] for r in resolved}:
+        raise RegisterError("Operational review must bind every supplied record")
+    for record in resolved:
+        oid = record["obligation_id"]
+        binding = bindings[oid]
+        # Bind to the source-reviewed record before operational fields are added.
+        pre_operational = {k: v for k, v in record.items() if k not in OPERATIONAL_FIELDS}
+        pre_operational["record_sha256"] = record_hash(pre_operational)
+        if (record["review_status"] != "APPROVED" or
+                not isinstance(binding, list) or len(binding) != 2 or
+                binding != [pre_operational["record_sha256"], record["source_sha256"]]):
+            raise RegisterError("Operational review stale or source review pending; re-review required")
+        if (record["regime"] == "NERL_NERR" and "NSW" not in record["jurisdiction"]) or (
+                record["regime"] == "VIC" and record["jurisdiction"] != ["VIC"]):
+            raise RegisterError("Operational review jurisdiction mismatch")
+        record.update(operational_review_status=decision["decision"],
+                      operational_verification_method=decision["verification_method"],
+                      operational_reviewer=decision["reviewer"],
+                      operational_review_date=decision["review_date"],
+                      operational_review_basis=decision["basis"],
+                      operational_review_scope=decision["scope"],
+                      operational_reviewed_record_sha256=pre_operational["record_sha256"])
+        record["record_sha256"] = record_hash(record)
+    return resolved
+
+
 def for_controls(records):
-    reviewed = reviewed_records(records)
-    if any(r["review_status"] != "APPROVED" for r in reviewed):
-        raise RegisterError("Source review pending; controls remain blocked")
-    raise RegisterError("Control Engine and operational applicability gates are not implemented")
+    eligible = operational_records(records)
+    if any(r["operational_review_status"] != "ELIGIBLE_FOR_EVALUATION" for r in eligible):
+        raise RegisterError("Operational applicability review pending; controls remain blocked")
+    return eligible
 
 
-def materialize(records, path=settings.register_dir, reviews=None):
+def review_composition(records):
+    """Mandatory disclosure for every downstream compliance-result artefact."""
+    total = len(records)
+    if not total:
+        raise RegisterError("Cannot report review composition for no obligations")
+    human = sum(r["verified_by_human"] for r in records)
+    agent = sum(r["verification_method"] == "agent_source_review" for r in records)
+    if human + agent != total:
+        raise RegisterError("Compliance artefact includes an unreviewed obligation")
+    return {"total": total, "human_verified": human,
+            "human_verified_proportion": human / total,
+            "agent_reviewed": agent, "agent_reviewed_proportion": agent / total}
+
+
+def materialize(records, path=settings.register_dir, reviews=None, operational_review=None):
     """Local Delta snapshot; identical input is a no-op, changes create a version.
 
     One local writer is supported. Delta's transaction log preserves snapshots;
     this is not Unity Catalog, access control, or an approval mechanism.
     """
-    records = reviewed_records(records, reviews)
+    records = operational_records(records, reviews, operational_review)
     import pyarrow as pa
     from deltalake import DeltaTable, write_deltalake
 
@@ -199,7 +271,8 @@ def main():
     result = (materialize(records) if args.command == "materialize" else
               {"records": len(records), "approved": sum(r["review_status"] == "APPROVED"
                   for r in reviewed_records(records)), "human_verified": sum(
-                  r["verified_by_human"] for r in reviewed_records(records)), "control_eligible": 0})
+                  r["verified_by_human"] for r in reviewed_records(records)),
+               "control_eligible": len(for_controls(records))})
     print(json.dumps(result))
 
 

@@ -12,7 +12,7 @@ import urllib.request
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import ROOT, settings
-from src.register.obligations import load_candidates, reviewed_records
+from src.register.obligations import load_candidates, operational_records
 
 PIN = json.loads((ROOT / "data/catalog-runtime.json").read_text())
 LABEL = "org.obligationiq.component"
@@ -82,7 +82,12 @@ def request(method, route, payload=None, *, authenticated=True):
     opener = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
     try:
         with opener.open(req, timeout=10) as response:
-            return response.status, json.load(response)
+            raw = response.read()
+            try:
+                body = json.loads(raw) if raw else None
+            except json.JSONDecodeError:
+                body = None
+            return response.status, body
     except urllib.error.HTTPError as error:
         return error.code, None  # Do not surface provider responses or authentication material.
 
@@ -133,7 +138,7 @@ def sync():
     from deltalake import DeltaTable
     if container() is None:
         raise RuntimeError("Start the pinned local catalog first")
-    expected = reviewed_records(load_candidates())
+    expected = operational_records(load_candidates())
     table = DeltaTable(str(settings.register_dir))
     actual = table.to_pyarrow_table().to_pylist()
     if sorted(actual, key=lambda r: r["obligation_id"]) != sorted(expected, key=lambda r: r["obligation_id"]):
@@ -182,9 +187,24 @@ def sync():
             "catalog_resolved_read_matches": True, "storage_location_matches": True}
 
 
+def refresh_schema():
+    """Replace exact local external-table metadata; Delta bytes and history are untouched."""
+    name = ".".join(PIN[k] for k in ("catalog", "schema", "table"))
+    status, saved = request("GET", "/tables/" + name)
+    if status == 404:
+        return sync()
+    require(status)
+    location = settings.register_dir.as_uri()
+    if (saved["storage_location"].rstrip("/") != location.rstrip("/") or
+            saved["data_source_format"] != "DELTA" or saved["table_type"] != "EXTERNAL"):
+        raise ValueError("Refusing to replace unrelated catalog metadata")
+    require(request("DELETE", "/tables/" + name)[0])
+    return sync()
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("start", "verify", "stop"))
+    parser.add_argument("command", choices=("start", "verify", "refresh-schema", "stop"))
     args = parser.parse_args()
     if args.command == "start":
         start()
@@ -192,6 +212,8 @@ def main():
         if container():
             docker("stop", PIN["container"])
         print("Local catalog stopped; volume and Delta history retained")
+    elif args.command == "refresh-schema":
+        print(json.dumps(refresh_schema()))
     else:
         first = sync()
         docker("restart", PIN["container"])

@@ -4,8 +4,9 @@ from copy import deepcopy
 
 import pytest
 
-from src.register.obligations import (RegisterError, for_controls, load_candidates,
-                                      materialize, record_hash, reviewed_records, validate_candidates)
+from src.register.obligations import (OPERATIONAL_REVIEWS, RegisterError, for_controls, load_candidates,
+                                      materialize, operational_records, record_hash,
+                                      review_composition, reviewed_records, validate_candidates)
 
 
 def changed(key, value):
@@ -21,8 +22,11 @@ def test_real_register_scope_and_gate():
     assert {(r["regime"], r["obligation_family"]) for r in records} == {
         (regime, family) for regime in ("VIC", "NERL_NERR")
         for family in ("life_support", "hardship")}
-    with pytest.raises(RegisterError, match="operational applicability"):
-        for_controls(records)
+    eligible = for_controls(records)
+    assert len(eligible) == 32
+    assert review_composition(eligible) == {
+        "total": 32, "human_verified": 2, "human_verified_proportion": 0.0625,
+        "agent_reviewed": 30, "agent_reviewed_proportion": 0.9375}
     with pytest.raises(RegisterError, match="cannot assert human"):
         for_controls(changed("verified_by_human", True))
 
@@ -62,8 +66,8 @@ def test_delta_repeat_is_free_of_writes_and_history_retains_old_draft(tmp_path):
     assert materialize(revised, tmp_path / "register", reviews=[])["version"] == 1
     old = DeltaTable(str(tmp_path / "register"), version=0).to_pyarrow_table().to_pylist()
     new = DeltaTable(str(tmp_path / "register")).to_pyarrow_table().to_pylist()
-    assert {r["record_sha256"] for r in old} == {r["record_sha256"] for r in reviewed_records(records, reviews=[])}
-    assert {r["record_sha256"] for r in new} == {r["record_sha256"] for r in reviewed_records(revised, reviews=[])}
+    assert {r["record_sha256"] for r in old} == {r["record_sha256"] for r in operational_records(records, reviews=[])}
+    assert {r["record_sha256"] for r in new} == {r["record_sha256"] for r in operational_records(revised, reviews=[])}
 
 
 def test_human_and_agent_approval_provenance_stays_distinct():
@@ -82,6 +86,17 @@ def test_edited_approved_content_requires_fresh_review():
     row["record_sha256"] = record_hash(row)
     with pytest.raises(RegisterError, match="re-review required"):
         reviewed_records(records)
+
+
+def test_operational_review_is_separate_and_digest_bound():
+    records = operational_records(load_candidates())
+    assert all(r["operational_review_status"] == "ELIGIBLE_FOR_EVALUATION" for r in records)
+    assert all(r["operational_verification_method"] == "agent_operational_review" for r in records)
+    assert [r["obligation_id"] for r in records if r["verified_by_human"]] == ["OIQ-024", "OIQ-025"]
+    decision = __import__("json").loads(OPERATIONAL_REVIEWS.read_text())
+    decision["bindings"]["OIQ-001"][0] = "0" * 64
+    with pytest.raises(RegisterError, match="re-review required"):
+        operational_records(load_candidates(), operational_review=decision)
 
 
 def test_delta_human_decision_preserves_unapproved_history(tmp_path):
