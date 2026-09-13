@@ -8,7 +8,8 @@ Verified 13 September 2026. Owner: Osman Orka, independent pilot. Subscription i
 |---|---|---|---|
 | `rg-obligationiq-pilot`, `australiaeast` | Project resource group | ARM container | Project owner |
 | `obligationiq-aoai-ozzy2438` | Azure OpenAI account; provisioning read back as succeeded | S0 account | Project owner |
-| `obligationiq-gpt5nano` | GPT-5 nano `2025-08-07`; no inference at this inventory snapshot | GlobalStandard, capacity 10, token metered | Project owner |
+| `obligationiq-gpt5nano` | GPT-5 nano `2025-08-07`; bounded Phase 7 evaluation route | GlobalStandard, capacity 10, token metered | Project owner |
+| `obligationiq-gpt5mini` | GPT-5 mini `2025-08-07`; bounded strong-route comparison | GlobalStandard, capacity 10, token metered | Project owner |
 | `obligationiq-pilot-aud-10` | Created and independently read back; 10 AUD annual budget | Alert, not a spending switch | Project owner |
 | `obligationiq-pilot-aud-3` | Superseded and deleted after verifying replacement | Previous alert only | Project owner |
 | Existing `procurelens-demo-usd-2` | Read-only inspection; unchanged; actual currency AUD | 2 AUD monthly subscription alert | Existing project owner |
@@ -16,6 +17,8 @@ Verified 13 September 2026. Owner: Osman Orka, independent pilot. Subscription i
 | Existing `NetworkWatcher_australiaeast` | Seen in inventory; unchanged | No workload deployed by this project | Subscription owner |
 
 Budget: 2026-09-01 through 2027-08-31; alerts at 5, 7.50, 9 and 10 AUD. Application defaults: 6 AUD lifetime / 1 AUD daily. The budget readback reported zero AUD current spend; this delayed value is not invoice reconciliation.
+
+Subscription usage readback reports both deployed routes at **10 units of one-thousand tokens per minute**, or 10,000 TPM allocated: GPT-5 nano against a 5,000-unit regional quota and GPT-5 mini against 1,000 units. The deployment capacity was not raised. Nano produced structured 429 capacity rejections during the serial evaluation; ADR-009 records the bounded retry and accounting correction.
 
 ## Model availability and deployment
 

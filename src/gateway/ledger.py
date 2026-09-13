@@ -142,6 +142,41 @@ class Ledger:
             })
         return len(rows)
 
+    def mark_capacity_misclassification(self, run_id: str):
+        """Retain settled amounts but identify known 429 accounting overstatement."""
+        with self.transaction() as db:
+            rows = db.execute("""
+                SELECT r.id,r.reserved,r.model FROM reservations r
+                JOIN reconciliations x ON x.reservation_id=r.id
+                WHERE x.run_id=? AND x.reason='ambiguous_settlement'
+            """, (run_id,)).fetchall()
+            for identifier, amount, model in rows:
+                db.execute("UPDATE reconciliations SET reason=? WHERE reservation_id=?",
+                           ("overstated_due_to_misclassification", identifier))
+                db.execute("INSERT INTO calls(record) VALUES (?)", (json.dumps({
+                    "timestamp": utc_now().isoformat(), "status": "accounting_correction",
+                    "reason": "overstated_due_to_misclassification", "run_id": run_id,
+                    "reservation_id": identifier, "model": model,
+                    "estimated_aud": str(Decimal(amount) / Decimal(1_000_000)),
+                }),))
+        return len(rows)
+
+    def release_capacity_rejection(self, identifier: str, run_id: str, model: str):
+        """Release a previously misclassified, unsettled 429 with known response body."""
+        with self.transaction() as db:
+            row = db.execute(
+                "SELECT state,run_id FROM reservations WHERE id=?", (identifier,)).fetchone()
+            if not row or row[0] != "ambiguous" or row[1] not in {None, run_id}:
+                raise UnresolvedReservation("Capacity rejection is not releasable by this run")
+            db.execute("UPDATE reservations SET state='released',run_id=?,model=? WHERE id=?",
+                       (run_id, model, identifier))
+            db.execute("INSERT INTO calls(record) VALUES (?)", (json.dumps({
+                "timestamp": utc_now().isoformat(), "status": "capacity_rejected",
+                "reason": "rate_limit_exceeded", "reclassified": True,
+                "run_id": run_id, "reservation_id": identifier, "model": model,
+                "estimated_aud": "0",
+            }),))
+
     def finish(self, identifier, actual: int, key: str, response: dict, record: dict):
         if type(actual) is not int or actual < 0:
             raise BudgetError("Invalid actual cost")
@@ -188,16 +223,37 @@ class Ledger:
 
     def cost_summary(self):
         with self.connection() as db:
-            worst, settled, held = db.execute("""
+            worst, ambiguous, overstated, held = db.execute("""
                 SELECT COALESCE(SUM(CASE WHEN state='committed' THEN actual ELSE 0 END),0),
-                       COALESCE((SELECT SUM(settled) FROM reconciliations),0),
+                       COALESCE((SELECT SUM(settled) FROM reconciliations
+                                 WHERE reason='ambiguous_settlement'),0),
+                       COALESCE((SELECT SUM(settled) FROM reconciliations
+                                 WHERE reason='overstated_due_to_misclassification'),0),
                        COALESCE(SUM(CASE WHEN state IN ('reserved','ambiguous')
                            THEN MAX(reserved,COALESCE(actual,0)) ELSE 0 END),0)
                 FROM reservations
             """).fetchone()
-        return {"confirmed_usage_microaud": worst - settled,
-                "ambiguous_settled_microaud": settled,
+        return {"confirmed_usage_microaud": worst - ambiguous - overstated,
+                "ambiguous_settled_microaud": ambiguous,
+                "misclassification_overstatement_microaud": overstated,
                 "worst_case_microaud": worst, "held_microaud": held}
+
+    def model_cost_summary(self, model: str):
+        records = [row for row in self.call_records()
+                   if row.get("model") == model and row.get("status") == "success"]
+        confirmed = sum(int(Decimal(row["estimated_aud"]) * 1_000_000) for row in records)
+        with self.connection() as db:
+            ambiguous, overstated = db.execute("""
+                SELECT COALESCE(SUM(CASE WHEN x.reason='ambiguous_settlement'
+                                         THEN x.settled ELSE 0 END),0),
+                       COALESCE(SUM(CASE WHEN x.reason='overstated_due_to_misclassification'
+                                         THEN x.settled ELSE 0 END),0)
+                FROM reconciliations x JOIN reservations r ON r.id=x.reservation_id
+                WHERE r.model=?
+            """, (model,)).fetchone()
+        return {"confirmed_microaud": confirmed, "ambiguous_microaud": ambiguous,
+                "misclassification_overstatement_microaud": overstated,
+                "conservative_microaud": confirmed + ambiguous + overstated}
 
     def call_records(self):
         with self.connection() as db:

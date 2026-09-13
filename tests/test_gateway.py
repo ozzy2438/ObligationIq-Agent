@@ -7,8 +7,9 @@ from threading import Barrier
 
 import pytest
 from src.gateway.ledger import BudgetError, Ledger, UnresolvedReservation
-from src.gateway.llm_client import (Completion, GatewayError, LLMClient, NotSent, PIIRedactor,
-                                    RedactedPrompt)
+from src.gateway.llm_client import (CapacityRejected, Completion, GatewayError, LLMClient,
+                                    NotSent, PIIRedactor, RedactedPrompt,
+                                    classify_capacity_rejection)
 from src.gateway.prices import UnknownPrice, get_price
 
 
@@ -118,6 +119,32 @@ def test_ambiguous_outcome_settles_at_maximum_and_run_continues(config):
     logs = [json.loads(row[1]) for row in rows(client, "calls")]
     assert any(row.get("reason") == "ambiguous_settlement" for row in logs)
     assert all("private-provider-detail" not in json.dumps(row) for row in logs)
+
+
+def test_well_formed_429_releases_retries_and_malformed_body_does_not(config):
+    class Response:
+        headers = {"retry-after": "0"}
+    class Error:
+        status_code = 429
+        body = {"code": "rate_limit_exceeded", "message": "capacity"}
+        response = Response()
+    assert classify_capacity_rejection(Error()) == (True, 0.0)
+    Error.body = {"code": "unknown", "message": "capacity"}
+    assert classify_capacity_rejection(Error()) == (False, None)
+
+    attempts = []
+    def transport(*args):
+        attempts.append(1)
+        if len(attempts) < 3:
+            raise CapacityRejected(0)
+        return Completion("accepted", 10, 5)
+    client = fake_client(config, transport, recovery_run_id="capacity-run")
+    assert client.complete("hello").text == "accepted"
+    reservations = rows(client, "reservations")
+    assert [row[4] for row in reservations] == ["released", "released", "committed"]
+    logs = [json.loads(row[1]) for row in rows(client, "calls")]
+    assert sum(row.get("status") == "capacity_rejected" for row in logs) == 2
+    assert client.ledger.cost_summary()["misclassification_overstatement_microaud"] == 0
 
 
 def test_crash_after_reservation_blocks_new_client(config):

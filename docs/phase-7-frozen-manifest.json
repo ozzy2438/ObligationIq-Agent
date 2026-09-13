@@ -13,8 +13,8 @@
     "src/agents/critic.py": "4ab3205c2ac3be6742567064c8e98a9e1c264d91fed22341711b38f095b12ce5",
     "src/agents/drafter.py": "02c64a200f09e90c0b37e005641df973c71ece71d6291e88ee96498d292de38c",
     "src/agents/pipeline.py": "d72a40641918dafd5c5dff5e3d8fa41d6c1ce01d2eae11841bdacb78a7c80d09",
-    "src/eval/harness.py": "f634b02e6c06ce5ab754f41f05c88e26e218c66f781ffb2802cb2dd35bf07882",
-    "src/gateway/llm_client.py": "0796417ce7115c13fdd606ecd69232ebaaaa3bbe079158a5d87e09bb06442f58",
+    "src/eval/harness.py": "0cd1576fad3988555656c2d57d36898943ffffc24b46522d4e4bcad9b92e8858",
+    "src/gateway/llm_client.py": "bf98c8bcc75b58d94f4432f9a4ea4dc11be995a27f499424000a120b6cecddd1",
     "src/gateway/prices.py": "250797f3957b15a36b0cb3d494df4fc467724e645546a6b5b2bd3d60d0fa428e"
   },
   "version": 1

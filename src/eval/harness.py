@@ -495,15 +495,11 @@ def _aggregate_arm(arm, rows, obligations):
 
 def _model_costs(ledger, model):
     records = [row for row in ledger.call_records() if row.get("model") == model]
-    confirmed = sum(int(Decimal(row["estimated_aud"]) * 1_000_000)
-                    for row in records if row.get("status") == "success")
-    ambiguous = sum(int(Decimal(row["estimated_aud"]) * 1_000_000)
-                    for row in records if row.get("status") == "ambiguous_settlement")
+    costs = ledger.model_cost_summary(model)
     latencies = [row["latency_ms"] for row in records if row.get("status") == "success"]
-    return {"confirmed_microaud": confirmed, "ambiguous_microaud": ambiguous,
-            "worst_case_microaud": confirmed + ambiguous,
+    return {**costs,
             "successful_provider_responses": len(latencies),
-            "ambiguous_settlements": sum(row.get("status") == "ambiguous_settlement" for row in records),
+            "capacity_rejections": sum(row.get("status") == "capacity_rejected" for row in records),
             "gateway_latency_ms": latencies}
 
 
@@ -584,8 +580,8 @@ def live_evaluate(config: Settings = settings):
             **costs,
             "confirmed_cost_per_case_aud": str(
                 Decimal(costs["confirmed_microaud"]) / Decimal(72_000_000)),
-            "worst_case_cost_per_case_aud": str(
-                Decimal(costs["worst_case_microaud"]) / Decimal(72_000_000)),
+            "conservative_cost_per_case_aud": str(
+                Decimal(costs["conservative_microaud"]) / Decimal(72_000_000)),
             "raw_outputs_committed": False,
         }
     cheap, strong = (arm_metrics[MODEL_TIERS[tier]["arm"]] for tier in ("cheap", "strong"))
