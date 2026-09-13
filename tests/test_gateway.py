@@ -17,10 +17,11 @@ class ReadyRedactor:
         return RedactedPrompt(prompt.replace("private-name", "CUSTOMER_1"), live_ready=True)
 
 
-def fake_client(config, transport=None, **changes):
+def fake_client(config, transport=None, recovery_run_id=None, **changes):
     cfg = replace(config, mode="live", allow_live=True, **changes)
     return LLMClient(cfg, redactor=ReadyRedactor(),
-                     transport=transport or (lambda *args: Completion("LOCAL_TEST_ONLY", 20, 12, 2, 5)))
+                     transport=transport or (lambda *args: Completion("LOCAL_TEST_ONLY", 20, 12, 2, 5)),
+                     recovery_run_id=recovery_run_id)
 
 
 def rows(client, table):
@@ -99,17 +100,24 @@ def test_settlement_uses_usage_including_reasoning(config):
     assert record["estimated_aud"] == str(Decimal(actual) / 1_000_000)
 
 
-def test_timeout_keeps_reservation_and_blocks_restart(config):
-    def timeout(*args):
-        raise TimeoutError("private-provider-detail")
-    client = fake_client(config, timeout)
-    with pytest.raises(UnresolvedReservation) as error:
-        client.complete("hello")
-    assert "private-provider-detail" not in str(error.value)
-    assert client.ledger.summary()["held_microaud"] > 0
-    restarted = fake_client(config)
-    with pytest.raises(UnresolvedReservation):
-        restarted.complete("another request")
+def test_ambiguous_outcome_settles_at_maximum_and_run_continues(config):
+    calls = []
+    def transport(*args):
+        calls.append(1)
+        if len(calls) == 1:
+            raise TimeoutError("private-provider-detail")
+        return Completion("recovered", 10, 5)
+    client = fake_client(config, transport, recovery_run_id="test-recovery-run")
+    result = client.complete("hello", max_output_tokens=100)
+    reservations = rows(client, "reservations")
+    assert result.text == "recovered" and [row[4] for row in reservations] == ["committed", "committed"]
+    assert reservations[0][3] == reservations[0][2]
+    costs = client.ledger.cost_summary()
+    assert costs["ambiguous_settled_microaud"] == reservations[0][2]
+    assert costs["worst_case_microaud"] > costs["confirmed_usage_microaud"]
+    logs = [json.loads(row[1]) for row in rows(client, "calls")]
+    assert any(row.get("reason") == "ambiguous_settlement" for row in logs)
+    assert all("private-provider-detail" not in json.dumps(row) for row in logs)
 
 
 def test_crash_after_reservation_blocks_new_client(config):

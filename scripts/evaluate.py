@@ -7,7 +7,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from src.eval.harness import check, live_evaluate, prepare
+from src.eval.harness import cache_replay, check, live_evaluate, prepare
 
 
 def main():
@@ -16,8 +16,10 @@ def main():
     mode.add_argument("--prepare", action="store_true")
     mode.add_argument("--check", action="store_true")
     mode.add_argument("--live", action="store_true")
+    mode.add_argument("--cache-replay", action="store_true")
     args = parser.parse_args()
-    result = prepare() if args.prepare else check() if args.check else live_evaluate()
+    result = (prepare() if args.prepare else check() if args.check else
+              cache_replay() if args.cache_replay else live_evaluate())
     print(json.dumps(result, sort_keys=True))
 
 

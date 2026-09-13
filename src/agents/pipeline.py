@@ -28,7 +28,8 @@ def build_evidence_pack(case, *, use_model=False, tier="cheap", escalation_reaso
     pack = Drafter().draft(
         obligation, case, control, source, timeline, risk, review_composition([obligation]),
         use_model=use_model, tier=tier, escalation_reason=escalation_reason, config=config,
-        max_output_tokens=max_output_tokens)
+        max_output_tokens=max_output_tokens,
+        recovery_run_id=case.get("evaluation_run_id"))
     review = critique(pack, obligation, case, control, source)
     if strict and not review.accepted:
         raise ValueError("Evidence critic rejected pack: " + ", ".join(review.issues))

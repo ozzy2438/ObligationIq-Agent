@@ -1,4 +1,4 @@
-"""Frozen three-arm evaluation for the independent synthetic pilot."""
+"""Frozen four-arm evaluation for the independent synthetic pilot."""
 
 from collections import Counter
 from dataclasses import replace
@@ -22,9 +22,13 @@ from src.register.obligations import for_controls, load_candidates, review_compo
 AS_OF = "2026-09-13"
 SEED = 20260913
 OUTPUT_CAP = 512
-MODEL = "gpt-5-nano"
 MODEL_VERSION = "2025-08-07"
-DEPLOYMENT = "obligationiq-gpt5nano"
+MODEL_TIERS = {
+    "cheap": {"model": "gpt-5-nano", "deployment": "obligationiq-gpt5nano",
+              "arm": "rules_plus_agent_cheap", "escalation_reason": None},
+    "strong": {"model": "gpt-5-mini", "deployment": "obligationiq-gpt5mini",
+               "arm": "rules_plus_agent_strong", "escalation_reason": "quality_review"},
+}
 OBLIGATIONS = tuple(f"OIQ-{index:03d}" for index in range(1, 33))
 FILES = {
     "contract": ROOT / "data/evaluation-contract.json",
@@ -70,17 +74,16 @@ def evaluation_contract():
         "as_of_date": AS_OF,
         "case_design": "Two cases for every obligation plus eight frozen hard cases: boundaries, holiday arithmetic, partial evidence, jurisdiction, point-in-time and event sequence.",
         "obligation_ids": list(OBLIGATIONS),
-        "arms": ["manual_checklist_surrogate", "deterministic_rules", "rules_plus_agent"],
+        "arms": ["manual_checklist_surrogate", "deterministic_rules",
+                 "rules_plus_agent_cheap", "rules_plus_agent_strong"],
         "manual_baseline_limit": "Programmatic document-review checklist; no human reviewer or human timing measurement.",
-        "model": MODEL,
+        "model_routes": MODEL_TIERS,
         "model_version": MODEL_VERSION,
-        "deployment": DEPLOYMENT,
-        "tier": "cheap",
         "sku": "GlobalStandard",
         "account_region": "australiaeast",
         "max_output_tokens_per_case": OUTPUT_CAP,
         "calls_per_case": 1,
-        "strong_model_escalations": 0,
+        "strong_model_escalation_reason": "quality_review",
         "unmeasured": ["staff hours saved", "penalties avoided", "customer satisfaction", "human reviewer latency"],
     }
 
@@ -476,6 +479,11 @@ def _aggregate_arm(arm, rows, obligations):
         "evidence_rubric_points": earned, "evidence_rubric_possible": possible,
         "citation_accuracy": citation / len(rows), "groundedness": grounded / len(rows),
     }
+    under_evidenced = [row for row in rows if row["expected"] == "insufficient_evidence"]
+    result["under_evidenced_refusal_correctness"] = (
+        sum(row["actual"] == "insufficient_evidence" and
+            row["actual_gaps"] == row["expected_gaps"] for row in under_evidenced) /
+        len(under_evidenced) if under_evidenced else None)
     if all("latency_ms" in row for row in rows):
         latencies = [row["latency_ms"] for row in rows]
         result.update(latency_ms_mean=sum(latencies) / len(latencies),
@@ -485,94 +493,163 @@ def _aggregate_arm(arm, rows, obligations):
     return result
 
 
-def live_evaluate(config: Settings = settings):
-    payloads = validate_frozen()
-    if config.mode != "live" or not config.allow_live:
-        raise ValueError("Live evaluation requires LLM_MODE=live and LLM_ALLOW_LIVE=true")
-    if (config.azure["AZURE_OPENAI_DEPLOYMENT_CHEAP"] != DEPLOYMENT or
-            get_price(ROUTES["cheap"]).version != MODEL_VERSION):
-        raise ValueError("Live deployment or model version differs from the frozen contract")
-    obligations = {row["obligation_id"]: row for row in for_controls(load_candidates())}
-    labels = {row["case_id"]: row for row in payloads["truth"]["cases"]}
-    rows = offline_arms(payloads, measure_latency=True)
-    agent_rows, public_cases = [], []
-    ledger = Ledger(config.state_dir / "gateway.sqlite3", config.daily_limit, config.project_limit)
-    before = ledger.summary()
-    for case in payloads["cases"]["cases"]:
+def _model_costs(ledger, model):
+    records = [row for row in ledger.call_records() if row.get("model") == model]
+    confirmed = sum(int(Decimal(row["estimated_aud"]) * 1_000_000)
+                    for row in records if row.get("status") == "success")
+    ambiguous = sum(int(Decimal(row["estimated_aud"]) * 1_000_000)
+                    for row in records if row.get("status") == "ambiguous_settlement")
+    latencies = [row["latency_ms"] for row in records if row.get("status") == "success"]
+    return {"confirmed_microaud": confirmed, "ambiguous_microaud": ambiguous,
+            "worst_case_microaud": confirmed + ambiguous,
+            "successful_provider_responses": len(latencies),
+            "ambiguous_settlements": sum(row.get("status") == "ambiguous_settlement" for row in records),
+            "gateway_latency_ms": latencies}
+
+
+def _run_agent_arm(tier, payloads, obligations, labels, config, ledger):
+    route = MODEL_TIERS[tier]
+    arm, run_id = route["arm"], f"phase7-{tier}-{AS_OF.replace('-', '')}"
+    rows, public = [], []
+    for original in payloads["cases"]["cases"]:
+        case = dict(original)
+        case["evaluation_run_id"] = run_id
         expected, obligation = labels[case["case_id"]], obligations[case["obligation_id"]]
         started = time.perf_counter()
-        case_before = ledger.summary()["committed_microaud"]
+        before = ledger.summary()["committed_microaud"]
         pack, critic = build_evidence_pack(
-            case, use_model=True, tier="cheap", config=config,
-            max_output_tokens=OUTPUT_CAP, strict=False)
+            case, use_model=True, tier=tier, escalation_reason=route["escalation_reason"],
+            config=config, max_output_tokens=OUTPUT_CAP, strict=False)
         latency_ms = round((time.perf_counter() - started) * 1000, 3)
-        case_after = ledger.summary()["committed_microaud"]
+        after = ledger.summary()["committed_microaud"]
         artifact = pack.to_dict()
-        narrative_grounded, grounded_reason = model_narrative_grounded(artifact)
+        narrative_grounded, reason = model_narrative_grounded(artifact)
         grounded = (narrative_grounded and artifact["control_status"] == expected["expected_status"]
                     and artifact["evidence_gaps"] == expected["expected_evidence_gaps"]
-                    and citation_is_accurate("rules_plus_agent", artifact, obligation))
+                    and citation_is_accurate(arm, artifact, obligation))
         raw = artifact["model_assistance"].pop("text")
         artifact["model_assistance"]["output_sha256"] = digest(raw.encode())
-        agent_rows.append({
+        rows.append({
             "case_id": case["case_id"], "expected": expected["expected_status"],
             "actual": artifact["control_status"],
             "expected_gaps": expected["expected_evidence_gaps"],
             "actual_gaps": artifact["evidence_gaps"], "artifact": artifact,
-            "grounded": grounded, "latency_ms": latency_ms,
-            "critic_accepted": critic.accepted,
+            "grounded": grounded, "critic_accepted": critic.accepted,
         })
-        public_cases.append({
+        public.append({
             "case_id": case["case_id"], "obligation_id": case["obligation_id"],
             "expected_status": expected["expected_status"],
-            "actual_status": artifact["control_status"],
-            "critic": critic.to_dict(), "grounded": grounded,
-            "groundedness_reason": grounded_reason, "latency_ms": latency_ms,
-            "incremental_cost_aud": str(Decimal(case_after - case_before) / Decimal(1_000_000)),
+            "actual_status": artifact["control_status"], "critic": critic.to_dict(),
+            "grounded": grounded, "groundedness_reason": reason,
+            "current_pipeline_latency_ms": latency_ms,
+            "cache_reused": after == before,
             "model_assistance": artifact["model_assistance"],
         })
-    rows["rules_plus_agent"] = agent_rows
-    after = ledger.summary()
-    if before["held_microaud"] or after["held_microaud"]:
+    return arm, rows, public
+
+
+def live_evaluate(config: Settings = settings):
+    payloads = validate_frozen()
+    if config.mode != "live" or not config.allow_live:
+        raise ValueError("Live evaluation requires LLM_MODE=live and LLM_ALLOW_LIVE=true")
+    for tier, route in MODEL_TIERS.items():
+        if (config.azure["AZURE_OPENAI_DEPLOYMENT_" + tier.upper()] != route["deployment"] or
+                get_price(ROUTES[tier]).version != MODEL_VERSION):
+            raise ValueError("Live deployment or model version differs from the frozen contract")
+    obligations = {row["obligation_id"]: row for row in for_controls(load_candidates())}
+    labels = {row["case_id"]: row for row in payloads["truth"]["cases"]}
+    rows = offline_arms(payloads, measure_latency=True)
+    ledger = Ledger(config.state_dir / "gateway.sqlite3", config.daily_limit, config.project_limit)
+    public_cases = {}
+    for tier in ("cheap", "strong"):
+        arm, arm_rows, public = _run_agent_arm(tier, payloads, obligations, labels, config, ledger)
+        rows[arm], public_cases[arm] = arm_rows, public
+    if ledger.summary()["held_microaud"]:
         raise ValueError("Ledger has an unresolved reservation")
     arm_metrics = {arm: _aggregate_arm(arm, value, obligations) for arm, value in rows.items()}
-    agent_cost = after["committed_microaud"] - before["committed_microaud"]
-    latencies = [row["latency_ms"] for row in public_cases]
+    execution = {}
+    for tier, route in MODEL_TIERS.items():
+        costs = _model_costs(ledger, route["model"])
+        latencies = costs.pop("gateway_latency_ms")
+        if len(latencies) != len(payloads["cases"]["cases"]):
+            raise ValueError("Provider response count does not match the frozen case set")
+        arm_metrics[route["arm"]].update(
+            gateway_latency_ms_mean=sum(latencies) / len(latencies),
+            gateway_latency_ms_min=min(latencies), gateway_latency_ms_max=max(latencies))
+        execution[tier] = {
+            "model": route["model"], "model_version": MODEL_VERSION,
+            "deployment": route["deployment"], "tier": tier,
+            "escalation_reason": route["escalation_reason"],
+            "max_output_tokens_per_case": OUTPUT_CAP,
+            **costs,
+            "confirmed_cost_per_case_aud": str(
+                Decimal(costs["confirmed_microaud"]) / Decimal(72_000_000)),
+            "worst_case_cost_per_case_aud": str(
+                Decimal(costs["worst_case_microaud"]) / Decimal(72_000_000)),
+            "raw_outputs_committed": False,
+        }
+    cheap, strong = (arm_metrics[MODEL_TIERS[tier]["arm"]] for tier in ("cheap", "strong"))
+    quality_fields = ("evidence_pack_completeness", "citation_accuracy", "groundedness",
+                      "under_evidenced_refusal_correctness", "critic_acceptance_rate")
+    delta = {key: strong[key] - cheap[key] for key in quality_fields}
+    delta["confirmed_cost_per_case_aud"] = str(
+        Decimal(execution["strong"]["confirmed_cost_per_case_aud"]) -
+        Decimal(execution["cheap"]["confirmed_cost_per_case_aud"]))
+    delta["gateway_latency_ms_mean"] = (strong["gateway_latency_ms_mean"] -
+                                         cheap["gateway_latency_ms_mean"])
+    meaningful = any(delta[key] >= 0.01 for key in quality_fields)
+    recommendation = (
+        "Retain cheap-model default; the strong drafter did not improve a measured quality rate by at least one percentage point."
+        if not meaningful else
+        "Use strong routing only for the measured quality criteria where it materially exceeded the cheap drafter; deterministic rules retain status authority."
+    )
+    costs = ledger.cost_summary()
     report = {
-        "status": "Phase 7 complete: frozen three-arm all-obligation synthetic evaluation",
+        "status": "Phase 7 complete: frozen four-arm all-obligation synthetic evaluation",
         "synthetic_evaluation": True, "evaluated_on": AS_OF,
         "frozen_manifest_sha256": digest(FILES["manifest"].read_bytes()),
-        "cases": len(public_cases), "obligations": len(OBLIGATIONS),
-        "arms": arm_metrics,
+        "cases_per_arm": 72, "obligations": len(OBLIGATIONS), "arms": arm_metrics,
         "manual_baseline_limit": evaluation_contract()["manual_baseline_limit"],
-        "agent_execution": {
-            "model": MODEL, "model_version": MODEL_VERSION, "deployment": DEPLOYMENT,
-            "tier": "cheap", "max_output_tokens_per_case": OUTPUT_CAP,
-            "strong_escalations": 0, "model_calls_requested": len(public_cases),
-            "incremental_spend_aud": str(Decimal(agent_cost) / Decimal(1_000_000)),
-            "cost_per_case_aud": str(Decimal(agent_cost) / Decimal(1_000_000 * len(public_cases))),
-            "latency_ms_mean": sum(latencies) / len(latencies),
-            "latency_ms_min": min(latencies), "latency_ms_max": max(latencies),
-            "raw_outputs_committed": False,
-        },
+        "agent_execution": execution, "strong_minus_cheap": delta,
+        "ledger_costs_aud": {key.removesuffix("_microaud") + "_aud":
+                             str(Decimal(value) / Decimal(1_000_000))
+                             for key, value in costs.items()},
         "review_composition": review_composition(list(obligations.values())),
         "cases_public": public_cases,
         "unmeasured": evaluation_contract()["unmeasured"],
-        "recommendation": "Rules remain authoritative for status. Use the agent only to assemble and check cited evidence packs if it improves completeness without reducing groundedness.",
+        "recommendation": recommendation,
         "scope_limit": "Seventy-two synthetic cases across all 32 obligations; no production, prevalence or human-effort claim.",
     }
     FILES["results"].write_bytes(canonical(report))
     return report
 
 
+def cache_replay(config: Settings = settings):
+    payloads = validate_frozen()
+    cached = replace(config, mode="cached", allow_live=False)
+    obligations = {row["obligation_id"]: row for row in for_controls(load_candidates())}
+    labels = {row["case_id"]: row for row in payloads["truth"]["cases"]}
+    ledger = Ledger(cached.state_dir / "gateway.sqlite3", cached.daily_limit, cached.project_limit)
+    before = ledger.summary()
+    for tier in ("cheap", "strong"):
+        _run_agent_arm(tier, payloads, obligations, labels, cached, ledger)
+    after = ledger.summary()
+    if before != after:
+        raise ValueError("Cached replay changed paid reservations")
+    return {"cases_per_model": 72, "models": 2, "additional_spend_aud": "0"}
+
+
 def validate_results(report):
     if report.get("frozen_manifest_sha256") != digest(FILES["manifest"].read_bytes()):
         raise ValueError("Published result is not bound to the frozen manifest")
-    if report.get("synthetic_evaluation") is not True or report.get("cases") != 72:
+    if report.get("synthetic_evaluation") is not True or report.get("cases_per_arm") != 72:
         raise ValueError("Published result scope changed")
-    if set(report.get("arms", {})) != {"manual_checklist_surrogate", "deterministic_rules", "rules_plus_agent"}:
-        raise ValueError("Published three-arm result is incomplete")
-    if any("text" in row.get("model_assistance", {}) for row in report.get("cases_public", [])):
+    expected = {"manual_checklist_surrogate", "deterministic_rules",
+                "rules_plus_agent_cheap", "rules_plus_agent_strong"}
+    if set(report.get("arms", {})) != expected:
+        raise ValueError("Published four-arm result is incomplete")
+    public = [row for arm in report.get("cases_public", {}).values() for row in arm]
+    if any("text" in row.get("model_assistance", {}) for row in public):
         raise ValueError("Raw model narrative must remain local")
 
 

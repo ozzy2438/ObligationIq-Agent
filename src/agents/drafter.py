@@ -52,7 +52,7 @@ def model_prompt(obligation, control, source, timeline):
 class Drafter:
     def draft(self, obligation, case, control, source, timeline, risk, composition,
               *, use_model=False, tier="cheap", escalation_reason=None, config=None,
-              max_output_tokens=None):
+              max_output_tokens=None, recovery_run_id=None):
         if tier not in {"cheap", "strong"}:
             raise ValueError("Unsupported model tier")
         if tier == "strong" and not escalation_reason:
@@ -67,8 +67,9 @@ class Drafter:
                       "tariff_cost_aud": "0"}
         if use_model:
             redactor = PIIRedactor(sensitive_values=sensitive, allow_structured_live=True)
-            client = (LLMClient(config=config, redactor=redactor) if config is not None
-                      else LLMClient(redactor=redactor))
+            client = (LLMClient(config=config, redactor=redactor,
+                                recovery_run_id=recovery_run_id) if config is not None
+                      else LLMClient(redactor=redactor, recovery_run_id=recovery_run_id))
             completion = client.complete(
                 model_prompt(obligation, control, source, timeline), workload="evidence",
                 tier=tier, escalation_reason=escalation_reason,

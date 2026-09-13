@@ -38,7 +38,16 @@ class Ledger:
                 );
                 CREATE TABLE IF NOT EXISTS cache (key TEXT PRIMARY KEY, response TEXT NOT NULL);
                 CREATE TABLE IF NOT EXISTS calls (id INTEGER PRIMARY KEY, record TEXT NOT NULL);
+                CREATE TABLE IF NOT EXISTS reconciliations (
+                    reservation_id TEXT PRIMARY KEY, run_id TEXT NOT NULL,
+                    settled INTEGER NOT NULL, reason TEXT NOT NULL
+                );
             """)
+            columns = {row[1] for row in db.execute("PRAGMA table_info(reservations)")}
+            if "run_id" not in columns:
+                db.execute("ALTER TABLE reservations ADD COLUMN run_id TEXT")
+            if "model" not in columns:
+                db.execute("ALTER TABLE reservations ADD COLUMN model TEXT")
         self.path.chmod(0o600)
 
     @contextmanager
@@ -70,7 +79,7 @@ class Ledger:
         with self.connection() as db:
             self._clear(db)
 
-    def reserve(self, maximum: int) -> str:
+    def reserve(self, maximum: int, run_id: str | None = None, model: str | None = None) -> str:
         if type(maximum) is not int or maximum <= 0:
             raise BudgetError("Reservation must be positive integer micro-AUD")
         day = utc_now().date().isoformat()
@@ -84,9 +93,54 @@ class Ledger:
             """, (day,)).fetchone()
             if total + maximum > self.project_limit or daily + maximum > self.daily_limit:
                 raise BudgetError("Insufficient remaining daily or lifetime balance")
-            db.execute("INSERT INTO reservations VALUES (?,?,?,NULL,'reserved')",
-                       (identifier, day, maximum))
+            db.execute("""INSERT INTO reservations
+                        (id,day,reserved,actual,state,run_id,model)
+                        VALUES (?,?,?,NULL,'reserved',?,?)""",
+                       (identifier, day, maximum, run_id, model))
         return identifier
+
+    def settle_ambiguous(self, identifier: str, run_id: str, record: dict):
+        """Charge an ambiguous call at its maximum; never release or infer zero spend."""
+        if not run_id:
+            raise BudgetError("Ambiguous settlement requires a run identifier")
+        with self.transaction() as db:
+            row = db.execute(
+                "SELECT day,reserved,state,run_id,model FROM reservations WHERE id=?", (identifier,)).fetchone()
+            if not row or row[2] != "ambiguous" or row[3] not in {None, run_id}:
+                raise UnresolvedReservation("Ambiguous reservation is not recoverable by this run")
+            count = db.execute("SELECT COUNT(*) FROM reconciliations WHERE run_id=?", (run_id,)).fetchone()[0]
+            if count >= 5:
+                raise UnresolvedReservation("Ambiguous settlement limit exceeded for this run")
+            total, daily = db.execute("""
+                SELECT COALESCE(SUM(actual),0),
+                       COALESCE(SUM(CASE WHEN day=? THEN actual ELSE 0 END),0)
+                FROM reservations WHERE state='committed'
+            """, (row[0],)).fetchone()
+            if total + row[1] > self.project_limit or daily + row[1] > self.daily_limit:
+                raise BudgetError("Ambiguous settlement would exceed a ledger limit")
+            db.execute("UPDATE reservations SET actual=reserved,state='committed',run_id=? WHERE id=?",
+                       (run_id, identifier))
+            db.execute("INSERT INTO reconciliations VALUES (?,?,?,?)",
+                       (identifier, run_id, row[1], "ambiguous_settlement"))
+            record.setdefault("model", row[4])
+            db.execute("INSERT INTO calls(record) VALUES (?)", (json.dumps(record),))
+        return row[1]
+
+    def recover_ambiguous(self, run_id: str):
+        """Recover interrupted calls from the same run before admitting new work."""
+        with self.connection() as db:
+            rows = db.execute(
+                "SELECT id,reserved,model FROM reservations WHERE state='ambiguous' AND run_id=? ORDER BY rowid",
+                (run_id,)).fetchall()
+        for identifier, maximum, model in rows:
+            self.settle_ambiguous(identifier, run_id, {
+                "timestamp": utc_now().isoformat(), "status": "ambiguous_settlement",
+                "reason": "ambiguous_settlement", "run_id": run_id,
+                "reservation_id": identifier,
+                "model": model,
+                "estimated_aud": str(Decimal(maximum) / Decimal(1_000_000)),
+            })
+        return len(rows)
 
     def finish(self, identifier, actual: int, key: str, response: dict, record: dict):
         if type(actual) is not int or actual < 0:
@@ -131,3 +185,20 @@ class Ledger:
                 FROM reservations
             """).fetchone()
         return {"committed_microaud": spent, "held_microaud": held}
+
+    def cost_summary(self):
+        with self.connection() as db:
+            worst, settled, held = db.execute("""
+                SELECT COALESCE(SUM(CASE WHEN state='committed' THEN actual ELSE 0 END),0),
+                       COALESCE((SELECT SUM(settled) FROM reconciliations),0),
+                       COALESCE(SUM(CASE WHEN state IN ('reserved','ambiguous')
+                           THEN MAX(reserved,COALESCE(actual,0)) ELSE 0 END),0)
+                FROM reservations
+            """).fetchone()
+        return {"confirmed_usage_microaud": worst - settled,
+                "ambiguous_settled_microaud": settled,
+                "worst_case_microaud": worst, "held_microaud": held}
+
+    def call_records(self):
+        with self.connection() as db:
+            return [json.loads(row[0]) for row in db.execute("SELECT record FROM calls ORDER BY id")]

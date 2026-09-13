@@ -3,16 +3,29 @@
   "arms": [
     "manual_checklist_surrogate",
     "deterministic_rules",
-    "rules_plus_agent"
+    "rules_plus_agent_cheap",
+    "rules_plus_agent_strong"
   ],
   "as_of_date": "2026-09-13",
   "calls_per_case": 1,
   "case_design": "Two cases for every obligation plus eight frozen hard cases: boundaries, holiday arithmetic, partial evidence, jurisdiction, point-in-time and event sequence.",
-  "deployment": "obligationiq-gpt5nano",
   "frozen_on": "2026-09-13",
   "manual_baseline_limit": "Programmatic document-review checklist; no human reviewer or human timing measurement.",
   "max_output_tokens_per_case": 512,
-  "model": "gpt-5-nano",
+  "model_routes": {
+    "cheap": {
+      "arm": "rules_plus_agent_cheap",
+      "deployment": "obligationiq-gpt5nano",
+      "escalation_reason": null,
+      "model": "gpt-5-nano"
+    },
+    "strong": {
+      "arm": "rules_plus_agent_strong",
+      "deployment": "obligationiq-gpt5mini",
+      "escalation_reason": "quality_review",
+      "model": "gpt-5-mini"
+    }
+  },
   "model_version": "2025-08-07",
   "obligation_ids": [
     "OIQ-001",
@@ -50,9 +63,8 @@
   ],
   "seed": 20260913,
   "sku": "GlobalStandard",
-  "strong_model_escalations": 0,
+  "strong_model_escalation_reason": "quality_review",
   "synthetic": true,
-  "tier": "cheap",
   "unmeasured": [
     "staff hours saved",
     "penalties avoided",
