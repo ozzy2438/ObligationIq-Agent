@@ -222,6 +222,35 @@ def search(query, *, regime, as_of, limit=5, method="lexical", config=settings):
     return result
 
 
+def exact_clause(source_id, reference, *, as_of, config=settings):
+    """Read one exact, source-pinned clause from the local corpus."""
+    from datetime import date
+    when = date.fromisoformat(as_of)
+    path = config.corpus_dir / "corpus.sqlite3"
+    if not path.is_file():
+        raise ValueError("Build the corpus first")
+    with sqlite3.connect(f"file:{path}?mode=ro", uri=True) as db:
+        saved = db.execute("SELECT metadata FROM build_info").fetchone()
+        if not saved or json.loads(saved[0])["fingerprint"] != fingerprint():
+            raise ValueError("Corpus, model or parser pin changed; rebuild before retrieval")
+        row = db.execute("SELECT metadata, pages FROM documents WHERE id=?", (source_id,)).fetchone()
+    if row is None:
+        raise ValueError("Exact source is absent from the corpus")
+    source, pages = json.loads(row[0]), json.loads(row[1])
+    if (when < date.fromisoformat(source["valid_from"]) or
+            when > date.fromisoformat(source["retrieved_on"]) or
+            (source.get("valid_to") and when > date.fromisoformat(source["valid_to"]))):
+        raise ValueError("Exact source is unavailable for the requested snapshot")
+    matches = [block for block in clause_blocks(source, pages)
+               if block["kind"] == "clause" and block["reference"] == reference]
+    if len(matches) != 1:
+        raise ValueError("Exact clause is absent or ambiguous")
+    return {**matches[0], "source_id": source_id, "version": source["version"],
+            "url": source["url"], "regime": source["regime"],
+            "source_sha256": source["sha256"], "title": source["title"],
+            "issuer": source["issuer"], "terms": source["terms"]}
+
+
 if __name__ == "__main__":
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)

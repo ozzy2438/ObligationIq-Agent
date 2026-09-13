@@ -6,7 +6,8 @@ from dataclasses import replace
 
 import pytest
 
-from src.dataplane.corpus import clause_blocks, digest, fingerprint, load_manifest, search, verified_pdf
+from src.dataplane.corpus import (clause_blocks, digest, exact_clause, fingerprint, load_manifest,
+                                  search, verified_pdf)
 from src.gateway.llm_client import GatewayError, LocalEmbedder, RedactedPrompt
 from scripts.acquire_corpus import acquire
 
@@ -98,3 +99,24 @@ def test_lexical_search_is_regime_and_snapshot_scoped(config):
     result = search("life support", regime="VIC", as_of="2026-09-12", config=config)
     assert len(result) == 1 and result[0]["regime"] == "VIC"
     assert search("life support", regime="VIC", as_of="2026-10-01", config=config) == []
+
+
+def test_exact_clause_requires_one_digest_pinned_source(config):
+    config = replace(config, corpus_dir=config.state_dir)
+    pages = ["124 Registration\n(1) requirement\n125 Next\n"]
+    metadata = {**source(), "title": "Unit source", "issuer": "Unit issuer",
+                "version": "1", "url": "https://example.invalid/unit", "regime": "NERL_NERR",
+                "valid_from": "2026-09-12", "retrieved_on": "2026-09-12", "valid_to": None,
+                "terms": {"restriction": "unit-only"},
+                "regions": [{"pages": [1, 1], "kind": "clause", "references": ["124"],
+                             "separator": r"[ \t]+(?=[A-Z])", "family": "life_support",
+                             "end_pattern": r"^125 Next"}]}
+    with sqlite3.connect(config.corpus_dir / "corpus.sqlite3") as db:
+        db.executescript("CREATE TABLE documents(id,metadata,pages); CREATE TABLE build_info(metadata);")
+        db.execute("INSERT INTO build_info VALUES(?)", (json.dumps({"fingerprint": fingerprint()}),))
+        db.execute("INSERT INTO documents VALUES (?,?,?)",
+                   ("unit", json.dumps(metadata), json.dumps(pages)))
+    result = exact_clause("unit", "124", as_of="2026-09-12", config=config)
+    assert result["reference"] == "124" and result["text"].startswith("124 Registration")
+    with pytest.raises(ValueError, match="absent or ambiguous"):
+        exact_clause("unit", "999", as_of="2026-09-12", config=config)

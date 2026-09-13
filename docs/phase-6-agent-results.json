@@ -1,0 +1,213 @@
+{
+  "status": "Phase 6 complete: cited evidence pipeline and local MCP surface verified",
+  "synthetic_evaluation": true,
+  "evaluated_on": "2026-09-13",
+  "cases": 2,
+  "flagged_case": {
+    "evidence_pack": {
+      "pack_id": "PACK-77735d395fe89ac6",
+      "synthetic": true,
+      "case_id": "CASE-94934ce7f41d3aaf",
+      "obligation_id": "OIQ-024",
+      "control_status": "breach",
+      "control_reason": "The required action occurred after the source deadline.",
+      "evidence_gaps": [],
+      "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "citation": {
+        "source_id": "esc",
+        "title": "Energy Retail Code of Practice",
+        "issuer": "Essential Services Commission Victoria",
+        "version": "6",
+        "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+        "regime": "VIC",
+        "clause_reference": "166(2)(b)",
+        "parent_clause": "166",
+        "pdf_pages": [
+          117,
+          120
+        ],
+        "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+        "source_clause_sha256": "9053aeff667dbd5aee35f28654361d7ab9a3017bca725f92b260645cf4c7e171",
+        "source_text_retained_locally": true
+      },
+      "timeline": [
+        {
+          "occurred_on": "2026-08-03",
+          "event_type": "trigger",
+          "evidence_item": null,
+          "present": null
+        },
+        {
+          "occurred_on": "2026-08-05",
+          "event_type": "action_completed",
+          "evidence_item": null,
+          "present": null
+        },
+        {
+          "occurred_on": "2026-09-13",
+          "event_type": "evidence_observed",
+          "evidence_item": "deregistration_event",
+          "present": true
+        },
+        {
+          "occurred_on": "2026-09-13",
+          "event_type": "evidence_observed",
+          "evidence_item": "register_update",
+          "present": true
+        }
+      ],
+      "risk": {
+        "case_id": "CASE-94934ce7f41d3aaf",
+        "obligation_id": "OIQ-024",
+        "policy_version": "rule-baseline-v1",
+        "review_horizon_days": 30,
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "control_status": "breach",
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      "review_composition": {
+        "total": 1,
+        "human_verified": 1,
+        "human_verified_proportion": 1.0,
+        "agent_reviewed": 0,
+        "agent_reviewed_proportion": 0.0
+      },
+      "deterministic_summary": "Control OIQ-024 returned breach. Citation: Energy Retail Code of Practice 166(2)(b). No required evidence gap was recorded.",
+      "model_assistance": {
+        "used": false,
+        "mode": "deterministic",
+        "tier": null,
+        "model": null,
+        "escalation_reason": null,
+        "text": null
+      }
+    },
+    "critic": {
+      "accepted": true,
+      "issues": []
+    }
+  },
+  "under_evidenced_case": {
+    "evidence_pack": {
+      "pack_id": "PACK-a37e6e4ca966622f",
+      "synthetic": true,
+      "case_id": "CASE-b4e1f63411a203ad",
+      "obligation_id": "OIQ-024",
+      "control_status": "insufficient_evidence",
+      "control_reason": "One or more source-required evidence items are absent.",
+      "evidence_gaps": [
+        "deregistration_event"
+      ],
+      "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "citation": {
+        "source_id": "esc",
+        "title": "Energy Retail Code of Practice",
+        "issuer": "Essential Services Commission Victoria",
+        "version": "6",
+        "url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+        "regime": "VIC",
+        "clause_reference": "166(2)(b)",
+        "parent_clause": "166",
+        "pdf_pages": [
+          117,
+          120
+        ],
+        "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+        "source_clause_sha256": "9053aeff667dbd5aee35f28654361d7ab9a3017bca725f92b260645cf4c7e171",
+        "source_text_retained_locally": true
+      },
+      "timeline": [
+        {
+          "occurred_on": "2026-08-03",
+          "event_type": "trigger",
+          "evidence_item": null,
+          "present": null
+        },
+        {
+          "occurred_on": "2026-09-13",
+          "event_type": "evidence_observed",
+          "evidence_item": "deregistration_event",
+          "present": false
+        },
+        {
+          "occurred_on": "2026-09-13",
+          "event_type": "evidence_observed",
+          "evidence_item": "register_update",
+          "present": true
+        }
+      ],
+      "risk": {
+        "case_id": "CASE-b4e1f63411a203ad",
+        "obligation_id": "OIQ-024",
+        "policy_version": "rule-baseline-v1",
+        "review_horizon_days": 30,
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "control_status": "insufficient_evidence",
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      "review_composition": {
+        "total": 1,
+        "human_verified": 1,
+        "human_verified_proportion": 1.0,
+        "agent_reviewed": 0,
+        "agent_reviewed_proportion": 0.0
+      },
+      "deterministic_summary": "Control OIQ-024 returned insufficient_evidence. Citation: Energy Retail Code of Practice 166(2)(b). Evidence gaps: deregistration_event.",
+      "model_assistance": {
+        "used": false,
+        "mode": "deterministic",
+        "tier": null,
+        "model": null,
+        "escalation_reason": null,
+        "text": null
+      }
+    },
+    "critic": {
+      "accepted": true,
+      "issues": []
+    }
+  },
+  "measurements": {
+    "critic_acceptance_rate": 1.0,
+    "citation_binding_rate": 1.0,
+    "under_evidenced_gap_recall": 1.0,
+    "customer_identity_values_in_public_packs": 0,
+    "mcp_tools_discovered": [
+      "build_evidence_pack"
+    ],
+    "mcp_pipeline_calls_verified": 1,
+    "exact_clause_retrieval_coverage": 1.0,
+    "exact_clause_retrieval_count": 32,
+    "maximum_cited_excerpt_bytes": 908
+  },
+  "pii_boundary": {
+    "active": true,
+    "structured_live_envelope_required": true,
+    "excluded_fields": [
+      "customer_name",
+      "name",
+      "address",
+      "service_address",
+      "nmi"
+    ],
+    "model_dispatches_in_phase_6": 0
+  },
+  "source_text": "Verified against the local pinned clause digest; omitted from this public result under the recorded source terms.",
+  "scope_limit": "Two synthetic cases exercise one human-verified Victorian obligation. This is pipeline acceptance evidence, not broad agent-quality evaluation.",
+  "model_calls": 0,
+  "model_spend_aud": 0
+}
