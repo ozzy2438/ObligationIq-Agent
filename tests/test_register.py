@@ -8,6 +8,8 @@ from src.register.obligations import (OPERATIONAL_REVIEWS, RegisterError, for_co
                                       materialize, operational_records, record_hash,
                                       review_composition, reviewed_records, validate_candidates)
 from src.controls.engine import CONTROL_FUNCTIONS, evaluate_control
+from src.controls.engine import ControlResult
+from src.risk.baseline import rank_control_result
 
 
 def changed(key, value):
@@ -152,3 +154,18 @@ def test_pending_agent_review_never_sets_a_verification_date():
     records = reviewed_records(load_candidates(), decisions)
     assert all(not r["verified_by_human"] and r["verification_date"] is None for r in records)
     assert all(r["review_status"] == "PENDING HUMAN REVIEW" for r in records)
+
+
+def test_risk_baseline_prioritises_without_deciding_compliance():
+    control = ControlResult(
+        case_id="unit", obligation_id="OIQ-001", status="insufficient_evidence",
+        reason="missing", evidence_gaps=("notice",), evaluated_as_of="2026-09-13",
+        applied_record_sha256="a" * 64, applied_source_sha256="b" * 64,
+        applied_source_version="1", applied_clause_reference="1", applied_effective_from=None,
+        applied_effective_to=None, source_review_method="human", source_verified_by_human=True,
+        operational_review_method="human", business_calendar_id=None)
+    first = rank_control_result(control)
+    assert first == rank_control_result(control)
+    assert (first.priority_score, first.priority_band) == (70, "evidence_review")
+    assert first.is_compliance_decision is False
+    assert first.is_calibrated_probability is False

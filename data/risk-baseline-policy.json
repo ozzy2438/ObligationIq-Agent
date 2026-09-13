@@ -1,0 +1,13 @@
+{
+  "policy_version": "rule-baseline-v1",
+  "review_horizon_days": 30,
+  "high_priority_threshold": 90,
+  "scores": {
+    "breach": 100,
+    "insufficient_evidence": 70,
+    "at_risk": 60,
+    "compliant": 0,
+    "not_applicable": 0
+  },
+  "boundary": "Ranks deterministic control outputs for review. It is not a compliance decision or a calibrated probability."
+}
