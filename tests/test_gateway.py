@@ -231,5 +231,6 @@ def test_pinned_rates_match_published_meter_units():
         rates = tuple(Decimal(str(meters[name]["retailPrice"])) for name in names)
         assert rates == (price.input_per_million, price.output_per_million, price.cached_input_per_million)
     embedding = meters["text-embedding-3-small-glbl"]
-    assert embedding["unitOfMeasure"] == "1K"
-    assert Decimal(str(embedding["retailPrice"])) * 1000 == get_price("text-embedding-3-small").input_per_million
+    assert embedding["unitOfMeasure"] == "1K" and embedding["retailPrice"] == 0
+    with pytest.raises(UnknownPrice):
+        get_price("text-embedding-3-small")

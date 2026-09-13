@@ -4,7 +4,7 @@ import sys
 
 import pytest
 from scripts.check_boundaries import violations
-from src.config import ConfigError, load_settings
+from src.config import ConfigError, LIVE_TEXT_KEYS, load_settings
 
 
 def test_env_loads_without_interpolation_or_logging(tmp_path):
@@ -30,6 +30,7 @@ def test_missing_live_keys_are_validated_on_import(tmp_path):
     import os
     env = {k: v for k, v in os.environ.items() if not k.startswith(("AZURE_", "LLM_"))}
     env.update(LLM_MODE="live", LLM_ALLOW_LIVE="true")
+    env.update({key: "" for key in LIVE_TEXT_KEYS})
     result = subprocess.run([sys.executable, "-c", "import src.config"], env=env,
                              capture_output=True, text=True)
     assert result.returncode != 0

@@ -2,7 +2,7 @@
 
 Independent reference build for electricity compliance evidence in Australia.
 
-**Phases 0–6 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings, a 32-record versioned obligation register, a calibrated synthetic population, deterministic controls, explainable risk triage and a locally verified evidence-agent/MCP pipeline. No Azure model evaluation exists yet.
+**Phases 0–6 implemented; Phase 7 frozen for evaluation:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings, a 32-record versioned obligation register, a calibrated synthetic population, deterministic controls, explainable risk triage and a locally verified evidence-agent/MCP pipeline. The 72-case evaluation contract is frozen; no Azure model inference has run at this status.
 
 **Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. The external Delta register is registered in local Unity Catalog OSS, with schema/readback, anonymous-access refusal and restart persistence verified. [Local catalog runbook](docs/local-unity-catalog.md). ADR-007 separately admits all 32 digest-bound records to this independent synthetic evaluation after agent operational review; it does not establish production legal applicability. Every future compliance-result artefact must disclose the 2/32 human versus 30/32 agent source-review composition.
 
@@ -10,9 +10,9 @@ Independent reference build for electricity compliance evidence in Australia.
 
 > *The synthetic customer population reproduces the published quarterly marginals from the AER Retail Markets Performance Data for hardship participation, average hardship debt, and disconnection rates. The joint structure is generated. Compliance breaches are deliberately injected with known ground truth to permit measurement of detection recall and precision. No real customer data is used anywhere in this project.*
 
-**Phase 4 complete:** 32/32 eligible obligations have a version-bound pure control callable. On the 18-case synthetic challenge set, breach recall and precision are 100%, with zero false positives; all six incomplete-evidence cases abstain. This exact seeded result covers six obligations and is not a production accuracy claim. Every result carries the applied record/source version, and result artefacts disclose two human-verified versus 30 agent-reviewed source records. [Control design and limits](docs/phase-4-controls.md) · [Measured result](docs/phase-4-control-results.json).
+**Phase 4 revised:** 32/32 eligible obligations have a version-bound pure control callable. On 72 frozen hard cases spanning all 32 obligations, breach recall is 100%, precision 91.18%, false-positive rate 7.32% and exact status accuracy 93.06%. Five errors remain published across jurisdiction, calendar coverage and point-in-time cases; the controls were not retuned. [Control design and limits](docs/phase-4-controls.md) · [Measured result](docs/phase-4-control-results.json).
 
-**Phase 5 complete:** the shipped risk component is a deterministic review-priority policy over control results. At its fixed high-priority threshold it reproduces all six current injected breaches with no false positives. A learned classifier was deliberately not trained: the project has no longitudinal 30-day outcome labels, and training against authored injections would leak the target. The score is not a forecast, probability or compliance decision. MLflow tracking and policy registration are verified locally. [Decision and limits](docs/phase-5-risk.md) · [Measured result](docs/phase-5-risk-results.json).
+**Phase 5 revised:** the deterministic review-priority policy inherits Phase 4's 31 true positives and three false positives: 100% recall, 91.18% precision and 7.32% FPR. A learned classifier remains ineligible because there are no longitudinal 30-day outcome labels. The score is not a forecast, probability or compliance decision. Local MLflow tracking and registration are verified. [Decision and limits](docs/phase-5-risk.md) · [Measured result](docs/phase-5-risk-results.json).
 
 **Phase 6 complete:** the local retriever, timeline builder, drafter and critic produce digest-bound evidence packs through one official-SDK MCP tool. A flagged OIQ-024 case is correctly cited and an under-evidenced case abstains with the `deregistration_event` gap. The active gateway boundary excludes supplied name/address/NMI values and refuses nonconforming live payloads. This is a two-case acceptance check for one obligation; no model was called. [Agent/MCP design and limits](docs/phase-6-agents-and-mcp.md) · [Acceptance result](docs/phase-6-agent-results.json).
 
@@ -24,7 +24,7 @@ The latest user correction sets the **total project ceiling to 10 AUD**, overrid
 
 **The SQLite ledger enforces application spending admission; the Azure budget only sends alerts.** Estimated model charges are not an invoice guarantee, tax calculation or control over unrelated Azure resources.
 
-Azure budget: `obligationiq-pilot-aud-10`, scoped to `rg-obligationiq-pilot`, 1 September 2026–31 August 2027. Alerts: 5 / 7.50 / 9 / 10 AUD. The old 3 AUD budget was replaced after verifying the new record. No model deployment was created.
+Azure budget: `obligationiq-pilot-aud-10`, scoped to `rg-obligationiq-pilot`, 1 September 2026–31 August 2027. Alerts: 5 / 7.50 / 9 / 10 AUD. The old 3 AUD budget was replaced. One GPT-5 nano GlobalStandard deployment exists for the bounded Phase 7 run; its existence is not evidence of inference or an Azure-deployed application.
 
 ## Run Phase 0
 
@@ -66,11 +66,11 @@ Phase 1 explicitly uses a pinned Apache-2.0 MiniLM model locally, enabled only b
 
 Search defaults to a deterministic lexical baseline; semantic search is explicit and its quality is unmeasured. Every query selects a regime and snapshot date. Core clauses and contextual material remain distinguishable. Full source PDFs, extracted text and model weights stay outside Git; their terms are recorded rather than assumed to be open licences.
 
-Before future inference, the Azure adapter checks account region, endpoint, deployment model/version and SKU against the price pin. Pins older than 31 days refuse live dispatch. Local auth uses Entra via Azure CLI, never API keys. The adapter has **not** been exercised against a deployed model.
+Before inference, the Azure adapter checks account region, endpoint, deployment model/version and SKU against the price pin. Pins older than 31 days refuse live dispatch. Local auth uses Entra via Azure CLI, never API keys. At this status the adapter has not sent an inference request.
 
 ## Models and documentation
 
-Azure plan: GPT-5 nano by default, GPT-5 mini on explicit escalation, and future text-embedding-3-small evaluation. All are catalog-listed in `australiaeast` with Global Standard. Catalog presence does not prove quota, capacity or successful inference. Global Standard can process outside Australia. The Phase 1 local embedding choice is documented in ADR-004 and does not claim Foundry execution.
+Azure plan: GPT-5 nano by default and GPT-5 mini only on explicit escalation. The current AUD Retail Prices API rounds the embedding meter to zero at its displayed precision, so Azure embedding is unpinned and blocked. Global Standard can process outside Australia. The Phase 1 local embedding choice is documented in ADR-004 and does not claim Foundry execution.
 
 - [Public build brief](docs/build-brief.md), with Section 11 omitted.
 - [Updated preflight](docs/preflight-and-delivery-plan.md).

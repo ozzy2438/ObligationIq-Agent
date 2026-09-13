@@ -86,7 +86,12 @@
         "tier": null,
         "model": null,
         "escalation_reason": null,
-        "text": null
+        "text": null,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_input_tokens": 0,
+        "reasoning_tokens": 0,
+        "tariff_cost_aud": "0"
       }
     },
     "critic": {
@@ -173,7 +178,12 @@
         "tier": null,
         "model": null,
         "escalation_reason": null,
-        "text": null
+        "text": null,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "cached_input_tokens": 0,
+        "reasoning_tokens": 0,
+        "tariff_cost_aud": "0"
       }
     },
     "critic": {

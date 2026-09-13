@@ -1,0 +1,21 @@
+{
+  "frozen_on": "2026-09-13",
+  "purpose": "Binds cases, hidden labels, rubric, register decisions, gateway and agent code before live results.",
+  "sha256": {
+    "data/evaluation-cases.json": "fec2c8ca722c91aef990b242336a019b7759cde074fb0c7b46de47e9aa39bb30",
+    "data/evaluation-contract.json": "14e948bef0481bf485fbcace37de0fcaca7bccfc75e01f52d97786541fa31dc5",
+    "data/ground_truth/evaluation-cases.json": "b525fed8ca8d49aef948fc9d0f6632144e313ccbed1e20bc19bb5c1650d6f438",
+    "data/human-reviews.json": "0c881331604b34aa3a57a010ff8a9da91f56bb5c090d723cbd63b892c686cce5",
+    "data/obligation-candidates.json": "effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af",
+    "data/operational-reviews.json": "7d50e3663de97e2ad790bf9fe652a5631de588667b74fd5b016f346d11ebe769",
+    "data/source-reviews.json": "f26513f9fb4c36cc449295c92464100d1a1a3a4256a9509e9eb709b5d1ab4312",
+    "docs/phase-7-evidence-rubric.json": "5b94dd8c88fd27e6eb66cabf08345acace1d3a4d76f4087dd850aedbfb7f5593",
+    "src/agents/critic.py": "4ab3205c2ac3be6742567064c8e98a9e1c264d91fed22341711b38f095b12ce5",
+    "src/agents/drafter.py": "d554a66236322c31c363cebe78911f98002a4bbac349a4a36067344fd517b5ff",
+    "src/agents/pipeline.py": "fc3d7466808975cb779f05692a843898e00bde7911bf89e2cba62d06186dedef",
+    "src/eval/harness.py": "a7e0a33efd4b4e98254666065d8ef380d72d309e40fa9806cf43cc447f5473d7",
+    "src/gateway/llm_client.py": "58960468ca69c60c4bfe7894fd606920c21414c74a54f295df438d42ef680ed7",
+    "src/gateway/prices.py": "250797f3957b15a36b0cb3d494df4fc467724e645546a6b5b2bd3d60d0fa428e"
+  },
+  "version": 1
+}

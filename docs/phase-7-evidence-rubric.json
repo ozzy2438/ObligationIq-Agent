@@ -1,0 +1,40 @@
+{
+  "citation_accuracy": "All citation fields an arm emits must exactly match the reviewed register; omissions reduce completeness.",
+  "criteria": [
+    {
+      "description": "Pseudonymous case identifier and synthetic label.",
+      "id": "identity"
+    },
+    {
+      "description": "Explicit immutable control status.",
+      "id": "status"
+    },
+    {
+      "description": "Factual decision rationale.",
+      "id": "reason"
+    },
+    {
+      "description": "Explicit evidence-gap list, including an empty list.",
+      "id": "gaps"
+    },
+    {
+      "description": "Applied record and source digests.",
+      "id": "version_binding"
+    },
+    {
+      "description": "Issuer, title, version, URL, clause, pages and source digests.",
+      "id": "citation"
+    },
+    {
+      "description": "Ordered evidence timeline.",
+      "id": "timeline"
+    },
+    {
+      "description": "Human-verified and agent-reviewed proportions.",
+      "id": "review_composition"
+    }
+  ],
+  "groundedness": "Structured status, gaps and citations must match frozen case/register facts. Agent JSON must also preserve fixed fields and introduce no unsupported date or OIQ identifier.",
+  "scoring": "Eight binary criteria per case; completeness is earned points divided by available points.",
+  "version": 1
+}

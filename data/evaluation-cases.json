@@ -1,0 +1,1884 @@
+{
+  "as_of_date": "2026-09-13",
+  "cases": [
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-9ec9e3c9eb37a7aa",
+      "evidence": {
+        "customer_advice": {
+          "present": true
+        },
+        "registration_event": {
+          "present": true
+        },
+        "required_supply_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-001",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-b1d37034ee472baa",
+      "evidence": {
+        "customer_advice": {
+          "present": true
+        },
+        "registration_event": {
+          "present": true
+        },
+        "required_supply_date": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-001",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-10",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-d8ddb3d784102470",
+      "evidence": {
+        "advice_received_at": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "package_sent_at": {
+          "present": true
+        },
+        "package_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-002",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-11",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-cce15c34db5e737b",
+      "evidence": {
+        "advice_received_at": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "package_sent_at": {
+          "present": true
+        },
+        "package_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-002",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-09",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-ecb2c9aa5412a825",
+      "evidence": {
+        "confirmation_due_date": {
+          "present": true
+        },
+        "dated_medical_form": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-003",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-08",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-a84fa6ec5ac2b3d7",
+      "evidence": {
+        "confirmation_due_date": {
+          "present": true
+        },
+        "dated_medical_form": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-003",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-c84bcc2a54799e2e",
+      "evidence": {
+        "delivery_records": {
+          "present": true
+        },
+        "first_reminder": {
+          "present": true
+        },
+        "second_reminder": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-004",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-e28807feb480161c",
+      "evidence": {
+        "delivery_records": {
+          "present": true
+        },
+        "first_reminder": {
+          "present": true
+        },
+        "second_reminder": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-004",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-46b99549c5b58ddd",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_provided_at": {
+          "present": true
+        },
+        "medical_form_issue_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-005",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-6f8dfc4e3297b8ca",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_provided_at": {
+          "present": true
+        },
+        "medical_form_issue_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-005",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-c0ba76cd124ef0fc",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_issue_date": {
+          "present": true
+        },
+        "second_reminder_provided_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-006",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-29539ab116cdde79",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_issue_date": {
+          "present": true
+        },
+        "second_reminder_provided_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-006",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-a2d935e73369e12b",
+      "evidence": {
+        "extension_decision": {
+          "present": true
+        },
+        "extension_request": {
+          "present": true
+        },
+        "original_and_revised_due_dates": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-007",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-20",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-74fbb1aa4864f6f8",
+      "evidence": {
+        "extension_decision": {
+          "present": true
+        },
+        "extension_request": {
+          "present": true
+        },
+        "original_and_revised_due_dates": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-007",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-20",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-10",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-8e793c98d14a64ba",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-008",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-11",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-aa6897500049ec9d",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-008",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-beafa243b688437a",
+      "evidence": {
+        "communication_log": {
+          "present": true
+        },
+        "confirmation_receipt": {
+          "present": true
+        },
+        "deregistration_history": {
+          "present": true
+        },
+        "registration_history": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-009",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-f14c1fbef4583e04",
+      "evidence": {
+        "communication_log": {
+          "present": true
+        },
+        "confirmation_receipt": {
+          "present": true
+        },
+        "deregistration_history": {
+          "present": true
+        },
+        "registration_history": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-009",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-0b7c6dbbc9619bcc",
+      "evidence": {
+        "confirmation_copy_reference": {
+          "present": true
+        },
+        "customer_tenure": {
+          "present": true
+        },
+        "retention_metadata": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-010",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-13",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-ef468e53894c90b3",
+      "evidence": {
+        "confirmation_copy_reference": {
+          "present": true
+        },
+        "customer_tenure": {
+          "present": true
+        },
+        "retention_metadata": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-010",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-483da3cad3f10e73",
+      "evidence": {
+        "arrears_snapshot": {
+          "present": true
+        },
+        "capacity_assessment": {
+          "present": true
+        },
+        "consumption_forecast": {
+          "present": true
+        },
+        "plan_calculation": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-011",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-d6bbb637f262747a",
+      "evidence": {
+        "arrears_snapshot": {
+          "present": true
+        },
+        "capacity_assessment": {
+          "present": true
+        },
+        "consumption_forecast": {
+          "present": true
+        },
+        "plan_calculation": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-011",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-071859a5256e2fab",
+      "evidence": {
+        "customer_selection": {
+          "present": true
+        },
+        "options_presented": {
+          "present": true
+        },
+        "payment_plan": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-012",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-563bc5241653df9c",
+      "evidence": {
+        "customer_selection": {
+          "present": true
+        },
+        "options_presented": {
+          "present": true
+        },
+        "payment_plan": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-012",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-6fb57fddc2b9f5e9",
+      "evidence": {
+        "calculation_basis": {
+          "present": true
+        },
+        "customer_information": {
+          "present": true
+        },
+        "plan_schedule": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-013",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-0351f2d639675d3d",
+      "evidence": {
+        "calculation_basis": {
+          "present": true
+        },
+        "customer_information": {
+          "present": true
+        },
+        "plan_schedule": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-013",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-7536aad94f44abd7",
+      "evidence": {
+        "communication_record": {
+          "present": true
+        },
+        "hardship_indicator": {
+          "present": true
+        },
+        "policy_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-014",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-e20deda2f39c0042",
+      "evidence": {
+        "communication_record": {
+          "present": true
+        },
+        "hardship_indicator": {
+          "present": true
+        },
+        "policy_version": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-014",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-7e3d004a5eec34d7",
+      "evidence": {
+        "exception_assessment": {
+          "present": true
+        },
+        "plan_application": {
+          "present": true
+        },
+        "plan_offer": {
+          "present": true
+        },
+        "trigger_evidence": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-015",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-f8b4cf3a7d53e815",
+      "evidence": {
+        "exception_assessment": {
+          "present": true
+        },
+        "plan_application": {
+          "present": true
+        },
+        "plan_offer": {
+          "present": true
+        },
+        "trigger_evidence": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-015",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-09",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-653fb1e4b5984be9",
+      "evidence": {
+        "confirmation_due_date": {
+          "present": true
+        },
+        "dated_medical_form": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-016",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-08",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-93c5cacd6fd42057",
+      "evidence": {
+        "confirmation_due_date": {
+          "present": true
+        },
+        "dated_medical_form": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-016",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-16232e10e8513b4c",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_provided_at": {
+          "present": true
+        },
+        "medical_form_issue_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-017",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-05098c2e7e396f49",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_provided_at": {
+          "present": true
+        },
+        "medical_form_issue_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-017",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-839bd291e45502c1",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_issue_date": {
+          "present": true
+        },
+        "second_reminder_provided_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-018",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-5bf119055d2fca99",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_issue_date": {
+          "present": true
+        },
+        "second_reminder_provided_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-018",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-24",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-8d98c8053c7aa79d",
+      "evidence": {
+        "extension_request": {
+          "present": true
+        },
+        "original_and_revised_due_dates": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-019",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-20",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-21",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-cb19be2cba390648",
+      "evidence": {
+        "extension_request": {
+          "present": true
+        },
+        "original_and_revised_due_dates": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-019",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-20",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-b1ba2c92b4f11cdb",
+      "evidence": {
+        "delivery_records": {
+          "present": true
+        },
+        "first_reminder": {
+          "present": true
+        },
+        "second_reminder": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-020",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-9bc231917fbbb2f9",
+      "evidence": {
+        "delivery_records": {
+          "present": true
+        },
+        "first_reminder": {
+          "present": true
+        },
+        "second_reminder": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-020",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-04",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-9955b59155591891",
+      "evidence": {
+        "distributor_notification": {
+          "present": true
+        },
+        "information_origin": {
+          "present": true
+        },
+        "information_received_at": {
+          "present": true
+        },
+        "registration_pathway": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-021",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-05",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-e2efcb5712a997e8",
+      "evidence": {
+        "distributor_notification": {
+          "present": true
+        },
+        "information_origin": {
+          "present": true
+        },
+        "information_received_at": {
+          "present": true
+        },
+        "registration_pathway": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-021",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-04",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-b6d565574a37c265",
+      "evidence": {
+        "register_update": {
+          "present": true
+        },
+        "registration_pathway": {
+          "present": true
+        },
+        "update_advice_received_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-022",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-05",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-f862389bb87f6fd2",
+      "evidence": {
+        "register_update": {
+          "present": true
+        },
+        "registration_pathway": {
+          "present": true
+        },
+        "update_advice_received_at": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-022",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-10",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-e62155e2afb607a1",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-023",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-11",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-5a72c73c7e3d01a9",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-023",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-04",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-ae02a026fc70fb6e",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "register_update": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-024",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-05",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-0f1febae3d4ab7f8",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "register_update": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-024",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-038d4a9b6c712657",
+      "evidence": {
+        "communication_log": {
+          "present": true
+        },
+        "confirmation_receipt": {
+          "present": true
+        },
+        "deregistration_history": {
+          "present": true
+        },
+        "registration_history": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-025",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-ba3979b6894858ff",
+      "evidence": {
+        "communication_log": {
+          "present": true
+        },
+        "confirmation_receipt": {
+          "present": true
+        },
+        "deregistration_history": {
+          "present": true
+        },
+        "registration_history": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-025",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-d30fbcc3dd2f5e23",
+      "evidence": {
+        "assistance_offer_catalogue": {
+          "present": true
+        },
+        "option_mapping": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-026",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-ee84ddc52b0d38de",
+      "evidence": {
+        "assistance_offer_catalogue": {
+          "present": true
+        },
+        "option_mapping": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-026",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-5fa1b5a3208c4ea2",
+      "evidence": {
+        "arrears_hold": {
+          "present": true
+        },
+        "assistance_start_and_end": {
+          "present": true
+        },
+        "cost_reduction_support": {
+          "present": true
+        },
+        "ongoing_affordability_assessment": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-027",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-12-31",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-33c0d506df7814ae",
+      "evidence": {
+        "arrears_hold": {
+          "present": true
+        },
+        "assistance_start_and_end": {
+          "present": true
+        },
+        "cost_reduction_support": {
+          "present": true
+        },
+        "ongoing_affordability_assessment": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-027",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-07-01",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-01",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-6f3999a8af6f9980",
+      "evidence": {
+        "arrears_including_gst": {
+          "present": true
+        },
+        "assistance_information": {
+          "present": true
+        },
+        "bill_pay_by_date": {
+          "present": true
+        },
+        "contact_attempt_and_delivery": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-028",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-09-02",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-994ca8385c79a304",
+      "evidence": {
+        "arrears_including_gst": {
+          "present": true
+        },
+        "assistance_information": {
+          "present": true
+        },
+        "bill_pay_by_date": {
+          "present": true
+        },
+        "contact_attempt_and_delivery": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-028",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-11",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-7a8df645cccdf3cb",
+      "evidence": {
+        "consideration_window": {
+          "present": true
+        },
+        "information_provided_at": {
+          "present": true
+        },
+        "proposal_record": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-029",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-10",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-8c935dbe81992a14",
+      "evidence": {
+        "consideration_window": {
+          "present": true
+        },
+        "information_provided_at": {
+          "present": true
+        },
+        "proposal_record": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-029",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-0f54a54781ecf37d",
+      "evidence": {
+        "accepted_proposal": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "written_schedule": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-030",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-bc57520f0c59e00c",
+      "evidence": {
+        "accepted_proposal": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "written_schedule": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-030",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-b2ebfbe4ace80159",
+      "evidence": {
+        "applicable_plan": {
+          "present": true
+        },
+        "contact_record": {
+          "present": true
+        },
+        "missed_payment": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-031",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-4a1d0f23d2ad0548",
+      "evidence": {
+        "applicable_plan": {
+          "present": true
+        },
+        "contact_record": {
+          "present": true
+        },
+        "missed_payment": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-031",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-26",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-7d6d2632c50ce0dc",
+      "evidence": {
+        "copy_sent": {
+          "present": true
+        },
+        "policy_request": {
+          "present": true
+        },
+        "policy_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-032",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_completed": false,
+      "as_of_date": "2026-09-13",
+      "case_id": "CASE-dc2b27cc119bc8dd",
+      "evidence": {
+        "copy_sent": {
+          "present": true
+        },
+        "policy_request": {
+          "present": true
+        },
+        "policy_version": {
+          "present": true
+        }
+      },
+      "non_completion_confirmed_at": "2026-09-13",
+      "obligation_id": "OIQ-032",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-25",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-07",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-cca171e94ffeef42",
+      "evidence": {
+        "advice_received_at": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "package_sent_at": {
+          "present": true
+        },
+        "package_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-002",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-17",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": [
+          "2026-08-10"
+        ]
+      },
+      "case_id": "CASE-dd4d54f791f5fa46",
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-023",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-07",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-04",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-c295f5284cc8486a",
+      "evidence": {
+        "deregistration_event": {
+          "present": false
+        },
+        "register_update": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-024",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-11",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-3b94036ce53df0e1",
+      "evidence": {
+        "advice_received_at": {
+          "present": true
+        },
+        "delivery_record": {
+          "present": true
+        },
+        "package_sent_at": {
+          "present": true
+        },
+        "package_version": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-002",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-05",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-dc04c2a0b0991449",
+      "evidence": {
+        "distributor_notification": {
+          "present": true
+        },
+        "information_origin": {
+          "present": true
+        },
+        "information_received_at": {
+          "present": true
+        },
+        "registration_pathway": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-021",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-07-09",
+      "action_completed": true,
+      "as_of_date": "2026-07-10",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-07-10",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-c9379ded59cd1ea9",
+      "evidence": {
+        "arrears_including_gst": {
+          "present": true
+        },
+        "assistance_information": {
+          "present": true
+        },
+        "bill_pay_by_date": {
+          "present": true
+        },
+        "contact_attempt_and_delivery": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-028",
+      "regime": "VIC",
+      "synthetic": true,
+      "trigger_at": "2026-06-30",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-10",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": []
+      },
+      "case_id": "CASE-790c721d42a1f9a7",
+      "event_stream": [
+        {
+          "event_type": "action",
+          "occurred_on": "2026-08-10"
+        },
+        {
+          "event_type": "trigger",
+          "occurred_on": "2026-08-03"
+        }
+      ],
+      "evidence": {
+        "deregistration_event": {
+          "present": true
+        },
+        "distributor_notification": {
+          "present": true
+        },
+        "lawful_deregistration_review": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-008",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    },
+    {
+      "action_at": "2026-08-25",
+      "action_completed": true,
+      "as_of_date": "2026-09-13",
+      "business_calendar": {
+        "calendar_id": "SYNTHETIC-DECLARED-HOLIDAYS-2026",
+        "coverage_end": "2026-09-13",
+        "coverage_start": "2026-01-01",
+        "public_holidays": [
+          "2026-08-10"
+        ]
+      },
+      "case_id": "CASE-62a49dcb75815596",
+      "evidence": {
+        "delivery_record": {
+          "present": true
+        },
+        "first_reminder_provided_at": {
+          "present": true
+        },
+        "medical_form_issue_date": {
+          "present": true
+        }
+      },
+      "obligation_id": "OIQ-005",
+      "regime": "NERL_NERR",
+      "synthetic": true,
+      "trigger_at": "2026-08-03",
+      "trigger_occurred": true
+    }
+  ],
+  "seed": 20260913,
+  "synthetic": true
+}
