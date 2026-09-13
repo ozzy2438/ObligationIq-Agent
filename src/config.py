@@ -20,6 +20,11 @@ OPTIONAL_KEYS = (
     "DATABRICKS_SCHEMA_PREFIX", "AZURE_AI_SEARCH_ENDPOINT", "AZURE_APIM_GATEWAY_URL",
     "AZURE_STORAGE_ACCOUNT",
 )
+LIVE_TEXT_KEYS = (
+    "AZURE_SUBSCRIPTION_ID", "AZURE_TENANT_ID", "AZURE_RESOURCE_GROUP", "AZURE_REGION",
+    "AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_API_VERSION",
+    "AZURE_OPENAI_DEPLOYMENT_CHEAP", "AZURE_OPENAI_ACCOUNT",
+)
 
 
 class ConfigError(ValueError):
@@ -109,7 +114,7 @@ def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:
     if mode == "live":
         if flag != "true":
             raise ConfigError("Live mode also requires LLM_ALLOW_LIVE=true")
-        missing = [key for key in AZURE_KEYS if not azure[key]]
+        missing = [key for key in LIVE_TEXT_KEYS if not azure[key]]
         if missing:
             raise ConfigError("Missing required live configuration keys: " + ", ".join(missing))
         for key in ("AZURE_SUBSCRIPTION_ID", "AZURE_TENANT_ID"):
@@ -119,7 +124,7 @@ def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:
                 raise ConfigError(f"Invalid identifier: {key}") from None
         for key in AZURE_KEYS:
             if key not in {"AZURE_OPENAI_ENDPOINT", "AZURE_SUBSCRIPTION_ID", "AZURE_TENANT_ID"}:
-                if not re.fullmatch(r"[A-Za-z0-9_.-]+", azure[key]):
+                if azure[key] and not re.fullmatch(r"[A-Za-z0-9_.-]+", azure[key]):
                     raise ConfigError(f"Invalid identifier: {key}")
         try:
             url = urlsplit(azure["AZURE_OPENAI_ENDPOINT"])

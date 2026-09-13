@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from decimal import Decimal, ROUND_CEILING
 
 SOURCE = "https://prices.azure.com/api/retail/prices"
-RETRIEVED_ON = "2026-09-12"
+RETRIEVED_ON = "2026-09-13"
 
 
 class UnknownPrice(ValueError):
@@ -40,12 +40,10 @@ class Price:
 
 
 PRICES = {
-    "gpt-5-nano": Price("gpt-5-nano", "2025-08-07", Decimal("0.069527"),
-                        Decimal("0.556212"), Decimal("0.006953")),
-    "gpt-5-mini": Price("gpt-5-mini", "2025-08-07", Decimal("0.347633"),
-                        Decimal("2.781061"), Decimal("0.034763")),
-    "text-embedding-3-small": Price("text-embedding-3-small", "1", Decimal("0.028"),
-                                    Decimal("0"), Decimal("0.028")),
+    "gpt-5-nano": Price("gpt-5-nano", "2025-08-07", Decimal("0.069500"),
+                        Decimal("0.556200"), Decimal("0.007000")),
+    "gpt-5-mini": Price("gpt-5-mini", "2025-08-07", Decimal("0.347600"),
+                        Decimal("2.781100"), Decimal("0.034800")),
 }
 ROUTES = {"cheap": "gpt-5-nano", "strong": "gpt-5-mini", "embed": "text-embedding-3-small"}
 

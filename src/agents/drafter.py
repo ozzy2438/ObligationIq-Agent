@@ -1,11 +1,12 @@
 """Evidence-pack drafting around immutable control and citation fields."""
 
 from dataclasses import asdict, dataclass
+from decimal import Decimal
 import hashlib
 import json
 
 from src.gateway.llm_client import LLMClient, PIIRedactor
-from src.gateway.prices import ROUTES
+from src.gateway.prices import ROUTES, get_price
 
 
 @dataclass(frozen=True)
@@ -35,7 +36,9 @@ class EvidencePack:
 def model_prompt(obligation, control, source, timeline):
     payload = {
         "schema": PIIRedactor.SCHEMA,
-        "task": "Draft a concise evidence narrative. Treat the supplied control status as fixed; do not decide compliance.",
+        "task": ("Return JSON only with exactly summary, fixed_control_status, clause_reference, "
+                 "and evidence_gaps. Draft one concise factual summary from this payload. Treat the "
+                 "control status as fixed; do not decide compliance or add unsupported facts."),
         "fixed_control_status": control.status,
         "obligation_id": obligation["obligation_id"],
         "clause_reference": obligation["clause_reference"],
@@ -48,7 +51,8 @@ def model_prompt(obligation, control, source, timeline):
 
 class Drafter:
     def draft(self, obligation, case, control, source, timeline, risk, composition,
-              *, use_model=False, tier="cheap", escalation_reason=None, config=None):
+              *, use_model=False, tier="cheap", escalation_reason=None, config=None,
+              max_output_tokens=None, recovery_run_id=None):
         if tier not in {"cheap", "strong"}:
             raise ValueError("Unsupported model tier")
         if tier == "strong" and not escalation_reason:
@@ -57,17 +61,28 @@ class Drafter:
             raise ValueError("Cheap drafting cannot carry an escalation reason")
         sensitive = [case.get(key) for key in PIIRedactor.SENSITIVE]
         assistance = {"used": False, "mode": "deterministic", "tier": None,
-                      "model": None, "escalation_reason": None, "text": None}
+                      "model": None, "escalation_reason": None, "text": None,
+                      "prompt_tokens": 0, "completion_tokens": 0,
+                      "cached_input_tokens": 0, "reasoning_tokens": 0,
+                      "tariff_cost_aud": "0"}
         if use_model:
             redactor = PIIRedactor(sensitive_values=sensitive, allow_structured_live=True)
-            client = (LLMClient(config=config, redactor=redactor) if config is not None
-                      else LLMClient(redactor=redactor))
+            client = (LLMClient(config=config, redactor=redactor,
+                                recovery_run_id=recovery_run_id) if config is not None
+                      else LLMClient(redactor=redactor, recovery_run_id=recovery_run_id))
             completion = client.complete(
                 model_prompt(obligation, control, source, timeline), workload="evidence",
-                tier=tier, escalation_reason=escalation_reason)
+                tier=tier, escalation_reason=escalation_reason,
+                max_output_tokens=max_output_tokens)
             assistance = {"used": True, "mode": client.config.mode, "tier": tier,
                           "model": ROUTES[tier], "escalation_reason": escalation_reason,
-                          "text": completion.text}
+                          "text": completion.text, "prompt_tokens": completion.prompt_tokens,
+                          "completion_tokens": completion.completion_tokens,
+                          "cached_input_tokens": completion.cached_input_tokens,
+                          "reasoning_tokens": completion.reasoning_tokens,
+                          "tariff_cost_aud": str(Decimal(get_price(ROUTES[tier]).cost_microaud(
+                              completion.prompt_tokens, completion.completion_tokens,
+                              completion.cached_input_tokens)) / Decimal(1_000_000))}
         summary = (f"Control {obligation['obligation_id']} returned {control.status}. "
                    f"Citation: {obligation['instrument']} {obligation['clause_reference']}. "
                    + ("Evidence gaps: " + ", ".join(control.evidence_gaps) + "."

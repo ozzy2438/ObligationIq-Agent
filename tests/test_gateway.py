@@ -7,8 +7,9 @@ from threading import Barrier
 
 import pytest
 from src.gateway.ledger import BudgetError, Ledger, UnresolvedReservation
-from src.gateway.llm_client import (Completion, GatewayError, LLMClient, NotSent, PIIRedactor,
-                                    RedactedPrompt)
+from src.gateway.llm_client import (CapacityRejected, Completion, GatewayError, LLMClient,
+                                    NotSent, PIIRedactor, RedactedPrompt,
+                                    classify_capacity_rejection)
 from src.gateway.prices import UnknownPrice, get_price
 
 
@@ -17,10 +18,11 @@ class ReadyRedactor:
         return RedactedPrompt(prompt.replace("private-name", "CUSTOMER_1"), live_ready=True)
 
 
-def fake_client(config, transport=None, **changes):
+def fake_client(config, transport=None, recovery_run_id=None, **changes):
     cfg = replace(config, mode="live", allow_live=True, **changes)
     return LLMClient(cfg, redactor=ReadyRedactor(),
-                     transport=transport or (lambda *args: Completion("LOCAL_TEST_ONLY", 20, 12, 2, 5)))
+                     transport=transport or (lambda *args: Completion("LOCAL_TEST_ONLY", 20, 12, 2, 5)),
+                     recovery_run_id=recovery_run_id)
 
 
 def rows(client, table):
@@ -99,17 +101,50 @@ def test_settlement_uses_usage_including_reasoning(config):
     assert record["estimated_aud"] == str(Decimal(actual) / 1_000_000)
 
 
-def test_timeout_keeps_reservation_and_blocks_restart(config):
-    def timeout(*args):
-        raise TimeoutError("private-provider-detail")
-    client = fake_client(config, timeout)
-    with pytest.raises(UnresolvedReservation) as error:
-        client.complete("hello")
-    assert "private-provider-detail" not in str(error.value)
-    assert client.ledger.summary()["held_microaud"] > 0
-    restarted = fake_client(config)
-    with pytest.raises(UnresolvedReservation):
-        restarted.complete("another request")
+def test_ambiguous_outcome_settles_at_maximum_and_run_continues(config):
+    calls = []
+    def transport(*args):
+        calls.append(1)
+        if len(calls) == 1:
+            raise TimeoutError("private-provider-detail")
+        return Completion("recovered", 10, 5)
+    client = fake_client(config, transport, recovery_run_id="test-recovery-run")
+    result = client.complete("hello", max_output_tokens=100)
+    reservations = rows(client, "reservations")
+    assert result.text == "recovered" and [row[4] for row in reservations] == ["committed", "committed"]
+    assert reservations[0][3] == reservations[0][2]
+    costs = client.ledger.cost_summary()
+    assert costs["ambiguous_settled_microaud"] == reservations[0][2]
+    assert costs["worst_case_microaud"] > costs["confirmed_usage_microaud"]
+    logs = [json.loads(row[1]) for row in rows(client, "calls")]
+    assert any(row.get("reason") == "ambiguous_settlement" for row in logs)
+    assert all("private-provider-detail" not in json.dumps(row) for row in logs)
+
+
+def test_well_formed_429_releases_retries_and_malformed_body_does_not(config):
+    class Response:
+        headers = {"retry-after": "0"}
+    class Error:
+        status_code = 429
+        body = {"code": "rate_limit_exceeded", "message": "capacity"}
+        response = Response()
+    assert classify_capacity_rejection(Error()) == (True, 0.0)
+    Error.body = {"code": "unknown", "message": "capacity"}
+    assert classify_capacity_rejection(Error()) == (False, None)
+
+    attempts = []
+    def transport(*args):
+        attempts.append(1)
+        if len(attempts) < 3:
+            raise CapacityRejected(0)
+        return Completion("accepted", 10, 5)
+    client = fake_client(config, transport, recovery_run_id="capacity-run")
+    assert client.complete("hello").text == "accepted"
+    reservations = rows(client, "reservations")
+    assert [row[4] for row in reservations] == ["released", "released", "committed"]
+    logs = [json.loads(row[1]) for row in rows(client, "calls")]
+    assert sum(row.get("status") == "capacity_rejected" for row in logs) == 2
+    assert client.ledger.cost_summary()["misclassification_overstatement_microaud"] == 0
 
 
 def test_crash_after_reservation_blocks_new_client(config):
@@ -231,5 +266,6 @@ def test_pinned_rates_match_published_meter_units():
         rates = tuple(Decimal(str(meters[name]["retailPrice"])) for name in names)
         assert rates == (price.input_per_million, price.output_per_million, price.cached_input_per_million)
     embedding = meters["text-embedding-3-small-glbl"]
-    assert embedding["unitOfMeasure"] == "1K"
-    assert Decimal(str(embedding["retailPrice"])) * 1000 == get_price("text-embedding-3-small").input_per_million
+    assert embedding["unitOfMeasure"] == "1K" and embedding["retailPrice"] == 0
+    with pytest.raises(UnknownPrice):
+        get_price("text-embedding-3-small")

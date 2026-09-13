@@ -40,6 +40,21 @@ def critique(pack, obligation, case, control, source):
         issues.append("evidence_gap_mismatch")
     if control.status == "insufficient_evidence" and not pack.evidence_gaps:
         issues.append("insufficient_evidence_without_gap")
+    assistance = pack.model_assistance
+    if assistance.get("used") and assistance.get("mode") in {"cached", "live"}:
+        try:
+            narrative = json.loads(assistance["text"])
+        except (TypeError, json.JSONDecodeError):
+            issues.append("model_narrative_not_json")
+        else:
+            if set(narrative) != {"summary", "fixed_control_status", "clause_reference",
+                                  "evidence_gaps"}:
+                issues.append("model_narrative_schema_mismatch")
+            elif (not isinstance(narrative["summary"], str) or not narrative["summary"].strip() or
+                  narrative["fixed_control_status"] != control.status or
+                  narrative["clause_reference"] != obligation["clause_reference"] or
+                  narrative["evidence_gaps"] != list(control.evidence_gaps)):
+                issues.append("model_narrative_changed_fixed_evidence")
     composition = pack.review_composition
     if (composition.get("total") != 1 or
             composition.get("human_verified", 0) + composition.get("agent_reviewed", 0) != 1):

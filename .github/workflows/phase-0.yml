@@ -22,5 +22,6 @@ jobs:
       - run: python scripts/evaluate_controls.py --check
       - run: python scripts/evaluate_risk.py --check
       - run: python scripts/evaluate_agents.py --check
+      - run: python scripts/evaluate.py --check
       - run: pytest
       - run: python -m src

@@ -1,0 +1,519 @@
+{
+  "as_of_date": "2026-09-13",
+  "cases": [
+    {
+      "case_id": "CASE-9ec9e3c9eb37a7aa",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-001"
+    },
+    {
+      "case_id": "CASE-b1d37034ee472baa",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-001"
+    },
+    {
+      "case_id": "CASE-d8ddb3d784102470",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-002"
+    },
+    {
+      "case_id": "CASE-cce15c34db5e737b",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-002"
+    },
+    {
+      "case_id": "CASE-ecb2c9aa5412a825",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-003"
+    },
+    {
+      "case_id": "CASE-a84fa6ec5ac2b3d7",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-003"
+    },
+    {
+      "case_id": "CASE-c84bcc2a54799e2e",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-004"
+    },
+    {
+      "case_id": "CASE-e28807feb480161c",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-004"
+    },
+    {
+      "case_id": "CASE-46b99549c5b58ddd",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-005"
+    },
+    {
+      "case_id": "CASE-6f8dfc4e3297b8ca",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-005"
+    },
+    {
+      "case_id": "CASE-c0ba76cd124ef0fc",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-006"
+    },
+    {
+      "case_id": "CASE-29539ab116cdde79",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-006"
+    },
+    {
+      "case_id": "CASE-a2d935e73369e12b",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-007"
+    },
+    {
+      "case_id": "CASE-74fbb1aa4864f6f8",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-007"
+    },
+    {
+      "case_id": "CASE-8e793c98d14a64ba",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-008"
+    },
+    {
+      "case_id": "CASE-aa6897500049ec9d",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-008"
+    },
+    {
+      "case_id": "CASE-beafa243b688437a",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-009"
+    },
+    {
+      "case_id": "CASE-f14c1fbef4583e04",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-009"
+    },
+    {
+      "case_id": "CASE-0b7c6dbbc9619bcc",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [
+        "business_calendar"
+      ],
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-010"
+    },
+    {
+      "case_id": "CASE-ef468e53894c90b3",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [
+        "business_calendar"
+      ],
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-010"
+    },
+    {
+      "case_id": "CASE-483da3cad3f10e73",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-011"
+    },
+    {
+      "case_id": "CASE-d6bbb637f262747a",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-011"
+    },
+    {
+      "case_id": "CASE-071859a5256e2fab",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-012"
+    },
+    {
+      "case_id": "CASE-563bc5241653df9c",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-012"
+    },
+    {
+      "case_id": "CASE-6fb57fddc2b9f5e9",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-013"
+    },
+    {
+      "case_id": "CASE-0351f2d639675d3d",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-013"
+    },
+    {
+      "case_id": "CASE-7536aad94f44abd7",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-014"
+    },
+    {
+      "case_id": "CASE-e20deda2f39c0042",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-014"
+    },
+    {
+      "case_id": "CASE-7e3d004a5eec34d7",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-015"
+    },
+    {
+      "case_id": "CASE-f8b4cf3a7d53e815",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-015"
+    },
+    {
+      "case_id": "CASE-653fb1e4b5984be9",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-016"
+    },
+    {
+      "case_id": "CASE-93c5cacd6fd42057",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-016"
+    },
+    {
+      "case_id": "CASE-16232e10e8513b4c",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-017"
+    },
+    {
+      "case_id": "CASE-05098c2e7e396f49",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-017"
+    },
+    {
+      "case_id": "CASE-839bd291e45502c1",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-018"
+    },
+    {
+      "case_id": "CASE-5bf119055d2fca99",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-018"
+    },
+    {
+      "case_id": "CASE-8d98c8053c7aa79d",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-019"
+    },
+    {
+      "case_id": "CASE-cb19be2cba390648",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-019"
+    },
+    {
+      "case_id": "CASE-b1ba2c92b4f11cdb",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-020"
+    },
+    {
+      "case_id": "CASE-9bc231917fbbb2f9",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-020"
+    },
+    {
+      "case_id": "CASE-9955b59155591891",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-021"
+    },
+    {
+      "case_id": "CASE-e2efcb5712a997e8",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-021"
+    },
+    {
+      "case_id": "CASE-b6d565574a37c265",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-022"
+    },
+    {
+      "case_id": "CASE-f862389bb87f6fd2",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-022"
+    },
+    {
+      "case_id": "CASE-e62155e2afb607a1",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-023"
+    },
+    {
+      "case_id": "CASE-5a72c73c7e3d01a9",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-023"
+    },
+    {
+      "case_id": "CASE-ae02a026fc70fb6e",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-024"
+    },
+    {
+      "case_id": "CASE-0f1febae3d4ab7f8",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-024"
+    },
+    {
+      "case_id": "CASE-038d4a9b6c712657",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-025"
+    },
+    {
+      "case_id": "CASE-ba3979b6894858ff",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-025"
+    },
+    {
+      "case_id": "CASE-d30fbcc3dd2f5e23",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-026"
+    },
+    {
+      "case_id": "CASE-ee84ddc52b0d38de",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-026"
+    },
+    {
+      "case_id": "CASE-5fa1b5a3208c4ea2",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "at_risk",
+      "obligation_id": "OIQ-027"
+    },
+    {
+      "case_id": "CASE-33c0d506df7814ae",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-027"
+    },
+    {
+      "case_id": "CASE-6f3999a8af6f9980",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-028"
+    },
+    {
+      "case_id": "CASE-994ca8385c79a304",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-028"
+    },
+    {
+      "case_id": "CASE-7a8df645cccdf3cb",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-029"
+    },
+    {
+      "case_id": "CASE-8c935dbe81992a14",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-029"
+    },
+    {
+      "case_id": "CASE-0f54a54781ecf37d",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-030"
+    },
+    {
+      "case_id": "CASE-bc57520f0c59e00c",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-030"
+    },
+    {
+      "case_id": "CASE-b2ebfbe4ace80159",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-031"
+    },
+    {
+      "case_id": "CASE-4a1d0f23d2ad0548",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-031"
+    },
+    {
+      "case_id": "CASE-7d6d2632c50ce0dc",
+      "challenge_type": "near_miss_nonbreach",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-032"
+    },
+    {
+      "case_id": "CASE-dc2b27cc119bc8dd",
+      "challenge_type": "breach",
+      "expected_evidence_gaps": [],
+      "expected_status": "breach",
+      "obligation_id": "OIQ-032"
+    },
+    {
+      "case_id": "CASE-cca171e94ffeef42",
+      "challenge_type": "one_day_before",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-002"
+    },
+    {
+      "case_id": "CASE-dd4d54f791f5fa46",
+      "challenge_type": "holiday_boundary",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-023"
+    },
+    {
+      "case_id": "CASE-c295f5284cc8486a",
+      "challenge_type": "partial_evidence",
+      "expected_evidence_gaps": [
+        "deregistration_event"
+      ],
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-024"
+    },
+    {
+      "case_id": "CASE-3b94036ce53df0e1",
+      "challenge_type": "jurisdiction_trap",
+      "expected_evidence_gaps": [],
+      "expected_status": "not_applicable",
+      "obligation_id": "OIQ-002"
+    },
+    {
+      "case_id": "CASE-dc04c2a0b0991449",
+      "challenge_type": "jurisdiction_trap",
+      "expected_evidence_gaps": [],
+      "expected_status": "not_applicable",
+      "obligation_id": "OIQ-021"
+    },
+    {
+      "case_id": "CASE-c9379ded59cd1ea9",
+      "challenge_type": "point_in_time",
+      "expected_evidence_gaps": [
+        "applicable_obligation_version"
+      ],
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-028"
+    },
+    {
+      "case_id": "CASE-790c721d42a1f9a7",
+      "challenge_type": "sequence",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-008"
+    },
+    {
+      "case_id": "CASE-62a49dcb75815596",
+      "challenge_type": "holiday_boundary",
+      "expected_evidence_gaps": [],
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-005"
+    }
+  ],
+  "seed": 20260913,
+  "synthetic": true
+}

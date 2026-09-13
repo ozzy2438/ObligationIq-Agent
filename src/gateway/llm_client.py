@@ -2,12 +2,15 @@
 
 import hashlib
 import json
+import random
 import re
 import time
 from dataclasses import asdict, dataclass
 from datetime import date
 from decimal import Decimal, ROUND_CEILING
+from email.utils import parsedate_to_datetime
 from typing import Protocol
+from uuid import uuid4
 
 from src.config import Settings, settings
 from src.gateway.ledger import Ledger, UnresolvedReservation, utc_now
@@ -23,6 +26,40 @@ class GatewayError(RuntimeError):
 
 class NotSent(GatewayError):
     """Transport can prove no inference request was dispatched. Never use for timeouts."""
+
+
+class CapacityRejected(GatewayError):
+    """Provider returned a complete 429 rejection before model execution."""
+
+    def __init__(self, retry_after=None):
+        super().__init__("Provider rejected capacity before execution")
+        self.retry_after = retry_after
+
+
+def classify_capacity_rejection(error):
+    """Return retry delay for a well-formed Azure rate-limit rejection, else no match."""
+    if getattr(error, "status_code", None) != 429:
+        return False, None
+    body = getattr(error, "body", None)
+    if isinstance(body, dict) and isinstance(body.get("error"), dict):
+        body = body["error"]
+    if (not isinstance(body, dict) or body.get("code") != "rate_limit_exceeded" or
+            not isinstance(body.get("message"), str) or not body["message"].strip()):
+        return False, None
+    headers = getattr(getattr(error, "response", None), "headers", {}) or {}
+    delay = None
+    try:
+        if headers.get("retry-after-ms") is not None:
+            delay = max(0.0, float(headers["retry-after-ms"]) / 1000)
+        elif headers.get("retry-after") is not None:
+            value = headers["retry-after"]
+            try:
+                delay = max(0.0, float(value))
+            except (TypeError, ValueError):
+                delay = max(0.0, (parsedate_to_datetime(value) - utc_now()).total_seconds())
+    except (TypeError, ValueError):
+        delay = None
+    return True, delay
 
 
 @dataclass(frozen=True, repr=False)
@@ -244,7 +281,7 @@ class Completion:
 
 class LLMClient:
     def __init__(self, config: Settings = settings, *, redactor: Redactor | None = None,
-                 transport=None):
+                 transport=None, recovery_run_id=None):
         self.config = config
         if config.mode not in {"dry_run", "cached", "live"}:
             raise GatewayError("Unsupported execution mode")
@@ -252,6 +289,7 @@ class LLMClient:
             raise GatewayError("Live mode requires a separate explicit enable flag")
         self.redactor = redactor or PIIRedactor()
         self._transport = transport or self._azure_call
+        self.recovery_run_id = recovery_run_id or uuid4().hex
         self.ledger = Ledger(config.state_dir / "gateway.sqlite3", config.daily_limit,
                              config.project_limit)
 
@@ -281,6 +319,8 @@ class LLMClient:
         # No tools, image inputs, extra messages or arbitrary provider parameters accepted.
         if len(safe.text.encode("utf-8")) + 64 > self.config.max_input_tokens:
             raise GatewayError("Prompt exceeds conservative input token bound")
+        if self.config.mode == "live":
+            self.ledger.recover_ambiguous(self.recovery_run_id)
         self.ledger.ensure_clear()
         scope = {k: self.config.azure.get(k, "") for k in
                  ("AZURE_OPENAI_ENDPOINT", "AZURE_OPENAI_API_VERSION",
@@ -320,8 +360,11 @@ class LLMClient:
         # Additional 25% reservation headroom is released on exact usage settlement.
         bound = price.cost_microaud(self.config.max_input_tokens, output_cap)
         maximum = int((Decimal(bound) * Decimal("1.25")).to_integral_value(rounding=ROUND_CEILING))
-        for attempt in range(self.config.max_retries + 1):
-            identifier = self.ledger.reserve(maximum)
+        not_sent_retries = 0
+        capacity_attempts = 0
+        while True:
+            capacity_attempts += 1
+            identifier = self.ledger.reserve(maximum, self.recovery_run_id, price.model)
             try:
                 response = self._transport(price, safe.text, output_cap, tier)
                 response.validate()
@@ -333,17 +376,34 @@ class LLMClient:
             except NotSent:
                 self.ledger.fail(identifier, confirmed_not_sent=True,
                                  record=log("not_sent", reservation=identifier))
-                if attempt < self.config.max_retries:
+                if not_sent_retries < self.config.max_retries:
+                    not_sent_retries += 1
                     continue  # Fresh reservation, never an SDK-controlled hidden retry.
                 raise GatewayError("Inference was not dispatched; reservation released") from None
+            except CapacityRejected as rejection:
+                self.ledger.fail(identifier, confirmed_not_sent=True, record={
+                    **log("capacity_rejected", reservation=identifier),
+                    "reason": "rate_limit_exceeded", "attempt": capacity_attempts,
+                })
+                if capacity_attempts >= 6:
+                    raise GatewayError("Capacity remained unavailable after six attempts") from None
+                delay = rejection.retry_after
+                if delay is None:
+                    base = 2 ** (capacity_attempts - 1)
+                    delay = min(60.0, base + random.uniform(0, min(1.0, base * 0.25)))
+                time.sleep(delay)
+                continue
             except Exception:
                 self.ledger.fail(identifier, confirmed_not_sent=False,
                                  record=log("ambiguous", cost=None, reservation=identifier))
-                raise UnresolvedReservation("Inference outcome or usage is ambiguous; spending halted") from None
+                self.ledger.settle_ambiguous(identifier, self.recovery_run_id, {
+                    **log("ambiguous_settlement", cost=maximum, reservation=identifier),
+                    "reason": "ambiguous_settlement", "run_id": self.recovery_run_id,
+                })
+                continue
             self.ledger.finish(identifier, actual, key, asdict(response),
                                log("success", response, actual, reservation=identifier))
             return response
-        raise GatewayError("Retry limit reached")
 
     def _azure_call(self, price: Price, prompt: str, output_cap: int, tier: str) -> Completion:
         """Entra auth; management metadata verified before any inference is sent."""
@@ -351,7 +411,7 @@ class LLMClient:
         try:
             import urllib.request
             from azure.identity import AzureCliCredential
-            from openai import AzureOpenAI
+            from openai import AzureOpenAI, RateLimitError
 
             if (utc_now().date() - date.fromisoformat(price.retrieved_on)).days > 31:
                 raise ValueError("Price refresh required")
@@ -387,10 +447,16 @@ class LLMClient:
             raise NotSent("Azure pre-dispatch validation failed") from None
         # Once dispatch starts, every failure is conservatively ambiguous.
         with client:
-            result = client.chat.completions.create(
-                model=deployment_name, messages=[{"role": "user", "content": prompt}],
-                max_completion_tokens=output_cap, reasoning_effort="minimal",
-            )
+            try:
+                result = client.chat.completions.create(
+                    model=deployment_name, messages=[{"role": "user", "content": prompt}],
+                    max_completion_tokens=output_cap, reasoning_effort="minimal",
+                )
+            except RateLimitError as error:
+                matched, retry_after = classify_capacity_rejection(error)
+                if matched:
+                    raise CapacityRejected(retry_after) from None
+                raise
         usage = result.usage
         if usage is None:
             raise GatewayError("Missing provider usage")

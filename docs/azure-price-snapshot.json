@@ -1,14 +1,22 @@
 {
-  "retrieved_on": "2026-09-12",
+  "retrieved_on": "2026-09-13",
   "source": "https://prices.azure.com/api/retail/prices",
   "filter": "armRegionName eq 'australiaeast' and contains(productName, 'OpenAI')",
   "currencyCode": "AUD",
+  "rounding_policy": "Store six decimal places and round upward at that precision; the API currently publishes GPT-5 AUD meters to four decimal places.",
+  "delta_from_previous_snapshot": {
+    "gpt_5_nano_input_aud_per_1m": "0.069527 -> 0.069500",
+    "gpt_5_nano_cached_input_aud_per_1m": "0.006953 -> 0.007000",
+    "gpt_5_nano_output_aud_per_1m": "0.556212 -> 0.556200",
+    "planned_72_case_maximum_reservation_change_percent": 0.0,
+    "decision": "Below the 10 percent stop threshold; re-pinned without changing the planned integer micro-AUD reservation."
+  },
   "items": [
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 2.781061,
-      "unitPrice": 2.781061,
+      "retailPrice": 2.7811,
+      "unitPrice": 2.7811,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",
@@ -29,8 +37,9 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 2.8e-05,
-      "unitPrice": 2.8e-05,
+      "retailPrice": 0.0,
+      "unitPrice": 0.0,
+      "pricing_status": "UNPINNED: current AUD API precision rounds this meter to zero; live embedding remains blocked.",
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2024-06-01T00:00:00Z",
@@ -51,8 +60,8 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 0.006953,
-      "unitPrice": 0.006953,
+      "retailPrice": 0.007,
+      "unitPrice": 0.007,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",
@@ -73,8 +82,8 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 0.034763,
-      "unitPrice": 0.034763,
+      "retailPrice": 0.0348,
+      "unitPrice": 0.0348,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",
@@ -95,8 +104,8 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 0.347633,
-      "unitPrice": 0.347633,
+      "retailPrice": 0.3476,
+      "unitPrice": 0.3476,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",
@@ -117,8 +126,8 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 0.069527,
-      "unitPrice": 0.069527,
+      "retailPrice": 0.0695,
+      "unitPrice": 0.0695,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",
@@ -139,8 +148,8 @@
     {
       "currencyCode": "AUD",
       "tierMinimumUnits": 0.0,
-      "retailPrice": 0.556212,
-      "unitPrice": 0.556212,
+      "retailPrice": 0.5562,
+      "unitPrice": 0.5562,
       "armRegionName": "australiaeast",
       "location": "AU East",
       "effectiveStartDate": "2025-08-01T00:00:00Z",

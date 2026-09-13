@@ -1,0 +1,4074 @@
+{
+  "agent_execution": {
+    "cheap": {
+      "ambiguous_microaud": 0,
+      "capacity_rejections": 3,
+      "completed_case_calls": 72,
+      "confirmed_cost_per_case_aud": "0.00007570833333333333333333333333",
+      "confirmed_microaud": 5451,
+      "conservative_cost_per_case_aud": "0.0001153194444444444444444444444",
+      "conservative_microaud": 8303,
+      "deduplicated_case_reuses": 3,
+      "deployment": "obligationiq-gpt5nano",
+      "escalation_reason": null,
+      "max_output_tokens_per_case": 512,
+      "metered_provider_responses": 69,
+      "metered_response_latency_ms_mean": 3344.8365797101446,
+      "misclassification_overstatement_microaud": 2852,
+      "model": "gpt-5-nano",
+      "model_version": "2025-08-07",
+      "raw_outputs_committed": false,
+      "tier": "cheap"
+    },
+    "strong": {
+      "ambiguous_microaud": 0,
+      "capacity_rejections": 29,
+      "completed_case_calls": 72,
+      "confirmed_cost_per_case_aud": "0.0004169444444444444444444444444",
+      "confirmed_microaud": 30020,
+      "conservative_cost_per_case_aud": "0.0004169444444444444444444444444",
+      "conservative_microaud": 30020,
+      "deduplicated_case_reuses": 3,
+      "deployment": "obligationiq-gpt5mini",
+      "escalation_reason": "quality_review",
+      "max_output_tokens_per_case": 512,
+      "metered_provider_responses": 69,
+      "metered_response_latency_ms_mean": 4773.925130434783,
+      "misclassification_overstatement_microaud": 0,
+      "model": "gpt-5-mini",
+      "model_version": "2025-08-07",
+      "raw_outputs_committed": false,
+      "tier": "strong"
+    }
+  },
+  "arms": {
+    "deterministic_rules": {
+      "cases": 72,
+      "citation_accuracy": 1.0,
+      "detection": {
+        "exact_status_accuracy": 0.9305555555555556,
+        "false_negatives": 0,
+        "false_positive_rate": 0.07317073170731707,
+        "false_positives": 3,
+        "precision": 0.9117647058823529,
+        "recall": 1.0,
+        "true_negatives": 38,
+        "true_positives": 31
+      },
+      "evidence_pack_completeness": 0.75,
+      "evidence_rubric_points": 432,
+      "evidence_rubric_possible": 576,
+      "groundedness": 0.9305555555555556,
+      "latency_ms_max": 0.034,
+      "latency_ms_mean": 0.008513888888888889,
+      "latency_ms_min": 0.004,
+      "under_evidenced_refusal_correctness": 0.25
+    },
+    "manual_checklist_surrogate": {
+      "cases": 72,
+      "citation_accuracy": 1.0,
+      "detection": {
+        "exact_status_accuracy": 1.0,
+        "false_negatives": 0,
+        "false_positive_rate": 0.0,
+        "false_positives": 0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "true_negatives": 41,
+        "true_positives": 31
+      },
+      "evidence_pack_completeness": 0.625,
+      "evidence_rubric_points": 360,
+      "evidence_rubric_possible": 576,
+      "groundedness": 1.0,
+      "latency_ms_max": 0.031,
+      "latency_ms_mean": 0.0044444444444444444,
+      "latency_ms_min": 0.001,
+      "under_evidenced_refusal_correctness": 1.0
+    },
+    "rules_plus_agent_cheap": {
+      "cases": 72,
+      "citation_accuracy": 1.0,
+      "critic_acceptance_rate": 0.9722222222222222,
+      "detection": {
+        "exact_status_accuracy": 0.9305555555555556,
+        "false_negatives": 0,
+        "false_positive_rate": 0.07317073170731707,
+        "false_positives": 3,
+        "precision": 0.9117647058823529,
+        "recall": 1.0,
+        "true_negatives": 38,
+        "true_positives": 31
+      },
+      "evidence_pack_completeness": 0.875,
+      "evidence_rubric_points": 504,
+      "evidence_rubric_possible": 576,
+      "gateway_latency_ms_max": 6866.575,
+      "gateway_latency_ms_mean": 3344.8365797101446,
+      "gateway_latency_ms_min": 2586.315,
+      "gateway_latency_sample_size": 69,
+      "groundedness": 0.9027777777777778,
+      "under_evidenced_refusal_correctness": 0.25
+    },
+    "rules_plus_agent_strong": {
+      "cases": 72,
+      "citation_accuracy": 1.0,
+      "critic_acceptance_rate": 1.0,
+      "detection": {
+        "exact_status_accuracy": 0.9305555555555556,
+        "false_negatives": 0,
+        "false_positive_rate": 0.07317073170731707,
+        "false_positives": 3,
+        "precision": 0.9117647058823529,
+        "recall": 1.0,
+        "true_negatives": 38,
+        "true_positives": 31
+      },
+      "evidence_pack_completeness": 0.875,
+      "evidence_rubric_points": 504,
+      "evidence_rubric_possible": 576,
+      "gateway_latency_ms_max": 21315.916,
+      "gateway_latency_ms_mean": 4773.925130434783,
+      "gateway_latency_ms_min": 2226.034,
+      "gateway_latency_sample_size": 69,
+      "groundedness": 0.9305555555555556,
+      "under_evidenced_refusal_correctness": 0.25
+    }
+  },
+  "cases_per_arm": 72,
+  "cases_public": {
+    "rules_plus_agent_cheap": [
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-9ec9e3c9eb37a7aa",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 9.444,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 80,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "49513d3b7a99483344632dd7c5bd5c8ab0e4cc8aa20252176a61502178bcfc9d",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000065",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-001"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-b1d37034ee472baa",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.191,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 108,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "3ab6dd84c746fc0489a347f53ed92f17ca18d2bfcc5c17d9f8021cee602b1c17",
+          "prompt_tokens": 289,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000081",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-001"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-d8ddb3d784102470",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.343,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a40e168d25392f8edab2382fd5d7e3170cf539b1d08aea6aa706b3ec309136cf",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000071",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-cce15c34db5e737b",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.933,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 103,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "e28e0a2248bf441ac6dfa52d1e45cdb69862d5ed1641d87e7f166ec96640e88b",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000081",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-ecb2c9aa5412a825",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.078,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 75,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "5c3f800c1572ba9e7657347150af087858325ea3ffda9e31c6a17d6b30a5c08e",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00006",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-003"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-a84fa6ec5ac2b3d7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.861,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 105,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "6a9d9783bb767a631c53539441c298c7fb00130ab568d2d1ef1583689399941c",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000076",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-003"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c84bcc2a54799e2e",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.821,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "34055155fd11bfd26c9ce0ff644b507288915f249ebe5c46308c361a8e3ed115",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000067",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-004"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e28807feb480161c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.872,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 120,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "79847128a188d2d7b90cd4c229ea382a6d86aad2e1b091081b5c5aea30bbc315",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000087",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-004"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-46b99549c5b58ddd",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.904,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 114,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "2783d73c17dd64c148d946728b5ff1c39a0fa5eb1ade42191ab906983b78709f",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-6f8dfc4e3297b8ca",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.914,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 103,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "ba1364ea11f2e600b52990485cd1c4eb2b12f63d2426a735e922caa7f35bf8fd",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c0ba76cd124ef0fc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.856,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 86,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "02926b45fb94b4656ef11bbf0cbe75cb9fb9a4d5dd16bc9fd98d256308068c7e",
+          "prompt_tokens": 291,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000069",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-006"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-29539ab116cdde79",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.899,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "f1a597601a1c7f1d18a44fa591d71606a9b533607a2ae78537141d2542529c4e",
+          "prompt_tokens": 291,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000082",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-006"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-a2d935e73369e12b",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.919,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 94,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "280c5d0a27afb9df22bd3225496800f4751823b5603d81f0129763ce5c00a9b9",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000073",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-007"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-74fbb1aa4864f6f8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.665,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 113,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "9ba769f50d2954c457dd071490bc00c379b39babe11e7801309b7f7e08ba3f7a",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-007"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-8e793c98d14a64ba",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.199,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7bd2c0055053b099d623787285a407964cd2a76cb9965bb192d1eadf2c68902d",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000076",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-aa6897500049ec9d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.128,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 135,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "09cffcdcf39370b470b2b3db39342814dd855f62881c5dc7749c34604822885e",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000096",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-beafa243b688437a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.197,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "6ae60fb9b5078ba95a614256e93f52086dc91bdf5dcaeb04c624f3b0d8bec381",
+          "prompt_tokens": 322,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-009"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f14c1fbef4583e04",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.942,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 140,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "b8a687113e2197cc05ca467669f3a4da52daf3f9254309cc51880c1a374494bb",
+          "prompt_tokens": 324,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000101",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-009"
+      },
+      {
+        "actual_status": "at_risk",
+        "cache_reused": true,
+        "case_id": "CASE-0b7c6dbbc9619bcc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.948,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 106,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7ad396620b34e2e711d7d817950f0e402b333096bbdd0e5409fd05ce8719d0f7",
+          "prompt_tokens": 475,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000092",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-010"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ef468e53894c90b3",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.801,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 88,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "48874b8e5c6ff80fbd9195915a5d18dabdb189c131c34db57405e56c20b4ac05",
+          "prompt_tokens": 472,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000082",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-010"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-483da3cad3f10e73",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.95,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 86,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "f297c52c3b519bb451abd5a25f59df1f5f089576c1952ed874e25f6f508739ec",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000069",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-011"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-d6bbb637f262747a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.92,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 93,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a5a66d12a8c6044dbd2534cb85d7c1efaaf3a921d198f5f8baf0c38123a70b7a",
+          "prompt_tokens": 294,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000073",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-011"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-071859a5256e2fab",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.971,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "40736574d17aa031e4dcb710759662f0016afffb9884c0dbe551e0bffd296bab",
+          "prompt_tokens": 276,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000074",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-012"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-563bc5241653df9c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.393,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 111,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "edc8b22d100274ddc07dd6a0f5ae524123f3e46782ed8d641597122164d2c798",
+          "prompt_tokens": 278,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000082",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-012"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-6fb57fddc2b9f5e9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.947,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 127,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "737a1e13b4a299163463657974200a2564c144cdb7ebd9d332a741cf7ea3dd49",
+          "prompt_tokens": 432,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000101",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-013"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-0351f2d639675d3d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.44,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 131,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "cc9dfb1c465faa99bbfb99138f8fa064d9d367b8f90f99ac003d165b3985eb3b",
+          "prompt_tokens": 434,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000104",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-013"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7536aad94f44abd7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 7.407,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 82,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "9957ba80a484e2048e314a06c5cb0384be3053275530d45195e2e7484c0afea6",
+          "prompt_tokens": 311,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000068",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-014"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e20deda2f39c0042",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.709,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 86,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a302888b5868d34f031ff5dd38ca9ca9270beb6f30a52804e110fcb6616db204",
+          "prompt_tokens": 313,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00007",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-014"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7e3d004a5eec34d7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.73,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 85,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "712a8c1a61ccd2d0b71f3569c736deb21ca7e5009e9cc61ce23c7a788ed53029",
+          "prompt_tokens": 322,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00007",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-015"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f8b4cf3a7d53e815",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.973,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 100,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "9f55cd283840b2eee6fdaf3d59c0645cf9bc6535a0e1c247cdbe313570fc518f",
+          "prompt_tokens": 324,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000079",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-015"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-653fb1e4b5984be9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 7.124,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 90,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "5873defd9fefabee5a7e4656edf79ebe3ae84bf0fbf8353327e821a2674e63f4",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000068",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-016"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-93c5cacd6fd42057",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.019,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7260223a9cb94e8dd564ecdafb6b368337c0aef9ae3be720b8c0e6c9618d3038",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000072",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-016"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-16232e10e8513b4c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.081,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 113,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "c51b9c80c169de97c83c0b0427d61efb5e09969393abbe09d4d349a67e9ee9a3",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000083",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-017"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-05098c2e7e396f49",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.937,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 109,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a5265364f153c9a02972dfe3f69a526bf92fc30c2f807c277aa9e2e1c6a828ba",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000081",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-017"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-839bd291e45502c1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.814,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 103,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "09fcc71c9d75e5788e611315af11fa24c2652cd2cb76cc8d0e35a7260b90001b",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-018"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-5bf119055d2fca99",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.937,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 105,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "88ed6991f8369f4c4748a0c118773e2ce538d210b0b9630dec5649da2b536e29",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000079",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-018"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-8d98c8053c7aa79d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.827,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 134,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "587b9db925130f3eb7040ad71fe955473b7d4251cf2abf2ffd81a33d618a3e4b",
+          "prompt_tokens": 262,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000093",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-019"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-cb19be2cba390648",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.019,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 92,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a902913ce7f9007b2fb0db39a2b9d385b87a1ec60dcb4229d154a5ef10d32785",
+          "prompt_tokens": 262,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00007",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-019"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b1ba2c92b4f11cdb",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.187,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "167e9de60feef9a915ddae4f845f85566f0733c1b424bb8040a34e88be44ed14",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000067",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-020"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-9bc231917fbbb2f9",
+        "critic": {
+          "accepted": false,
+          "issues": [
+            "model_narrative_schema_mismatch"
+          ]
+        },
+        "current_pipeline_latency_ms": 4.942,
+        "expected_status": "breach",
+        "grounded": false,
+        "groundedness_reason": "Model output changes or omits a fixed structured fact.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 76,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "8a84367a8ee7a2342bb728891e5ef5d011e25ff3e1a2fce4e8e73badd98d44af",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000063",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-020"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-9955b59155591891",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.003,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 107,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "b7eeed3b05cd662dd8c12a95a4ab5c2374e914015010a566c10785f503edd227",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000088",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e2efcb5712a997e8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.014,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 129,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a698096a9135b51c07aa1b41cc5413c6290e9e0c84d1b8c823b30bc501ab6a61",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.0001",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b6d565574a37c265",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.084,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 107,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "20c23f9c1cdacfdee3feccb873728051ed764350d5b7b9bea328c51b8da91bb2",
+          "prompt_tokens": 344,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-022"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f862389bb87f6fd2",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.947,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 109,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7062799713ceb96bdb7be9203dfcbeba6fe586533414d1a85d669ac0ad1c6a44",
+          "prompt_tokens": 344,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000085",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-022"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-e62155e2afb607a1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.919,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 124,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "50b34e66c2c41d7bc6e4ddf36c802479d7c67b941010100bdd65308e9db86a2e",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000089",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-5a72c73c7e3d01a9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.531,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7314897a729c681880c09372c1abc1ebc7f2effc816dd2a833378447b886f686",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000075",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-ae02a026fc70fb6e",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.91,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 90,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "986b93996e18b85380d58f49fec54feed0dc524112360cd0c48a055c4d5afa4d",
+          "prompt_tokens": 248,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000068",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-0f1febae3d4ab7f8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.958,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 100,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "48f589ab01030921276a524b7d4417df00786121b8197d717bfaa2e78ce2919f",
+          "prompt_tokens": 248,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000073",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-038d4a9b6c712657",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.976,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 96,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "3ab87d2b403911beb8d66ed9e6316fbdeda94cedbcb3f1ffc6835268a3341013",
+          "prompt_tokens": 312,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000076",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-025"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ba3979b6894858ff",
+        "critic": {
+          "accepted": false,
+          "issues": [
+            "model_narrative_schema_mismatch"
+          ]
+        },
+        "current_pipeline_latency_ms": 4.926,
+        "expected_status": "breach",
+        "grounded": false,
+        "groundedness_reason": "Model output changes or omits a fixed structured fact.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 93,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "b8285ae5588fac36eda284f6c228dd54b270ae9ae0f30e0d7f2dca1076c6236a",
+          "prompt_tokens": 314,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000074",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-025"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-d30fbcc3dd2f5e23",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.842,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 114,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "751618291df3d187aeeef0554bfa3ef4df117686eb47a805d51387a5063f24a7",
+          "prompt_tokens": 305,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000085",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-026"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ee84ddc52b0d38de",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.864,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 112,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "5943fab72dd5d53b42a46fb2d1fc5fe6f19b5e0d186c4ed98254d914aa08f327",
+          "prompt_tokens": 307,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-026"
+      },
+      {
+        "actual_status": "at_risk",
+        "cache_reused": true,
+        "case_id": "CASE-5fa1b5a3208c4ea2",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.127,
+        "expected_status": "at_risk",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 186,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "476886abd259419a89928b8e04cb5eba79a83ac2ab99416ff571ee2aefa86874",
+          "prompt_tokens": 365,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000129",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-027"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-33c0d506df7814ae",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.874,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 106,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "8ee95af02ab2ca7a4bc2577896749438bc14a950c53aee16bdad31ba58d29dca",
+          "prompt_tokens": 362,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000085",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-027"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-6f3999a8af6f9980",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.001,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 89,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "dadcefd3654c03a9095439974557ee60b962478be794ef4abe9faa581aea2716",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000075",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-994ca8385c79a304",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.944,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 115,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "684294dab43e1176d318e7b0e775645633b84701ec91cce6636a3a5b0efcc762",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00009",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7a8df645cccdf3cb",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.93,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 93,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "27c2fe9a219c0ec4770c0f1c5efabf8bb9b0c708bf0b0061aef53ca2a267e8eb",
+          "prompt_tokens": 299,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000073",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-029"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-8c935dbe81992a14",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.899,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 112,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "690d9fa78c90ab8bc4d487b6315637b88825dc94b6a3da150fe89d95df097bbc",
+          "prompt_tokens": 299,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000084",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-029"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-0f54a54781ecf37d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.033,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 97,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "3def934536cbcf83c578fd1f61a8b51d826f0097bbc2eb0c2f48b6a03643c6cf",
+          "prompt_tokens": 334,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-030"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-bc57520f0c59e00c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.922,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 97,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "00143331d5483c63d29068441c0de57fd65c0ad4ca9db89bba8278a2060f7031",
+          "prompt_tokens": 336,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-030"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b2ebfbe4ace80159",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.991,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 78,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "295308959cd97f38ec025116a029661e0eb03cb66a8f61545d500eefaee60434",
+          "prompt_tokens": 315,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000066",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-031"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-4a1d0f23d2ad0548",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.026,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 77,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "d367a194db1c01b95127b1df3c3156d8764c30f7a79d2f8e61000a1af40db59e",
+          "prompt_tokens": 317,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000065",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-031"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7d6d2632c50ce0dc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.94,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 76,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "112c7037477e6bcb0ff16178a51787db7c9b611001f91ee2c6b172a08c47a220",
+          "prompt_tokens": 273,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000062",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-032"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-dc2b27cc119bc8dd",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.92,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 105,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "9490916c4552788f000a8e5ea6b1ef37d37a4f0c385c06dcf84c51bea505d9c1",
+          "prompt_tokens": 275,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-032"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-cca171e94ffeef42",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.916,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "1b8729fff50d2af3fe0aa1789e10016249596cb99a5076ed4800cb182be37ab2",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000071",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-dd4d54f791f5fa46",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.943,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "6d92a55ccebe42fe80a2cf0678fe7af60a25796c8be52e48bc19d5c7231f7b8b",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000067",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "insufficient_evidence",
+        "cache_reused": true,
+        "case_id": "CASE-c295f5284cc8486a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.933,
+        "expected_status": "insufficient_evidence",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "f60a90a380462a5b6a9f68da482053f1bda6e0202a2d827db5c1d3b4a031f075",
+          "prompt_tokens": 255,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000079",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-3b94036ce53df0e1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.945,
+        "expected_status": "not_applicable",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 103,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "e28e0a2248bf441ac6dfa52d1e45cdb69862d5ed1641d87e7f166ec96640e88b",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000081",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-dc04c2a0b0991449",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.088,
+        "expected_status": "not_applicable",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 129,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a698096a9135b51c07aa1b41cc5413c6290e9e0c84d1b8c823b30bc501ab6a61",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.0001",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c9379ded59cd1ea9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.071,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 93,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "f515a2b600ce062ee33c0c52c5181518a9d28cc32336647575f9523002215a92",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000078",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-790c721d42a1f9a7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.001,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "7bd2c0055053b099d623787285a407964cd2a76cb9965bb192d1eadf2c68902d",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000076",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-62a49dcb75815596",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.788,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 106,
+          "escalation_reason": null,
+          "mode": "live",
+          "model": "gpt-5-nano",
+          "output_sha256": "a3c28f19d444e2f761207a6f8753ae689d6c55f95e88f99131cec4d97a349ed8",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000079",
+          "tier": "cheap",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      }
+    ],
+    "rules_plus_agent_strong": [
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-9ec9e3c9eb37a7aa",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.209,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 101,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "a01b04a37d8ff58f266bf5ee345fa7cf0efae66f7659bdbc8a52f6d81f0ba12a",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000381",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-001"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-b1d37034ee472baa",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.82,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 103,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "23dca4b7eab1602c3e25c67a07d2cbfd5fa4cb1b12714e3ee599deb0345734bd",
+          "prompt_tokens": 289,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000387",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-001"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-d8ddb3d784102470",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.877,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "8dcd045b45fa74c73915975714e7cffd992b0a42b1347c646064a2f89b1f3924",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000424",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-cce15c34db5e737b",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.855,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 100,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "ed2d667f25a364ceb33a8d8dfef0f5305f2fd5ba706275474bbf9e4d7300b1eb",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000396",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-ecb2c9aa5412a825",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.851,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 82,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e593807447bb7662c1aae644c980e8a91c541676887740a9d90a3470c325bb20",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000316",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-003"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-a84fa6ec5ac2b3d7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.97,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 95,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "cf49151dfc4fee7a05b38be59cd258d8d10bc5ca570023c4a295e0a497fa9f30",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000352",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-003"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c84bcc2a54799e2e",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.955,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 125,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "df7b5422bfab98b79fcd7bdceb1061978f018a0163df8fda617b15e0021451c8",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000447",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-004"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e28807feb480161c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.906,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "a94dcf6581c0cdc7b45a9e95038e9d2a5eb603b8bd26b318c2209ef1a821ff78",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000406",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-004"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-46b99549c5b58ddd",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.795,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 115,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "038cbd3aa66d638e7da420d2e7c5942f57c1d09b0a89ab424a6a917d88301014",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00042",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-6f8dfc4e3297b8ca",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.722,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 97,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "a5af1bd3b0f5088ae61c37dd5bb2952714c5d9f1c451885f88dc7662a53f2f8c",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00037",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c0ba76cd124ef0fc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.923,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 106,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "0536fdcdab34ee9c27c6ba8c231aba678e289f0c03634b4aee43d9b9b8138d7d",
+          "prompt_tokens": 291,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000396",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-006"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-29539ab116cdde79",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.907,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 121,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "4f0320e4198325cb4015443263d9f5a16005688c54ed44acf6b73bf53477c284",
+          "prompt_tokens": 291,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000438",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-006"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-a2d935e73369e12b",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.112,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 131,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "08b973b90406b918652034e6d54c463b63a833e118d44962bfbadf4518b7b1c6",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000466",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-007"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-74fbb1aa4864f6f8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.876,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 119,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "32656a476cbf466d10112c27b0015e6b43bc0aeec79991134ad30f8e521ff0ac",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000433",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-007"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-8e793c98d14a64ba",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.965,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 104,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "018bf3730a03d20aac65d7c374c298662d33685291b5e7b276db5f0727bda47e",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000393",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-aa6897500049ec9d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.858,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 110,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "5c6b954c87bf05452c25afe3bf45cb74df05a32829759b6e4410177001e55e1a",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00041",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-beafa243b688437a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.849,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 65,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e635248248afc72fd3c89cbf2edc9ed2af28bbe275fa9bfdbb074d715595be3e",
+          "prompt_tokens": 322,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000293",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-009"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f14c1fbef4583e04",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.847,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 76,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "06551735f767647b7d3a50dc618cccc2c8437f538accd220b917bc5d2f79aca3",
+          "prompt_tokens": 324,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000324",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-009"
+      },
+      {
+        "actual_status": "at_risk",
+        "cache_reused": true,
+        "case_id": "CASE-0b7c6dbbc9619bcc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.951,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 107,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "0274b4b3133c6f1b179d6bd7316a770dd4e97c4633044c5f833cfe8e2375cb8d",
+          "prompt_tokens": 475,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000463",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-010"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ef468e53894c90b3",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.975,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 140,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "03ec51671633b73fb8a25bf538290f0b5339949f2623518e96bbc56d51b5c680",
+          "prompt_tokens": 472,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000554",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-010"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-483da3cad3f10e73",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.78,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 142,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e92c293853a0177a13eb980ab025d2dd6906e324510d6ab261c999c8ba725a74",
+          "prompt_tokens": 292,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000497",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-011"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-d6bbb637f262747a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.78,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 124,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "2a72d1a12e6dae29a201518562ebab64c3e584293e4631cf89fce33568bb5b50",
+          "prompt_tokens": 294,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000448",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-011"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-071859a5256e2fab",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.796,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 91,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "6f4a2bee3d16b3ac694622ccf72aceaacc094c440a51d1f35451f8407fcb805c",
+          "prompt_tokens": 276,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00035",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-012"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-563bc5241653df9c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.265,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 114,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "155612700201fcac07f00aadc2bbdeb6910142f3dfff25db75e45be7e707eba3",
+          "prompt_tokens": 278,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000414",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-012"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-6fb57fddc2b9f5e9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.133,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 111,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "ce5fb7def50a9168b132dd26c14f1b429c5d3f768c8849a73ced67db21d46300",
+          "prompt_tokens": 432,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000459",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-013"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-0351f2d639675d3d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.775,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 152,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "500dae1b447dff8e4c85c95bfb816401c263bb6b95f9e120fceb850c63889b5b",
+          "prompt_tokens": 434,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000574",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-013"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7536aad94f44abd7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.744,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 112,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "04b960e798927cbc99dc38b026da57e2c45a488eb493fcaf9d1904b9d88e1154",
+          "prompt_tokens": 311,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00042",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-014"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e20deda2f39c0042",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.605,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 84,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e2c854ed582738757012ddc87d1384de181fcec333fb67d0c89cecbea7589451",
+          "prompt_tokens": 313,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000343",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-014"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7e3d004a5eec34d7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.673,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 108,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "bb6d09507f9264e79f337234f16fa5af8390c1af696cfa00f655bd4850c2fbb4",
+          "prompt_tokens": 322,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000413",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-015"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f8b4cf3a7d53e815",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.839,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 121,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "01c7bfd6e94dd5813954eb562f2e463f230c3cf86e096089d5572a32545cd760",
+          "prompt_tokens": 324,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00045",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-015"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-653fb1e4b5984be9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.029,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 137,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "66f9351f463f4f671497f00e359791be9c8ed95a967b4dcb4c73a2968af9c107",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000469",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-016"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-93c5cacd6fd42057",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.097,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 137,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "1b3bcbc5509fa883e9edc2b1942771fc8986446de0c9cf21206b5d1697ae6e25",
+          "prompt_tokens": 251,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000469",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-016"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-16232e10e8513b4c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.922,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 102,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "050716608020a2f17a90be00b448a8377b41a54913d8859340692b7a6bb25160",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000383",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-017"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-05098c2e7e396f49",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.162,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 149,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e8bc512bb4625d2979334e9bd47d98008bf959a708a7ee0ae219d849d0d7fc7e",
+          "prompt_tokens": 285,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000514",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-017"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-839bd291e45502c1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.048,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 109,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "29bf856f27d563501af75a99cc16dc5495fa50de794804b650be7cf978972494",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000404",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-018"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-5bf119055d2fca99",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.856,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 133,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "84b2463d1bdc2edd18d5ae9852ffa6bb1b4b8ae13d36027f7f8789bd433dc78e",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00047",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-018"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-8d98c8053c7aa79d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.125,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 156,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "eeb3cca6ae221c4f46c959b896224b4225e7f280f0287b95415814a4f3921dfd",
+          "prompt_tokens": 262,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000525",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-019"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-cb19be2cba390648",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.129,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 136,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "c9f29dfebe46629016206d10cbf92429d6e06bab753d8e02837cb4a8822f8cd0",
+          "prompt_tokens": 262,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.00047",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-019"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b1ba2c92b4f11cdb",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.069,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 118,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "adb7e88a5e8ed618b60f022d295d25c88423249339092a504daa552b335fbcc3",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000428",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-020"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-9bc231917fbbb2f9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.9,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 126,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "9ee040abe46d0d0b8079a4dd3d8292c539b1f300c8a00d6b56c7bbd93124bbc5",
+          "prompt_tokens": 288,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000451",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-020"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-9955b59155591891",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.968,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 102,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "298dd1fb9e234ef9788725836348fe4769f702b81f17692461fd7d1ff1bfa831",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000424",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-e2efcb5712a997e8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.935,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 154,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "5a73184c4a129f3e443367dfa07237386d7677b59855a17771e1632abe3cfbf2",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000568",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b6d565574a37c265",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.867,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 134,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "1a2daa23ba7558c239851369929f64b1b8b920e2e622cf8db6322e705654c819",
+          "prompt_tokens": 344,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000493",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-022"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-f862389bb87f6fd2",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.959,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 98,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "a7a6dba50976cd20f6fdfeaf2d52f535f77fddaca09ae68a0bbd1d5b553b60d6",
+          "prompt_tokens": 344,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000393",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-022"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-e62155e2afb607a1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.974,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 94,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "45c64c1f3d589e9bcd338ff7e28f487cb5db71b0f567f51ae3f5fd232686b828",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000362",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-5a72c73c7e3d01a9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.018,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 114,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "7b17a80ce40683ede122cdfec6fe0dcd5dfc138f563fd504da65c693f0b56693",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000417",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-ae02a026fc70fb6e",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.207,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 107,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "00eae9be6e30ef1e955d1583a2bcc03ad17beb5f925569ddd6dd0b13a7e5d6fe",
+          "prompt_tokens": 248,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000384",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-0f1febae3d4ab7f8",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.96,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 94,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "4bff7099497ce38e6d2a422637de90f71bc4121925a79b584846cea31195b4cf",
+          "prompt_tokens": 248,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000348",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-038d4a9b6c712657",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.925,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 145,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "507cee41921cb7dfce6d9db303e398e3745e66c5dd50b367602adb59413e51da",
+          "prompt_tokens": 312,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000512",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-025"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ba3979b6894858ff",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.966,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 140,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "8f2754ea932a94632ccb4ef6f3d0c16e1a5dc036967ff6034ee6ce8e9e18e041",
+          "prompt_tokens": 314,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000499",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-025"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-d30fbcc3dd2f5e23",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.959,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 129,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "f22a69278f4ceee029a28b23137f118c14d995672d4c2286829a106bfbd7bc2b",
+          "prompt_tokens": 305,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000465",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-026"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-ee84ddc52b0d38de",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.885,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 147,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "28c4aa8352cd55bd5377bde336ff568c725e101de9e6b14ac9b57ad9220e6bf5",
+          "prompt_tokens": 307,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000516",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-026"
+      },
+      {
+        "actual_status": "at_risk",
+        "cache_reused": true,
+        "case_id": "CASE-5fa1b5a3208c4ea2",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.036,
+        "expected_status": "at_risk",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 138,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "63b767bba8cfd46452d2de6aca1bcf791c6400a066f7e8c7734b8117c9c00bbb",
+          "prompt_tokens": 365,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000511",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-027"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-33c0d506df7814ae",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.9,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 135,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "ae22e2f839b49e3f0424b48a2cc1e739d207004d1011d3acd0438ee27fcbeb57",
+          "prompt_tokens": 362,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000502",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-027"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-6f3999a8af6f9980",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.024,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 132,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "d069b526189214888495611caef2389a351df05f183c7ec5ea4a4a9d135a4a06",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000494",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-994ca8385c79a304",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.817,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 90,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "fa090b696c356e55e979eed5c4b883d32ae5ec8d33d42d1aaf73506dd0dae6bb",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000377",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7a8df645cccdf3cb",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.878,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 123,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "7b7a2ee93e1e6fc324e47c1b435aae9b41326e32ba870ca8fceacf3966138ea7",
+          "prompt_tokens": 299,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000447",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-029"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-8c935dbe81992a14",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.889,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 130,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "4f255467ec009afe7d1e3be88428a3f73d71fc0a7b5d6531663d3700fb35f0a7",
+          "prompt_tokens": 299,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000466",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-029"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-0f54a54781ecf37d",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.875,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 142,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "b1a34040933c35bcaf029ba7fcbdb0ec2861dab6b0c963d78940fd055c902443",
+          "prompt_tokens": 334,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000512",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-030"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-bc57520f0c59e00c",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.049,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 99,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "61b4e74b8663812d62a832d65bd7dc36a69b21774cb6a484dd79c5d941ee4701",
+          "prompt_tokens": 336,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000393",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-030"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-b2ebfbe4ace80159",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.899,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 111,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "bf75668f0447aacb71310a5f2de222bdceff4323e859b9ff66ac61b016b211fe",
+          "prompt_tokens": 315,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000419",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-031"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-4a1d0f23d2ad0548",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.863,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 115,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "42ee1b7cdbfd17bc2c105ec98fbee2db70eca43512b3d6fcd147fee3211160c0",
+          "prompt_tokens": 317,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000431",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-031"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-7d6d2632c50ce0dc",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.785,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 102,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "528df42b2333b2922466072c5fbbf536474158d06c88762d6b7c1657485d30f5",
+          "prompt_tokens": 273,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000379",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-032"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-dc2b27cc119bc8dd",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.91,
+        "expected_status": "breach",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 108,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "7c5140f87b13adb5ff99e25820004bd08f0669a073b91768ac5bc9606151e3f6",
+          "prompt_tokens": 275,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000396",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-032"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-cca171e94ffeef42",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.969,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 117,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "232dae2e5144871752821d55d479b2cca071f37abf0e0a447af4d91cc3046729",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000443",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-dd4d54f791f5fa46",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.875,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 127,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "fe0661878a064cdec2949fe1dbc052ef3d00aff46a3c01e07a0703e210e0d658",
+          "prompt_tokens": 287,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000453",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-023"
+      },
+      {
+        "actual_status": "insufficient_evidence",
+        "cache_reused": true,
+        "case_id": "CASE-c295f5284cc8486a",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.114,
+        "expected_status": "insufficient_evidence",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 121,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "755fe4caecbc4c8c5857fd593f759df720f7e15fdf2c16064f98f64dff378b5d",
+          "prompt_tokens": 255,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000426",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-024"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-3b94036ce53df0e1",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.82,
+        "expected_status": "not_applicable",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 100,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "ed2d667f25a364ceb33a8d8dfef0f5305f2fd5ba706275474bbf9e4d7300b1eb",
+          "prompt_tokens": 338,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000396",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-002"
+      },
+      {
+        "actual_status": "breach",
+        "cache_reused": true,
+        "case_id": "CASE-dc04c2a0b0991449",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.936,
+        "expected_status": "not_applicable",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 154,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "5a73184c4a129f3e443367dfa07237386d7677b59855a17771e1632abe3cfbf2",
+          "prompt_tokens": 401,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000568",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-021"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-c9379ded59cd1ea9",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 5.192,
+        "expected_status": "insufficient_evidence",
+        "grounded": false,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 153,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "4d4b55f225b6fe5e056d3379c50faede89145712b3af44fed20e52c5ecb43da1",
+          "prompt_tokens": 364,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000553",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-028"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-790c721d42a1f9a7",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.888,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 104,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "018bf3730a03d20aac65d7c374c298662d33685291b5e7b276db5f0727bda47e",
+          "prompt_tokens": 297,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000393",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-008"
+      },
+      {
+        "actual_status": "compliant",
+        "cache_reused": true,
+        "case_id": "CASE-62a49dcb75815596",
+        "critic": {
+          "accepted": true,
+          "issues": []
+        },
+        "current_pipeline_latency_ms": 4.922,
+        "expected_status": "compliant",
+        "grounded": true,
+        "groundedness_reason": "Fixed fields match and no unsupported date or obligation identifier was introduced.",
+        "model_assistance": {
+          "cached_input_tokens": 0,
+          "completion_tokens": 114,
+          "escalation_reason": "quality_review",
+          "mode": "live",
+          "model": "gpt-5-mini",
+          "output_sha256": "e3a36991b669c56cb20269a6da17e484e7c957a1b4a5df20a0e695eabb0ce85a",
+          "prompt_tokens": 286,
+          "reasoning_tokens": 0,
+          "tariff_cost_aud": "0.000417",
+          "tier": "strong",
+          "used": true
+        },
+        "obligation_id": "OIQ-005"
+      }
+    ]
+  },
+  "evaluated_on": "2026-09-13",
+  "frozen_manifest_sha256": "5a3ca3c9761c924f69522837f4334d056e2cb7416e04949127c3ac864e7c7aa5",
+  "ledger_costs_aud": {
+    "ambiguous_settled_aud": "0",
+    "confirmed_usage_aud": "0.035471",
+    "held_aud": "0",
+    "misclassification_overstatement_aud": "0.003565",
+    "worst_case_aud": "0.039036"
+  },
+  "manual_baseline_limit": "Programmatic document-review checklist; no human reviewer or human timing measurement.",
+  "obligations": 32,
+  "recommendation": "Use strong routing only for the measured quality criteria where it materially exceeded the cheap drafter; deterministic rules retain status authority.",
+  "review_composition": {
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "total": 32
+  },
+  "scope_limit": "Seventy-two synthetic cases across all 32 obligations; no production, prevalence or human-effort claim.",
+  "status": "Phase 7 complete: frozen four-arm all-obligation synthetic evaluation",
+  "strong_minus_cheap": {
+    "citation_accuracy": 0.0,
+    "confirmed_cost_per_case_aud": "0.0003412361111111111111111111111",
+    "critic_acceptance_rate": 0.02777777777777779,
+    "evidence_pack_completeness": 0.0,
+    "gateway_latency_ms_mean": 1429.088550724638,
+    "groundedness": 0.02777777777777779,
+    "under_evidenced_refusal_correctness": 0.0
+  },
+  "synthetic_evaluation": true,
+  "unmeasured": [
+    "staff hours saved",
+    "penalties avoided",
+    "customer satisfaction",
+    "human reviewer latency"
+  ]
+}

@@ -33,6 +33,18 @@ def ratio(numerator, denominator):
     return numerator / denominator if denominator else None
 
 
+def priority_metrics(rows):
+    expected_positive = lambda row: row["expected_status"] == "breach"
+    predicted_positive = lambda row: row["priority_score"] >= HIGH_PRIORITY_THRESHOLD
+    tp = sum(expected_positive(row) and predicted_positive(row) for row in rows)
+    fp = sum(not expected_positive(row) and predicted_positive(row) for row in rows)
+    fn = sum(expected_positive(row) and not predicted_positive(row) for row in rows)
+    tn = sum(not expected_positive(row) and not predicted_positive(row) for row in rows)
+    return {"true_positives": tp, "false_positives": fp, "false_negatives": fn,
+            "true_negatives": tn, "recall": ratio(tp, tp + fn),
+            "precision": ratio(tp, tp + fp), "false_positive_rate": ratio(fp, fp + tn)}
+
+
 @dataclass(frozen=True)
 class EvaluatedControl:
     case_id: str
@@ -58,6 +70,7 @@ def evaluate():
             "case_id": risk.case_id,
             "obligation_id": risk.obligation_id,
             "expected_status": row["expected_status"],
+            "challenge_type": row["challenge_type"],
             "control_status": risk.control_status,
             "priority_score": risk.priority_score,
             "priority_band": risk.priority_band,
@@ -67,12 +80,16 @@ def evaluate():
             "is_compliance_decision": risk.is_compliance_decision,
             "is_calibrated_probability": risk.is_calibrated_probability,
         })
-    expected_positive = lambda row: row["expected_status"] == "breach"
-    predicted_positive = lambda row: row["priority_score"] >= HIGH_PRIORITY_THRESHOLD
-    tp = sum(expected_positive(row) and predicted_positive(row) for row in assessments)
-    fp = sum(not expected_positive(row) and predicted_positive(row) for row in assessments)
-    fn = sum(expected_positive(row) and not predicted_positive(row) for row in assessments)
-    tn = sum(not expected_positive(row) and not predicted_positive(row) for row in assessments)
+    measured = priority_metrics(assessments)
+    by_obligation = {}
+    for obligation_id in sorted({row["obligation_id"] for row in assessments}):
+        subset = [row for row in assessments if row["obligation_id"] == obligation_id]
+        by_obligation[obligation_id] = {"cases": len(subset), **priority_metrics(subset)}
+    errors = [row for row in assessments if
+              (row["expected_status"] == "breach") !=
+              (row["priority_score"] >= HIGH_PRIORITY_THRESHOLD)]
+    taxonomy = Counter((row["challenge_type"], row["expected_status"], row["control_status"])
+                       for row in errors)
     return {
         "status": "Phase 5 complete: deterministic triage baseline shipped; learned model not trained",
         "synthetic_evaluation": True,
@@ -83,15 +100,13 @@ def evaluate():
         "baseline": {
             "policy_version": POLICY_VERSION,
             "high_priority_threshold": HIGH_PRIORITY_THRESHOLD,
-            "metrics_against_current_injected_breaches": {
-                "true_positives": tp,
-                "false_positives": fp,
-                "false_negatives": fn,
-                "true_negatives": tn,
-                "recall": ratio(tp, tp + fn),
-                "precision": ratio(tp, tp + fp),
-                "false_positive_rate": ratio(fp, fp + tn),
-            },
+            "metrics_against_frozen_breach_labels": measured,
+            "per_obligation": by_obligation,
+            "error_taxonomy": [
+                {"challenge_type": kind, "expected": expected, "control_status": actual,
+                 "count": count}
+                for (kind, expected, actual), count in sorted(taxonomy.items())
+            ],
             "priority_band_counts": dict(sorted(Counter(row["priority_band"] for row in assessments).items())),
             "assessments": assessments,
         },
@@ -117,7 +132,7 @@ def evaluate():
             "run_identifier": "retained only in ignored local receipt",
         },
         "review_composition": controls["review_composition"],
-        "scope_limit": "The measured ranking reuses 18 seeded current-state cases across six obligations. It does not validate 30-day prediction, real prevalence, or all 32 controls.",
+        "scope_limit": "The measured ranking reuses 72 frozen synthetic cases across all 32 obligations. It does not validate 30-day prediction or real prevalence.",
         "model_calls": 0,
         "model_spend_aud": 0,
     }
@@ -135,7 +150,7 @@ def track(report, tracking_root):
     os.environ["MLFLOW_ALLOW_FILE_STORE"] = "true"
     mlflow.set_tracking_uri(tracking_uri)
     experiment = mlflow.set_experiment(EXPERIMENT)
-    metrics = report["baseline"]["metrics_against_current_injected_breaches"]
+    metrics = report["baseline"]["metrics_against_frozen_breach_labels"]
     with mlflow.start_run(experiment_id=experiment.experiment_id, run_name=POLICY_VERSION) as run:
         mlflow.log_params({
             "policy_version": POLICY_VERSION,
@@ -190,7 +205,7 @@ def main(check=False):
         OUTPUT.write_text(json.dumps(report, indent=2) + "\n")
         track(report, ROOT / ".local/mlflow")
         print(json.dumps({"ship": report["decision"]["ship"],
-                          **report["baseline"]["metrics_against_current_injected_breaches"]}))
+                          **report["baseline"]["metrics_against_frozen_breach_labels"]}))
 
 
 if __name__ == "__main__":

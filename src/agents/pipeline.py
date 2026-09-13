@@ -12,7 +12,7 @@ from src.risk.baseline import rank_control_result
 
 
 def build_evidence_pack(case, *, use_model=False, tier="cheap", escalation_reason=None,
-                        clause_loader=None, config=None):
+                        clause_loader=None, config=None, max_output_tokens=None, strict=True):
     if not isinstance(case, dict) or not re.fullmatch(r"CASE-[0-9a-f]{16}", str(case.get("case_id", ""))):
         raise ValueError("Case requires a pseudonymous CASE identifier")
     obligations = {row["obligation_id"]: row for row in for_controls(load_candidates())}
@@ -27,8 +27,10 @@ def build_evidence_pack(case, *, use_model=False, tier="cheap", escalation_reaso
     timeline = build_timeline(case)
     pack = Drafter().draft(
         obligation, case, control, source, timeline, risk, review_composition([obligation]),
-        use_model=use_model, tier=tier, escalation_reason=escalation_reason, config=config)
+        use_model=use_model, tier=tier, escalation_reason=escalation_reason, config=config,
+        max_output_tokens=max_output_tokens,
+        recovery_run_id=case.get("evaluation_run_id"))
     review = critique(pack, obligation, case, control, source)
-    if not review.accepted:
+    if strict and not review.accepted:
         raise ValueError("Evidence critic rejected pack: " + ", ".join(review.issues))
     return pack, review
