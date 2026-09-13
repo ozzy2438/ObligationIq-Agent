@@ -498,9 +498,11 @@ def _model_costs(ledger, model):
     costs = ledger.model_cost_summary(model)
     latencies = [row["latency_ms"] for row in records if row.get("status") == "success"]
     return {**costs,
-            "successful_provider_responses": len(latencies),
+            # Exact duplicate case prompts legitimately reuse one paid response.
+            # This is the number of metered responses, not the number of cases.
+            "metered_provider_responses": len(latencies),
             "capacity_rejections": sum(row.get("status") == "capacity_rejected" for row in records),
-            "gateway_latency_ms": latencies}
+            "metered_response_latency_ms": latencies}
 
 
 def _run_agent_arm(tier, payloads, obligations, labels, config, ledger):
@@ -566,17 +568,26 @@ def live_evaluate(config: Settings = settings):
     execution = {}
     for tier, route in MODEL_TIERS.items():
         costs = _model_costs(ledger, route["model"])
-        latencies = costs.pop("gateway_latency_ms")
-        if len(latencies) != len(payloads["cases"]["cases"]):
-            raise ValueError("Provider response count does not match the frozen case set")
+        provider_latencies = costs.pop("metered_response_latency_ms")
+        case_latencies = [row["current_pipeline_latency_ms"] for row in public_cases[route["arm"]]]
+        if len(case_latencies) != len(payloads["cases"]["cases"]):
+            raise ValueError("Completed case count does not match the frozen case set")
+        if not provider_latencies:
+            raise ValueError("No metered provider latency is available for the model arm")
         arm_metrics[route["arm"]].update(
-            gateway_latency_ms_mean=sum(latencies) / len(latencies),
-            gateway_latency_ms_min=min(latencies), gateway_latency_ms_max=max(latencies))
+            gateway_latency_ms_mean=sum(provider_latencies) / len(provider_latencies),
+            gateway_latency_ms_min=min(provider_latencies),
+            gateway_latency_ms_max=max(provider_latencies),
+            gateway_latency_sample_size=len(provider_latencies))
         execution[tier] = {
             "model": route["model"], "model_version": MODEL_VERSION,
             "deployment": route["deployment"], "tier": tier,
             "escalation_reason": route["escalation_reason"],
             "max_output_tokens_per_case": OUTPUT_CAP,
+            "completed_case_calls": len(case_latencies),
+            "deduplicated_case_reuses": len(case_latencies) - costs["metered_provider_responses"],
+            "metered_response_latency_ms_mean": (
+                sum(provider_latencies) / len(provider_latencies) if provider_latencies else None),
             **costs,
             "confirmed_cost_per_case_aud": str(
                 Decimal(costs["confirmed_microaud"]) / Decimal(72_000_000)),

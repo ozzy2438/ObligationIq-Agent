@@ -27,14 +27,14 @@ The subscription-scoped Resource Manager endpoint `Microsoft.CognitiveServices/l
 | Tier | Model / version | Intended type and account region | Catalog status | Input / cached input / output AUD per 1M tokens |
 |---|---|---|---|---|
 | cheap, default | `gpt-5-nano` / `2025-08-07` | GlobalStandard, australiaeast | Deployed and identity read back | 0.069500 / 0.007000 / 0.556200 |
-| strong, explicit escalation | `gpt-5-mini` / `2025-08-07` | GlobalStandard, australiaeast | Catalog-listed; not deployed | 0.347600 / 0.034800 / 2.781100 |
+| strong, explicit escalation | `gpt-5-mini` / `2025-08-07` | GlobalStandard, australiaeast | Deployed and identity read back | 0.347600 / 0.034800 / 2.781100 |
 | embed, deferred | `text-embedding-3-small` / `1` | GlobalStandard, australiaeast | Catalog-listed; unpinned and not deployed | Current AUD API response rounds the 1K-token meter to zero; live use blocked |
 
-All tiers are listed in `australiaeast`; **no alternative account region is currently required**. Only the cheap deployment has allocation readback. Catalog inference retirement dates were 2027-02-09 for GPT-5 nano/mini and 2028-02-09 for the embedding model.
+All tiers are listed in `australiaeast`; **no alternative account region is currently required**. Both text deployments have allocation readback at 10,000 TPM. Catalog inference retirement dates were 2027-02-09 for GPT-5 nano/mini and 2028-02-09 for the embedding model.
 
 Global Standard may process in other Azure regions. An Australia East account does **not** establish Australia-only processing. No real customer PII is authorised for this pilot. If Australian processing becomes mandatory, select and reprice a suitable regional offering. GPT-4.1-mini Regional Standard was also listed, but is not a selected route or automatic fallback.
 
-GPT-5 nano has lower published input/output prices than the newer GPT-5 tiers, but quality and total case cost are unmeasured. GPT-5 mini is an escalation candidate, not a claim that it is Azure's strongest model. Reasoning usage can affect total cost; future evaluation must compare measured cost and quality under the same caps.
+GPT-5 nano has lower published input/output prices than the newer GPT-5 tiers. Phase 7 measured nano and mini on the same 72 synthetic cases under the same 512-token cap; `phase-7-evaluation.md` records the quality, cost and latency deltas. GPT-5 mini is an escalation route, not a claim that it is Azure's strongest model.
 
 ## Pricing provenance
 
@@ -52,4 +52,4 @@ The [Azure OpenAI pricing page](https://azure.microsoft.com/en-us/pricing/detail
 
 ## Deliberately absent resources
 
-No Foundry project, Databricks workspace, managed warehouse, Azure storage, AI Search or API Management instance was created. Local Unity Catalog OSS remains a local service. The Azure OpenAI account and one cheap deployment are infrastructure only; they do not establish a deployed application or successful inference.
+No Foundry project, Databricks workspace, managed warehouse, Azure storage, AI Search or API Management instance was created. Local Unity Catalog OSS remains a local service. The Azure OpenAI account and two bounded evaluation deployments are infrastructure only; they do not establish a deployed application.
