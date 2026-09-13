@@ -1,0 +1,247 @@
+{
+  "snapshot_date": "2026-09-12",
+  "records": 32,
+  "candidate_file_sha256": "effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af",
+  "human_reviews_sha256": "0c881331604b34aa3a57a010ff8a9da91f56bb5c090d723cbd63b892c686cce5",
+  "source_reviews_sha256": "f26513f9fb4c36cc449295c92464100d1a1a3a4256a9509e9eb709b5d1ab4312",
+  "supplemental_sources_verified": [
+    "vic-eia"
+  ],
+  "source_trace_checks": [
+    {
+      "obligation_id": "OIQ-001",
+      "source": "nerr",
+      "parent_clause": "124",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-002",
+      "source": "nerr",
+      "parent_clause": "124",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-003",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-004",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-005",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-006",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-007",
+      "source": "nerr",
+      "parent_clause": "124A",
+      "physical_pdf_page": 121,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-008",
+      "source": "nerr",
+      "parent_clause": "125",
+      "physical_pdf_page": 124,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-009",
+      "source": "nerr",
+      "parent_clause": "126",
+      "physical_pdf_page": 127,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-010",
+      "source": "nerr",
+      "parent_clause": "126A",
+      "physical_pdf_page": 128,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-011",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-012",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-013",
+      "source": "nerr",
+      "parent_clause": "72",
+      "physical_pdf_page": 82,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-014",
+      "source": "nerl",
+      "parent_clause": "46",
+      "physical_pdf_page": 61,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-015",
+      "source": "nerl",
+      "parent_clause": "50",
+      "physical_pdf_page": 62,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-016",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-017",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-018",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-019",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-020",
+      "source": "esc",
+      "parent_clause": "164",
+      "physical_pdf_page": 116,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-021",
+      "source": "esc",
+      "parent_clause": "165",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-022",
+      "source": "esc",
+      "parent_clause": "165",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-023",
+      "source": "esc",
+      "parent_clause": "166",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-024",
+      "source": "esc",
+      "parent_clause": "166",
+      "physical_pdf_page": 117,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-025",
+      "source": "esc",
+      "parent_clause": "167",
+      "physical_pdf_page": 120,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-026",
+      "source": "esc",
+      "parent_clause": "125",
+      "physical_pdf_page": 99,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-027",
+      "source": "esc",
+      "parent_clause": "128",
+      "physical_pdf_page": 99,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-028",
+      "source": "esc",
+      "parent_clause": "129",
+      "physical_pdf_page": 101,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-029",
+      "source": "esc",
+      "parent_clause": "129",
+      "physical_pdf_page": 101,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-030",
+      "source": "esc",
+      "parent_clause": "130",
+      "physical_pdf_page": 102,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-031",
+      "source": "esc",
+      "parent_clause": "130",
+      "physical_pdf_page": 102,
+      "parent_text_hash_matches": true
+    },
+    {
+      "obligation_id": "OIQ-032",
+      "source": "esc",
+      "parent_clause": "138",
+      "physical_pdf_page": 105,
+      "parent_text_hash_matches": true
+    }
+  ],
+  "delta_version": 2,
+  "repeat_delta_writes": 0,
+  "network_connections": 0,
+  "model_calls": 0,
+  "approved_records": 32,
+  "agent_approved_records": 30,
+  "pending_records": 0,
+  "human_verified_records": 2,
+  "control_eligible_records": 0,
+  "unity_catalog_check": "Separate live loopback check: docs/catalog-verification.json",
+  "limit": "Automated checks establish parent-clause traceability only. Human and authorised agent decisions are separately recorded. Operational applicability and controls remain unverified."
+}

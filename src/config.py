@@ -65,6 +65,9 @@ class Settings:
     local_embedding_enabled: bool = False
     local_model_dir: Path = ROOT / ".local/models/minilm"
     corpus_dir: Path = ROOT / "data/cache/corpus"
+    register_dir: Path = ROOT / ".local/register/obligations"
+    catalog_dir: Path = ROOT / ".local/catalog"
+    catalog_url: str = "http://127.0.0.1:8087"
 
 
 def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:

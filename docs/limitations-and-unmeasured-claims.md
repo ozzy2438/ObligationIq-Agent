@@ -1,14 +1,14 @@
 # Limitations and unmeasured claims
 
-Phases 0–1, 12 September 2026.
+Phases 0–2 with a local catalog fallback, 12 September 2026.
 
-- Ten regulatory PDFs are acquired and source-pinned; core pilot clauses and contextual guidance are indexed locally. No obligation has human verification. Source reuse terms differ, and no blanket open licence or commercial redistribution permission is claimed.
+- Ten regulatory PDFs are acquired and source-pinned; core pilot clauses and contextual guidance are indexed locally. OIQ-024/025 have explicit human content approvals; the other 30 have authorised agent source approvals. Source reuse terms differ, and no blanket open licence or commercial redistribution permission is claimed.
 - No real or synthetic customer population, ground truth, risk model or compliance control exists. Tests are software-boundary checks, not a business evaluation.
 - The PII hook is a stub, invoked for each request and blocking live dispatch by default. No working PII detection or rehydration is claimed.
-- Register, controls, risk, agents, MCP and evaluation packages are empty. The data plane currently contains only the corpus module. ADR-001 through ADR-003 retain pending choices; ADR-004 documents the local corpus decision.
+- The register contains 32 reviewed records, two human and 30 authorised agent approvals, and local Delta versioning. Controls, risk, agents, MCP and evaluation packages remain empty. The data plane contains only the corpus module. ADR-001 records the candidate and authorised review methods; ADR-002/003 retain pending choices. Local Unity Catalog OSS registration, schema/readback and restart persistence are verified. Managed Databricks, multi-user governance, row-level security, automatic lineage and jurisdiction-specific operational application checks remain unverified.
 - Azure catalog availability and public rates were checked. No model was deployed and no inference purchased. The Azure transport remains unvalidated against a deployed model.
 - Costs are estimates using pinned retail rates and returned usage, not reconciled invoices. Taxes, contract pricing, currency changes and unrelated resources are outside the ledger.
-- State is one durable local SQLite database. Deleting/replacing it or calling models through external software defeats local accounting. Protect and retain `.local/llm/`; no auto-reset or hold-expiry command is supplied.
+- Paid-call accounting resides in a durable local SQLite database. Deleting/replacing it or calling models through external software defeats local accounting. Protect and retain `.local/llm/`; no auto-reset or hold-expiry command is supplied. Corpus and register state are separate local artifacts.
 - Paid requests are deliberately serial. A competing request refuses while a reservation is active. This is a pilot tradeoff, not a high-throughput production design.
 - Ambiguous requests remain held until independent provider evidence establishes billed usage or confirmed non-dispatch. This phase does not automate reconciliation.
 - Logs contain usage metadata rather than prompts/provider errors. Future cache contents must remain private. No production security, availability or compliance guarantee is claimed.
