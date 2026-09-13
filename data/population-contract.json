@@ -1,25 +1,26 @@
 {
-  "version": 1,
+  "version": 2,
   "seed": 20260913,
   "scenario_as_of": "2026-09-13",
   "reference_period": "Q3 2025-26",
   "accounts_per_region": {"NSW": 5000, "VIC": 5000},
+  "debt_entry_cohort_size": 34843,
+  "injection_obligation_ids": ["OIQ-002", "OIQ-023", "OIQ-024", "OIQ-028", "OIQ-030", "OIQ-032"],
   "rate_tolerance": "0.0001",
   "mean_debt_tolerance_aud": "0.01",
   "geography_weight": "ABS 2021 resident population within the selected plan's published postcodes, excluding flagged or unmatched postal areas",
   "assistance_weight": "1 + (10 - area IRSD decile) / 9 + 10 * min(area JobSeeker count / area population, 0.2)",
-  "joint_structure": "Assumed, not fitted: weighted assistance selection without replacement; independent life-support and historical disconnection markers; exponential positive assistance debt rescaled to the published mean",
+  "joint_structure": "Assumed, not fitted: weighted assistance selection without replacement; independent life-support and historical disconnection markers; exponential positive current-debt shape rescaled to the published mean; independent debt-entry calibration cohort",
+  "consumption_assignment": "Uniform deterministic sampling from 299 complete Ausgrid GC household-year profiles. The original 300-home source is not representative and the one incomplete profile is excluded without imputation.",
+  "seasonality_assignment": "Each account references its region's AEMO operational-demand and BOM temperature context. Observed system/city context remains separate from Ausgrid household month factors; no causal or blended customer factor is asserted.",
   "tariff_eligibility": "Synthetic accounts are assumed to have an applicable single-rate network tariff in the plan's postcode service area. No eligibility or bill calculation for any real account.",
   "scope": "Two illustrative distributor footprints, calibrated to state-level rates; neither a state-representative nor an AGL customer sample",
-  "phase3_complete": false,
-  "remaining": [
-    "Source-backed consumption profiles: original Ausgrid household download returned HTTP 404; a researcher mirror has not been authenticated against the original",
-    "AEMO demand and BOM temperature alignment: direct acquisition returned HTTP 403; no numeric seasonal profile has been pinned",
-    "Debt-entry band calibration: published entry cohort must remain distinct from the current assistance-debt shape",
-    "Source-supported event scenarios and separately held ground truth; no controls or detection scores yet"
-  ],
+  "phase3_complete": true,
   "unmeasured": [
     "Victorian life-support prevalence is absent from the selected ESC workbook; stored as null rather than borrowing the AER rate",
-    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions"
+    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions",
+    "Victorian household consumption is not observed; the NSW Ausgrid library is used only as an explicitly labelled shape prior",
+    "AEMO demand and BOM temperature are contextual series and do not establish a household-level causal relationship",
+    "Synthetic breach cases cover six eligible obligations and do not estimate real-world breach prevalence"
   ]
 }

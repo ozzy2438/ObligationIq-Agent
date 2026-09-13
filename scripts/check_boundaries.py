@@ -26,6 +26,8 @@ def violations(name, content):
         errors.append(f"{name}: private state must not be tracked")
     if name.startswith(("data/raw/", "data/cache/")):
         errors.append(f"{name}: source documents and derived corpus must remain local")
+    if name.startswith(("src/controls/", "src/agents/")) and "ground_truth" in content.lower():
+        errors.append(f"{name}: controls and agents cannot reference ground truth")
     if not name.endswith(".py"):
         return errors
     try:
@@ -46,6 +48,8 @@ def violations(name, content):
                 errors.append(f"{name}:{node.lineno}: LLM SDK import outside the sole gateway")
             if name.startswith("src/controls/") and module.startswith("src.gateway"):
                 errors.append(f"{name}:{node.lineno}: controls cannot import the LLM gateway")
+            if name.startswith(("src/controls/", "src/agents/")) and module.startswith(("src.eval", "tests", "scripts")):
+                errors.append(f"{name}:{node.lineno}: controls and agents cannot import evaluation or build surfaces")
             if name.startswith("src/") and name != GATEWAY and matches(module, NETWORK):
                 errors.append(f"{name}:{node.lineno}: direct networking outside the gateway")
     for node in ast.walk(tree):

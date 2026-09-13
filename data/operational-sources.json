@@ -1,0 +1,96 @@
+{
+  "retrieved_on": "2026-09-13",
+  "raw_storage": "data/raw/calibration (ignored)",
+  "ausgrid": {
+    "id": "ausgrid-2012-13.zip",
+    "title": "Solar Home Electricity Data: 1 July 2012 to 30 June 2013",
+    "issuer": "Ausgrid",
+    "catalog_url": "https://data.nsw.gov.au/data/dataset/solar-home-electricty-data",
+    "catalog_resource_url": "https://data.nsw.gov.au/data/dataset/solar-home-electricty-data/resource/d2dc76f0-22e3-4efc-bed9-bb4e0e50f0db",
+    "preserved_catalog_url": "https://data.gov.au/data/dataset/nsw-solar-home-electricty-data",
+    "publisher_page_url": "https://www.ausgrid.com.au/Industry/Our-Research/Data-to-share/Solar-home-electricity-data",
+    "official_download_url": "https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip",
+    "resolved_download_url": "https://web.archive.org/web/20251226094859id_/https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip",
+    "sha256": "6949ffee7ef8e2260f229f8a7e3b992390187facaaf023bb933b811a11cd1a11",
+    "bytes": 14973763,
+    "period": "2012-07-01 to 2013-06-30",
+    "licence": "Creative Commons Attribution 3.0 Australia",
+    "licence_url": "https://creativecommons.org/licenses/by/3.0/au/",
+    "attribution": "Ausgrid, Solar Home Electricity Data",
+    "provenance_note": "The Data.NSW catalogue record is the authoritative route. Its harvested Australian Government catalogue record identifies Ausgrid's official website resource. The current direct Ausgrid binary URL returned HTTP 404; the exact official-origin binary was recovered from the Internet Archive capture, without using a researcher mirror.",
+    "peer_reviewed_description": {
+      "citation": "Ratnam, E. L., Weller, S. R., Kellett, C. M. and Murray, A. T. (2017), Residential load and rooftop PV generation: an Australian distribution network dataset, International Journal of Sustainable Energy, 36(8), 787-806.",
+      "doi": "https://doi.org/10.1080/14786451.2015.1100196"
+    }
+  },
+  "aemo": {
+    "title": "Actual Operational Demand - Daily archive",
+    "issuer": "Australian Energy Market Operator",
+    "landing_url": "https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/operational-demand-data",
+    "url_template": "https://nemweb.com.au/Reports/ARCHIVE/Operational_Demand/ACTUAL_DAILY/PUBLIC_ACTUAL_OPERATIONAL_DEMAND_DAILY_{month}01.zip",
+    "period": "2025-08-01 to 2026-07-31",
+    "terms": "Information-only use under AEMO's operational-demand disclaimer; not intended for commercial use and availability/accuracy are not guaranteed.",
+    "files": [
+      {"month": "202508", "id": "aemo-operational-demand-202508.zip", "bytes": 78269, "sha256": "9936ce19839b2858005fb7ec18a6961c21c482a6d6978acf88184e94ac0ab266"},
+      {"month": "202509", "id": "aemo-operational-demand-202509.zip", "bytes": 75259, "sha256": "4966412f4fbe090b31a2b6b499792c7e21cfe18567aa3236a4a82e3c9635970e"},
+      {"month": "202510", "id": "aemo-operational-demand-202510.zip", "bytes": 77676, "sha256": "9358740bd43343aeb3aa5d6e270b3aaa320697f05c008452430b86ce44e92fe2"},
+      {"month": "202511", "id": "aemo-operational-demand-202511.zip", "bytes": 74813, "sha256": "270765afb8f886aec32e8da890bb0258664adc98f64697446c5d13107eae9612"},
+      {"month": "202512", "id": "aemo-operational-demand-202512.zip", "bytes": 77389, "sha256": "591b87cc5d3831cd03cd5b0c4034aa4a0894129104e91e7bd9b06fb172a5db22"},
+      {"month": "202601", "id": "aemo-operational-demand-202601.zip", "bytes": 77652, "sha256": "45dfff02846ba2035b309349eea18d31a062ee02e25d59e3393d74fda835d9d3"},
+      {"month": "202602", "id": "aemo-operational-demand-202602.zip", "bytes": 70390, "sha256": "79d238bc88fd67b29c053487baebc8308086bcec8e49a97a243a7f6879318afa"},
+      {"month": "202603", "id": "aemo-operational-demand-202603.zip", "bytes": 77883, "sha256": "24ea97ba52b67668c4d1b4b8dccf39391466af4e3a23a28669b9223a707a4c74"},
+      {"month": "202604", "id": "aemo-operational-demand-202604.zip", "bytes": 75354, "sha256": "9812274b1b0e848c978b81d14f72d45ba7e06d2d23ce6d468f1815777364da20"},
+      {"month": "202605", "id": "aemo-operational-demand-202605.zip", "bytes": 77623, "sha256": "d55c00548e6236e5659f1d460e828c31b31eb201b5c30256ef932008b268c80a"},
+      {"month": "202606", "id": "aemo-operational-demand-202606.zip", "bytes": 75450, "sha256": "c0b6b4b0ba9b430a2cb505bd7205388a9d8f6de30866bb85bc457150834e393e"},
+      {"month": "202607", "id": "aemo-operational-demand-202607.zip", "bytes": 77660, "sha256": "e6eeba26d220395ae67c1a502d9884841fa3977a4699b4de11681c056d92cecf"}
+    ]
+  },
+  "bom": {
+    "title": "Daily Weather Observations",
+    "issuer": "Australian Government Bureau of Meteorology",
+    "url_template": "https://www.bom.gov.au/climate/dwo/{month}/html/{product}.{month}.shtml",
+    "period": "2025-08-01 to 2026-07-31",
+    "terms_url": "https://www.bom.gov.au/other/copyright.shtml",
+    "limitation": "Daily observation products can mix nearby stations for different fields. The build uses only the published daily minimum and maximum temperature fields and labels them as contextual, not causal.",
+    "stations": [
+      {
+        "region": "NSW",
+        "name": "Sydney, New South Wales",
+        "product": "IDCJDW2124",
+        "files": [
+          {"month": "202508", "id": "bom-sydney-202508.html", "bytes": 53110, "sha256": "836cb863efbe6467e15633cea44d8999cbea15de233fded76836aa4f65545fe7"},
+          {"month": "202509", "id": "bom-sydney-202509.html", "bytes": 52662, "sha256": "bc43f76e371f3644d053b2efd0943393e60d48f275152cdc0e319c0ab90c9960"},
+          {"month": "202510", "id": "bom-sydney-202510.html", "bytes": 52737, "sha256": "4b9fb825a825edfdc8882fa87a362dad21fc81b932ce99654e248745ca05ac4f"},
+          {"month": "202511", "id": "bom-sydney-202511.html", "bytes": 52191, "sha256": "52b3462cfec408332a0a85fd5b5b5266786ac9109ce2670780f491cca63c429d"},
+          {"month": "202512", "id": "bom-sydney-202512.html", "bytes": 52822, "sha256": "f5367dfa1859ef0aca77ba3aea8e86ba0e967ff1dceaed2fb2b93fb079dae5b7"},
+          {"month": "202601", "id": "bom-sydney-202601.html", "bytes": 52891, "sha256": "5235d702ad893ce703747602aa2ea142ef45d7779bcf9be068ad76df9e4bcafd"},
+          {"month": "202602", "id": "bom-sydney-202602.html", "bytes": 51439, "sha256": "676cf43e5f20c9a25f3a1e1b8eb8382d54ef79aa54ededd10504166ef5faa4f7"},
+          {"month": "202603", "id": "bom-sydney-202603.html", "bytes": 52708, "sha256": "f062a83004a8d94c70da0d050cb56027e94673d5f1ab47b5ea515da6b744055b"},
+          {"month": "202604", "id": "bom-sydney-202604.html", "bytes": 52749, "sha256": "d4ec079c016ba50791a16257878e506272f4d1174d586144de729dc5045a0da1"},
+          {"month": "202605", "id": "bom-sydney-202605.html", "bytes": 52727, "sha256": "9ee110f57230e53627e0fb9740de424a2c7eff5ea52654ea5b8da00d82965046"},
+          {"month": "202606", "id": "bom-sydney-202606.html", "bytes": 52412, "sha256": "48f2e67f996579064fbccffa1b159239471a1c2d532e2a9f5f706398ad566d64"},
+          {"month": "202607", "id": "bom-sydney-202607.html", "bytes": 52442, "sha256": "00593e07fb32583f0ba4dc44f70111f5b19f189b75076d4a3832a6f34e6f8aaa"}
+        ]
+      },
+      {
+        "region": "VIC",
+        "name": "Melbourne (Olympic Park), Victoria",
+        "product": "IDCJDW3033",
+        "files": [
+          {"month": "202508", "id": "bom-melbourne-202508.html", "bytes": 52271, "sha256": "8718737d60533126faadf4f5cdf78c6d4c9f2a1372eb92209636ccaa0f2098ff"},
+          {"month": "202509", "id": "bom-melbourne-202509.html", "bytes": 51861, "sha256": "086e1a8e8a722e4a31f68946eca72f848a739e12f3495b9f0d972a04edf5a617"},
+          {"month": "202510", "id": "bom-melbourne-202510.html", "bytes": 52319, "sha256": "573507b6f25d30bf30743c3d00404f7420257efe5c7de3946f172b661008e965"},
+          {"month": "202511", "id": "bom-melbourne-202511.html", "bytes": 51749, "sha256": "cded7e1c1dfaefbc876ba2d56702c0e158e780aa356b6fb1cd43f18b40251c5b"},
+          {"month": "202512", "id": "bom-melbourne-202512.html", "bytes": 52419, "sha256": "953ca7f7d12fde20b4893ac9a6af9abf7541e943b2eba526cad5e7a539b886ef"},
+          {"month": "202601", "id": "bom-melbourne-202601.html", "bytes": 52587, "sha256": "97072bbb57e8cec4caffcfc01bbdab07bfbca0161fbcf35231755bb34e694c50"},
+          {"month": "202602", "id": "bom-melbourne-202602.html", "bytes": 50848, "sha256": "6719e5e88c3922bd06d80abedf3fa6a0cf541e02c67b6112dbaafea83766b4d6"},
+          {"month": "202603", "id": "bom-melbourne-202603.html", "bytes": 52299, "sha256": "c1aaf142da6d573106b366fe3bc4175e752429c220dcc483e918780d3cea2e5d"},
+          {"month": "202604", "id": "bom-melbourne-202604.html", "bytes": 51764, "sha256": "3abf994f993b3b309b7abb175be6a4a1deda329f511f03316f5be8ca804491ed"},
+          {"month": "202605", "id": "bom-melbourne-202605.html", "bytes": 52815, "sha256": "a90eb05b124ba8ce4931211a6d8a415b47004017e6eefbbf554eea9c14c120d0"},
+          {"month": "202606", "id": "bom-melbourne-202606.html", "bytes": 51824, "sha256": "4cf233a099e803e13b930a56de881c5440488c90248be2c8915b9c27d022f3b1"},
+          {"month": "202607", "id": "bom-melbourne-202607.html", "bytes": 52344, "sha256": "1b82ee28130c83a9bec530f8c40568bec6a6cf55979fcf3d9a43aa103a03a3f6"}
+        ]
+      }
+    ]
+  }
+}

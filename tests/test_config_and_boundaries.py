@@ -43,6 +43,8 @@ def test_missing_live_keys_are_validated_on_import(tmp_path):
     ("src/controls/bad.py", "from src.gateway.llm_client import LLMClient"),
     ("src/agents/bad.py", "from importlib import import_module as load; load('openai')"),
     ("src/agents/bad.py", "import requests"),
+    ("src/controls/bad.py", "path = 'data/ground_truth/control-cases.json'"),
+    ("src/agents/bad.py", "from src.eval import scoring"),
     (".env", ""), ("nested/.env.production", ""),
 ])
 def test_boundaries_reject_forbidden_files_and_imports(path, source):

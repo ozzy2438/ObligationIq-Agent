@@ -22,25 +22,43 @@ def main(check=False):
     for name, key in [("data/context-sources.json", "source_manifest_sha256"), ("data/calibration-sources.json", "aer_source_manifest_sha256"), ("data/calibration-aggregates.json", "aer_aggregates_sha256")]:
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != inputs[key]:
             raise ValueError("Calibration input provenance changed: " + name)
-    payload, report = build(inputs, contract)
+    for name, expected in inputs["register_inputs_sha256"].items():
+        if hashlib.sha256((ROOT / "data" / name).read_bytes()).hexdigest() != expected:
+            raise ValueError("Register input provenance changed: data/" + name)
+    for name, key in [("data/operational-context.json", "operational_context_sha256"),
+                      ("data/operational-sources.json", "operational_source_manifest_sha256")]:
+        if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != inputs[key]:
+            raise ValueError("Operational input provenance changed: " + name)
+    inputs["operational_context"] = json.loads((ROOT / "data/operational-context.json").read_text())
+    artifacts, report = build(inputs, contract)
     evidence = ROOT / "docs/population-calibration.json"
-    destination = ROOT / ".local/population/accounts.jsonl"
+    destinations = {
+        "accounts": ROOT / ".local/population/v2/accounts.jsonl",
+        "debt_entries": ROOT / ".local/population/v2/debt-entry-cohort.jsonl",
+        "control_cases": ROOT / ".local/population/v2/control-cases.jsonl",
+        "ground_truth": ROOT / "data/ground_truth/control-cases.json",
+    }
     if check:
         if report != json.loads(evidence.read_text()):
             raise ValueError("Rebuilt population differs from committed calibration evidence")
-        if destination.exists() and destination.read_bytes() != payload:
-            raise ValueError("Persisted population differs from the deterministic build")
-        print(f"PASS: {report['account_count']} synthetic accounts, {len(report['comparisons'])} marginal checks, exact replay fingerprint; network disabled")
+        for name, destination in destinations.items():
+            if name == "ground_truth" or destination.exists():
+                if not destination.exists() or destination.read_bytes() != artifacts[name]:
+                    raise ValueError("Persisted Phase 3 artefact differs: " + str(destination.relative_to(ROOT)))
+        print(f"PASS: {report['account_count']} synthetic accounts, {len(report['comparisons'])} calibration checks, {report['challenge_cases']} isolated challenge cases, exact replay; network disabled")
         return
-    if destination.exists() and destination.read_bytes() != payload:
-        raise ValueError("Existing population differs; preserve it and explicitly version a new scenario")
-    if not destination.exists():
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        temporary = destination.with_suffix(".tmp")
-        temporary.write_bytes(payload)
-        temporary.replace(destination)
+    for name, destination in destinations.items():
+        if destination.exists() and destination.read_bytes() != artifacts[name]:
+            raise ValueError("Existing artefact differs; preserve it and explicitly version a new scenario: " + str(destination.relative_to(ROOT)))
+        if not destination.exists():
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            temporary = destination.with_suffix(destination.suffix + ".tmp")
+            temporary.write_bytes(artifacts[name])
+            temporary.replace(destination)
     evidence.write_text(json.dumps(report, indent=2) + "\n")
-    print(json.dumps(dict(accounts=report["account_count"], marginal_checks=len(report["comparisons"]), output=str(destination.relative_to(ROOT)), phase3_complete=False)))
+    print(json.dumps(dict(accounts=report["account_count"], calibration_checks=len(report["comparisons"]),
+                          challenge_cases=report["challenge_cases"], breach_injections=report["breach_injections"],
+                          output=str(destinations["accounts"].relative_to(ROOT)), phase3_complete=True)))
 
 
 if __name__ == "__main__":

@@ -110,6 +110,42 @@
       "cell": "U172",
       "period_cell": "U5",
       "definition": "Life support customers deregistered"
+    },
+    "hardship_entry_distribution": {
+      "source": "aer-schedule-4",
+      "sheet": "Hardship debt on entering",
+      "period_cell": "V4",
+      "bands": [
+        {
+          "label": "Less than $500",
+          "published_count": 13588,
+          "source_cell": "V220"
+        },
+        {
+          "label": "greater than $500 and less than $1500",
+          "published_count": 8277,
+          "source_cell": "W220"
+        },
+        {
+          "label": "greater than $1500 and less than $2500",
+          "published_count": 4259,
+          "source_cell": "X220"
+        },
+        {
+          "label": "greater than $2500 and less than $3500",
+          "published_count": 2596,
+          "source_cell": "Y220"
+        },
+        {
+          "label": "greater than $3500",
+          "published_count": 6123,
+          "source_cell": "Z220"
+        }
+      ],
+      "published_count": 34843,
+      "mean_debt_aud": "2288.2494334274002",
+      "mean_source_cell": "F216",
+      "cohort_note": "Entry-flow distribution; separate from the current hardship-stock debt cohort."
     }
   },
   "vic": {
@@ -4050,6 +4086,360 @@
       "dss_cell": "O946"
     }
   ],
+  "operational_context_summary": {
+    "profile_count": 299,
+    "context_ids": {
+      "NSW": "AEMO-BOM-202508-202607-NSW",
+      "VIC": "AEMO-BOM-202508-202607-VIC"
+    }
+  },
+  "operational_context_sha256": "73ebd1aae29d43f13700818eda8ea59b96ee49571b8d303483ba041580238024",
+  "operational_source_manifest_sha256": "984d5e6bfb16f2c21683a0fe545f761d6faedf27366dda0bed0585645f6ffe56",
+  "injection_obligations": [
+    {
+      "obligation_id": "OIQ-002",
+      "instrument": "National Energy Retail Rules",
+      "jurisdiction": [
+        "NSW",
+        "QLD",
+        "SA",
+        "ACT",
+        "TAS"
+      ],
+      "regime": "NERL_NERR",
+      "clause_reference": "124(1)(b)",
+      "parent_clause": "124",
+      "obligation_family": "life_support",
+      "trigger_event": "Retailer receives the customer advice described in rule 124(1).",
+      "required_action": "Within five business days provide the written information and medical-confirmation items in 124(1)(b)(i)-(ix). If all three conditions of 124(2) hold, only items (iii) and (vi) remain required under this paragraph.",
+      "deadline_value": 5,
+      "deadline_unit": "business_days",
+      "timing_operator": "at_most",
+      "timing_anchor": "customer advice received",
+      "evidence_required": [
+        "advice_received_at",
+        "package_version",
+        "package_sent_at",
+        "delivery_record"
+      ],
+      "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
+      "source_id": "nerr",
+      "source_url": "https://aemc-dra-production-s3.s3.ap-southeast-2.amazonaws.com/rules/ee0c0f923d57687aba955f6f97a974077ed27515/assets/files/NERR%20-%20v51%20-%20Full.pdf",
+      "source_version": "51",
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "source_clause_sha256": "151c627c5ed7fcc86f7f018f110ee1acc7bd2f04ef36dfbb47f70a0c4d118250",
+      "source_page_start": 117,
+      "source_page_end": 121,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": false,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "Rule 124(2) requires prior advice to the distributor, customer advice of prior medical confirmation, and retailer confirmation with that distributor. Items (iii) and (vi) remain required.",
+        "This is a source-content approval; determine concrete customer/contract applicability and the applicable business-day calendar before control execution."
+      ],
+      "record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+      "review_status": "APPROVED",
+      "verification_method": "agent_source_review",
+      "reviewer": "Codex (user-authorised source reviewer)",
+      "review_reasoning": "Paragraph 124(1)(b) sets an upper limit of five business days after customer advice. Its package and the all-conditions exception in 124(2) are explicit; items (iii) and (vi) survive that exception.",
+      "review_correction": "Made the 124(2) exception and its two retained information duties explicit instead of leaving the exception solely in a review note.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "486bd2ddafec630d4659446127cbb0ca0da17a5061069c0e9241ad1bf926dffe"
+    },
+    {
+      "obligation_id": "OIQ-023",
+      "instrument": "Energy Retail Code of Practice",
+      "jurisdiction": [
+        "VIC"
+      ],
+      "regime": "VIC",
+      "clause_reference": "166(2)(a)",
+      "parent_clause": "166",
+      "obligation_family": "life_support",
+      "trigger_event": "Retailer has deregistered a customer through a permitted pathway.",
+      "required_action": "Notify the distributor of the date and reason.",
+      "deadline_value": 5,
+      "deadline_unit": "business_days",
+      "timing_operator": "at_most",
+      "timing_anchor": "retailer deregistration",
+      "evidence_required": [
+        "lawful_deregistration_review",
+        "deregistration_event",
+        "distributor_notification"
+      ],
+      "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
+      "source_id": "esc",
+      "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "source_version": "6",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "source_clause_sha256": "9053aeff667dbd5aee35f28654361d7ab9a3017bca725f92b260645cf4c7e171",
+      "source_page_start": 117,
+      "source_page_end": 120,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": false,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "Notification timing does not establish that the deregistration was lawful.",
+        "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
+        "Confirm applicable business-day calendar and counting rule before any timing control.",
+        "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      ],
+      "record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+      "review_status": "APPROVED",
+      "verification_method": "agent_source_review",
+      "reviewer": "Codex (user-authorised source reviewer)",
+      "review_reasoning": "Clause 166(2)(a) requires a retailer that deregisters a customer to send the distributor the deregistration date and reason within five business days. This is separate from the one-day register update in paragraph (b).",
+      "review_correction": "None; requirement, trigger, action and timing match the cited source.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "13bf081651004e752ea2ef02bea131a8884e3ae6bdb880a4666ec5bc575a04a8"
+    },
+    {
+      "obligation_id": "OIQ-024",
+      "instrument": "Energy Retail Code of Practice",
+      "jurisdiction": [
+        "VIC"
+      ],
+      "regime": "VIC",
+      "clause_reference": "166(2)(b)",
+      "parent_clause": "166",
+      "obligation_family": "life_support",
+      "trigger_event": "Retailer has deregistered a customer through a permitted pathway.",
+      "required_action": "Update its life support register.",
+      "deadline_value": 1,
+      "deadline_unit": "business_days",
+      "timing_operator": "at_most",
+      "timing_anchor": "retailer deregistration",
+      "evidence_required": [
+        "deregistration_event",
+        "register_update"
+      ],
+      "applies_to_customer_segment": "Electricity retailer; life support premises/customers in the cited registration pathway",
+      "source_id": "esc",
+      "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "source_version": "6",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "source_clause_sha256": "9053aeff667dbd5aee35f28654361d7ab9a3017bca725f92b260645cf4c7e171",
+      "source_page_start": 117,
+      "source_page_end": 120,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": true,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "This is recording a completed event, not permission to deregister or disconnect.",
+        "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
+        "Confirm applicable business-day calendar and counting rule before any timing control.",
+        "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      ],
+      "record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+      "review_status": "APPROVED",
+      "verification_method": "human_content_review",
+      "reviewer": "Osman Orka (project owner)",
+      "review_reasoning": "Explicit human approval in the project conversation: OIQ-024 review completed, APPROVED. Reviewer confirmed clause 166(2)(b) requires the register update within one business day after retailer deregistration, with clause 166(2)(a) and clause 167 as context. The same message expressly withholds approval of OIQ-025.",
+      "review_correction": "None; explicit human approval of the bound draft.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "126f5683da81a6a171e4860f7bd24fa5984906f71e641151fc3b459488f1d707"
+    },
+    {
+      "obligation_id": "OIQ-028",
+      "instrument": "Energy Retail Code of Practice",
+      "jurisdiction": [
+        "VIC"
+      ],
+      "regime": "VIC",
+      "clause_reference": "129(2)",
+      "parent_clause": "129",
+      "obligation_family": "hardship",
+      "trigger_event": "A residential customer misses the pay-by date and arrears exceed AUD 55 inclusive of GST.",
+      "required_action": "Contact the customer with assistance entitlement and access information.",
+      "deadline_value": 21,
+      "deadline_unit": "business_days",
+      "timing_operator": "at_most",
+      "timing_anchor": "bill pay-by date",
+      "evidence_required": [
+        "bill_pay_by_date",
+        "arrears_including_gst",
+        "contact_attempt_and_delivery",
+        "assistance_information"
+      ],
+      "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+      "source_id": "esc",
+      "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "source_version": "6",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "source_clause_sha256": "82bfcb57b8c3a2f686ed8f8ef2c231a56ca8b5046a0ca8d42eb4da0d0c162c97",
+      "source_page_start": 101,
+      "source_page_end": 102,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": false,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "Threshold is strictly greater than 55 AUD, not greater than or equal to 55. Check evidence of contact.",
+        "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
+        "Confirm applicable business-day calendar and counting rule before any timing control.",
+        "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      ],
+      "record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+      "review_status": "APPROVED",
+      "verification_method": "agent_source_review",
+      "reviewer": "Codex (user-authorised source reviewer)",
+      "review_reasoning": "Clause 129(2) uses arrears strictly greater than AUD 55 including GST and contact/information within 21 business days after the pay-by date. Equality at 55 is not the stated trigger.",
+      "review_correction": "None; requirement, trigger, action and timing match the cited source.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "60a0b1fa0d5a1945c3741c1bb09a7eca2d84e94352fab9bb8e8f14f52999ea3c"
+    },
+    {
+      "obligation_id": "OIQ-030",
+      "instrument": "Energy Retail Code of Practice",
+      "jurisdiction": [
+        "VIC"
+      ],
+      "regime": "VIC",
+      "clause_reference": "130(5)",
+      "parent_clause": "130",
+      "obligation_family": "hardship",
+      "trigger_event": "Retailer accepts a payment proposal or revision under clause 130 for a residential customer whose arrears repayment is not on hold under 128(1)(g)(i).",
+      "required_action": "Give a written schedule stating total payment count, period, due dates and amounts.",
+      "deadline_value": null,
+      "deadline_unit": null,
+      "timing_operator": "not_specified",
+      "timing_anchor": null,
+      "evidence_required": [
+        "accepted_proposal",
+        "written_schedule",
+        "delivery_record"
+      ],
+      "applies_to_customer_segment": "Licensed electricity retailer; residential hardship/payment difficulty customers",
+      "source_id": "esc",
+      "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "source_version": "6",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "source_clause_sha256": "bae2872a2dae66ab85f63eb4c22fbd598e7d36c249993a3de981188e368386e5",
+      "source_page_start": 102,
+      "source_page_end": 103,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": false,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "Clause 130(1) excludes customers whose arrears are on hold under 128(1)(g)(i).",
+        "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
+        "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      ],
+      "record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+      "review_status": "APPROVED",
+      "verification_method": "agent_source_review",
+      "reviewer": "Codex (user-authorised source reviewer)",
+      "review_reasoning": "Clause 130(5) requires the written count, period, due dates and amounts on accepting a proposal. Clause 130(1) excludes arrears-on-hold customers; the corrected trigger preserves it.",
+      "review_correction": "Moved the clause 130(1) exclusion into the trigger so an arrears-on-hold customer cannot be treated as eligible solely from an accepted proposal.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "e3b538d94941c5e1ac0372ceb822a93c972a1d93c97bc805b31eb1100e0cf799"
+    },
+    {
+      "obligation_id": "OIQ-032",
+      "instrument": "Energy Retail Code of Practice",
+      "jurisdiction": [
+        "VIC"
+      ],
+      "regime": "VIC",
+      "clause_reference": "138(2)",
+      "parent_clause": "138",
+      "obligation_family": "hardship",
+      "trigger_event": "Any residential customer asks to be sent a copy of the retailer financial hardship policy.",
+      "required_action": "Send a copy of the policy.",
+      "deadline_value": null,
+      "deadline_unit": null,
+      "timing_operator": "not_specified",
+      "timing_anchor": null,
+      "evidence_required": [
+        "policy_request",
+        "policy_version",
+        "copy_sent"
+      ],
+      "applies_to_customer_segment": "Licensed electricity retailer; any residential customer who requests a policy copy.",
+      "source_id": "esc",
+      "source_url": "https://www.esc.vic.gov.au/sites/default/files/documents/Energy%20Retail%20Code%20of%20Practice%20%28version%206%29_2.pdf",
+      "source_version": "6",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "source_clause_sha256": "32d26863ad887dbad9c33340440a18a9c902681c1eaa72804bb395b4138b4275",
+      "source_page_start": 105,
+      "source_page_end": 106,
+      "effective_from": "2026-07-01",
+      "effective_to": null,
+      "coverage_as_of": "2026-09-12",
+      "extraction_method": "agent_assisted_source_reading",
+      "verified_by_human": false,
+      "verification_date": "2026-09-12",
+      "pending_checks": [
+        "Confirm complete subclause, definitions, exceptions and evidence sufficiency; this is a candidate paraphrase.",
+        "Confirm residential electricity scope under the Code and any Electricity Industry Act cross-references; exempt sellers and gas are excluded from this pilot."
+      ],
+      "record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+      "review_status": "APPROVED",
+      "verification_method": "agent_source_review",
+      "reviewer": "Codex (user-authorised source reviewer)",
+      "review_reasoning": "Clause 138(2) requires sending the policy to any residential customer asking for a copy. It does not limit the right to enrolled hardship customers or give a numerical deadline.",
+      "review_correction": "Restored the clause 138(2) scope: any residential customer requesting a copy, not only customers already experiencing hardship.",
+      "operational_review_status": "ELIGIBLE_FOR_EVALUATION",
+      "operational_verification_method": "agent_operational_review",
+      "operational_reviewer": "Codex agent under owner standing authority",
+      "operational_review_date": "2026-09-13",
+      "operational_review_basis": "The source-content decision is approved and digest-bound. The generated pilot has separate NSW NERL_NERR and Victorian Code cohorts, residential electricity scope, a frozen scenario date and no customer action. Eligibility permits evaluation only; it does not infer case facts, resolve missing evidence or establish production legal applicability.",
+      "operational_review_scope": "Independent synthetic electricity evaluation only; NERL_NERR records apply only to matching NSW cases and VIC records only to matching Victorian cases. Every control must separately establish trigger, customer segment, effective date and evidence.",
+      "operational_reviewed_record_sha256": "38db09fc55a0c29cb7777a2e93db0ea78fbf4bff6edb2b3ac66063ef1f80160a"
+    }
+  ],
+  "review_composition": {
+    "total": 32,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375
+  },
+  "register_inputs_sha256": {
+    "obligation-candidates.json": "effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af",
+    "human-reviews.json": "0c881331604b34aa3a57a010ff8a9da91f56bb5c090d723cbd63b892c686cce5",
+    "source-reviews.json": "f26513f9fb4c36cc449295c92464100d1a1a3a4256a9509e9eb709b5d1ab4312",
+    "operational-reviews.json": "7d50e3663de97e2ad790bf9fe652a5631de588667b74fd5b016f346d11ebe769"
+  },
   "source_manifest_sha256": "13fa6c36e499d87ddf937e2fb24bc5e78559669e97c496dfbf48d0d163885856",
   "aer_source_manifest_sha256": "58ac6dabefe1c2fde910908cef5ed806d28ac7daaa65bdb96d3eebe620f6799c",
   "aer_aggregates_sha256": "8d80c705f99f4ad3f21b47b6cfad71f8e4e5048ab1798afe5f425e213d992e5e"

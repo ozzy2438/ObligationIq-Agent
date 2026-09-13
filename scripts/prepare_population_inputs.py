@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from scripts.prepare_calibration import sheet_cells
 from src.config import ROOT
+from src.register.obligations import for_controls, load_candidates, review_composition
 
 
 def numeric(value):
@@ -61,6 +62,33 @@ def prepare(download=False):
 
     aer = json.loads((ROOT / "data/calibration-aggregates.json").read_text())
     nsw = {r["metric"]: r for r in aer["records"] if r["region"] == "NSW"}
+    schedule4 = ROOT / "data/raw/calibration/aer-schedule-4.xlsx"
+    schedule4_pin = next(s for s in json.loads((ROOT / "data/calibration-sources.json").read_text())["sources"]
+                         if s["id"] == "aer-schedule-4")
+    if (not schedule4.exists() or hashlib.sha256(schedule4.read_bytes()).hexdigest() != schedule4_pin["sha256"]):
+        raise ValueError("Missing or changed AER schedule 4 for debt-entry distribution")
+    entry_cells = sheet_cells(schedule4, "Hardship debt on entering")
+    band_columns = "VWXYZ"
+    if entry_cells.get("V4") != "Q3 2025-26" or entry_cells.get("A220") != "NSW Total":
+        raise ValueError("AER debt-entry band anchors changed")
+    entry_bands = []
+    for column in band_columns:
+        value = numeric(entry_cells.get(column + "220"))
+        entry_bands.append({
+            "label": entry_cells[column + "6"],
+            "published_count": int(value),
+            "source_cell": column + "220",
+        })
+    nsw["hardship_entry_distribution"] = {
+        "source": "aer-schedule-4",
+        "sheet": "Hardship debt on entering",
+        "period_cell": "V4",
+        "bands": entry_bands,
+        "published_count": sum(item["published_count"] for item in entry_bands),
+        "mean_debt_aud": nsw["hardship_entry_debt_aud"]["value"],
+        "mean_source_cell": nsw["hardship_entry_debt_aud"]["cell"],
+        "cohort_note": "Entry-flow distribution; separate from the current hardship-stock debt cohort.",
+    }
     esc = paths["esc.xlsx"]
     vic = {
         "residential_customers": esc_metric(esc, "Overview", "Electricity Customers"),
@@ -122,8 +150,31 @@ def prepare(download=False):
                                   seifa_row=int(row), dss_cell=payments[value][1]))
     if any(not any(g["region"] == r for g in geography) for r in plans):
         raise ValueError("Empty eligible geography")
+    operational_path = ROOT / "data/operational-context.json"
+    operational = json.loads(operational_path.read_text())
+    if operational.get("profile_count") != len(operational.get("profiles", [])) or not operational.get("seasonality_contexts"):
+        raise ValueError("Incomplete operational context")
+    eligible = for_controls(load_candidates())
+    injection_ids = {"OIQ-002", "OIQ-023", "OIQ-024", "OIQ-028", "OIQ-030", "OIQ-032"}
+    injection_obligations = [record for record in eligible if record["obligation_id"] in injection_ids]
+    if {record["obligation_id"] for record in injection_obligations} != injection_ids:
+        raise ValueError("A source-reviewed injection obligation lost eligibility")
+    register_inputs = {
+        name: hashlib.sha256((ROOT / "data" / name).read_bytes()).hexdigest()
+        for name in ("obligation-candidates.json", "human-reviews.json", "source-reviews.json", "operational-reviews.json")
+    }
     result = dict(reference_period=aer["period"], nsw=nsw, vic=vic, plans=plans,
                   geography=sorted(geography, key=lambda g: (g["region"], g["postcode"])),
+                  operational_context_summary={
+                      "profile_count": operational["profile_count"],
+                      "context_ids": {region: context["context_id"]
+                                      for region, context in operational["seasonality_contexts"].items()},
+                  },
+                  operational_context_sha256=hashlib.sha256(operational_path.read_bytes()).hexdigest(),
+                  operational_source_manifest_sha256=hashlib.sha256((ROOT / "data/operational-sources.json").read_bytes()).hexdigest(),
+                  injection_obligations=sorted(injection_obligations, key=lambda record: record["obligation_id"]),
+                  review_composition=review_composition(eligible),
+                  register_inputs_sha256=register_inputs,
                   source_manifest_sha256=hashlib.sha256((ROOT / "data/context-sources.json").read_bytes()).hexdigest(),
                   aer_source_manifest_sha256=hashlib.sha256((ROOT / "data/calibration-sources.json").read_bytes()).hexdigest(),
                   aer_aggregates_sha256=hashlib.sha256((ROOT / "data/calibration-aggregates.json").read_bytes()).hexdigest())

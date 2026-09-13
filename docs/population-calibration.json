@@ -1,7 +1,7 @@
 {
-  "status": "calibrated core only; Phase 3 incomplete",
+  "status": "Phase 3 complete: calibrated synthetic population and isolated challenge set",
   "synthetic": true,
-  "phase3_complete": false,
+  "phase3_complete": true,
   "scenario_as_of": "2026-09-13",
   "reference_period": "Q3 2025-26",
   "account_count": 10000,
@@ -10,10 +10,22 @@
     "VIC": 5000
   },
   "seed": 20260913,
-  "output_sha256": "8bfc32dfa8b2488c4acc9c9948a4a214c339ee29961be8d524750a130d127ab5",
-  "output_bytes": 5113751,
-  "inputs_sha256": "cb0573dc1e679a84c6222289ecb99cf69118e75027e68885debe1484c29e7432",
-  "contract_sha256": "ba4433f82ca3679e3e137e22d87b23e971bbc224e3818f82eca8899bbed26830",
+  "output_sha256": "865bafb3160db1a018f0cd3c6a2a5ed4e40c4ada61147da5d5b737d9bf33357c",
+  "output_bytes": 6004273,
+  "artifact_sha256": {
+    "accounts": "865bafb3160db1a018f0cd3c6a2a5ed4e40c4ada61147da5d5b737d9bf33357c",
+    "debt_entries": "940a1c337641fed3ed38b34a6590916a391559d9c0f134975538e23c8c824ff3",
+    "control_cases": "318b801ab8c3bb51eeb2dda96546896c16e7e2224fd944feca0b6841d940da17",
+    "ground_truth": "04abb8cebd248cd64d26b4bd94902c3006a07dcf54c124d48aee86b26153c8fd"
+  },
+  "artifact_bytes": {
+    "accounts": 6004273,
+    "debt_entries": 6388086,
+    "control_cases": 8413,
+    "ground_truth": 6254
+  },
+  "inputs_sha256": "ab7d07d8c1e0dc95d858dae444540b46280a9092f5d0358998f8975fff665bc6",
+  "contract_sha256": "ee374fc1f38aa8b642350be24a9b25360dc1d50be44eb200f4e1a27a823edb06",
   "comparisons": [
     {
       "region": "NSW",
@@ -102,8 +114,75 @@
       "absolute_delta": "0.000063804006719294805010529266",
       "tolerance": "0.0001",
       "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_band_rate: Less than $500",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.3899779008696151307292713027",
+      "generated": "0.3899779008696151307292713027",
+      "absolute_delta": "0E-28",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_band_rate: greater than $500 and less than $1500",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.2375513015526791608070487616",
+      "generated": "0.2375513015526791608070487616",
+      "absolute_delta": "0E-28",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_band_rate: greater than $1500 and less than $2500",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.1222340211807249662773010361",
+      "generated": "0.1222340211807249662773010361",
+      "absolute_delta": "0E-28",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_band_rate: greater than $2500 and less than $3500",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.07450563958327354131389375197",
+      "generated": "0.07450563958327354131389375197",
+      "absolute_delta": "0E-29",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_band_rate: greater than $3500",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.1757311368137072008724851477",
+      "generated": "0.1757311368137072008724851477",
+      "absolute_delta": "0E-28",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_entry_debt_aud",
+      "source": "AER",
+      "unit": "AUD",
+      "published_or_derived": "2288.2494334274002",
+      "generated": "2288.249433458657406078695864",
+      "absolute_delta": "3.1257206078695864E-8",
+      "tolerance": "0.01",
+      "passed": true
     }
   ],
+  "passed_comparisons": 14,
   "geography_summary": [
     {
       "region": "NSW",
@@ -112,7 +191,9 @@
       "assistance_accounts": 111,
       "reference_quarter_disconnections": 7,
       "mean_area_irsd_decile_assistance": 5.945945945945946,
-      "mean_area_irsd_decile_other": 6.861934956023727
+      "mean_area_irsd_decile_other": 6.861934956023727,
+      "consumption_profiles_used": 299,
+      "seasonality_context_id": "AEMO-BOM-202508-202607-NSW"
     },
     {
       "region": "VIC",
@@ -121,21 +202,70 @@
       "assistance_accounts": 162,
       "reference_quarter_disconnections": 6,
       "mean_area_irsd_decile_assistance": 8.018518518518519,
-      "mean_area_irsd_decile_other": 8.151095494005787
+      "mean_area_irsd_decile_other": 8.151095494005787,
+      "consumption_profiles_used": 299,
+      "seasonality_context_id": "AEMO-BOM-202508-202607-VIC"
     }
   ],
-  "remaining": [
-    "Source-backed consumption profiles: original Ausgrid household download returned HTTP 404; a researcher mirror has not been authenticated against the original",
-    "AEMO demand and BOM temperature alignment: direct acquisition returned HTTP 403; no numeric seasonal profile has been pinned",
-    "Debt-entry band calibration: published entry cohort must remain distinct from the current assistance-debt shape",
-    "Source-supported event scenarios and separately held ground truth; no controls or detection scores yet"
-  ],
+  "source_profiles": {
+    "source_customer_count": 300,
+    "complete_profile_count": 299,
+    "excluded_incomplete_profile_count": 1
+  },
+  "seasonality_coverage": {
+    "NSW": {
+      "aemo_intervals": 17520,
+      "bom_temperature_days": 363,
+      "months": 12
+    },
+    "VIC": {
+      "aemo_intervals": 17520,
+      "bom_temperature_days": 364,
+      "months": 12
+    }
+  },
+  "debt_entry": {
+    "cohort_size": 34843,
+    "published_source_count": 34843,
+    "generated_band_counts": [
+      13588,
+      8277,
+      4259,
+      2596,
+      6123
+    ],
+    "source_cells": [
+      "V220",
+      "W220",
+      "X220",
+      "Y220",
+      "Z220"
+    ],
+    "current_debt_cohort_reused": false
+  },
+  "breach_injections": 6,
+  "challenge_cases": 18,
+  "challenge_case_mix": {
+    "compliant": 6,
+    "breach": 6,
+    "insufficient_evidence": 6
+  },
+  "ground_truth_created": true,
+  "ground_truth_visible_to_controls_or_agents": false,
+  "review_composition": {
+    "total": 32,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375
+  },
   "unmeasured": [
     "Victorian life-support prevalence is absent from the selected ESC workbook; stored as null rather than borrowing the AER rate",
-    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions"
+    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions",
+    "Victorian household consumption is not observed; the NSW Ausgrid library is used only as an explicitly labelled shape prior",
+    "AEMO demand and BOM temperature are contextual series and do not establish a household-level causal relationship",
+    "Synthetic breach cases cover six eligible obligations and do not estimate real-world breach prevalence"
   ],
-  "breach_injections": 0,
-  "ground_truth_created": false,
   "model_calls": 0,
   "model_spend_aud": "0"
 }

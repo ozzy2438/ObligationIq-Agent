@@ -1,10 +1,10 @@
-# Phase 3 — calibrated synthetic core
+# Phase 3 — calibrated synthetic population
 
-Status on 13 September 2026: **10,000 synthetic accounts generated; Phase 3 remains incomplete**. The core population matches eight AER/ESC marginal comparisons and replays offline with the same SHA-256. Consumption, seasonality, debt-entry bands, event scenarios and isolated ground truth remain outstanding. Phase 4 has not started.
+Status on 13 September 2026: **complete**. The build creates 10,000 synthetic accounts, a separate 34,843-record debt-entry cohort and 18 source-supported control cases. Fourteen calibration comparisons pass. Consumption profiles come from the checksum-pinned Ausgrid household data; twelve months of AEMO demand and BOM temperature provide separately labelled seasonal context. Ground truth is committed only under `data/ground_truth/` and CI blocks controls and agents from referring to it. Phase 4 has not started.
 
 ## Generated result
 
-The [calibration evidence](population-calibration.json) records exact inputs, output fingerprint, counts, unrounded deltas and tolerances. A fixed seed creates 5,000 NSW and 5,000 Victorian accounts. The [generation contract](../data/population-contract.json) exposes the assumptions; the [input extract](../data/population-inputs.json) retains cell/row provenance.
+The [calibration evidence](population-calibration.json) records exact inputs, four artefact fingerprints, counts, unrounded deltas and tolerances. A fixed seed creates 5,000 NSW and 5,000 Victorian accounts. The [generation contract](../data/population-contract.json) exposes the assumptions; the [input extract](../data/population-inputs.json) retains cell/row provenance.
 
 | Region / metric | Published or derived target | Generated | Tolerance |
 |---|---:|---:|---:|
@@ -24,11 +24,13 @@ The accounts are an illustrative population in the published Ausgrid and Citipow
 ```sh
 python scripts/prepare_calibration.py --download       # existing four AER pins
 python scripts/prepare_population_inputs.py --download # six additional pins
+python scripts/prepare_operational_context.py --download # Ausgrid + AEMO + BOM pins
+python scripts/prepare_population_inputs.py            # join all verified inputs
 python scripts/build_population.py                    # offline; persists once
 python scripts/build_population.py --check            # CI: no writes or network
 ```
 
-Raw sources remain in ignored `data/raw/calibration/`. The 10,000 account records remain in ignored `.local/population/accounts.jsonl`; Git holds the small generator, contract, attributed extracts and calibration evidence. An identical rebuild preserves the existing account file. A changed output refuses to overwrite it, requiring an explicit new scenario version. CI needs only committed extracts, blocks Python socket activity, rebuilds in memory, checks source-manifest hashes and compares the complete output/evidence fingerprint. It adds no new test file and performs no model inference.
+Raw sources remain in ignored `data/raw/calibration/`. The account, debt-entry and source-case records remain in ignored `.local/population/v2/`; Git holds the small generator, contracts, attributed extracts, calibration evidence and isolated truth labels. An identical rebuild preserves the existing files. A changed output refuses to overwrite them, requiring an explicit new scenario version. CI needs only committed extracts, blocks Python socket activity, rebuilds in memory, checks source/register-manifest hashes and compares every artefact fingerprint. It adds no new test file and performs no model inference.
 
 ## Victoria, geography and tariffs
 
@@ -41,6 +43,34 @@ Six additional files in the [context manifest](../data/context-sources.json) are
 The assistance selection weight is an explicit design assumption: `1 + (10 - IRSD decile)/9 + 10 * min(JobSeeker count / resident population, 0.2)`. It increases sampling weight for relatively disadvantaged areas while fixing the total assistance count. It does not estimate a causal relationship or infer an individual's income, welfare receipt or vulnerability. Generated assistance accounts have lower mean area IRSD deciles than the other generated accounts in each region; this is a property of the chosen simulation, not empirical validation.
 
 The data is a **13 September synthetic scenario** calibrated to January–March aggregate priors. Its historical quarterly disconnection marker has no invented event date and is not a compliance determination. Real January–March customer histories, current September prevalence, changes of status and joint overlap are unobserved. No current regulatory rule is retroactively applied to the reference quarter.
+
+## Consumption and seasonal context
+
+The [operational source manifest](../data/operational-sources.json) pins 37 raw files and the [derived context](../data/operational-context.json) retains only bounded attributed values. The Data.NSW catalogue is the authoritative route for Ausgrid's Solar Home Electricity Data. Its former direct Ausgrid binary path returned HTTP 404; the exact official-origin ZIP was recovered from the Internet Archive, SHA-256 `6949ffee7ef8e2260f229f8a7e3b992390187facaaf023bb933b811a11cd1a11`. No researcher mirror was used. The source contains 300 de-identified customers; one has only 284 GC days and is excluded without imputation, leaving 299 complete household-year profiles. Each synthetic account deterministically samples one profile ID and retains its source annual usage and 48 half-hour shares through the context lookup.
+
+Twelve AEMO daily-archive ZIPs cover August 2025–July 2026: 17,520 half-hour actual operational-demand observations for NSW1 and 17,520 for VIC1. Twenty-four BOM products cover the same months: 363 complete daily min/max pairs for Sydney and 364 for Melbourne. Missing temperatures are not imputed. The build stores AEMO region factors, BOM mean daily temperature midpoint and Ausgrid household daily factors as separate series. It does not blend them into a claimed household causal model. Ausgrid explicitly says the solar sample is not statistically representative; using its shape library for Victoria is an identified simulation assumption.
+
+The original creators' peer-reviewed description is Ratnam, Weller, Kellett and Murray (2017), “Residential load and rooftop PV generation: an Australian distribution network dataset”, *International Journal of Sustainable Energy* 36(8), 787–806, [doi:10.1080/14786451.2015.1100196](https://doi.org/10.1080/14786451.2015.1100196).
+
+## Separate debt-entry cohort
+
+Current hardship debt and debt on entry remain separate populations. The NSW Q3 2025–26 AER entry table reports 34,843 records across five bands. The local entry cohort reproduces those exact source counts and calibrates its mean to AUD 2,288.249433 within AUD 0.01. Within-band values are generated; strict published boundaries are preserved and the open-ended greater-than-AUD-3,500 tail absorbs the amount needed to match the mean.
+
+| Entry debt band | Published count | Generated count | Published/generated share |
+|---|---:|---:|---:|
+| Less than AUD 500 | 13,588 | 13,588 | 38.997790% |
+| Greater than AUD 500 and less than AUD 1,500 | 8,277 | 8,277 | 23.755130% |
+| Greater than AUD 1,500 and less than AUD 2,500 | 4,259 | 4,259 | 12.223402% |
+| Greater than AUD 2,500 and less than AUD 3,500 | 2,596 | 2,596 | 7.450564% |
+| Greater than AUD 3,500 | 6,123 | 6,123 | 17.573114% |
+
+This exact reproduction validates marginal calibration. It does not show that the generated amounts within a band or the joint structure resemble individual customers.
+
+## Challenge cases and truth isolation
+
+Six eligible source records drive 18 deterministic challenge cases: OIQ-002, OIQ-023, OIQ-024, OIQ-028, OIQ-030 and OIQ-032. Each contributes one compliant, one breach and one deliberately under-evidenced case. The breach cases use either a completed action after the cited business-day deadline or complete audit evidence that an untimed required action was not completed. No annual medical reconfirmation requirement is injected.
+
+Input facts are written locally to `.local/population/v2/control-cases.jsonl`. Their labels and source-grounded reasons live separately in [data/ground_truth/control-cases.json](../data/ground_truth/control-cases.json), bound to the input SHA-256. CI rejects any `ground_truth` reference or evaluation/build import under `src/controls/` and `src/agents/`. The truth artefact discloses that the underlying 32 obligations comprise 2 human-verified records (6.25%) and 30 authorised-agent-reviewed records (93.75%).
 
 ## Acquired evidence
 
@@ -84,11 +114,10 @@ python scripts/prepare_calibration.py             # offline, no model, same outp
 - Calibration-period statistics are not proof of regulations in force in that period. The register is verified for the September 2026 snapshot. A later simulation needs explicit scenario dates and source applicability; it must not backdate those rules into January–March.
 - Population marginal calibration and an intentionally enriched breach evaluation set need distinct labels. Injection must not silently change the published-rate comparison population or leak labels to controls/agents.
 
-## Remaining Phase 3 work
+## Completion checks
 
-1. Recover and authenticate the Ausgrid household data. The original official 2012–13 ZIP URL returned HTTP 404; a researcher mirror is a lead, not yet verified original bytes. `consumption_profile_id` remains null.
-2. Pin AEMO demand and BOM weather values and implement their explicit seasonal alignment. Direct March 2026 regional CSV/PDF downloads returned HTTP 403. Public page visibility is not a successful reproducible numeric acquisition. `seasonality_context_id` remains null. [Acquisition record](calibration-acquisition-gaps.json).
-3. Calibrate an independent hardship-entry cohort to the published entry-debt bands and mean. Do not relabel entry bands as current-customer debt distribution.
-4. Add source-supported dated events, then seeded challenge injections with ground truth separately held in `data/ground_truth/`. Preserve the operational applicability gate and prove that the future control/agent inputs exclude truth labels. Annual mandatory medical reconfirmation is not established by the reviewed sources and will not be invented as a breach.
+The seed rebuilds all four artefacts byte-for-byte. Fourteen comparisons pass: eight account marginals, five entry-debt bands and the entry-debt mean. The population uses 299 source profiles; regional seasonal context covers twelve months, 17,520 AEMO intervals per region and 363/364 complete BOM days. Eighteen challenge cases contain six breaches, six compliant outcomes and six insufficient-evidence outcomes. No login, network call during replay, model call or Azure spend is required.
 
-The brief's required completed-population paragraph remains deferred because it would currently claim breach injections that do not exist. No source requirement or deadline was added by this population work. No login or Azure spending was needed. The control, risk, agent, MCP and evaluation phases remain unstarted.
+> *The synthetic customer population reproduces the published quarterly marginals from the AER Retail Markets Performance Data for hardship participation, average hardship debt, and disconnection rates. The joint structure is generated. Compliance breaches are deliberately injected with known ground truth to permit measurement of detection recall and precision. No real customer data is used anywhere in this project.*
+
+The correction to the original source-unavailable conclusion and the obsolete URL evidence remain in [the acquisition audit](calibration-acquisition-gaps.json). The control, risk, agent, MCP and evaluation phases remain unstarted.
