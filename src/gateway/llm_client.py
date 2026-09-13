@@ -1,7 +1,8 @@
-"""The sole model-call boundary. Phase 0's default redactor refuses live traffic."""
+"""The sole model-call boundary, including the active structured PII boundary."""
 
 import hashlib
 import json
+import re
 import time
 from dataclasses import asdict, dataclass
 from datetime import date
@@ -34,11 +35,58 @@ class Redactor(Protocol):
     def redact(self, prompt: str) -> RedactedPrompt: ...
 
 
-class Phase0Redactor:
+class PIIRedactor:
+    """Allow live traffic only for the agent's whitelisted JSON envelope.
+
+    Identity fields are removed recursively. Known case-specific values and
+    address/NMI-shaped text are redacted again after serialisation. Free-form
+    prompts remain usable offline but cannot be dispatched live.
+    """
+
+    SCHEMA = "obligationiq-model-boundary-v1"
+    ALLOWED = {"schema", "task", "fixed_control_status", "obligation_id",
+               "clause_reference", "source_excerpt", "timeline", "evidence_gaps"}
+    SENSITIVE = {"customer_name", "name", "full_name", "address", "service_address",
+                 "postal_address", "nmi", "national_metering_identifier"}
+    ADDRESS = re.compile(
+        r"\b\d{1,5}\s+(?:[A-Za-z][A-Za-z'.-]*\s+){1,5}"
+        r"(?:street|st|road|rd|avenue|ave|drive|dr|lane|ln|court|ct|place|pl)\b[^,\n\"]*",
+        re.I)
+    LABELLED_NMI = re.compile(r"(?i)\bNMI\s*[:=#-]?\s*[A-Z0-9]{10,11}\b")
+
+    def __init__(self, sensitive_values=(), *, allow_structured_live=False):
+        self._sensitive_values = tuple(
+            value for value in sensitive_values if isinstance(value, str) and len(value.strip()) >= 2)
+        self._allow_structured_live = allow_structured_live
+
+    def __repr__(self):
+        return "PIIRedactor(<values withheld>)"
+
+    def _clean(self, value):
+        if isinstance(value, dict):
+            return {key: "[REDACTED]" if key.lower() in self.SENSITIVE else self._clean(item)
+                    for key, item in value.items()}
+        if isinstance(value, list):
+            return [self._clean(item) for item in value]
+        return value
+
     def redact(self, prompt):
-        # Interface stub only. Offline code never persists the raw prompt;
-        # live mode refuses this result until real redaction is implemented.
-        return RedactedPrompt(prompt, live_ready=False)
+        if not isinstance(prompt, str):
+            raise ValueError("PII boundary accepts text only")
+        try:
+            parsed = json.loads(prompt)
+        except (json.JSONDecodeError, TypeError):
+            parsed = None
+        live_ready = (self._allow_structured_live and isinstance(parsed, dict) and
+                      parsed.get("schema") == self.SCHEMA and
+                      set(parsed) <= self.ALLOWED)
+        text = (json.dumps(self._clean(parsed), sort_keys=True, separators=(",", ":"))
+                if isinstance(parsed, dict) else prompt)
+        for value in sorted(self._sensitive_values, key=len, reverse=True):
+            text = re.sub(re.escape(value), "[REDACTED]", text, flags=re.I)
+        text = self.LABELLED_NMI.sub("NMI [REDACTED]", text)
+        text = self.ADDRESS.sub("[REDACTED_ADDRESS]", text)
+        return RedactedPrompt(text, live_ready=live_ready)
 
 
 class LocalEmbedder:
@@ -56,7 +104,7 @@ class LocalEmbedder:
         self.pin = json.loads((ROOT / "src/gateway/local-model.json").read_text())
         self.identity = hashlib.sha256(json.dumps(self.pin, sort_keys=True).encode()).hexdigest()
         self.config = config
-        self.redactor = redactor or Phase0Redactor()
+        self.redactor = redactor or PIIRedactor()
         self.computed = self.hits = 0
         self._session = self._tokenizer = None
         self._verified = False
@@ -202,7 +250,7 @@ class LLMClient:
             raise GatewayError("Unsupported execution mode")
         if config.mode == "live" and not config.allow_live:
             raise GatewayError("Live mode requires a separate explicit enable flag")
-        self.redactor = redactor or Phase0Redactor()
+        self.redactor = redactor or PIIRedactor()
         self._transport = transport or self._azure_call
         self.ledger = Ledger(config.state_dir / "gateway.sqlite3", config.daily_limit,
                              config.project_limit)
@@ -267,7 +315,7 @@ class LLMClient:
         if self.config.mode == "cached":
             raise GatewayError("Cache miss; cached mode never contacts a provider")
         if not safe.live_ready:
-            raise GatewayError("Phase 0 redaction stub cannot authorise live traffic")
+            raise GatewayError("PII boundary refused live traffic")
         # Reserve full input/output caps, including reasoning, at uncached prices.
         # Additional 25% reservation headroom is released on exact usage settlement.
         bound = price.cost_microaud(self.config.max_input_tokens, output_cap)

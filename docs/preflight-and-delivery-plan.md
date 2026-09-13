@@ -34,7 +34,7 @@ Read-only catalog queries confirmed the intended cheap, strong and embedding tie
 - Requiring every cloud key for dry-run imports would force fake endpoints or unused services. Requiredness is mode-specific; every Section 3 key remains empty in the committed template.
 - 25 AUD cannot be the application allowance under the corrected 10 AUD ceiling. The chosen application default is 6 AUD.
 - Catalog-listed is not deployed or evaluated. No validated Azure inference or Foundry orchestration is claimed.
-- SQLite implements the Phase 0 ledger/log and Phase 1 local corpus. Local CPU embeddings are implemented under ADR-004. Phase 2 adds 32 obligations in local Delta Lake, reviewed under the owner's revised authorisation: two human approvals and 30 authorised agent approvals. Local Unity Catalog OSS is verified under the brief Section 3 fallback. [Phase 2](phase-2-register.md) is complete for source review and local catalog versioning. Operational applicability, control implementations, risk models, agents, MCP and a business evaluation corpus remain later work.
+- SQLite implements the Phase 0 ledger/log and Phase 1 local corpus. Local CPU embeddings are implemented under ADR-004. Phase 2 adds 32 obligations in local Delta Lake, reviewed under the owner's revised authorisation: two human approvals and 30 authorised agent approvals. Local Unity Catalog OSS is verified under the brief Section 3 fallback. Phases 3–6 add the calibrated synthetic population, deterministic controls, deterministic risk triage, evidence agents and a local MCP surface. The three-arm evaluation and final packaging remain later work; no paid model evaluation has occurred.
 
 ## Verification and next gate
 

@@ -7,7 +7,8 @@ from threading import Barrier
 
 import pytest
 from src.gateway.ledger import BudgetError, Ledger, UnresolvedReservation
-from src.gateway.llm_client import Completion, GatewayError, LLMClient, NotSent, RedactedPrompt
+from src.gateway.llm_client import (Completion, GatewayError, LLMClient, NotSent, PIIRedactor,
+                                    RedactedPrompt)
 from src.gateway.prices import UnknownPrice, get_price
 
 
@@ -154,14 +155,38 @@ def test_strong_requires_reason_and_logs_it(config):
     assert log["escalation_reason"] == "completeness_critique"
 
 
-def test_stub_redactor_and_disabled_live_flag_refuse_network(config):
+def test_unstructured_prompt_and_disabled_live_flag_refuse_network(config):
     with pytest.raises(GatewayError, match="enable flag"):
         LLMClient(replace(config, mode="live", allow_live=False))
     client = LLMClient(replace(config, mode="live", allow_live=True),
-                       transport=lambda *a: pytest.fail("stub allowed live"))
-    with pytest.raises(GatewayError, match="redaction stub"):
+                       transport=lambda *a: pytest.fail("PII boundary allowed unstructured live input"))
+    with pytest.raises(GatewayError, match="PII boundary"):
         client.complete("private-name")
     assert rows(client, "reservations") == []
+
+
+def test_active_pii_boundary_redacts_identity_and_requires_schema(config):
+    values = ("Jane Example", "12 Sample Street", "ABC1234567")
+    payload = json.dumps({
+        "schema": PIIRedactor.SCHEMA,
+        "task": "Summarise Jane Example at 12 Sample Street with NMI: ABC1234567",
+        "fixed_control_status": "insufficient_evidence",
+        "obligation_id": "OIQ-024", "clause_reference": "166(2)(b)",
+        "source_excerpt": "public source", "timeline": [], "evidence_gaps": ["event"],
+    })
+    safe = PIIRedactor(values, allow_structured_live=True).redact(payload)
+    assert safe.live_ready
+    assert all(value.lower() not in safe.text.lower() for value in values)
+    seen = []
+    client = LLMClient(
+        replace(config, mode="live", allow_live=True),
+        redactor=PIIRedactor(values, allow_structured_live=True),
+        transport=lambda price, text, cap, tier: (
+            seen.append(text) or Completion("redacted boundary test", 20, 10)))
+    client.complete(payload, workload="evidence")
+    assert len(seen) == 1 and all(value.lower() not in seen[0].lower() for value in values)
+    assert PIIRedactor(values).redact(payload).live_ready is False
+    assert PIIRedactor(values).redact("Jane Example").live_ready is False
 
 
 @pytest.mark.parametrize("response", [Completion("bad", 10, 1025), Completion("bad", 10, 5, 0, 6)])

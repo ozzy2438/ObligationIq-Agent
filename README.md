@@ -2,7 +2,7 @@
 
 Independent reference build for electricity compliance evidence in Australia.
 
-**Phases 0–5 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings, a 32-record versioned obligation register, a calibrated synthetic population, deterministic controls and an explainable risk-triage baseline. No Azure model evaluation exists yet.
+**Phases 0–6 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings, a 32-record versioned obligation register, a calibrated synthetic population, deterministic controls, explainable risk triage and a locally verified evidence-agent/MCP pipeline. No Azure model evaluation exists yet.
 
 **Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. The external Delta register is registered in local Unity Catalog OSS, with schema/readback, anonymous-access refusal and restart persistence verified. [Local catalog runbook](docs/local-unity-catalog.md). ADR-007 separately admits all 32 digest-bound records to this independent synthetic evaluation after agent operational review; it does not establish production legal applicability. Every future compliance-result artefact must disclose the 2/32 human versus 30/32 agent source-review composition.
 
@@ -13,6 +13,8 @@ Independent reference build for electricity compliance evidence in Australia.
 **Phase 4 complete:** 32/32 eligible obligations have a version-bound pure control callable. On the 18-case synthetic challenge set, breach recall and precision are 100%, with zero false positives; all six incomplete-evidence cases abstain. This exact seeded result covers six obligations and is not a production accuracy claim. Every result carries the applied record/source version, and result artefacts disclose two human-verified versus 30 agent-reviewed source records. [Control design and limits](docs/phase-4-controls.md) · [Measured result](docs/phase-4-control-results.json).
 
 **Phase 5 complete:** the shipped risk component is a deterministic review-priority policy over control results. At its fixed high-priority threshold it reproduces all six current injected breaches with no false positives. A learned classifier was deliberately not trained: the project has no longitudinal 30-day outcome labels, and training against authored injections would leak the target. The score is not a forecast, probability or compliance decision. MLflow tracking and policy registration are verified locally. [Decision and limits](docs/phase-5-risk.md) · [Measured result](docs/phase-5-risk-results.json).
+
+**Phase 6 complete:** the local retriever, timeline builder, drafter and critic produce digest-bound evidence packs through one official-SDK MCP tool. A flagged OIQ-024 case is correctly cited and an under-evidenced case abstains with the `deregistration_event` gap. The active gateway boundary excludes supplied name/address/NMI values and refuses nonconforming live payloads. This is a two-case acceptance check for one obligation; no model was called. [Agent/MCP design and limits](docs/phase-6-agents-and-mcp.md) · [Acceptance result](docs/phase-6-agent-results.json).
 
 The eventual output is a source-backed evidence pack. Compliance decisions belong to deterministic controls using versioned, review-bound obligations; language models may retrieve, draft and explain evidence and cannot override status.
 
@@ -47,7 +49,7 @@ Empty template values use safe defaults. `src/config.py` loads strict `KEY=value
 - Inference is confined to `src/gateway/llm_client.py`; CI rejects SDK imports elsewhere and gateway imports in controls.
 - `dry_run` returns an explicit stub, never contacts Azure, and never populates the live response cache.
 - `cached` only reads existing responses; a miss raises. Cache keys bind model version, prompt after redaction, bounded parameters, endpoint and deployment. Hits create no reservation.
-- `live` requires the separate enable flag, complete Azure configuration and a live-ready redactor. **The default Phase 0 redactor is a stub and refuses live traffic.**
+- `live` requires the separate enable flag, complete Azure configuration and the active structured PII boundary. Free-form prompts are never live-ready; the agent envelope excludes customer name, address and NMI before dispatch.
 - Paid execution is serial across clients sharing the database. `BEGIN IMMEDIATE` checks UTC-day and lifetime balance before reserving full input/output caps plus 25% headroom. Output includes reasoning tokens.
 - Returned token usage settles at pinned AUD rates. Cache insertion, settlement and success logging commit together. Reasoning tokens are included in completion tokens, not added twice.
 - Only confirmed pre-dispatch failures release funds. Timeouts, crashes, missing usage and uncertain outcomes retain the hold and block further calls. No automatic expiry restores balance.
