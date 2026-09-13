@@ -2,7 +2,7 @@
 
 Independent reference build for electricity compliance evidence in Australia.
 
-**Phases 0–2 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings and a 32-record versioned obligation register. No Azure model evaluation exists yet.
+**Phases 0–5 implemented:** guarded gateway and cost ledger, ten pinned regulatory PDFs, clause-preserving local corpus, persisted CPU embeddings, a 32-record versioned obligation register, a calibrated synthetic population, deterministic controls and an explainable risk-triage baseline. No Azure model evaluation exists yet.
 
 **Phase 2 source review complete:** all 32 records are APPROVED for source-content agreement: two explicit human decisions (OIQ-024/025) and 30 user-authorised agent reviews. Twenty drafts were corrected or clarified before approval. [Consolidated audit](docs/review-summary.md). Agent decisions never set `verified_by_human=true`. The external Delta register is registered in local Unity Catalog OSS, with schema/readback, anonymous-access refusal and restart persistence verified. [Local catalog runbook](docs/local-unity-catalog.md). ADR-007 separately admits all 32 digest-bound records to this independent synthetic evaluation after agent operational review; it does not establish production legal applicability. Every future compliance-result artefact must disclose the 2/32 human versus 30/32 agent source-review composition.
 
@@ -11,6 +11,8 @@ Independent reference build for electricity compliance evidence in Australia.
 > *The synthetic customer population reproduces the published quarterly marginals from the AER Retail Markets Performance Data for hardship participation, average hardship debt, and disconnection rates. The joint structure is generated. Compliance breaches are deliberately injected with known ground truth to permit measurement of detection recall and precision. No real customer data is used anywhere in this project.*
 
 **Phase 4 complete:** 32/32 eligible obligations have a version-bound pure control callable. On the 18-case synthetic challenge set, breach recall and precision are 100%, with zero false positives; all six incomplete-evidence cases abstain. This exact seeded result covers six obligations and is not a production accuracy claim. Every result carries the applied record/source version, and result artefacts disclose two human-verified versus 30 agent-reviewed source records. [Control design and limits](docs/phase-4-controls.md) · [Measured result](docs/phase-4-control-results.json).
+
+**Phase 5 complete:** the shipped risk component is a deterministic review-priority policy over control results. At its fixed high-priority threshold it reproduces all six current injected breaches with no false positives. A learned classifier was deliberately not trained: the project has no longitudinal 30-day outcome labels, and training against authored injections would leak the target. The score is not a forecast, probability or compliance decision. MLflow tracking and policy registration are verified locally. [Decision and limits](docs/phase-5-risk.md) · [Measured result](docs/phase-5-risk-results.json).
 
 The eventual output is a source-backed evidence pack. Compliance decisions belong to deterministic controls using versioned, review-bound obligations; language models may retrieve, draft and explain evidence and cannot override status.
 

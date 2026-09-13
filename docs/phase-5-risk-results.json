@@ -1,0 +1,329 @@
+{
+  "status": "Phase 5 complete: deterministic triage baseline shipped; learned model not trained",
+  "synthetic_evaluation": true,
+  "evaluated_on": "2026-09-13",
+  "review_horizon_days": 30,
+  "challenge_cases": 18,
+  "challenge_obligations": 6,
+  "baseline": {
+    "policy_version": "rule-baseline-v1",
+    "high_priority_threshold": 90,
+    "metrics_against_current_injected_breaches": {
+      "true_positives": 6,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "true_negatives": 12,
+      "recall": 1.0,
+      "precision": 1.0,
+      "false_positive_rate": 0.0
+    },
+    "priority_band_counts": {
+      "evidence_review": 6,
+      "routine": 6,
+      "urgent": 6
+    },
+    "assessments": [
+      {
+        "case_id": "CASE-09b31d6f27634362",
+        "obligation_id": "OIQ-002",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-a1eb350f28b83f9f",
+        "obligation_id": "OIQ-002",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-4aa5d4642772d0d5",
+        "obligation_id": "OIQ-002",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "0be1b5f9fbc8cbe29ecb17a692fe152aaecc76146aba05fe36896959ffcddb87",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-5f889abbe5eb22ca",
+        "obligation_id": "OIQ-023",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-e9b8808d89327b41",
+        "obligation_id": "OIQ-023",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-70ceeffd316e655f",
+        "obligation_id": "OIQ-023",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "bf8d170003edd7b7f3d9e2b5e18c387b55ad197dc18cd3701a2205cc616d2256",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-9ed25c103d157e5f",
+        "obligation_id": "OIQ-024",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-94934ce7f41d3aaf",
+        "obligation_id": "OIQ-024",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-b4e1f63411a203ad",
+        "obligation_id": "OIQ-024",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "b93f7b580b7b22b5f6d47bcb7f49b0e01b72dcd310057b18e25a85535d0011b1",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-7bfc7dc6d5dc01e8",
+        "obligation_id": "OIQ-028",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-ae907cc8eea229be",
+        "obligation_id": "OIQ-028",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-d6baf3aba7db2902",
+        "obligation_id": "OIQ-028",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "2527cd9878121028f2881b50019831037cda33fd3be48a2be02bcd44d50eb1a7",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-3e8346686f870365",
+        "obligation_id": "OIQ-030",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-e2641997d2bd1339",
+        "obligation_id": "OIQ-030",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-4f897822e7977514",
+        "obligation_id": "OIQ-030",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "b6d50ac22c49cdd4e3f1586fef658867cab343b4e5af8b59269d5753beb06844",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-0b2a7c75c5af601d",
+        "obligation_id": "OIQ-032",
+        "expected_status": "compliant",
+        "control_status": "compliant",
+        "priority_score": 0,
+        "priority_band": "routine",
+        "reason_codes": [
+          "control_compliant"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-97bd092393b22390",
+        "obligation_id": "OIQ-032",
+        "expected_status": "breach",
+        "control_status": "breach",
+        "priority_score": 100,
+        "priority_band": "urgent",
+        "reason_codes": [
+          "confirmed_control_breach"
+        ],
+        "evidence_gap_count": 0,
+        "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      },
+      {
+        "case_id": "CASE-1bf7d4f08248c347",
+        "obligation_id": "OIQ-032",
+        "expected_status": "insufficient_evidence",
+        "control_status": "insufficient_evidence",
+        "priority_score": 70,
+        "priority_band": "evidence_review",
+        "reason_codes": [
+          "control_evidence_gap"
+        ],
+        "evidence_gap_count": 1,
+        "applied_record_sha256": "b16e263ff3858da29d0dcd233db5a82302b4d01793499581d918d3f9638173c9",
+        "is_compliance_decision": false,
+        "is_calibrated_probability": false
+      }
+    ]
+  },
+  "learned_model": {
+    "status": "NOT_TRAINED",
+    "training_rows": 0,
+    "metric_comparison": "NOT_APPLICABLE",
+    "reason": "No longitudinal outcomes establish whether a case breaches within 30 days. Training on the injected control labels would reproduce authored rules and leak the target."
+  },
+  "decision": {
+    "ship": "rule_based_baseline",
+    "basis": "The baseline is deterministic and measurable for current breach triage. A learned candidate is ineligible without temporally valid labels, so no comparative performance claim is made.",
+    "prediction_limit": "The score orders current control results into a 30-day review queue; it is not a forecast or calibrated breach probability."
+  },
+  "mlflow": {
+    "package": "mlflow-skinny",
+    "version": "3.16.0",
+    "backend": "local file store",
+    "experiment": "obligationiq-risk",
+    "registered_model": "obligationiq-rule-risk-baseline",
+    "alias": "champion",
+    "tracked_and_registered": true,
+    "run_identifier": "retained only in ignored local receipt"
+  },
+  "review_composition": {
+    "total": 32,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375
+  },
+  "scope_limit": "The measured ranking reuses 18 seeded current-state cases across six obligations. It does not validate 30-day prediction, real prevalence, or all 32 controls.",
+  "model_calls": 0,
+  "model_spend_aud": 0
+}

@@ -16,9 +16,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install -e '.[test,register]'
+      - run: python -m pip install -e '.[test,register,risk]'
       - run: python scripts/check_boundaries.py
       - run: python scripts/build_population.py --check
       - run: python scripts/evaluate_controls.py --check
+      - run: python scripts/evaluate_risk.py --check
       - run: pytest
       - run: python -m src
