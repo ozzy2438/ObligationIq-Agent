@@ -16,4 +16,4 @@ Business-day controls require a supplied, bounded calendar; no process-wide curr
 
 There are 32 small bound control callables backed by a common evaluator, avoiding 32 copies of deadline and evidence logic while preserving one dispatch identity per obligation. A new eligible obligation fails the coverage check until a control is bound. The shared state schema is intentionally narrow and needs an adapter before real operational records can be evaluated.
 
-The synthetic benchmark exercises six obligations and all five statuses are defined, but only `compliant`, `breach` and `insufficient_evidence` are measured in Phase 4. Production public-holiday calendars, source-system completeness assertions and case-specific applicability remain outside this local pilot.
+The synthetic benchmark exercises all 32 obligations across 72 hard cases. Detection recall is 1.0000, precision 0.9118 and false-positive rate 0.0732; five status/gap errors remain published. The agent layer did not alter these outcomes. Production public-holiday calendars, source-system completeness assertions and case-specific applicability remain outside this local pilot.

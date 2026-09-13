@@ -13,7 +13,7 @@
     "src/agents/critic.py": "4ab3205c2ac3be6742567064c8e98a9e1c264d91fed22341711b38f095b12ce5",
     "src/agents/drafter.py": "02c64a200f09e90c0b37e005641df973c71ece71d6291e88ee96498d292de38c",
     "src/agents/pipeline.py": "d72a40641918dafd5c5dff5e3d8fa41d6c1ce01d2eae11841bdacb78a7c80d09",
-    "src/eval/harness.py": "a99b6383d939021b6eeeae2a121eb9207c0d28c16649e39bb2f56bbb06f84473",
+    "src/eval/harness.py": "ad1482caac8b8a79c012c7387335323016428f3e3f322274790a9efd52a12438",
     "src/gateway/llm_client.py": "bf98c8bcc75b58d94f4432f9a4ea4dc11be995a27f499424000a120b6cecddd1",
     "src/gateway/prices.py": "250797f3957b15a36b0cb3d494df4fc467724e645546a6b5b2bd3d60d0fa428e"
   },

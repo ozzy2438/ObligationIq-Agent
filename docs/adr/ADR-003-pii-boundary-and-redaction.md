@@ -14,4 +14,4 @@ Free-form prompts remain usable in offline `dry_run` mode but are never live-rea
 
 ## Consequences
 
-The verified Phase 6 cases place zero supplied customer identity values in public packs or the model envelope. This is a bounded structural control, not general named-entity recognition. A future workload that needs unstructured customer prose requires separate detection and adversarial validation before it can use live mode. No raw prompt or identity value is logged. The policy deliberately sacrifices arbitrary prompting for a smaller auditable boundary.
+The verified Phase 6 cases place zero supplied customer identity values in public packs or the model envelope. Phase 7 then used the same boundary for both live model arms. This is a bounded structural control, not general named-entity recognition. A future workload that needs unstructured customer prose requires separate detection and adversarial validation before it can use live mode. No raw prompt or identity value is logged. The policy deliberately sacrifices arbitrary prompting for a smaller auditable boundary.

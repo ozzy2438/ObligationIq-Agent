@@ -1519,7 +1519,7 @@
     "agent_reviewed": 30,
     "agent_reviewed_proportion": 0.9375
   },
-  "evaluation_manifest_sha256": "5a3ca3c9761c924f69522837f4334d056e2cb7416e04949127c3ac864e7c7aa5",
+  "evaluation_manifest_sha256": "523d86905e0292b6947c76d0e0d831a45481ff64807aa294f921079bed830d0b",
   "control_boundary": "Pure functions receive an obligation, customer state and explicit date. They perform no I/O and make no model call.",
   "scope_limit": "Seventy-two synthetic cases cover all 32 obligations. They test authored edge cases, not production prevalence or legal completeness.",
   "no_retuning": "Observed failures are retained as findings; controls were not changed after labels were frozen.",

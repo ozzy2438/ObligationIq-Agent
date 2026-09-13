@@ -2,7 +2,7 @@
 
 ## Context
 
-The first bounded Phase 7 run returned 22 successful GPT-5 nano responses and then lost a response outcome. The ledger correctly retained a 713 micro-AUD hold, but requiring manual reconciliation for every such event made a low-cost batch unnecessarily fragile. Releasing the hold would understate possible Azure spend.
+The first bounded Phase 7 run returned 22 successful GPT-5 nano responses and then classified an exception as an uncertain response outcome. A true mid-stream timeout or connection loss can leave billing ambiguous, and requiring manual reconciliation for every such event makes a bounded batch unnecessarily fragile. Releasing such a hold would understate possible Azure spend. Later diagnosis showed the five Phase 7 exceptions had complete 429 bodies and were misclassified; ADR-009 now handles that deterministic rejection separately while this policy remains for genuinely uncertain outcomes.
 
 ## Decision
 

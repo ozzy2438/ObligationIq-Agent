@@ -18,7 +18,7 @@ Verified 13 September 2026. Owner: Osman Orka, independent pilot. Subscription i
 
 Budget: 2026-09-01 through 2027-08-31; alerts at 5, 7.50, 9 and 10 AUD. Application defaults: 6 AUD lifetime / 1 AUD daily. The budget readback reported zero AUD current spend; this delayed value is not invoice reconciliation.
 
-Subscription usage readback reports both deployed routes at **10 units of one-thousand tokens per minute**, or 10,000 TPM allocated: GPT-5 nano against a 5,000-unit regional quota and GPT-5 mini against 1,000 units. The deployment capacity was not raised. Nano produced structured 429 capacity rejections during the serial evaluation; ADR-009 records the bounded retry and accounting correction.
+Subscription usage readback reports both deployed routes at **10 units of one-thousand tokens per minute**, or 10,000 TPM allocated: GPT-5 nano against a 5,000-unit regional quota and GPT-5 mini against 1,000 units. The deployment capacity was not raised. The serial evaluation recorded 3 nano and 29 mini structured 429 capacity rejections; ADR-009 records the bounded retry and accounting correction.
 
 ## Model availability and deployment
 
