@@ -9,7 +9,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import ROOT
 from src.dataplane.corpus import clause_blocks, extract_pages, load_manifest, verified_pdf
-from src.register.obligations import REVIEWS, SOURCE_REVIEWS, load_candidates, materialize, reviewed_records
+from src.register.obligations import (OPERATIONAL_REVIEWS, REVIEWS, SOURCE_REVIEWS,
+                                      for_controls, load_candidates, materialize,
+                                      review_composition, reviewed_records)
 
 
 def verify_sources(records):
@@ -45,6 +47,7 @@ def main():
     for source in supplemental:
         verified_pdf(source)
     resolved = reviewed_records(records)
+    eligible = for_controls(records)
     first = materialize(records)
     repeat = materialize(records)
     if repeat["written"] or first["version"] != repeat["version"]:
@@ -53,15 +56,18 @@ def main():
               "candidate_file_sha256": hashlib.sha256((ROOT / "data/obligation-candidates.json").read_bytes()).hexdigest(),
               "human_reviews_sha256": hashlib.sha256(REVIEWS.read_bytes()).hexdigest(),
               "source_reviews_sha256": hashlib.sha256(SOURCE_REVIEWS.read_bytes()).hexdigest(),
+              "operational_reviews_sha256": hashlib.sha256(OPERATIONAL_REVIEWS.read_bytes()).hexdigest(),
               "supplemental_sources_verified": [s["id"] for s in supplemental],
               "source_trace_checks": checks, "delta_version": repeat["version"],
               "repeat_delta_writes": 0, "network_connections": 0, "model_calls": 0,
               "approved_records": sum(r["review_status"] == "APPROVED" for r in resolved),
               "agent_approved_records": sum(r["review_status"] == "APPROVED" and r["verification_method"] == "agent_source_review" for r in resolved),
               "pending_records": sum(r["review_status"] != "APPROVED" for r in resolved),
-              "human_verified_records": sum(r["verified_by_human"] for r in resolved), "control_eligible_records": 0,
+              "human_verified_records": sum(r["verified_by_human"] for r in resolved),
+              "control_eligible_records": len(eligible),
+              "eligible_review_composition": review_composition(eligible),
               "unity_catalog_check": "Separate live loopback check: docs/catalog-verification.json",
-              "limit": "Automated checks establish parent-clause traceability only. Human and authorised agent decisions are separately recorded. Operational applicability and controls remain unverified."}
+              "limit": "Automated checks establish parent-clause traceability and digest-bound eligibility for the independent synthetic evaluation only. Human and authorised agent decisions remain separate. Customer facts, production legal applicability and control outcomes remain unverified."}
     (ROOT / "docs/phase-2-verification.json").write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "source_trace_checks"}))
 

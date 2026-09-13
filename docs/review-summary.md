@@ -70,4 +70,4 @@ Each row links to the full source, requirement, reasoning, correction and eviden
 
 ## Validation and remaining project work
 
-The test suite checks stale decisions, reviewer provenance, pending decisions, replay and historical Delta snapshots, alongside the gateway cost controls. The [generated verification](phase-2-verification.json) records counts and source checks. The source-review queue is complete; Unity Catalog and operational applicability/execution have not been implemented. Phase 3 was not started by this review task. No Azure deployment or paid model call was made.
+The test suite checks stale decisions, reviewer provenance, pending decisions, replay and historical Delta snapshots, alongside the gateway cost controls. The [generated verification](phase-2-verification.json) records counts and source checks. The source-review queue is complete. ADR-007 subsequently added a separate, digest-bound operational assessment for independent synthetic evaluation; production applicability and control execution remain unverified. No Azure deployment or paid model call was made.

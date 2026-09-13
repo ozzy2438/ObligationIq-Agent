@@ -25,7 +25,7 @@ The legacy `POST /tables` route returned HTTP 500 in its authorization expressio
 
 ## Exact boundary
 
-Unity Catalog resolves `obligationiq.register.obligations` to the local Delta location. Delta's own log remains authoritative for data versions; reads explicitly select the actual Delta version. The UC Delta REST metadata counter is not treated as the existing external Delta log version. This is metadata registration and resolution, not catalog-managed transactions or enforcement over local files.
+Unity Catalog resolves `obligationiq.register.obligations` to the local Delta location. When the Delta schema changes, the explicit `refresh-schema` command first verifies this exact local external-table location, replaces only its catalog metadata and leaves all Delta data/history intact. Unity Catalog OSS 0.5.0 does not automatically refresh the stored column schema. Delta's own log remains authoritative for data versions; reads explicitly select the actual Delta version. The UC Delta REST metadata counter is not treated as the existing external Delta log version. This is metadata registration and resolution, not catalog-managed transactions or enforcement over local files.
 
 The host owner can read/write those files independently of UC. Bootstrap admin access is not a verified multi-user permissions model. Row-level security, automated lineage, storage credential vending, production availability and managed Databricks are unverified. The optional catalog verification deliberately restarts this project's container; it never runs in ordinary offline CI.
 

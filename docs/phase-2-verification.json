@@ -4,6 +4,7 @@
   "candidate_file_sha256": "effee735c19f466d1c53ad57cdaa77ef9d51113e0d86adb2f8d29335733434af",
   "human_reviews_sha256": "0c881331604b34aa3a57a010ff8a9da91f56bb5c090d723cbd63b892c686cce5",
   "source_reviews_sha256": "f26513f9fb4c36cc449295c92464100d1a1a3a4256a9509e9eb709b5d1ab4312",
+  "operational_reviews_sha256": "7d50e3663de97e2ad790bf9fe652a5631de588667b74fd5b016f346d11ebe769",
   "supplemental_sources_verified": [
     "vic-eia"
   ],
@@ -233,7 +234,7 @@
       "parent_text_hash_matches": true
     }
   ],
-  "delta_version": 2,
+  "delta_version": 3,
   "repeat_delta_writes": 0,
   "network_connections": 0,
   "model_calls": 0,
@@ -241,7 +242,14 @@
   "agent_approved_records": 30,
   "pending_records": 0,
   "human_verified_records": 2,
-  "control_eligible_records": 0,
+  "control_eligible_records": 32,
+  "eligible_review_composition": {
+    "total": 32,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375
+  },
   "unity_catalog_check": "Separate live loopback check: docs/catalog-verification.json",
-  "limit": "Automated checks establish parent-clause traceability only. Human and authorised agent decisions are separately recorded. Operational applicability and controls remain unverified."
+  "limit": "Automated checks establish parent-clause traceability and digest-bound eligibility for the independent synthetic evaluation only. Human and authorised agent decisions remain separate. Customer facts, production legal applicability and control outcomes remain unverified."
 }
