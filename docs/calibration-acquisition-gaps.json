@@ -1,6 +1,11 @@
 {
   "attempted_on": "2026-09-13",
   "method": "Direct public HTTPS acquisition via Python urllib; no authentication bypass attempted",
+  "official_listing_check": {
+    "observed_on": "2026-09-13",
+    "url": "https://www.ausgrid.com.au/about-us/about-ausgrid/research-data-sets",
+    "result": "The current official research-data page lists average electricity use and distribution-zone interval demand data, but no longer lists the required 300-home half-hour dataset. Official-site search did not resolve a replacement Ausgrid URL."
+  },
   "attempts": [
     {
       "id": "ausgrid.zip",
@@ -28,5 +33,5 @@
       "error": "HTTP Error 403: Forbidden"
     }
   ],
-  "outcome": "No raw bytes pinned for these sources; no consumption or seasonality values invented. HTTP 403 does not establish permanent unavailability."
+  "outcome": "Blocking source gate: the brief-required Ausgrid 300-home consumption source is unavailable at its former official URL and absent from the current official listing. A researcher-hosted mirror exists but has not been authenticated against original bytes and is not substituted. BOM official HTML observations are accessible in a browser; AEMO/BOM direct-download HTTP 403 does not establish permanent unavailability. No consumption or seasonality values were invented."
 }
