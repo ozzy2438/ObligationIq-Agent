@@ -1,6 +1,6 @@
 # Regulatory sources
 
-Verified snapshot: **12 September 2026**. All ten PDF source documents were downloaded from their issuing institutions and SHA-256 pinned. This inventory covers the Phase 1 regulatory corpus, not the later calibration or customer datasets.
+Regulatory snapshot verified **12 September 2026**; Phase 3 operational sources retrieved **13 September 2026**. All ten PDF source documents were downloaded from their issuing institutions and SHA-256 pinned. Later sections separately record the supplemental review and operational/calibration sources; no real customer dataset is used.
 
 Full structured metadata, exact extraction ranges and hashes are in [source-manifest.json](source-manifest.json). All raw PDFs and derived text remain local. Physical PDF page numbers are one-based.
 
@@ -50,6 +50,18 @@ Run `python scripts/acquire_corpus.py --model`, then follow [the Phase 1 runbook
 The operational AEMO [current-version listing](https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/market-operations/retail-and-metering/business-to-business-procedures) identifies v4.01 as effective 1 July 2026. Earlier v3.91 and a v4.0 consultation PDF with mixed revision text were excluded. The [ESC guideline listing](https://www.esc.vic.gov.au/electricity-and-gas/electricity-and-gas-codes-guidelines-and-policies/energy-guidelines/payment-difficulty-framework) separates the current July 2024 guideline from its October 2026 replacement.
 
 AEMC/ESC code redistribution rights are not inferred from public availability. Source files and extracted corpus are excluded from Git; this is local research use, not a grant for commercial reuse. Logos, third-party artwork and government marks are not reproduced.
+
+## Phase 3 operational and seasonality sources
+
+Retrieved **13 September 2026**. Exact member URLs, byte lengths and SHA-256 pins for all 37 local source files are in [operational-sources.json](operational-sources.json). Raw files remain under ignored `data/raw/calibration/`; only bounded derived profiles and context values are committed.
+
+| Source | Resolved route and period | File evidence | Licence / terms |
+|---|---|---|---|
+| Ausgrid Solar Home Electricity Data | [Data.NSW authoritative record](https://data.nsw.gov.au/data/dataset/solar-home-electricty-data) and [resource record](https://data.nsw.gov.au/data/dataset/solar-home-electricty-data/resource/d2dc76f0-22e3-4efc-bed9-bb4e0e50f0db), 1 July 2012–30 June 2013. The [Australian Government harvest](https://data.gov.au/data/dataset/nsw-solar-home-electricty-data) preserves the Data.NSW metadata and [Ausgrid publisher page](https://www.ausgrid.com.au/Industry/Our-Research/Data-to-share/Solar-home-electricity-data). | Official-origin ZIP recovered from the [archived Ausgrid download](https://web.archive.org/web/20251226094859id_/https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip); 14,973,763 bytes; SHA-256 `6949ffee7ef8e2260f229f8a7e3b992390187facaaf023bb933b811a11cd1a11`. The previously cited live Ausgrid binary URL returned HTTP 404. No researcher mirror was used. | [Creative Commons Attribution 3.0 Australia](https://creativecommons.org/licenses/by/3.0/au/); attribution: Ausgrid, Solar Home Electricity Data. |
+| AEMO Actual Operational Demand | [Official data description](https://www.aemo.com.au/energy-systems/electricity/national-electricity-market-nem/data-nem/operational-demand-data) and [NEMWeb daily archive](https://nemweb.com.au/Reports/ARCHIVE/Operational_Demand/ACTUAL_DAILY/), August 2025–July 2026. | Twelve checksum-pinned monthly ZIPs; 17,520 half-hour values for NSW1 and 17,520 for VIC1. | AEMO operational-demand disclaimer: information only, not intended for commercial use; accuracy and availability are not guaranteed. |
+| BOM Daily Weather Observations | [Official product index](https://www.bom.gov.au/climate/dwo/index.shtml), Sydney `IDCJDW2124` and Melbourne `IDCJDW3033`, August 2025–July 2026. | Twenty-four checksum-pinned monthly HTML products; 363 complete Sydney and 364 complete Melbourne daily min/max pairs. Missing daily temperature values were not imputed. | [Bureau of Meteorology copyright and terms](https://www.bom.gov.au/other/copyright.shtml). Values are city-level context only. |
+
+The original creators' peer-reviewed dataset description is: Ratnam, E. L., Weller, S. R., Kellett, C. M. and Murray, A. T. (2017), “Residential load and rooftop PV generation: an Australian distribution network dataset”, *International Journal of Sustainable Energy*, 36(8), 787–806, [doi:10.1080/14786451.2015.1100196](https://doi.org/10.1080/14786451.2015.1100196).
 
 ## Supplemental Phase 2 review source
 

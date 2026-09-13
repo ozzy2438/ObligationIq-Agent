@@ -1,12 +1,34 @@
 {
+  "status": "RESOLVED",
   "attempted_on": "2026-09-13",
-  "method": "Direct public HTTPS acquisition via Python urllib; no authentication bypass attempted",
-  "official_listing_check": {
-    "observed_on": "2026-09-13",
-    "url": "https://www.ausgrid.com.au/about-us/about-ausgrid/research-data-sets",
-    "result": "The current official research-data page lists average electricity use and distribution-zone interval demand data, but no longer lists the required 300-home half-hour dataset. Official-site search did not resolve a replacement Ausgrid URL."
+  "method": "Government open-data catalogue resolution followed by checksum-pinned acquisition from official publisher endpoints; no researcher mirror used",
+  "correction": "The first conclusion that the Ausgrid dataset was unavailable was wrong. It checked the publishing body's current listing and an obsolete binary URL, but omitted the surviving Data.NSW government open-data record. Agencies move files and catalogue records can outlive publisher paths.",
+  "portal_resolution": {
+    "authoritative_record": "https://data.nsw.gov.au/data/dataset/solar-home-electricty-data",
+    "resource_record": "https://data.nsw.gov.au/data/dataset/solar-home-electricty-data/resource/d2dc76f0-22e3-4efc-bed9-bb4e0e50f0db",
+    "preserved_harvest_record": "https://data.gov.au/data/dataset/nsw-solar-home-electricty-data",
+    "issuer": "Ausgrid",
+    "licence": "Creative Commons Attribution 3.0 Australia"
   },
-  "attempts": [
+  "resolved_sources": [
+    {
+      "id": "ausgrid-2012-13.zip",
+      "resolved_url": "https://web.archive.org/web/20251226094859id_/https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip",
+      "sha256": "6949ffee7ef8e2260f229f8a7e3b992390187facaaf023bb933b811a11cd1a11",
+      "result": "Exact official-origin Ausgrid archive recovered through the Internet Archive after the Data.NSW record established provenance. It contains the 2012-13 CSV and Ausgrid's data notes."
+    },
+    {
+      "id": "aemo-operational-demand",
+      "resolved_url": "https://nemweb.com.au/Reports/ARCHIVE/Operational_Demand/ACTUAL_DAILY/",
+      "result": "Twelve official monthly archives, August 2025 through July 2026, acquired and pinned; 17,520 half-hour observations for each of NSW1 and VIC1."
+    },
+    {
+      "id": "bom-daily-weather",
+      "resolved_url": "https://www.bom.gov.au/climate/dwo/index.shtml",
+      "result": "Twelve official monthly HTML products each for Sydney IDCJDW2124 and Melbourne IDCJDW3033 acquired and pinned; 363 and 364 complete min/max-temperature days respectively."
+    }
+  ],
+  "retained_failed_attempts": [
     {
       "id": "ausgrid.zip",
       "url": "https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip",
@@ -33,5 +55,5 @@
       "error": "HTTP Error 403: Forbidden"
     }
   ],
-  "outcome": "Blocking source gate: the brief-required Ausgrid 300-home consumption source is unavailable at its former official URL and absent from the current official listing. A researcher-hosted mirror exists but has not been authenticated against original bytes and is not substituted. BOM official HTML observations are accessible in a browser; AEMO/BOM direct-download HTTP 403 does not establish permanent unavailability. No consumption or seasonality values were invented."
+  "outcome": "Source gate resolved. The obsolete URLs remain recorded as failed provenance evidence; the Phase 3 build uses only pinned official/government-catalogued sources and keeps all raw bytes outside Git."
 }

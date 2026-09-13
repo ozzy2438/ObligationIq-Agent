@@ -1,0 +1,158 @@
+{
+  "cases": [
+    {
+      "case_id": "CASE-09b31d6f27634362",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-002",
+      "reason": "Required action completed within the source deadline.",
+      "source_clause": "124(1)(b)",
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0"
+    },
+    {
+      "case_id": "CASE-a1eb350f28b83f9f",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-002",
+      "reason": "Required action completed after the source deadline.",
+      "source_clause": "124(1)(b)",
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0"
+    },
+    {
+      "case_id": "CASE-4aa5d4642772d0d5",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-002",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "124(1)(b)",
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0"
+    },
+    {
+      "case_id": "CASE-5f889abbe5eb22ca",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-023",
+      "reason": "Required action completed within the source deadline.",
+      "source_clause": "166(2)(a)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-e9b8808d89327b41",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-023",
+      "reason": "Required action completed after the source deadline.",
+      "source_clause": "166(2)(a)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-70ceeffd316e655f",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-023",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "166(2)(a)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-9ed25c103d157e5f",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-024",
+      "reason": "Required action completed within the source deadline.",
+      "source_clause": "166(2)(b)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-94934ce7f41d3aaf",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-024",
+      "reason": "Required action completed after the source deadline.",
+      "source_clause": "166(2)(b)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-b4e1f63411a203ad",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-024",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "166(2)(b)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-7bfc7dc6d5dc01e8",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-028",
+      "reason": "Required action completed within the source deadline.",
+      "source_clause": "129(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-ae907cc8eea229be",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-028",
+      "reason": "Required action completed after the source deadline.",
+      "source_clause": "129(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-d6baf3aba7db2902",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-028",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "129(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-3e8346686f870365",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-030",
+      "reason": "Required action is affirmatively evidenced.",
+      "source_clause": "130(5)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-e2641997d2bd1339",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-030",
+      "reason": "Complete audit evidence confirms the required action was not completed.",
+      "source_clause": "130(5)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-4f897822e7977514",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-030",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "130(5)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-0b2a7c75c5af601d",
+      "expected_status": "compliant",
+      "obligation_id": "OIQ-032",
+      "reason": "Required action is affirmatively evidenced.",
+      "source_clause": "138(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-97bd092393b22390",
+      "expected_status": "breach",
+      "obligation_id": "OIQ-032",
+      "reason": "Complete audit evidence confirms the required action was not completed.",
+      "source_clause": "138(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    },
+    {
+      "case_id": "CASE-1bf7d4f08248c347",
+      "expected_status": "insufficient_evidence",
+      "obligation_id": "OIQ-032",
+      "reason": "At least one source-required evidence item is absent.",
+      "source_clause": "138(2)",
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677"
+    }
+  ],
+  "input_cases_sha256": "318b801ab8c3bb51eeb2dda96546896c16e7e2224fd944feca0b6841d940da17",
+  "review_composition": {
+    "agent_reviewed": 30,
+    "agent_reviewed_proportion": 0.9375,
+    "human_verified": 2,
+    "human_verified_proportion": 0.0625,
+    "total": 32
+  },
+  "scenario_as_of": "2026-09-13",
+  "synthetic": true
+}
