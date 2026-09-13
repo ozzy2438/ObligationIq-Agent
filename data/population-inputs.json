@@ -1,0 +1,4056 @@
+{
+  "reference_period": "Q3 2025-26",
+  "nsw": {
+    "residential_customers": {
+      "metric": "residential_customers",
+      "region": "NSW",
+      "value": "3529621",
+      "source": "aer-schedule-2",
+      "sheet": "ResElec Cust#s & Mkt Contr",
+      "cell": "F214",
+      "period_cell": "F5",
+      "definition": "Customer Numbers"
+    },
+    "hardship_customers": {
+      "metric": "hardship_customers",
+      "region": "NSW",
+      "value": "78313",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "F216",
+      "period_cell": "F5",
+      "definition": "Number of hardship customers"
+    },
+    "hardship_rate": {
+      "metric": "hardship_rate",
+      "region": "NSW",
+      "value": "0.022187367992200901",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship numbers",
+      "cell": "K216",
+      "period_cell": "K5",
+      "definition": "% of customers on hardship programs"
+    },
+    "hardship_entry_debt_aud": {
+      "metric": "hardship_entry_debt_aud",
+      "region": "NSW",
+      "value": "2288.2494334274002",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "F216",
+      "period_cell": "F5",
+      "definition": "Average debt on entry to a hardship program ($)"
+    },
+    "hardship_current_debt_aud": {
+      "metric": "hardship_current_debt_aud",
+      "region": "NSW",
+      "value": "2536.6648460664301",
+      "source": "aer-schedule-4",
+      "sheet": "Hardship Avg & Entry Debt",
+      "cell": "L216",
+      "period_cell": "L5",
+      "definition": "Average debt of hardship program customers ($)"
+    },
+    "quarter_disconnections": {
+      "metric": "quarter_disconnections",
+      "region": "NSW",
+      "value": "4834",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "F181",
+      "period_cell": "F5",
+      "definition": "Number of residential customers disconnected"
+    },
+    "quarter_disconnection_rate": {
+      "metric": "quarter_disconnection_rate",
+      "region": "NSW",
+      "value": "0.0013695521417172001",
+      "source": "aer-schedule-3",
+      "sheet": "Disconnections Resi",
+      "cell": "L181",
+      "period_cell": "L5",
+      "definition": "% of residential customers disconnected"
+    },
+    "life_support_confirmed": {
+      "metric": "life_support_confirmed",
+      "region": "NSW",
+      "value": "96621",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "F172",
+      "period_cell": "F5",
+      "definition": "Life support customers with medical confirmation"
+    },
+    "life_support_unconfirmed": {
+      "metric": "life_support_unconfirmed",
+      "region": "NSW",
+      "value": "43738",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "K172",
+      "period_cell": "K5",
+      "definition": "Life support customers without medical confirmation"
+    },
+    "quarter_life_support_registrations": {
+      "metric": "quarter_life_support_registrations",
+      "region": "NSW",
+      "value": "21128",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "P172",
+      "period_cell": "P5",
+      "definition": "Life support customers registered"
+    },
+    "quarter_life_support_deregistrations": {
+      "metric": "quarter_life_support_deregistrations",
+      "region": "NSW",
+      "value": "11624",
+      "source": "aer-schedule-6",
+      "sheet": "Life support electricity cust#s",
+      "cell": "U172",
+      "period_cell": "U5",
+      "definition": "Life support customers deregistered"
+    }
+  },
+  "vic": {
+    "residential_customers": {
+      "source": "esc.xlsx",
+      "sheet": "Overview",
+      "indicator": "Electricity Customers",
+      "observations": [
+        {
+          "retailer": "1st Energy",
+          "category": "customers",
+          "value": "33968",
+          "cell": "J4944"
+        },
+        {
+          "retailer": "AGL",
+          "category": "customers",
+          "value": "651647",
+          "cell": "J4932"
+        },
+        {
+          "retailer": "AGL Sales (Qld)",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4962"
+        },
+        {
+          "retailer": "Acacia Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4964"
+        },
+        {
+          "retailer": "Active Utilities",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4966"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "customers",
+          "value": "130183",
+          "cell": "J4946"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "customers",
+          "value": "17174",
+          "cell": "J4968"
+        },
+        {
+          "retailer": "Ampol Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4970"
+        },
+        {
+          "retailer": "Balance Commodities and Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4972"
+        },
+        {
+          "retailer": "Blue NRG",
+          "category": "customers",
+          "value": "7",
+          "cell": "J4974"
+        },
+        {
+          "retailer": "CEP Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4976"
+        },
+        {
+          "retailer": "CleanPeak Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4978"
+        },
+        {
+          "retailer": "CleanTech Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4980"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "customers",
+          "value": "13326",
+          "cell": "J4982"
+        },
+        {
+          "retailer": "Delta Power & Energy (Vales Point)",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4984"
+        },
+        {
+          "retailer": "Diamond Energy",
+          "category": "customers",
+          "value": "6190",
+          "cell": "J4986"
+        },
+        {
+          "retailer": "Discover Energy",
+          "category": "customers",
+          "value": "64",
+          "cell": "J4988"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "customers",
+          "value": "31775",
+          "cell": "J4948"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "customers",
+          "value": "188341",
+          "cell": "J4934"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "customers",
+          "value": "18980",
+          "cell": "J4990"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "customers",
+          "value": "413558",
+          "cell": "J4936"
+        },
+        {
+          "retailer": "EnergyAustralia Yallourn",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4992"
+        },
+        {
+          "retailer": "Flo Energy Australia",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4994"
+        },
+        {
+          "retailer": "GEE Power & Gas",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4996"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "customers",
+          "value": "84213",
+          "cell": "J4950"
+        },
+        {
+          "retailer": "Iberdrola Australia",
+          "category": "customers",
+          "value": "0",
+          "cell": "J4998"
+        },
+        {
+          "retailer": "International Power (Retail)",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5000"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "customers",
+          "value": "168521",
+          "cell": "J4938"
+        },
+        {
+          "retailer": "MTA Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5002"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "customers",
+          "value": "70851",
+          "cell": "J4952"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "customers",
+          "value": "1827",
+          "cell": "J5004"
+        },
+        {
+          "retailer": "Neighbourhood Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5006"
+        },
+        {
+          "retailer": "Next Business Energy",
+          "category": "customers",
+          "value": "541",
+          "cell": "J5008"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "customers",
+          "value": "81459",
+          "cell": "J4954"
+        },
+        {
+          "retailer": "Online Power and Gas",
+          "category": "customers",
+          "value": "1",
+          "cell": "J5010"
+        },
+        {
+          "retailer": "Onsite Energy Solutions",
+          "category": "customers",
+          "value": "1",
+          "cell": "J5012"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "customers",
+          "value": "521050",
+          "cell": "J4940"
+        },
+        {
+          "retailer": "Potentia Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5014"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "customers",
+          "value": "75231",
+          "cell": "J4956"
+        },
+        {
+          "retailer": "Progressive Green Energy",
+          "category": "customers",
+          "value": "4590",
+          "cell": "J5016"
+        },
+        {
+          "retailer": "Real Utilities",
+          "category": "customers",
+          "value": "466",
+          "cell": "J5018"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "customers",
+          "value": "208165",
+          "cell": "J4942"
+        },
+        {
+          "retailer": "SEC Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5020"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "customers",
+          "value": "9641",
+          "cell": "J5022"
+        },
+        {
+          "retailer": "Shell Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5024"
+        },
+        {
+          "retailer": "SmartestEnergy Australia",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5026"
+        },
+        {
+          "retailer": "Stanwell Corporation",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5028"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "customers",
+          "value": "34079",
+          "cell": "J4958"
+        },
+        {
+          "retailer": "Sun Retail",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5030"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "customers",
+          "value": "74329",
+          "cell": "J4960"
+        },
+        {
+          "retailer": "Telstra Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5032"
+        },
+        {
+          "retailer": "Tesla Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5034"
+        },
+        {
+          "retailer": "Tilt Renewables",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5036"
+        },
+        {
+          "retailer": "Total Gas & Power Australia",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5038"
+        },
+        {
+          "retailer": "Veolia Energy",
+          "category": "customers",
+          "value": "1",
+          "cell": "J5040"
+        },
+        {
+          "retailer": "Zen Energy",
+          "category": "customers",
+          "value": "0",
+          "cell": "J5042"
+        }
+      ],
+      "value": "2840179"
+    },
+    "tailored_assistance_customers": {
+      "source": "esc.xlsx",
+      "sheet": "Receiving Assistance",
+      "indicator": "Accounts receiving tailored assistance",
+      "observations": [
+        {
+          "retailer": "1st Energy",
+          "category": "can pay on-going usage",
+          "value": "161",
+          "cell": "J4901"
+        },
+        {
+          "retailer": "1st Energy",
+          "category": "cannot pay on-going usage",
+          "value": "194",
+          "cell": "J4903"
+        },
+        {
+          "retailer": "AGL",
+          "category": "can pay on-going usage",
+          "value": "10431",
+          "cell": "J4859"
+        },
+        {
+          "retailer": "AGL",
+          "category": "cannot pay on-going usage",
+          "value": "10780",
+          "cell": "J4861"
+        },
+        {
+          "retailer": "Acacia Energy",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J4963"
+        },
+        {
+          "retailer": "Acacia Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J4964"
+        },
+        {
+          "retailer": "Active Utilities",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J4966"
+        },
+        {
+          "retailer": "Active Utilities",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J4967"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "can pay on-going usage",
+          "value": "1254",
+          "cell": "J4908"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "cannot pay on-going usage",
+          "value": "2304",
+          "cell": "J4910"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "can pay on-going usage",
+          "value": "40",
+          "cell": "J4970"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "cannot pay on-going usage",
+          "value": "21",
+          "cell": "J4972"
+        },
+        {
+          "retailer": "Blue NRG",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J4977"
+        },
+        {
+          "retailer": "Blue NRG",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J4979"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "can pay on-going usage",
+          "value": "6",
+          "cell": "J4983"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "cannot pay on-going usage",
+          "value": "66",
+          "cell": "J4985"
+        },
+        {
+          "retailer": "Diamond Energy",
+          "category": "can pay on-going usage",
+          "value": "12",
+          "cell": "J4990"
+        },
+        {
+          "retailer": "Diamond Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J4992"
+        },
+        {
+          "retailer": "Discover Energy",
+          "category": "can pay on-going usage",
+          "value": "1",
+          "cell": "J4997"
+        },
+        {
+          "retailer": "Discover Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J4999"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "can pay on-going usage",
+          "value": "368",
+          "cell": "J4915"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "cannot pay on-going usage",
+          "value": "1153",
+          "cell": "J4917"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "can pay on-going usage",
+          "value": "2815",
+          "cell": "J4866"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "cannot pay on-going usage",
+          "value": "3544",
+          "cell": "J4868"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "can pay on-going usage",
+          "value": "62",
+          "cell": "J5004"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "cannot pay on-going usage",
+          "value": "113",
+          "cell": "J5006"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "can pay on-going usage",
+          "value": "6206",
+          "cell": "J4873"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "cannot pay on-going usage",
+          "value": "11143",
+          "cell": "J4875"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "can pay on-going usage",
+          "value": "162",
+          "cell": "J4922"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "cannot pay on-going usage",
+          "value": "77",
+          "cell": "J4924"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "can pay on-going usage",
+          "value": "2748",
+          "cell": "J4880"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1437",
+          "cell": "J4882"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "can pay on-going usage",
+          "value": "1199",
+          "cell": "J4929"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "cannot pay on-going usage",
+          "value": "536",
+          "cell": "J4931"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "can pay on-going usage",
+          "value": "5",
+          "cell": "J5011"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "cannot pay on-going usage",
+          "value": "8",
+          "cell": "J5013"
+        },
+        {
+          "retailer": "Next Business Energy",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5018"
+        },
+        {
+          "retailer": "Next Business Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5020"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "can pay on-going usage",
+          "value": "129",
+          "cell": "J4936"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "cannot pay on-going usage",
+          "value": "124",
+          "cell": "J4938"
+        },
+        {
+          "retailer": "Online Power and Gas",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5024"
+        },
+        {
+          "retailer": "Online Power and Gas",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5026"
+        },
+        {
+          "retailer": "Onsite Energy Solutions",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5030"
+        },
+        {
+          "retailer": "Onsite Energy Solutions",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5032"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "can pay on-going usage",
+          "value": "21255",
+          "cell": "J4887"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "cannot pay on-going usage",
+          "value": "4055",
+          "cell": "J4889"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "can pay on-going usage",
+          "value": "266",
+          "cell": "J4943"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "cannot pay on-going usage",
+          "value": "393",
+          "cell": "J4945"
+        },
+        {
+          "retailer": "Progressive Green Energy",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5036"
+        },
+        {
+          "retailer": "Progressive Green Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5038"
+        },
+        {
+          "retailer": "Real Utilities",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5042"
+        },
+        {
+          "retailer": "Real Utilities",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5044"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "can pay on-going usage",
+          "value": "4534",
+          "cell": "J4894"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "cannot pay on-going usage",
+          "value": "2064",
+          "cell": "J4896"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "can pay on-going usage",
+          "value": "24",
+          "cell": "J5048"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "cannot pay on-going usage",
+          "value": "113",
+          "cell": "J5050"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "can pay on-going usage",
+          "value": "566",
+          "cell": "J4950"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "cannot pay on-going usage",
+          "value": "463",
+          "cell": "J4952"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "can pay on-going usage",
+          "value": "822",
+          "cell": "J4957"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "cannot pay on-going usage",
+          "value": "598",
+          "cell": "J4959"
+        },
+        {
+          "retailer": "Telstra Energy",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5054"
+        },
+        {
+          "retailer": "Telstra Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5055"
+        },
+        {
+          "retailer": "Veolia Energy",
+          "category": "can pay on-going usage",
+          "value": "0",
+          "cell": "J5058"
+        },
+        {
+          "retailer": "Veolia Energy",
+          "category": "cannot pay on-going usage",
+          "value": "0",
+          "cell": "J5060"
+        }
+      ],
+      "value": "92252"
+    },
+    "quarter_disconnections": {
+      "source": "esc.xlsx",
+      "sheet": "Disconnections",
+      "indicator": "Disconnection for non-payment (residential accounts)",
+      "observations": [
+        {
+          "retailer": "1st Energy",
+          "category": "",
+          "value": "213",
+          "cell": "I5138"
+        },
+        {
+          "retailer": "AGL",
+          "category": "",
+          "value": "1140",
+          "cell": "I5108"
+        },
+        {
+          "retailer": "Acacia Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5183"
+        },
+        {
+          "retailer": "Active Utilities",
+          "category": "",
+          "value": "0",
+          "cell": "I5186"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "",
+          "value": "211",
+          "cell": "I5143"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "",
+          "value": "28",
+          "cell": "I5189"
+        },
+        {
+          "retailer": "Blue NRG",
+          "category": "",
+          "value": "0",
+          "cell": "I5194"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "",
+          "value": "0",
+          "cell": "I5198"
+        },
+        {
+          "retailer": "Diamond Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5203"
+        },
+        {
+          "retailer": "Discover Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5208"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "",
+          "value": "0",
+          "cell": "I5148"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "",
+          "value": "21",
+          "cell": "I5113"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "",
+          "value": "2",
+          "cell": "I5213"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "",
+          "value": "40",
+          "cell": "I5118"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "",
+          "value": "28",
+          "cell": "I5153"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "",
+          "value": "35",
+          "cell": "I5123"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "",
+          "value": "40",
+          "cell": "I5158"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "",
+          "value": "0",
+          "cell": "I5218"
+        },
+        {
+          "retailer": "Next Business Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5223"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "",
+          "value": "45",
+          "cell": "I5163"
+        },
+        {
+          "retailer": "Online Power and Gas",
+          "category": "",
+          "value": "0",
+          "cell": "I5228"
+        },
+        {
+          "retailer": "Onsite Energy Solutions",
+          "category": "",
+          "value": "0",
+          "cell": "I5232"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "",
+          "value": "1252",
+          "cell": "I5128"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "",
+          "value": "0",
+          "cell": "I5168"
+        },
+        {
+          "retailer": "Progressive Green Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5236"
+        },
+        {
+          "retailer": "Real Utilities",
+          "category": "",
+          "value": "0",
+          "cell": "I5241"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "",
+          "value": "49",
+          "cell": "I5133"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "",
+          "value": "80",
+          "cell": "I5246"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "",
+          "value": "43",
+          "cell": "I5173"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5178"
+        },
+        {
+          "retailer": "Telstra Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5251"
+        },
+        {
+          "retailer": "Veolia Energy",
+          "category": "",
+          "value": "0",
+          "cell": "I5254"
+        }
+      ],
+      "value": "3227"
+    },
+    "tailored_assistance_current_debt_aud": {
+      "source": "esc.xlsx",
+      "sheet": "TA Arrears",
+      "indicator": "Average total arrears of residential accounts receiving tailored assistance ($)",
+      "observations": [
+        {
+          "retailer": "1st Energy",
+          "category": "can pay on-going usage",
+          "value": "477",
+          "cell": "J10179"
+        },
+        {
+          "retailer": "1st Energy",
+          "category": "cannot pay on-going usage",
+          "value": "900",
+          "cell": "J9662"
+        },
+        {
+          "retailer": "AGL",
+          "category": "can pay on-going usage",
+          "value": "1051",
+          "cell": "J8041"
+        },
+        {
+          "retailer": "AGL",
+          "category": "cannot pay on-going usage",
+          "value": "1643",
+          "cell": "J8024"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "can pay on-going usage",
+          "value": "874.58",
+          "cell": "J9299"
+        },
+        {
+          "retailer": "Alinta Energy",
+          "category": "cannot pay on-going usage",
+          "value": "2345.2800000000002",
+          "cell": "J8539"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "can pay on-going usage",
+          "value": "1546.94",
+          "cell": "J8815"
+        },
+        {
+          "retailer": "Amber Electric",
+          "category": "cannot pay on-going usage",
+          "value": "1186.97",
+          "cell": "J9386"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "can pay on-going usage",
+          "value": "624",
+          "cell": "J10252"
+        },
+        {
+          "retailer": "CovaU",
+          "category": "cannot pay on-going usage",
+          "value": "1411",
+          "cell": "J7809"
+        },
+        {
+          "retailer": "Diamond Energy",
+          "category": "can pay on-going usage",
+          "value": "404.73",
+          "cell": "J10751"
+        },
+        {
+          "retailer": "Discover Energy",
+          "category": "can pay on-going usage",
+          "value": "1862",
+          "cell": "J8739"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "can pay on-going usage",
+          "value": "2144",
+          "cell": "J8618"
+        },
+        {
+          "retailer": "Dodo",
+          "category": "cannot pay on-going usage",
+          "value": "2362",
+          "cell": "J8533"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "can pay on-going usage",
+          "value": "680",
+          "cell": "J8419"
+        },
+        {
+          "retailer": "ENGIE",
+          "category": "cannot pay on-going usage",
+          "value": "1653",
+          "cell": "J8314"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "can pay on-going usage",
+          "value": "440.33",
+          "cell": "J7823"
+        },
+        {
+          "retailer": "Energy Locals Retail",
+          "category": "cannot pay on-going usage",
+          "value": "810.76",
+          "cell": "J7722"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "can pay on-going usage",
+          "value": "798.17",
+          "cell": "J8180"
+        },
+        {
+          "retailer": "EnergyAustralia",
+          "category": "cannot pay on-going usage",
+          "value": "1686.6",
+          "cell": "J8021"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "can pay on-going usage",
+          "value": "469.22",
+          "cell": "J10384"
+        },
+        {
+          "retailer": "Globird Energy",
+          "category": "cannot pay on-going usage",
+          "value": "554.19000000000005",
+          "cell": "J7772"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "can pay on-going usage",
+          "value": "470.63",
+          "cell": "J8443"
+        },
+        {
+          "retailer": "Lumo Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1340.19",
+          "cell": "J9084"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "can pay on-going usage",
+          "value": "667.88",
+          "cell": "J9373"
+        },
+        {
+          "retailer": "Momentum Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1143.06",
+          "cell": "J9129"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "can pay on-going usage",
+          "value": "830",
+          "cell": "J9546"
+        },
+        {
+          "retailer": "Nectr",
+          "category": "cannot pay on-going usage",
+          "value": "567",
+          "cell": "J8913"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "can pay on-going usage",
+          "value": "1256.8699999999999",
+          "cell": "J8575"
+        },
+        {
+          "retailer": "OVO Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1288.53",
+          "cell": "J7691"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "can pay on-going usage",
+          "value": "533",
+          "cell": "J7998"
+        },
+        {
+          "retailer": "Origin Energy",
+          "category": "cannot pay on-going usage",
+          "value": "2393",
+          "cell": "J8270"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "can pay on-going usage",
+          "value": "616",
+          "cell": "J10169"
+        },
+        {
+          "retailer": "Powershop",
+          "category": "cannot pay on-going usage",
+          "value": "1716",
+          "cell": "J8820"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "can pay on-going usage",
+          "value": "428.78",
+          "cell": "J8231"
+        },
+        {
+          "retailer": "Red Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1583.68",
+          "cell": "J8649"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "can pay on-going usage",
+          "value": "2345.63",
+          "cell": "J8538"
+        },
+        {
+          "retailer": "SUPA Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1928.94",
+          "cell": "J7723"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "can pay on-going usage",
+          "value": "476",
+          "cell": "J10448"
+        },
+        {
+          "retailer": "Sumo Power",
+          "category": "cannot pay on-going usage",
+          "value": "711",
+          "cell": "J10073"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "can pay on-going usage",
+          "value": "866.52",
+          "cell": "J9884"
+        },
+        {
+          "retailer": "Tango Energy",
+          "category": "cannot pay on-going usage",
+          "value": "1706.11",
+          "cell": "J8585"
+        }
+      ],
+      "value": "1144.022858041018085805727789",
+      "derivation": "Sum(retailer/category mean * matching end-quarter count) / total tailored-assistance accounts; published means rounded to cents."
+    }
+  },
+  "plans": {
+    "NSW": {
+      "source": "cdr-AGL1055859MRE2.json",
+      "plan_id": "AGL1055859MRE2@EME",
+      "display_name": "Residential Smart Saver",
+      "effective_from": "2026-07-01T00:00:00.000Z",
+      "effective_to": null,
+      "geography": {
+        "distributors": [
+          "Ausgrid"
+        ],
+        "includedPostcodes": [
+          "2000",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2015",
+          "2016",
+          "2017",
+          "2018",
+          "2019",
+          "2020",
+          "2021",
+          "2022",
+          "2023",
+          "2024",
+          "2025",
+          "2026",
+          "2027",
+          "2028",
+          "2029",
+          "2030",
+          "2031",
+          "2032",
+          "2033",
+          "2034",
+          "2035",
+          "2036",
+          "2037",
+          "2038",
+          "2039",
+          "2040",
+          "2041",
+          "2042",
+          "2043",
+          "2044",
+          "2045",
+          "2046",
+          "2047",
+          "2048",
+          "2049",
+          "2050",
+          "2060",
+          "2061",
+          "2062",
+          "2063",
+          "2064",
+          "2065",
+          "2066",
+          "2067",
+          "2068",
+          "2069",
+          "2070",
+          "2071",
+          "2072",
+          "2073",
+          "2074",
+          "2075",
+          "2076",
+          "2077",
+          "2079",
+          "2080",
+          "2081",
+          "2082",
+          "2083",
+          "2084",
+          "2085",
+          "2086",
+          "2087",
+          "2088",
+          "2089",
+          "2090",
+          "2092",
+          "2093",
+          "2094",
+          "2095",
+          "2096",
+          "2097",
+          "2099",
+          "2100",
+          "2101",
+          "2102",
+          "2103",
+          "2104",
+          "2105",
+          "2106",
+          "2107",
+          "2108",
+          "2110",
+          "2111",
+          "2112",
+          "2113",
+          "2114",
+          "2118",
+          "2119",
+          "2120",
+          "2121",
+          "2122",
+          "2125",
+          "2126",
+          "2127",
+          "2128",
+          "2130",
+          "2131",
+          "2132",
+          "2133",
+          "2134",
+          "2135",
+          "2136",
+          "2137",
+          "2138",
+          "2140",
+          "2141",
+          "2143",
+          "2144",
+          "2154",
+          "2158",
+          "2159",
+          "2162",
+          "2163",
+          "2172",
+          "2190",
+          "2191",
+          "2192",
+          "2193",
+          "2194",
+          "2195",
+          "2196",
+          "2197",
+          "2198",
+          "2199",
+          "2200",
+          "2203",
+          "2204",
+          "2205",
+          "2206",
+          "2207",
+          "2208",
+          "2209",
+          "2210",
+          "2211",
+          "2212",
+          "2213",
+          "2214",
+          "2216",
+          "2217",
+          "2218",
+          "2219",
+          "2220",
+          "2221",
+          "2222",
+          "2223",
+          "2224",
+          "2225",
+          "2226",
+          "2227",
+          "2228",
+          "2229",
+          "2230",
+          "2231",
+          "2232",
+          "2233",
+          "2234",
+          "2250",
+          "2251",
+          "2256",
+          "2257",
+          "2258",
+          "2259",
+          "2260",
+          "2261",
+          "2262",
+          "2263",
+          "2264",
+          "2265",
+          "2267",
+          "2278",
+          "2280",
+          "2281",
+          "2282",
+          "2283",
+          "2284",
+          "2285",
+          "2286",
+          "2287",
+          "2289",
+          "2290",
+          "2291",
+          "2292",
+          "2293",
+          "2294",
+          "2295",
+          "2296",
+          "2297",
+          "2298",
+          "2299",
+          "2300",
+          "2302",
+          "2303",
+          "2304",
+          "2305",
+          "2306",
+          "2307",
+          "2308",
+          "2315",
+          "2316",
+          "2317",
+          "2318",
+          "2319",
+          "2320",
+          "2321",
+          "2322",
+          "2323",
+          "2324",
+          "2325",
+          "2326",
+          "2327",
+          "2328",
+          "2329",
+          "2330",
+          "2333",
+          "2334",
+          "2335",
+          "2336",
+          "2337",
+          "2775"
+        ]
+      },
+      "pricing_model": "SINGLE_RATE",
+      "eligibility_assumption": "Applicable single-rate network tariff and service area; no real customer's eligibility has been assessed."
+    },
+    "VIC": {
+      "source": "cdr-AGD762152MR.json",
+      "plan_id": "AGD762152MR@VEC",
+      "display_name": "AGL Residential Smart Saver",
+      "effective_from": "2026-06-30T14:00:00Z",
+      "effective_to": null,
+      "geography": {
+        "distributors": [
+          "Citipower"
+        ],
+        "includedPostcodes": [
+          "3000",
+          "3002",
+          "3003",
+          "3004",
+          "3005",
+          "3006",
+          "3008",
+          "3010",
+          "3011",
+          "3031",
+          "3051",
+          "3052",
+          "3053",
+          "3054",
+          "3055",
+          "3056",
+          "3057",
+          "3065",
+          "3066",
+          "3067",
+          "3068",
+          "3070",
+          "3071",
+          "3078",
+          "3101",
+          "3102",
+          "3103",
+          "3104",
+          "3121",
+          "3122",
+          "3123",
+          "3124",
+          "3125",
+          "3126",
+          "3127",
+          "3129",
+          "3141",
+          "3142",
+          "3143",
+          "3144",
+          "3161",
+          "3181",
+          "3182",
+          "3183",
+          "3205",
+          "3206",
+          "3207"
+        ]
+      },
+      "pricing_model": "SINGLE_RATE",
+      "eligibility_assumption": "Applicable single-rate network tariff and service area; no real customer's eligibility has been assessed."
+    }
+  },
+  "geography": [
+    {
+      "region": "NSW",
+      "postcode": "2000",
+      "resident_population": 27936,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 390,
+      "seifa_row": 41,
+      "dss_cell": "O103"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2007",
+      "resident_population": 7410,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 160,
+      "seifa_row": 42,
+      "dss_cell": "O106"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2008",
+      "resident_population": 10400,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 195,
+      "seifa_row": 43,
+      "dss_cell": "O107"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2009",
+      "resident_population": 12658,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 275,
+      "seifa_row": 44,
+      "dss_cell": "O108"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2010",
+      "resident_population": 26443,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 1010,
+      "seifa_row": 45,
+      "dss_cell": "O109"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2011",
+      "resident_population": 18187,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 660,
+      "seifa_row": 46,
+      "dss_cell": "O110"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2015",
+      "resident_population": 11422,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 210,
+      "seifa_row": 47,
+      "dss_cell": "O112"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2016",
+      "resident_population": 13072,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 910,
+      "seifa_row": 48,
+      "dss_cell": "O113"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2017",
+      "resident_population": 29003,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 955,
+      "seifa_row": 49,
+      "dss_cell": "O114"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2018",
+      "resident_population": 19878,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 455,
+      "seifa_row": 50,
+      "dss_cell": "O115"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2019",
+      "resident_population": 13467,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 255,
+      "seifa_row": 51,
+      "dss_cell": "O116"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2020",
+      "resident_population": 21591,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 305,
+      "seifa_row": 52,
+      "dss_cell": "O117"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2021",
+      "resident_population": 14946,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 240,
+      "seifa_row": 53,
+      "dss_cell": "O118"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2022",
+      "resident_population": 13509,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 180,
+      "seifa_row": 54,
+      "dss_cell": "O119"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2023",
+      "resident_population": 10590,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 100,
+      "seifa_row": 55,
+      "dss_cell": "O120"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2024",
+      "resident_population": 11380,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 120,
+      "seifa_row": 56,
+      "dss_cell": "O121"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2025",
+      "resident_population": 7189,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 85,
+      "seifa_row": 57,
+      "dss_cell": "O122"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2026",
+      "resident_population": 32693,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 490,
+      "seifa_row": 58,
+      "dss_cell": "O123"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2027",
+      "resident_population": 7810,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 90,
+      "seifa_row": 59,
+      "dss_cell": "O124"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2028",
+      "resident_population": 4709,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 60,
+      "seifa_row": 60,
+      "dss_cell": "O125"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2029",
+      "resident_population": 9911,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 105,
+      "seifa_row": 61,
+      "dss_cell": "O126"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2030",
+      "resident_population": 14434,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 130,
+      "seifa_row": 62,
+      "dss_cell": "O127"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2031",
+      "resident_population": 33830,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 415,
+      "seifa_row": 63,
+      "dss_cell": "O128"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2032",
+      "resident_population": 14643,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 345,
+      "seifa_row": 64,
+      "dss_cell": "O129"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2033",
+      "resident_population": 11927,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 180,
+      "seifa_row": 65,
+      "dss_cell": "O130"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2034",
+      "resident_population": 20249,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 370,
+      "seifa_row": 66,
+      "dss_cell": "O131"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2035",
+      "resident_population": 34602,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 725,
+      "seifa_row": 67,
+      "dss_cell": "O132"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2036",
+      "resident_population": 33767,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 835,
+      "seifa_row": 68,
+      "dss_cell": "O133"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2037",
+      "resident_population": 16641,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 685,
+      "seifa_row": 69,
+      "dss_cell": "O134"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2038",
+      "resident_population": 9487,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 225,
+      "seifa_row": 70,
+      "dss_cell": "O135"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2039",
+      "resident_population": 8553,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 190,
+      "seifa_row": 71,
+      "dss_cell": "O136"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2040",
+      "resident_population": 22803,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 645,
+      "seifa_row": 72,
+      "dss_cell": "O137"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2041",
+      "resident_population": 15584,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 270,
+      "seifa_row": 73,
+      "dss_cell": "O138"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2042",
+      "resident_population": 18673,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 685,
+      "seifa_row": 74,
+      "dss_cell": "O139"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2043",
+      "resident_population": 9657,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 215,
+      "seifa_row": 75,
+      "dss_cell": "O140"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2044",
+      "resident_population": 8278,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 210,
+      "seifa_row": 76,
+      "dss_cell": "O141"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2045",
+      "resident_population": 6480,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 95,
+      "seifa_row": 77,
+      "dss_cell": "O142"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2046",
+      "resident_population": 27288,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 385,
+      "seifa_row": 78,
+      "dss_cell": "O143"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2047",
+      "resident_population": 12011,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 150,
+      "seifa_row": 79,
+      "dss_cell": "O144"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2048",
+      "resident_population": 7619,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 225,
+      "seifa_row": 80,
+      "dss_cell": "O145"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2049",
+      "resident_population": 12258,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 380,
+      "seifa_row": 81,
+      "dss_cell": "O146"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2050",
+      "resident_population": 9381,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 245,
+      "seifa_row": 82,
+      "dss_cell": "O147"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2060",
+      "resident_population": 15135,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 210,
+      "seifa_row": 83,
+      "dss_cell": "O152"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2061",
+      "resident_population": 6158,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 95,
+      "seifa_row": 84,
+      "dss_cell": "O153"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2062",
+      "resident_population": 7088,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 90,
+      "seifa_row": 85,
+      "dss_cell": "O154"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2063",
+      "resident_population": 6493,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 25,
+      "seifa_row": 86,
+      "dss_cell": "O155"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2064",
+      "resident_population": 9417,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 140,
+      "seifa_row": 87,
+      "dss_cell": "O156"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2065",
+      "resident_population": 31698,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 430,
+      "seifa_row": 88,
+      "dss_cell": "O157"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2066",
+      "resident_population": 33844,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 390,
+      "seifa_row": 89,
+      "dss_cell": "O158"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2067",
+      "resident_population": 27078,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 365,
+      "seifa_row": 90,
+      "dss_cell": "O159"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2068",
+      "resident_population": 17450,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 180,
+      "seifa_row": 91,
+      "dss_cell": "O160"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2069",
+      "resident_population": 14604,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 140,
+      "seifa_row": 92,
+      "dss_cell": "O161"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2070",
+      "resident_population": 14648,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 115,
+      "seifa_row": 93,
+      "dss_cell": "O162"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2071",
+      "resident_population": 13510,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 120,
+      "seifa_row": 94,
+      "dss_cell": "O163"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2072",
+      "resident_population": 8795,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 125,
+      "seifa_row": 95,
+      "dss_cell": "O164"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2073",
+      "resident_population": 17221,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 160,
+      "seifa_row": 96,
+      "dss_cell": "O165"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2074",
+      "resident_population": 23423,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 175,
+      "seifa_row": 97,
+      "dss_cell": "O166"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2075",
+      "resident_population": 21665,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 180,
+      "seifa_row": 98,
+      "dss_cell": "O167"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2076",
+      "resident_population": 25340,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 265,
+      "seifa_row": 99,
+      "dss_cell": "O168"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2077",
+      "resident_population": 42819,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 815,
+      "seifa_row": 100,
+      "dss_cell": "O169"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2079",
+      "resident_population": 7816,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 120,
+      "seifa_row": 101,
+      "dss_cell": "O170"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2080",
+      "resident_population": 1766,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 25,
+      "seifa_row": 102,
+      "dss_cell": "O171"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2081",
+      "resident_population": 5394,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 65,
+      "seifa_row": 103,
+      "dss_cell": "O172"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2082",
+      "resident_population": 5458,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 55,
+      "seifa_row": 104,
+      "dss_cell": "O173"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2083",
+      "resident_population": 1665,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 35,
+      "seifa_row": 105,
+      "dss_cell": "O174"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2084",
+      "resident_population": 3759,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 45,
+      "seifa_row": 106,
+      "dss_cell": "O175"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2085",
+      "resident_population": 11452,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 95,
+      "seifa_row": 107,
+      "dss_cell": "O176"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2086",
+      "resident_population": 14214,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 145,
+      "seifa_row": 108,
+      "dss_cell": "O177"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2087",
+      "resident_population": 13161,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 145,
+      "seifa_row": 109,
+      "dss_cell": "O178"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2088",
+      "resident_population": 28329,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 235,
+      "seifa_row": 110,
+      "dss_cell": "O179"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2089",
+      "resident_population": 11491,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 155,
+      "seifa_row": 111,
+      "dss_cell": "O180"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2090",
+      "resident_population": 13533,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 160,
+      "seifa_row": 112,
+      "dss_cell": "O181"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2092",
+      "resident_population": 7384,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 55,
+      "seifa_row": 113,
+      "dss_cell": "O182"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2093",
+      "resident_population": 23555,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 240,
+      "seifa_row": 114,
+      "dss_cell": "O183"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2094",
+      "resident_population": 6141,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 60,
+      "seifa_row": 115,
+      "dss_cell": "O184"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2095",
+      "resident_population": 16296,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 205,
+      "seifa_row": 116,
+      "dss_cell": "O185"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2096",
+      "resident_population": 14955,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 150,
+      "seifa_row": 117,
+      "dss_cell": "O186"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2097",
+      "resident_population": 15991,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 165,
+      "seifa_row": 118,
+      "dss_cell": "O187"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2099",
+      "resident_population": 42917,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 680,
+      "seifa_row": 119,
+      "dss_cell": "O188"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2100",
+      "resident_population": 21973,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 315,
+      "seifa_row": 120,
+      "dss_cell": "O189"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2101",
+      "resident_population": 19885,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 235,
+      "seifa_row": 121,
+      "dss_cell": "O190"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2102",
+      "resident_population": 8379,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 80,
+      "seifa_row": 122,
+      "dss_cell": "O191"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2103",
+      "resident_population": 10877,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 110,
+      "seifa_row": 123,
+      "dss_cell": "O192"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2104",
+      "resident_population": 3807,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 35,
+      "seifa_row": 124,
+      "dss_cell": "O193"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2105",
+      "resident_population": 2008,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 30,
+      "seifa_row": 125,
+      "dss_cell": "O194"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2106",
+      "resident_population": 9659,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 125,
+      "seifa_row": 126,
+      "dss_cell": "O195"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2107",
+      "resident_population": 15422,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 165,
+      "seifa_row": 127,
+      "dss_cell": "O196"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2108",
+      "resident_population": 1740,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 20,
+      "seifa_row": 128,
+      "dss_cell": "O197"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2110",
+      "resident_population": 9846,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 125,
+      "seifa_row": 129,
+      "dss_cell": "O199"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2111",
+      "resident_population": 15456,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 275,
+      "seifa_row": 130,
+      "dss_cell": "O200"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2112",
+      "resident_population": 38026,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 735,
+      "seifa_row": 131,
+      "dss_cell": "O201"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2113",
+      "resident_population": 27637,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 510,
+      "seifa_row": 132,
+      "dss_cell": "O202"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2114",
+      "resident_population": 25267,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 560,
+      "seifa_row": 133,
+      "dss_cell": "O203"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2118",
+      "resident_population": 27888,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 540,
+      "seifa_row": 137,
+      "dss_cell": "O207"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2119",
+      "resident_population": 12458,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 115,
+      "seifa_row": 138,
+      "dss_cell": "O208"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2120",
+      "resident_population": 20988,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 280,
+      "seifa_row": 139,
+      "dss_cell": "O209"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2121",
+      "resident_population": 34209,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 540,
+      "seifa_row": 140,
+      "dss_cell": "O210"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2122",
+      "resident_population": 31187,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 615,
+      "seifa_row": 141,
+      "dss_cell": "O211"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2125",
+      "resident_population": 16620,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 170,
+      "seifa_row": 142,
+      "dss_cell": "O214"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2126",
+      "resident_population": 19082,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 170,
+      "seifa_row": 143,
+      "dss_cell": "O215"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2127",
+      "resident_population": 23198,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 450,
+      "seifa_row": 144,
+      "dss_cell": "O216"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2128",
+      "resident_population": 3600,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 90,
+      "seifa_row": 145,
+      "dss_cell": "O217"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2130",
+      "resident_population": 7288,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 230,
+      "seifa_row": 146,
+      "dss_cell": "O219"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2131",
+      "resident_population": 23012,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 780,
+      "seifa_row": 147,
+      "dss_cell": "O220"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2132",
+      "resident_population": 10755,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 230,
+      "seifa_row": 148,
+      "dss_cell": "O221"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2133",
+      "resident_population": 10929,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 275,
+      "seifa_row": 149,
+      "dss_cell": "O222"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2134",
+      "resident_population": 18224,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 385,
+      "seifa_row": 150,
+      "dss_cell": "O223"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2135",
+      "resident_population": 25915,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 415,
+      "seifa_row": 151,
+      "dss_cell": "O224"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2136",
+      "resident_population": 7763,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 235,
+      "seifa_row": 152,
+      "dss_cell": "O225"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2137",
+      "resident_population": 27726,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 410,
+      "seifa_row": 153,
+      "dss_cell": "O226"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2138",
+      "resident_population": 19686,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 290,
+      "seifa_row": 154,
+      "dss_cell": "O227"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2140",
+      "resident_population": 20766,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 465,
+      "seifa_row": 155,
+      "dss_cell": "O229"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2141",
+      "resident_population": 32425,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 1135,
+      "seifa_row": 156,
+      "dss_cell": "O230"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2143",
+      "resident_population": 9774,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 430,
+      "seifa_row": 158,
+      "dss_cell": "O232"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2144",
+      "resident_population": 39333,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 1675,
+      "seifa_row": 159,
+      "dss_cell": "O233"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2154",
+      "resident_population": 40874,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 505,
+      "seifa_row": 168,
+      "dss_cell": "O242"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2158",
+      "resident_population": 8937,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 110,
+      "seifa_row": 172,
+      "dss_cell": "O246"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2159",
+      "resident_population": 5148,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 65,
+      "seifa_row": 173,
+      "dss_cell": "O247"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2162",
+      "resident_population": 20306,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 1155,
+      "seifa_row": 176,
+      "dss_cell": "O250"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2163",
+      "resident_population": 10544,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 885,
+      "seifa_row": 177,
+      "dss_cell": "O251"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2172",
+      "resident_population": 2892,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 30,
+      "seifa_row": 185,
+      "dss_cell": "O259"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2190",
+      "resident_population": 27559,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 1355,
+      "seifa_row": 193,
+      "dss_cell": "O267"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2191",
+      "resident_population": 6555,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 165,
+      "seifa_row": 194,
+      "dss_cell": "O268"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2192",
+      "resident_population": 13781,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 575,
+      "seifa_row": 195,
+      "dss_cell": "O269"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2193",
+      "resident_population": 17778,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 470,
+      "seifa_row": 196,
+      "dss_cell": "O270"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2194",
+      "resident_population": 26132,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 945,
+      "seifa_row": 197,
+      "dss_cell": "O271"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2195",
+      "resident_population": 27103,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 1310,
+      "seifa_row": 198,
+      "dss_cell": "O272"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2196",
+      "resident_population": 33743,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 1540,
+      "seifa_row": 199,
+      "dss_cell": "O273"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2197",
+      "resident_population": 10121,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 535,
+      "seifa_row": 200,
+      "dss_cell": "O274"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2198",
+      "resident_population": 9843,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 350,
+      "seifa_row": 201,
+      "dss_cell": "O275"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2199",
+      "resident_population": 19651,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 995,
+      "seifa_row": 202,
+      "dss_cell": "O276"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2200",
+      "resident_population": 48003,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 2500,
+      "seifa_row": 203,
+      "dss_cell": "O277"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2203",
+      "resident_population": 13946,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 395,
+      "seifa_row": 204,
+      "dss_cell": "O278"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2204",
+      "resident_population": 26567,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 995,
+      "seifa_row": 205,
+      "dss_cell": "O279"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2205",
+      "resident_population": 25338,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 540,
+      "seifa_row": 206,
+      "dss_cell": "O280"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2206",
+      "resident_population": 19730,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 410,
+      "seifa_row": 207,
+      "dss_cell": "O281"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2207",
+      "resident_population": 28382,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 730,
+      "seifa_row": 208,
+      "dss_cell": "O282"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2208",
+      "resident_population": 12881,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 345,
+      "seifa_row": 209,
+      "dss_cell": "O283"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2209",
+      "resident_population": 15825,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 520,
+      "seifa_row": 210,
+      "dss_cell": "O284"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2210",
+      "resident_population": 33262,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 1200,
+      "seifa_row": 211,
+      "dss_cell": "O285"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2211",
+      "resident_population": 17610,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 510,
+      "seifa_row": 212,
+      "dss_cell": "O286"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2212",
+      "resident_population": 17184,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 525,
+      "seifa_row": 213,
+      "dss_cell": "O287"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2213",
+      "resident_population": 23290,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 570,
+      "seifa_row": 214,
+      "dss_cell": "O288"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2214",
+      "resident_population": 4074,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 70,
+      "seifa_row": 215,
+      "dss_cell": "O289"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2216",
+      "resident_population": 28027,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 795,
+      "seifa_row": 216,
+      "dss_cell": "O290"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2217",
+      "resident_population": 28673,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 605,
+      "seifa_row": 217,
+      "dss_cell": "O291"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2218",
+      "resident_population": 16182,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 420,
+      "seifa_row": 218,
+      "dss_cell": "O292"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2219",
+      "resident_population": 13771,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 305,
+      "seifa_row": 219,
+      "dss_cell": "O293"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2220",
+      "resident_population": 33761,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 800,
+      "seifa_row": 220,
+      "dss_cell": "O294"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2221",
+      "resident_population": 17065,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 315,
+      "seifa_row": 221,
+      "dss_cell": "O295"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2222",
+      "resident_population": 12660,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 300,
+      "seifa_row": 222,
+      "dss_cell": "O296"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2223",
+      "resident_population": 21403,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 360,
+      "seifa_row": 223,
+      "dss_cell": "O297"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2224",
+      "resident_population": 14559,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 230,
+      "seifa_row": 224,
+      "dss_cell": "O298"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2225",
+      "resident_population": 5560,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 35,
+      "seifa_row": 225,
+      "dss_cell": "O299"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2226",
+      "resident_population": 13054,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 170,
+      "seifa_row": 226,
+      "dss_cell": "O300"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2227",
+      "resident_population": 15364,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 155,
+      "seifa_row": 227,
+      "dss_cell": "O301"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2228",
+      "resident_population": 21001,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 400,
+      "seifa_row": 228,
+      "dss_cell": "O302"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2229",
+      "resident_population": 30943,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 440,
+      "seifa_row": 229,
+      "dss_cell": "O303"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2230",
+      "resident_population": 30690,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 465,
+      "seifa_row": 230,
+      "dss_cell": "O304"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2231",
+      "resident_population": 2528,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 50,
+      "seifa_row": 231,
+      "dss_cell": "O305"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2232",
+      "resident_population": 35304,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 660,
+      "seifa_row": 232,
+      "dss_cell": "O306"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2233",
+      "resident_population": 29960,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 330,
+      "seifa_row": 233,
+      "dss_cell": "O307"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2234",
+      "resident_population": 30648,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 385,
+      "seifa_row": 234,
+      "dss_cell": "O308"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2250",
+      "resident_population": 71168,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 2360,
+      "seifa_row": 235,
+      "dss_cell": "O309"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2251",
+      "resident_population": 33721,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 705,
+      "seifa_row": 236,
+      "dss_cell": "O310"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2256",
+      "resident_population": 16039,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 780,
+      "seifa_row": 237,
+      "dss_cell": "O312"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2257",
+      "resident_population": 30403,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 1125,
+      "seifa_row": 238,
+      "dss_cell": "O313"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2258",
+      "resident_population": 5253,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 155,
+      "seifa_row": 239,
+      "dss_cell": "O314"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2259",
+      "resident_population": 66236,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 2610,
+      "seifa_row": 240,
+      "dss_cell": "O315"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2260",
+      "resident_population": 25845,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 450,
+      "seifa_row": 241,
+      "dss_cell": "O316"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2261",
+      "resident_population": 55129,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 2130,
+      "seifa_row": 242,
+      "dss_cell": "O317"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2262",
+      "resident_population": 21411,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 1075,
+      "seifa_row": 243,
+      "dss_cell": "O318"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2263",
+      "resident_population": 24554,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 1270,
+      "seifa_row": 244,
+      "dss_cell": "O319"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2264",
+      "resident_population": 16162,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 650,
+      "seifa_row": 245,
+      "dss_cell": "O320"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2265",
+      "resident_population": 7464,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 225,
+      "seifa_row": 246,
+      "dss_cell": "O321"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2267",
+      "resident_population": 2920,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 110,
+      "seifa_row": 247,
+      "dss_cell": "O322"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2278",
+      "resident_population": 2565,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 80,
+      "seifa_row": 248,
+      "dss_cell": "O323"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2280",
+      "resident_population": 27183,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 700,
+      "seifa_row": 249,
+      "dss_cell": "O324"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2281",
+      "resident_population": 15323,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 500,
+      "seifa_row": 250,
+      "dss_cell": "O325"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2282",
+      "resident_population": 16146,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 255,
+      "seifa_row": 251,
+      "dss_cell": "O326"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2283",
+      "resident_population": 24419,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 930,
+      "seifa_row": 252,
+      "dss_cell": "O327"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2284",
+      "resident_population": 12612,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 425,
+      "seifa_row": 253,
+      "dss_cell": "O328"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2285",
+      "resident_population": 33869,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 995,
+      "seifa_row": 254,
+      "dss_cell": "O329"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2286",
+      "resident_population": 4690,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 130,
+      "seifa_row": 255,
+      "dss_cell": "O330"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2287",
+      "resident_population": 40845,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 1360,
+      "seifa_row": 256,
+      "dss_cell": "O331"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2289",
+      "resident_population": 20257,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 545,
+      "seifa_row": 257,
+      "dss_cell": "O332"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2290",
+      "resident_population": 34912,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 1000,
+      "seifa_row": 258,
+      "dss_cell": "O333"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2291",
+      "resident_population": 14279,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 280,
+      "seifa_row": 259,
+      "dss_cell": "O334"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2292",
+      "resident_population": 2622,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 105,
+      "seifa_row": 260,
+      "dss_cell": "O335"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2293",
+      "resident_population": 3302,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 110,
+      "seifa_row": 261,
+      "dss_cell": "O336"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2294",
+      "resident_population": 2061,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 110,
+      "seifa_row": 262,
+      "dss_cell": "O337"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2295",
+      "resident_population": 8091,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 230,
+      "seifa_row": 263,
+      "dss_cell": "O338"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2296",
+      "resident_population": 2026,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 105,
+      "seifa_row": 264,
+      "dss_cell": "O339"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2297",
+      "resident_population": 1801,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 65,
+      "seifa_row": 265,
+      "dss_cell": "O340"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2298",
+      "resident_population": 10141,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 410,
+      "seifa_row": 266,
+      "dss_cell": "O341"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2299",
+      "resident_population": 11905,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 545,
+      "seifa_row": 267,
+      "dss_cell": "O342"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2300",
+      "resident_population": 12058,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 650,
+      "seifa_row": 268,
+      "dss_cell": "O343"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2302",
+      "resident_population": 1411,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 60,
+      "seifa_row": 269,
+      "dss_cell": "O344"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2303",
+      "resident_population": 9710,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 595,
+      "seifa_row": 270,
+      "dss_cell": "O345"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2304",
+      "resident_population": 15807,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 780,
+      "seifa_row": 271,
+      "dss_cell": "O346"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2305",
+      "resident_population": 13108,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 255,
+      "seifa_row": 272,
+      "dss_cell": "O347"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2306",
+      "resident_population": 3421,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 335,
+      "seifa_row": 273,
+      "dss_cell": "O348"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2307",
+      "resident_population": 4537,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 230,
+      "seifa_row": 274,
+      "dss_cell": "O349"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2315",
+      "resident_population": 15287,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 470,
+      "seifa_row": 277,
+      "dss_cell": "O353"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2316",
+      "resident_population": 6577,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 210,
+      "seifa_row": 278,
+      "dss_cell": "O354"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2317",
+      "resident_population": 6553,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 215,
+      "seifa_row": 279,
+      "dss_cell": "O355"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2318",
+      "resident_population": 13667,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 370,
+      "seifa_row": 280,
+      "dss_cell": "O356"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2319",
+      "resident_population": 6887,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 305,
+      "seifa_row": 281,
+      "dss_cell": "O357"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2320",
+      "resident_population": 39163,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 1420,
+      "seifa_row": 282,
+      "dss_cell": "O358"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2321",
+      "resident_population": 19857,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 635,
+      "seifa_row": 283,
+      "dss_cell": "O359"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2322",
+      "resident_population": 24373,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 855,
+      "seifa_row": 284,
+      "dss_cell": "O360"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2323",
+      "resident_population": 26051,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 975,
+      "seifa_row": 285,
+      "dss_cell": "O361"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2324",
+      "resident_population": 25443,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 1320,
+      "seifa_row": 286,
+      "dss_cell": "O362"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2325",
+      "resident_population": 31073,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 1705,
+      "seifa_row": 287,
+      "dss_cell": "O363"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2326",
+      "resident_population": 7871,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 405,
+      "seifa_row": 288,
+      "dss_cell": "O364"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2327",
+      "resident_population": 7830,
+      "area_irsd_decile": 1,
+      "area_jobseeker_count": 430,
+      "seifa_row": 289,
+      "dss_cell": "O365"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2328",
+      "resident_population": 2506,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 80,
+      "seifa_row": 290,
+      "dss_cell": "O366"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2329",
+      "resident_population": 2138,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 105,
+      "seifa_row": 291,
+      "dss_cell": "O367"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2330",
+      "resident_population": 21445,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 755,
+      "seifa_row": 292,
+      "dss_cell": "O368"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2333",
+      "resident_population": 13795,
+      "area_irsd_decile": 2,
+      "area_jobseeker_count": 705,
+      "seifa_row": 294,
+      "dss_cell": "O369"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2334",
+      "resident_population": 3349,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 120,
+      "seifa_row": 295,
+      "dss_cell": "O370"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2335",
+      "resident_population": 8124,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 220,
+      "seifa_row": 296,
+      "dss_cell": "O371"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2336",
+      "resident_population": 2589,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 75,
+      "seifa_row": 297,
+      "dss_cell": "O372"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2337",
+      "resident_population": 8060,
+      "area_irsd_decile": 5,
+      "area_jobseeker_count": 200,
+      "seifa_row": 298,
+      "dss_cell": "O373"
+    },
+    {
+      "region": "NSW",
+      "postcode": "2775",
+      "resident_population": 1518,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 65,
+      "seifa_row": 587,
+      "dss_cell": "O670"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3000",
+      "resident_population": 43084,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 1385,
+      "seifa_row": 677,
+      "dss_cell": "O761"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3002",
+      "resident_population": 4896,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 120,
+      "seifa_row": 678,
+      "dss_cell": "O763"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3003",
+      "resident_population": 8025,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 275,
+      "seifa_row": 679,
+      "dss_cell": "O764"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3004",
+      "resident_population": 11482,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 235,
+      "seifa_row": 680,
+      "dss_cell": "O765"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3006",
+      "resident_population": 22699,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 475,
+      "seifa_row": 681,
+      "dss_cell": "O766"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3008",
+      "resident_population": 15495,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 340,
+      "seifa_row": 682,
+      "dss_cell": "O767"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3011",
+      "resident_population": 22278,
+      "area_irsd_decile": 6,
+      "area_jobseeker_count": 1535,
+      "seifa_row": 683,
+      "dss_cell": "O768"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3031",
+      "resident_population": 17772,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 1150,
+      "seifa_row": 701,
+      "dss_cell": "O786"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3051",
+      "resident_population": 14953,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 930,
+      "seifa_row": 719,
+      "dss_cell": "O804"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3052",
+      "resident_population": 7297,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 240,
+      "seifa_row": 720,
+      "dss_cell": "O805"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3053",
+      "resident_population": 16034,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 865,
+      "seifa_row": 721,
+      "dss_cell": "O806"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3054",
+      "resident_population": 8186,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 310,
+      "seifa_row": 722,
+      "dss_cell": "O807"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3055",
+      "resident_population": 14746,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 690,
+      "seifa_row": 723,
+      "dss_cell": "O808"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3056",
+      "resident_population": 24912,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 1160,
+      "seifa_row": 724,
+      "dss_cell": "O809"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3057",
+      "resident_population": 13262,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 510,
+      "seifa_row": 725,
+      "dss_cell": "O810"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3065",
+      "resident_population": 10431,
+      "area_irsd_decile": 4,
+      "area_jobseeker_count": 700,
+      "seifa_row": 732,
+      "dss_cell": "O818"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3066",
+      "resident_population": 9179,
+      "area_irsd_decile": 3,
+      "area_jobseeker_count": 600,
+      "seifa_row": 733,
+      "dss_cell": "O819"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3067",
+      "resident_population": 9096,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 335,
+      "seifa_row": 734,
+      "dss_cell": "O820"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3068",
+      "resident_population": 19382,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 625,
+      "seifa_row": 735,
+      "dss_cell": "O821"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3070",
+      "resident_population": 25276,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 835,
+      "seifa_row": 736,
+      "dss_cell": "O822"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3071",
+      "resident_population": 19005,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 795,
+      "seifa_row": 737,
+      "dss_cell": "O823"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3078",
+      "resident_population": 12237,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 350,
+      "seifa_row": 743,
+      "dss_cell": "O829"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3101",
+      "resident_population": 24499,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 350,
+      "seifa_row": 761,
+      "dss_cell": "O848"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3102",
+      "resident_population": 6620,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 100,
+      "seifa_row": 762,
+      "dss_cell": "O849"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3103",
+      "resident_population": 15621,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 195,
+      "seifa_row": 763,
+      "dss_cell": "O850"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3104",
+      "resident_population": 21302,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 275,
+      "seifa_row": 764,
+      "dss_cell": "O851"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3121",
+      "resident_population": 31534,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 1120,
+      "seifa_row": 775,
+      "dss_cell": "O862"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3122",
+      "resident_population": 22322,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 480,
+      "seifa_row": 776,
+      "dss_cell": "O863"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3123",
+      "resident_population": 14834,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 240,
+      "seifa_row": 777,
+      "dss_cell": "O864"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3124",
+      "resident_population": 21965,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 280,
+      "seifa_row": 778,
+      "dss_cell": "O865"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3125",
+      "resident_population": 15147,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 335,
+      "seifa_row": 779,
+      "dss_cell": "O866"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3126",
+      "resident_population": 7773,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 75,
+      "seifa_row": 780,
+      "dss_cell": "O867"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3127",
+      "resident_population": 18608,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 250,
+      "seifa_row": 781,
+      "dss_cell": "O868"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3129",
+      "resident_population": 17946,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 345,
+      "seifa_row": 783,
+      "dss_cell": "O870"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3141",
+      "resident_population": 25028,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 710,
+      "seifa_row": 795,
+      "dss_cell": "O882"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3142",
+      "resident_population": 12817,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 200,
+      "seifa_row": 796,
+      "dss_cell": "O883"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3143",
+      "resident_population": 9376,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 175,
+      "seifa_row": 797,
+      "dss_cell": "O884"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3144",
+      "resident_population": 10763,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 140,
+      "seifa_row": 798,
+      "dss_cell": "O885"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3161",
+      "resident_population": 16903,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 260,
+      "seifa_row": 814,
+      "dss_cell": "O901"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3181",
+      "resident_population": 19636,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 745,
+      "seifa_row": 832,
+      "dss_cell": "O921"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3182",
+      "resident_population": 22438,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 1260,
+      "seifa_row": 833,
+      "dss_cell": "O922"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3183",
+      "resident_population": 17964,
+      "area_irsd_decile": 9,
+      "area_jobseeker_count": 645,
+      "seifa_row": 834,
+      "dss_cell": "O923"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3205",
+      "resident_population": 11548,
+      "area_irsd_decile": 7,
+      "area_jobseeker_count": 580,
+      "seifa_row": 855,
+      "dss_cell": "O944"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3206",
+      "resident_population": 10043,
+      "area_irsd_decile": 10,
+      "area_jobseeker_count": 180,
+      "seifa_row": 856,
+      "dss_cell": "O945"
+    },
+    {
+      "region": "VIC",
+      "postcode": "3207",
+      "resident_population": 17633,
+      "area_irsd_decile": 8,
+      "area_jobseeker_count": 450,
+      "seifa_row": 857,
+      "dss_cell": "O946"
+    }
+  ],
+  "source_manifest_sha256": "13fa6c36e499d87ddf937e2fb24bc5e78559669e97c496dfbf48d0d163885856",
+  "aer_source_manifest_sha256": "58ac6dabefe1c2fde910908cef5ed806d28ac7daaa65bdb96d3eebe620f6799c",
+  "aer_aggregates_sha256": "8d80c705f99f4ad3f21b47b6cfad71f8e4e5048ab1798afe5f425e213d992e5e"
+}

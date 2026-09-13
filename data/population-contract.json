@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "seed": 20260913,
+  "scenario_as_of": "2026-09-13",
+  "reference_period": "Q3 2025-26",
+  "accounts_per_region": {"NSW": 5000, "VIC": 5000},
+  "rate_tolerance": "0.0001",
+  "mean_debt_tolerance_aud": "0.01",
+  "geography_weight": "ABS 2021 resident population within the selected plan's published postcodes, excluding flagged or unmatched postal areas",
+  "assistance_weight": "1 + (10 - area IRSD decile) / 9 + 10 * min(area JobSeeker count / area population, 0.2)",
+  "joint_structure": "Assumed, not fitted: weighted assistance selection without replacement; independent life-support and historical disconnection markers; exponential positive assistance debt rescaled to the published mean",
+  "tariff_eligibility": "Synthetic accounts are assumed to have an applicable single-rate network tariff in the plan's postcode service area. No eligibility or bill calculation for any real account.",
+  "scope": "Two illustrative distributor footprints, calibrated to state-level rates; neither a state-representative nor an AGL customer sample",
+  "phase3_complete": false,
+  "remaining": [
+    "Source-backed consumption profiles: original Ausgrid household download returned HTTP 404; a researcher mirror has not been authenticated against the original",
+    "AEMO demand and BOM temperature alignment: direct acquisition returned HTTP 403; no numeric seasonal profile has been pinned",
+    "Debt-entry band calibration: published entry cohort must remain distinct from the current assistance-debt shape",
+    "Source-supported event scenarios and separately held ground truth; no controls or detection scores yet"
+  ],
+  "unmeasured": [
+    "Victorian life-support prevalence is absent from the selected ESC workbook; stored as null rather than borrowing the AER rate",
+    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions"
+  ]
+}

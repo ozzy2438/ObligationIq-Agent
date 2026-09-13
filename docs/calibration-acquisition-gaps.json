@@ -1,0 +1,32 @@
+{
+  "attempted_on": "2026-09-13",
+  "method": "Direct public HTTPS acquisition via Python urllib; no authentication bypass attempted",
+  "attempts": [
+    {
+      "id": "ausgrid.zip",
+      "url": "https://www.ausgrid.com.au/-/media/Documents/Data-to-share/Solar-home-electricity-data/Solar-home-half-hour-data---1-July-2012-to-30-June-2013.zip",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "id": "bom-sydney.pdf",
+      "url": "https://www.bom.gov.au/climate/dwo/202603/pdf/IDCJDW2124.202603.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "bom-melbourne.pdf",
+      "url": "https://www.bom.gov.au/climate/dwo/202603/pdf/IDCJDW3050.202603.pdf",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "NSW1",
+      "url": "https://www.aemo.com.au/aemo/data/nem/priceanddemand/PRICE_AND_DEMAND_202603_NSW1.csv",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "id": "VIC1",
+      "url": "https://www.aemo.com.au/aemo/data/nem/priceanddemand/PRICE_AND_DEMAND_202603_VIC1.csv",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "outcome": "No raw bytes pinned for these sources; no consumption or seasonality values invented. HTTP 403 does not establish permanent unavailability."
+}

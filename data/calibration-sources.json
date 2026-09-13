@@ -1,0 +1,98 @@
+{
+  "status": "AER sources acquired; full Phase 3 calibration not complete",
+  "landing_url": "https://www.aer.gov.au/publications/reports/performance/retail-energy-market-performance-update-january-march-2026-quarter-3-2025-26",
+  "sources": [
+    {
+      "id": "aer-schedule-2",
+      "title": "Schedule 2 - Quarter 3 2025 – 26 retail performance data",
+      "url": "https://www.aer.gov.au/system/files/2026-06/Schedule%202%20-%20Quarter%203%202025%20%E2%80%93%2026%20retail%20performance%20data.xlsx",
+      "sha256": "ea366288e9aa778ca532a6ba66baf5baf369de7ff42e569d193fa74342d06644",
+      "bytes": 1466331,
+      "issuer": "Australian Energy Regulator",
+      "release_date": "2026-06-24",
+      "retrieved_on": "2026-09-12",
+      "reporting_period": "Q3 2025-26",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "jurisdictions": [
+        "ACT",
+        "NSW",
+        "QLD",
+        "SA",
+        "TAS"
+      ],
+      "licence": "AER-owned content: CC BY 4.0, subject to published exceptions",
+      "terms_url": "https://www.aer.gov.au/about/policies/disclaimer-copyright",
+      "attribution": "Source: AER © Commonwealth of Australia"
+    },
+    {
+      "id": "aer-schedule-3",
+      "title": "Schedule 3 - Quarter 3 2025 – 26 retail performance data",
+      "url": "https://www.aer.gov.au/system/files/2026-06/Schedule%203%20-%20Quarter%203%202025%20%E2%80%93%2026%20retail%20performance%20data.xlsx",
+      "sha256": "ac54473d6b9db8f14e0427a49c9f94984946e00140d9d1e04d745e09cc9868f7",
+      "bytes": 3060435,
+      "issuer": "Australian Energy Regulator",
+      "release_date": "2026-06-24",
+      "retrieved_on": "2026-09-12",
+      "reporting_period": "Q3 2025-26",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "jurisdictions": [
+        "ACT",
+        "NSW",
+        "QLD",
+        "SA",
+        "TAS"
+      ],
+      "licence": "AER-owned content: CC BY 4.0, subject to published exceptions",
+      "terms_url": "https://www.aer.gov.au/about/policies/disclaimer-copyright",
+      "attribution": "Source: AER © Commonwealth of Australia"
+    },
+    {
+      "id": "aer-schedule-4",
+      "title": "Schedule 4 - Quarter 3 2025 – 26 retail performance data",
+      "url": "https://www.aer.gov.au/system/files/2026-06/Schedule%204%20-%20Quarter%203%202025%20%E2%80%93%2026%20retail%20performance%20data.xlsx",
+      "sha256": "c76be2199b66f705252749318051fc47bba5e23c02ba3c076031c1efaa156ddb",
+      "bytes": 1450189,
+      "issuer": "Australian Energy Regulator",
+      "release_date": "2026-06-24",
+      "retrieved_on": "2026-09-12",
+      "reporting_period": "Q3 2025-26",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "jurisdictions": [
+        "ACT",
+        "NSW",
+        "QLD",
+        "SA",
+        "TAS"
+      ],
+      "licence": "AER-owned content: CC BY 4.0, subject to published exceptions",
+      "terms_url": "https://www.aer.gov.au/about/policies/disclaimer-copyright",
+      "attribution": "Source: AER © Commonwealth of Australia"
+    },
+    {
+      "id": "aer-schedule-6",
+      "title": "Schedule 6 - Quarter 3 2025 – 26 retail performance data",
+      "url": "https://www.aer.gov.au/system/files/2026-06/Schedule%206%20-%20Quarter%203%202025%20%E2%80%93%2026%20retail%20performance%20data.xlsx",
+      "sha256": "267a30e45e910b7abfb3bbab69fc95e85e54e0bccf270584ff9e3067b5aee3ef",
+      "bytes": 365894,
+      "issuer": "Australian Energy Regulator",
+      "release_date": "2026-06-24",
+      "retrieved_on": "2026-09-12",
+      "reporting_period": "Q3 2025-26",
+      "period_start": "2026-01-01",
+      "period_end": "2026-03-31",
+      "jurisdictions": [
+        "ACT",
+        "NSW",
+        "QLD",
+        "SA",
+        "TAS"
+      ],
+      "licence": "AER-owned content: CC BY 4.0, subject to published exceptions",
+      "terms_url": "https://www.aer.gov.au/about/policies/disclaimer-copyright",
+      "attribution": "Source: AER © Commonwealth of Australia"
+    }
+  ]
+}

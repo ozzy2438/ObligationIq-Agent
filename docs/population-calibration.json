@@ -1,0 +1,141 @@
+{
+  "status": "calibrated core only; Phase 3 incomplete",
+  "synthetic": true,
+  "phase3_complete": false,
+  "scenario_as_of": "2026-09-13",
+  "reference_period": "Q3 2025-26",
+  "account_count": 10000,
+  "accounts_per_region": {
+    "NSW": 5000,
+    "VIC": 5000
+  },
+  "seed": 20260913,
+  "output_sha256": "8bfc32dfa8b2488c4acc9c9948a4a214c339ee29961be8d524750a130d127ab5",
+  "output_bytes": 5113751,
+  "inputs_sha256": "cb0573dc1e679a84c6222289ecb99cf69118e75027e68885debe1484c29e7432",
+  "contract_sha256": "ba4433f82ca3679e3e137e22d87b23e971bbc224e3818f82eca8899bbed26830",
+  "comparisons": [
+    {
+      "region": "NSW",
+      "metric": "hardship_participation_rate",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.02218736799220086235887649127",
+      "generated": "0.0222",
+      "absolute_delta": "0.00001263200779913764112350873",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "hardship_current_debt_aud",
+      "source": "AER",
+      "unit": "AUD",
+      "published_or_derived": "2536.6648460664301",
+      "generated": "2536.664864864864864864864865",
+      "absolute_delta": "0.000018798434764864864865",
+      "tolerance": "0.01",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "reference_quarter_disconnection_rate",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.001369552141717198532080356503",
+      "generated": "0.0014",
+      "absolute_delta": "0.000030447858282801467919643497",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "life_support_confirmed_rate",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.02737432715863827872737611205",
+      "generated": "0.0274",
+      "absolute_delta": "0.00002567284136172127262388795",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "NSW",
+      "metric": "life_support_unconfirmed_rate",
+      "source": "AER",
+      "unit": "ratio",
+      "published_or_derived": "0.01239169871212801601078416068",
+      "generated": "0.0124",
+      "absolute_delta": "0.00000830128787198398921583932",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "VIC",
+      "metric": "tailored_assistance_participation_rate",
+      "source": "ESC",
+      "unit": "ratio",
+      "published_or_derived": "0.03248105137035376995604854483",
+      "generated": "0.0324",
+      "absolute_delta": "0.00008105137035376995604854483",
+      "tolerance": "0.0001",
+      "passed": true
+    },
+    {
+      "region": "VIC",
+      "metric": "tailored_assistance_current_debt_aud",
+      "source": "ESC",
+      "unit": "AUD",
+      "published_or_derived": "1144.022858041018085805727789",
+      "generated": "1144.02283950617283950617284",
+      "absolute_delta": "0.000018534845246299554949",
+      "tolerance": "0.01",
+      "passed": true
+    },
+    {
+      "region": "VIC",
+      "metric": "reference_quarter_disconnection_rate",
+      "source": "ESC",
+      "unit": "ratio",
+      "published_or_derived": "0.001136195993280705194989470734",
+      "generated": "0.0012",
+      "absolute_delta": "0.000063804006719294805010529266",
+      "tolerance": "0.0001",
+      "passed": true
+    }
+  ],
+  "geography_summary": [
+    {
+      "region": "NSW",
+      "eligible_postcodes": 225,
+      "sampled_postcodes": 221,
+      "assistance_accounts": 111,
+      "reference_quarter_disconnections": 7,
+      "mean_area_irsd_decile_assistance": 5.945945945945946,
+      "mean_area_irsd_decile_other": 6.861934956023727
+    },
+    {
+      "region": "VIC",
+      "eligible_postcodes": 45,
+      "sampled_postcodes": 45,
+      "assistance_accounts": 162,
+      "reference_quarter_disconnections": 6,
+      "mean_area_irsd_decile_assistance": 8.018518518518519,
+      "mean_area_irsd_decile_other": 8.151095494005787
+    }
+  ],
+  "remaining": [
+    "Source-backed consumption profiles: original Ausgrid household download returned HTTP 404; a researcher mirror has not been authenticated against the original",
+    "AEMO demand and BOM temperature alignment: direct acquisition returned HTTP 403; no numeric seasonal profile has been pinned",
+    "Debt-entry band calibration: published entry cohort must remain distinct from the current assistance-debt shape",
+    "Source-supported event scenarios and separately held ground truth; no controls or detection scores yet"
+  ],
+  "unmeasured": [
+    "Victorian life-support prevalence is absent from the selected ESC workbook; stored as null rather than borrowing the AER rate",
+    "Current assistance-debt distribution and individual postcode/assistance relationships are generated assumptions"
+  ],
+  "breach_injections": 0,
+  "ground_truth_created": false,
+  "model_calls": 0,
+  "model_spend_aud": "0"
+}

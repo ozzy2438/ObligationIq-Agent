@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "id": "seifa.xlsx",
+      "url": "https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/2021/Postal%20Area%2C%20Indexes%2C%20SEIFA%202021.xlsx",
+      "sha256": "7b001c4a675d8f26c7dd48192ce724a8cba54948124b171058c40ab600edda6c",
+      "bytes": 1393579,
+      "issuer": "ABS",
+      "period": "2021 Census",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Postal area ecological index; excludes caution and cross-state flags. No individual disadvantage inferred."
+    },
+    {
+      "id": "dss.xlsx",
+      "url": "https://data.gov.au/data/dataset/cff2ae8a-55e4-47db-a66d-e177fe0ac6a0/resource/763f03f5-41af-4370-bd3a-4cf3f20fef29/download/dss-benefit-and-payment-recipient-demographics-march-2026.xlsx",
+      "sha256": "b6c20fa5da9323cccafab7a5f24adc412d27beaa3809525c53429d0871cfac42",
+      "bytes": 944285,
+      "issuer": "DSS",
+      "period": "March 2026",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Postcode JobSeeker counts rounded by publisher; overlapping payment types are not summed."
+    },
+    {
+      "id": "esc.xlsx",
+      "url": "https://www.esc.vic.gov.au/sites/default/files/files/file_library/VEMD_data_downloads_FY26Q3.xlsx",
+      "sha256": "ef25edecea175e6b4de460bc51d13ef220967a45793b016c67b4eaab9177618d",
+      "bytes": 5972567,
+      "issuer": "ESC",
+      "period": "Q3 2025-26",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Workbook Disclaimer and Definitions apply. Residential electricity only; counts differ from NMIs."
+    },
+    {
+      "id": "cdr-agl-plans.json",
+      "url": "https://cdr.energymadeeasy.gov.au/agl/cds-au/v1/energy/plans?type=MARKET&fuelType=ELECTRICITY&page-size=1000",
+      "headers": {
+        "x-v": "1"
+      },
+      "sha256": "497a20582b612e700ad3e366e7fbacf014a8231f5fa3625ab6b424ad6845ec4b",
+      "bytes": 1625902,
+      "issuer": "AER CDR / AGL and Victorian Energy Compare",
+      "period": "snapshot 2026-09-13",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Public product catalogue, not customer contracts or proof of tariff eligibility."
+    },
+    {
+      "id": "cdr-AGL1055859MRE2.json",
+      "url": "https://cdr.energymadeeasy.gov.au/agl/cds-au/v1/energy/plans/AGL1055859MRE2%40EME",
+      "headers": {
+        "x-v": "3"
+      },
+      "sha256": "1fd0e9dca2793b029635da6990140274bfb4f0f644179e57362dee1171e43cdf",
+      "bytes": 6492,
+      "issuer": "AER CDR / AGL",
+      "period": "effective 2026-07-01; retrieved 2026-09-13",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Product detail v3. Synthetic network-tariff eligibility is an assumption. No bill calculation."
+    },
+    {
+      "id": "cdr-AGD762152MR.json",
+      "url": "https://cdr.energymadeeasy.gov.au/agl/cds-au/v1/energy/plans/AGD762152MR%40VEC",
+      "headers": {
+        "x-v": "3"
+      },
+      "sha256": "ac57def90ac1019256cab1492eaa2c781c0efb9e22d50318297125f14a2b20b8",
+      "bytes": 4335,
+      "issuer": "AER CDR / AGL / Victorian Energy Compare",
+      "period": "effective 2026-07-01 Australia/Melbourne; retrieved 2026-09-13",
+      "retrieved_on": "2026-09-13",
+      "limitation": "Product detail v3, VEC identifier. Synthetic network-tariff eligibility is an assumption. No bill calculation."
+    }
+  ],
+  "raw_storage": "data/raw/calibration (ignored)",
+  "reuse": "Raw workbooks/API responses remain local. Only attributed numeric extracts, identifiers and provenance are committed; no blanket open-licence claim."
+}
