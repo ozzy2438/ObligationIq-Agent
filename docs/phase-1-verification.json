@@ -1,0 +1,154 @@
+{
+  "status": "passed",
+  "source_counts": [
+    {
+      "source": "nerr",
+      "pdf_pages": 233,
+      "blocks": 16,
+      "clauses": 16
+    },
+    {
+      "source": "nerl",
+      "pdf_pages": 207,
+      "blocks": 11,
+      "clauses": 11
+    },
+    {
+      "source": "esc",
+      "pdf_pages": 166,
+      "blocks": 40,
+      "clauses": 40
+    },
+    {
+      "source": "hardship",
+      "pdf_pages": 25,
+      "blocks": 88,
+      "clauses": 88
+    },
+    {
+      "source": "bills",
+      "pdf_pages": 22,
+      "blocks": 63,
+      "clauses": 63
+    },
+    {
+      "source": "compliance",
+      "pdf_pages": 25,
+      "blocks": 102,
+      "clauses": 95
+    },
+    {
+      "source": "exempt",
+      "pdf_pages": 70,
+      "blocks": 83,
+      "clauses": 53
+    },
+    {
+      "source": "payment",
+      "pdf_pages": 63,
+      "blocks": 58,
+      "clauses": 35
+    },
+    {
+      "source": "b2b",
+      "pdf_pages": 28,
+      "blocks": 24,
+      "clauses": 24
+    },
+    {
+      "source": "priorities",
+      "pdf_pages": 5,
+      "blocks": 5,
+      "clauses": 0
+    }
+  ],
+  "citation_checks": [
+    {
+      "source": "nerr",
+      "reference": "124",
+      "pdf_page": 117,
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "result": "pass"
+    },
+    {
+      "source": "nerr",
+      "reference": "124A",
+      "pdf_page": 121,
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "result": "pass"
+    },
+    {
+      "source": "nerr",
+      "reference": "125",
+      "pdf_page": 124,
+      "source_sha256": "004226a3097c944d02f9ff9231250747a85134201804964d691890b9399f3cc0",
+      "result": "pass"
+    },
+    {
+      "source": "nerl",
+      "reference": "44",
+      "pdf_page": 60,
+      "source_sha256": "0ea70a4d01091ea89a850178cf0d2370fb37e1b8bb2f6dc603901b99e6bac1bd",
+      "result": "pass"
+    },
+    {
+      "source": "nerl",
+      "reference": "50",
+      "pdf_page": 62,
+      "source_sha256": "0ea70a4d01091ea89a850178cf0d2370fb37e1b8bb2f6dc603901b99e6bac1bd",
+      "result": "pass"
+    },
+    {
+      "source": "esc",
+      "reference": "128",
+      "pdf_page": 99,
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "result": "pass"
+    },
+    {
+      "source": "esc",
+      "reference": "129",
+      "pdf_page": 101,
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "result": "pass"
+    },
+    {
+      "source": "esc",
+      "reference": "163",
+      "pdf_page": 114,
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "result": "pass"
+    },
+    {
+      "source": "esc",
+      "reference": "166",
+      "pdf_page": 117,
+      "source_sha256": "a56c9aa77a33a800c5dfcf5e8b4272f3f83f351cd324f0787ee344e58deb1677",
+      "result": "pass"
+    },
+    {
+      "source": "hardship",
+      "reference": "37",
+      "pdf_page": 10,
+      "source_sha256": "6dbd4c0625ae20143b725d121ec59a39eda42e714af08f950498dd24e668f55f",
+      "result": "pass"
+    }
+  ],
+  "offline_replay": {
+    "manifest_sha256": "a8711b368b5de343f77f7b71f0ccb0ae731a93af12b1a84646c68778c18dc78b",
+    "documents": 10,
+    "chunks": 838,
+    "embedded": 0,
+    "cache_hits": 838,
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "model_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "estimated_aud": "0",
+    "azure_calls": 0,
+    "network_required": false,
+    "index_reused": true
+  },
+  "network_calls": 0,
+  "azure_calls": 0,
+  "human_legal_verification": false,
+  "retrieval_quality_evaluated": false
+}

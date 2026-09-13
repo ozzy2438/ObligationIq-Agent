@@ -62,6 +62,9 @@ class Settings:
     max_output_tokens: int
     max_retries: int
     azure: dict[str, str]
+    local_embedding_enabled: bool = False
+    local_model_dir: Path = ROOT / ".local/models/minilm"
+    corpus_dir: Path = ROOT / "data/cache/corpus"
 
 
 def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:
@@ -92,6 +95,9 @@ def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:
     flag = get("LLM_ALLOW_LIVE", "false").lower()
     if flag not in {"true", "false"}:
         raise ConfigError("LLM_ALLOW_LIVE must be true or false")
+    local_flag = get("LOCAL_EMBEDDING_ENABLED", "false").lower()
+    if local_flag not in {"true", "false"}:
+        raise ConfigError("LOCAL_EMBEDDING_ENABLED must be true or false")
     lifetime = number("LLM_PROJECT_LIMIT_AUD", "6")
     daily = number("LLM_DAILY_LIMIT_AUD", "1")
     if not 0 < daily <= lifetime <= 10:
@@ -128,7 +134,8 @@ def load_settings(environ=None, env_file: Path = ROOT / ".env") -> Settings:
     return Settings(mode, flag == "true", lifetime, daily, state,
                     integer("LLM_MAX_INPUT_TOKENS", "4096", 128, 8192),
                     integer("LLM_MAX_OUTPUT_TOKENS", "1024", 1, 4096),
-                    integer("LLM_MAX_RETRIES", "0", 0, 2), azure)
+                    integer("LLM_MAX_RETRIES", "0", 0, 2), azure,
+                    local_flag == "true")
 
 
 # Offline imports need no invented cloud credentials. Live imports validate all required keys.

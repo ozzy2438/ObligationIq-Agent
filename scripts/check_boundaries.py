@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SDK = ("openai", "anthropic", "litellm", "cohere", "ollama", "transformers",
-       "huggingface_hub", "google.genai", "google.generativeai", "azure.ai.inference",
+       "huggingface_hub", "sentence_transformers", "onnxruntime", "tokenizers", "google.genai", "google.generativeai", "azure.ai.inference",
        "azure.ai.openai", "azure.ai.projects", "azure.ai.agents", "boto3", "bedrock")
 NETWORK = ("socket", "requests", "httpx", "aiohttp", "urllib.request", "http.client")
 GATEWAY = "src/gateway/llm_client.py"
@@ -24,6 +24,8 @@ def violations(name, content):
         errors.append(f"{name}: environment file must not be tracked")
     if ".local" in path.parts:
         errors.append(f"{name}: private state must not be tracked")
+    if name.startswith(("data/raw/", "data/cache/")):
+        errors.append(f"{name}: source documents and derived corpus must remain local")
     if not name.endswith(".py"):
         return errors
     try:
